@@ -1,0 +1,7 @@
+.alert{
+    grid-column:3/-3;
+    text-align:center;
+    background-color: rgba(164,0,0,0.36);
+    padding:2px;
+    margin-bottom: 2%;
+}

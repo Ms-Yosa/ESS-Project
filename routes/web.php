@@ -25,15 +25,27 @@ Auth::routes();
 
 Route::prefix('user')->name('user.')->group(function(){
 
-    Route::middleware(['guest'])->group(function(){
+    //from hlanding  to validating log-in and registration inputs
+
+    Route::middleware(['guest:web', 'PreventBackHistory'])->group(function(){
         Route::view('/login','dashboard.user.login')->name('login');
         Route::view('/register','dashboard.user.register')->name('register');
+        Route::post('/create',[UserController::class,'create'])->name('create');
+        Route::post('/check',[UserController::class,'check'])->name('check');
         
     });
 
-    Route::middleware(['auth'])->group(function(){
-        Route::view('/home','dashboard.user.home')->name('home');
+    // When the user is now logged-in
+
+    //Middleware:PreventBackHistory prevents browser to go back from previous pages when already logged 
+    
+    Route::middleware(['auth:web', 'PreventBackHistory'])->group(function(){
+        Route::view('/home','dashboard.user.home')->name('home'); 
+        Route::post('/logout',[UserController::class,'logout'])->name('logout');
+        
         
     });
+
+    
 
 });

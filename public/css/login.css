@@ -1,0 +1,219 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+
+::-webkit-scrollbar {
+    display:none;
+}
+
+
+.container{
+    max-width:900px;
+    margin: 10px auto;  
+  
+}
+
+.plain{
+    display:inline-block;
+    text-align: center;
+    align-self:center;
+    margin-bottom:15px;
+    padding:10px;
+    width: 100%;
+    background-color: #FBD848;
+    font-size: smaller;
+
+
+}
+
+.main{
+    display:flex;
+    margin: 30px 0;
+    
+   
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    border:2px solid #FBD848;
+
+    flex-basis:50%;
+    padding: 3em 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    text-align: center;
+    padding-bottom: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+.school{
+    font-size:23px;
+    font-weight: 500;
+    font-weight: 700;
+}
+
+.logo{
+    border-radius: 100%;
+    border: 2px solid #FD6300;
+    width: 100px;
+}
+
+.greeting-icon-box{
+    border:2px solid #FBD848;
+    border-right:none;
+    background-color: #FBD848;
+    flex-basis: 50%;
+    padding:40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.greetings{
+    font-size: smaller;
+    position: relative;
+    font-style: italic;
+}
+.icons{
+    width:80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.form{
+    display: grid;
+    grid-template-columns: 100px auto;
+    
+}
+
+.line{
+    width:100%;
+    height:2px;
+    background-color: #FBD848;
+}
+
+form{
+    margin:30px 0;
+    width:100%;
+}
+
+.label{
+    text-align: center;
+    padding:10px 6px;
+    font-size: smaller;
+    align-self:baseline;
+    background-color:#FBD848;
+    border-radius: 21px 21px 0 21px;
+}
+
+input{
+    outline:none;
+    font-size: smaller;
+    margin-bottom:15px;
+    text-align: left;
+    padding:10px 20px;
+    width: 100%;
+    display:inline-block;
+    box-sizing:border-box;
+    border:none;
+    border-bottom:2px solid #FBD848;
+}
+
+input:focus{
+    background:transparent;
+    border:1px solid #FFE077;
+    border-left:none;
+    border-radius: 0 21px 21px 0;
+}
+
+.btn{
+    grid-column: 3/-3;
+    font-weight: bolder;
+    font-size:small;
+    background-color: #FBD848;
+    border-radius: 21px;
+    width:100%;
+    padding: 10px 10px;
+    margin: 5px;
+    text-align: center;
+    padding:10px 20px;
+    border:none;
+}
+
+.remember{
+   font-size: smaller;
+   align-content: left;
+
+}
+
+.forgot{
+   grid-column: 3/-3;
+   color:#FBD848;
+   font-size: smaller;
+   text-decoration: none;
+}
+
+.credits{
+  color: antiquewhite;
+    font-size: x-small;
+   
+}
+
+.credits a{
+    color: antiquewhite;
+}
+
+a:hover{
+    color: #FD6300;
+    text-decoration: underline;
+}
+button:hover{
+    background:#FD6300;
+}
+
+span{
+    grid-column: 3/-3;
+    display:absolute;
+    font-size: smaller;
+    color: red;
+    margin-bottom: 2%;
+    
+}
+
+
+
+
+@media(max-width:736px){
+    
+    .main{
+        flex-direction: column;
+        margin:10px;
+    }
+
+    form{
+        margin-top: 30px;
+        margin-bottom:10px;
+    }
+
+    .greeting-icon-box{
+        order:1;
+        border-radius: 50px 50px 0 0;
+        
+    }
+    .icons{
+        width: 50px;
+    }
+
+    .form-box{
+        order:2;
+        border-radius: 0 0 50px 50px;
+
+    }
+}
