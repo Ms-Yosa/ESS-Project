@@ -60,14 +60,29 @@
                         @auth
                         <button><a href="{{ url('/home') }}" >Home</a></button>
                 @else
-                        <button class="border-bottom-0"><a href="{{ route('user.login') }}" >Log in</a></button>
+                        <button class="border-bottom-0"><a href="{{ route('user.login') }}" >Student</a></button>
                             @if (Route::has('user.register'))
                             <button ><a href="{{ route('user.register') }}" >Register</a></button>
                             @endif
                         @endauth
                     
                 @endif
+
+                @if (Route::has('faculty.login'))
+                    
+                        @auth
+                        <button><a href="{{ url('/home') }}" >Home</a></button>
+                @else
+                        <button class="border-bottom-0"><a href="{{ route('faculty.login') }}" >Faculty</a></button>
+                            @if (Route::has('faculty.register'))
+                            <button ><a href="{{ route('faculty.register') }}" >Register</a></button>
+                            @endif
+                        @endauth
+                    
+                @endif
             </div>
+
+            
                    
         </div>
 

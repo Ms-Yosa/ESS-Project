@@ -18,6 +18,12 @@ return [
         'passwords' => 'users',
     ],
 
+    'faculties' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Faculty::class,
+    ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -45,6 +51,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
+        ],
+
+        'faculty' => [
+            'driver' => 'session',
+            'provider' => 'faculties',
         ],
     ],
 
@@ -75,6 +86,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'faculties' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Faculty::class,
+        ],
     ],
 
     /*

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Faculty\FacultyController;
 
 
 /*
@@ -45,7 +46,22 @@ Route::prefix('user')->name('user.')->group(function(){
         
         
     });
-
     
+
+});
+
+Route::prefix('faculty')->name('faculty.')->group(function(){
+
+    Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
+         Route::view('/login','dashboard.faculty.login')->name('login');
+         Route::view('/register','dashboard.faculty.register')->name('register');
+         Route::post('/create',[FacultyController::class,'create'])->name('create');
+         Route::post('/check',[FacultyController::class,'check'])->name('check');
+    });
+
+    Route::middleware(['auth:faculty','PreventBackHistory'])->group(function(){
+         Route::view('/home','dashboard.faculty.home')->name('home');
+         Route::post('logout',[FacultyController::class,'logout'])->name('logout');
+    });
 
 });

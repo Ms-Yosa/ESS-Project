@@ -20,10 +20,10 @@
         <div class="container">
             <div class="w3-display-middle main">
                 <div class="greeting-icon-box">
-                    <h3 class="greetings">Greetings! Students</h3>
+                    <h3 class="greetings">Greetings! Faculties</h3>
                     <div class="icons">
-                        <img src="/assets/studentFemale.png" alt="Female Faculty" class="icons female">
-                        <img src="/assets/studentMale.png" alt="Male Faculty" class="icons male">
+                        <img src="/assets/teacherF.png" alt="Female Faculty" class="icons female">
+                        <img src="/assets/teacherM.png" alt="Male Faculty" class="icons male">
                     </div>
                     <div class="credits">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
@@ -40,7 +40,7 @@
                         </label>   
                     </div>
                     
-                    <form action="{{ route('user.check')}} " class="form" method="post" autocomplete="off"> 
+                    <form action="{{ route('faculty.check')}} " class="form" method="post" autocomplete="off"> 
 
                         <!-- DISPLAY STATUS -->
 
@@ -62,6 +62,8 @@
                         <label class="remember" for="remember">{{ __('Remember Me') }}</label>
 
                         <button type="submit" class="btn">{{ __('Login') }}</button>
+
+                        
                         @if (Route::has('password.request'))
                                     <a class="forgot" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
