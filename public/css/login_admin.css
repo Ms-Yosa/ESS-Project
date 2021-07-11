@@ -1,0 +1,48 @@
+body{
+    background-color:#FBD848;
+    font-size:14px;
+    color:#fff;
+}
+.simple-login-container{
+    width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+.simple-login-container h2{
+    text-align:center;
+    font-size:20px;
+}
+
+.simple-login-container .btn-login{
+    background-color:#FD6300;
+    color:#fff;
+}
+a{
+    color:#fff;
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+    flex-basis:50%;
+    padding: 3em 3em;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    text-align: center;
+    padding-bottom: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+.school{
+    font-size:23px;
+    font-weight: 500;
+    font-weight: 700;
+}
+
+.logo{
+    border-radius: 100%;
+    border: 2px solid #FD6300;
+    width: 100px;
+}

@@ -23,6 +23,11 @@ return [
         'model' => App\Models\Faculty::class,
     ],
 
+    'admin'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Admin::class,
+     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -57,6 +62,11 @@ return [
             'driver' => 'session',
             'provider' => 'faculties',
         ],
+
+        'admin'=>[
+            'driver'=>'session',
+            'provider'=>'admins',
+         ],
     ],
 
     /*
@@ -91,6 +101,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Faculty::class,
         ],
+
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin::class,
+         ],
     ],
 
     /*
@@ -114,6 +129,11 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin::class,
         ],
     ],
 
