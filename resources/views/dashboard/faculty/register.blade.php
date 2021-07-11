@@ -20,7 +20,7 @@
         <div class="container">
             <div >
                 <div class="form-box">
-                   <a href="{{ url('/') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a> 
+                   <a href="{{ route('admin.home') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a> 
                     <div class="header">
                         <label  class="name school">
                             AMSAI LEARNING SCHOOL

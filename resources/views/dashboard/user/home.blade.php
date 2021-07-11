@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Dashboard | Home</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-</head>
-<body>
+    <title>Student Dashboard | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+</head>
+<body style="font-family: 'Nunito', sans-serif">
+    
+
+<!-- Image and text -->
+    <nav class="navbar navbar-light" style="background-color:#FBD848">
+    <a class="navbar-brand" href="#" >
+        <img src="/assets/Logo.png" width="30" height="30" style="border-radius:100%;border: 2px solid #FD6300 " class="d-inline-block align-top" alt="AMSAI Logo">
+        AMSAI Student Information System
+    </a>
+    </nav>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3" style="margin-top: 45px">
-                 <h4>user Dashboard</h4><hr>
+                 <h4>Student Dashboard</h4><hr>
                  <table class="table table-striped table-inverse table-responsive">
                      <thead class="thead-inverse">
                          <tr>
