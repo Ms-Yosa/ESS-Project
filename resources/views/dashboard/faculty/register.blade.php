@@ -62,7 +62,7 @@
                       <div class="form-group">
                         <label for="confirm-password">Confirm Password</label>
                         <input type="password" class="form-control" name="confirm-password" placeholder="Enter confirm password" value="{{ old('confirm-password') }}">
-                        <span class="text-danger">@error('confirm password'){{ $message }} @enderror</span>
+                        <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span>
                     </div>
                       <div class="form-group">
                           <button type="submit" class="btn btn-primary">Register</button>

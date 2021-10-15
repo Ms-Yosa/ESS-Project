@@ -43,7 +43,7 @@ class UserController extends Controller
            'email'=>'required|email|exists:users,email',
            'password'=>'required|min:5|max:30'
         ],[
-            'email.exists'=>'This email is not exists on users table'
+            'email.exists'=>'This email is not exists on students table'
         ]);
 
         $creds = $request->only('email','password');
