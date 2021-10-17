@@ -27,6 +27,9 @@
         @include('partials.admin.navbar')
     </nav>
 
+
+   
+
     <section>
     <div class="container-fluid">
         <div class="row">
