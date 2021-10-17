@@ -1,4 +1,4 @@
-
+/* 
 .sidebar {
     height: 100%;
     width: 0;
@@ -6,9 +6,28 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+    background-color:#FFE077;
+    border-right:2px solid black;
     transition: 0.5s;
     padding-top: 60px;
+    overflow-x: hidden;  }
+
+  .sidebar a{
+    margin:15px;
+    display:block;
   }
   
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  */
+
+.nav-item a:active{
+    background-color: khaki;
+}
