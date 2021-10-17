@@ -27,7 +27,7 @@
         @include('partials.admin.navbar')
     </nav>
 
-
+    
    
 
     <section>
