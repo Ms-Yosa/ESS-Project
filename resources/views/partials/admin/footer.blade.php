@@ -1,5 +1,6 @@
-<footer>
-<link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
+
+
+
   <div class="footer-bottom">
     <div class="footer-bottom-copyright-text">
         AMSAI Learning School Student Information System &copy; 2021
@@ -12,4 +13,3 @@
         </ul>
     </div>
   </div>
-</footer>

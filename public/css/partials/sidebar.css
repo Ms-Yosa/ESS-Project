@@ -28,6 +28,6 @@
 
   */
 
-.nav-item a:active{
+a:active{
     background-color: khaki;
 }
