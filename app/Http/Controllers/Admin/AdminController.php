@@ -32,4 +32,16 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return redirect('/');
     }
+
+    // Sidebar Controller
+
+    function adminTab(){
+        Auth::guard('admin')->adminTab();
+        return redirect() -> route('admin.admin-tab');
+    }
+
+    // public function adminTab(){
+    //     return view('dashboard.admin.register');
+    // }
+    
 }
