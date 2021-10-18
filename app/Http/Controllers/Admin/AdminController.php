@@ -33,15 +33,36 @@ class AdminController extends Controller
         return redirect('/');
     }
 
-    // Sidebar Controller
+    // Sidebar Controller 
 
     function adminTab(){
         Auth::guard('admin')->adminTab();
         return redirect() -> route('admin.admin-tab');
     }
 
-    // public function adminTab(){
-    //     return view('dashboard.admin.register');
-    // }
+    function studentTab(){
+        Auth::guard('admin')->studentTab();
+        return redirect() -> route('admin.student-tab');
+    }
+    function facultyTab(){
+        Auth::guard('admin')->facultyTab();
+        return redirect() -> route('admin.faculty-tab');
+    }
     
+    function classTab(){
+        Auth::guard('admin')->classTab();
+        return redirect() -> route('admin.class-tab');
+    }
+    
+    function messageTab(){
+        Auth::guard('admin')->messageTab();
+        return redirect() -> route('admin.message-tab');
+    }
+    
+    function calendarTab(){
+        Auth::guard('admin')->calendarTab();
+        return redirect() -> route('admin.calendar-tab');
+    }
+    
+
 }

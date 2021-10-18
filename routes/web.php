@@ -67,6 +67,8 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
 });
 
+
+
 Route::prefix('admin')->name('admin.')->group(function(){
        
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
@@ -76,9 +78,16 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         // Route::view('/home','dashboard.admin.home')->name('home');
-        Route::view('/home','admin-home')->name('home');
+        Route::view('/home','admin-home')->name('home'); 
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
-        Route::view('/Admin-Tab', 'dashboard.admin.register')->name('admin-tab');
+
+        //Sidebar route
+        Route::view('/Admin-Tab', 'dashboard.admin.admin-tab')->name('admin-tab');
+        Route::view('/Student-Tab', 'dashboard.admin.student-tab')->name('student-tab');
+        Route::view('/Faculty-Tab', 'dashboard.admin.faculty-tab')->name('faculty-tab');
+        Route::view('/Class-Tab', 'dashboard.admin.class-tab')->name('class-tab');
+        Route::view('/Message-Tab', 'dashboard.admin.message-tab')->name('message-tab');
+        Route::view('/Calendar-Tab', 'dashboard.admin.calendar-tab')->name('calendar-tab');
     });
 
 });

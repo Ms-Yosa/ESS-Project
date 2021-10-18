@@ -64,8 +64,8 @@
                  </table>
                  <div class="content-2">
               
-                    <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
-                    <button ><a href="{{ route('faculty.register') }}" >Register Faculties</a></button>
+                    <!-- <button ><a href="{{ route('user.register') }}" >Register Students</a></button> -->
+                    <!-- <button ><a href="{{ route('faculty.register') }}" >Register Faculties</a></button> -->
                 </div>
             </div>
         </div>

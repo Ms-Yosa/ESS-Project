@@ -39,34 +39,27 @@
         </li>
         <br>  
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp; Dashboard</a>
+          <a class="nav-link" href="{{ route('admin.home') }}"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;&nbsp; Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('admin.admin-tab') }}"><i class="fas fa-user-secret"></i>&nbsp;&nbsp;&nbsp;Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="#"><i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;&nbsp;Student</a>
+          <a class="nav-link"  href="{{ route('admin.student-tab') }}"><i class="fas fa-graduation-cap"></i>&nbsp;&nbsp;&nbsp;Student</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="#"><i class="fas fa-id-badge"></i>&nbsp;&nbsp;&nbsp;Teacher</a>
+          <a class="nav-link"  href="{{ route('admin.faculty-tab') }}"><i class="fas fa-id-badge"></i>&nbsp;&nbsp;&nbsp;Teacher</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-book"></i>&nbsp;&nbsp;&nbsp;Class</a>
+          <a class="nav-link" href="{{ route('admin.class-tab') }}"><i class="fas fa-book"></i>&nbsp;&nbsp;&nbsp;Class</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="#"><i class="fas fa-inbox"></i>&nbsp;&nbsp;&nbsp;Message</a>
+          <a class="nav-link"  href="{{ route('admin.message-tab') }}"><i class="fas fa-inbox"></i>&nbsp;&nbsp;&nbsp;Message</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;Calendar</a>
+          <a class="nav-link" href="{{ route('admin.calendar-tab') }}"><i class="fas fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;Calendar</a>
         </li>
       </ul>   
     </div>
   </div>
 </div>
- 
-
-
-
-
-
-

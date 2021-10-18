@@ -27,6 +27,17 @@
    <link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
 </head>
 <body>
-          HELLO
+
+  <nav class="navbar navbar-light" style="background-color:#FBD848" >
+        @include('partials.admin.navbar')
+  </nav>
+
+
+    <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
+
+
+    <footer>
+        @include('partials.admin.footer')
+    </footer>
 </body>
 </html>
