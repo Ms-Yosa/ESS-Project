@@ -59,9 +59,10 @@ class UserController extends Controller
 
     //Retrive Data
 
-    public function show(User $user){
+     function index(){
 
-        return view('admin.student-tab',compact('user'));
+        $users = User::all();
+        return view('dashboard.admin.student-tab',compact('users'));
     }
 
 

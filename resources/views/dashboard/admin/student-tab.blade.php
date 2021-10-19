@@ -35,6 +35,34 @@
 
   <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
 
+  <table class="table table-striped table-inverse table-responsive">
+                     <thead class="thead-inverse">
+                         <tr>
+                             <th>ID</th>
+                             <th>Name</th>
+                             <th>Email</th>
+                             <th>Age</th>
+                             <th>Action</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                           @foreach ($users as $user)
+                           <tr>
+                              <td>{{ $user->id }}</td>
+                              <td>{{ $user->name }}</td>
+                              <td>{{ $user->email }}</td>
+                              <td>{{ $user->age }}</td>
+                              <td>
+                                <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+                              </td>
+
+                           </tr>
+
+                           @endforeach
+                    
+                         </tbody>
+                 </table>
 
     <footer>
         @include('partials.admin.footer')
