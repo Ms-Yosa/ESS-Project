@@ -18,7 +18,9 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:5|max:30',
-            'confirm-password'=>'required|min:5|max:30|same:password'
+            'confirm-password'=>'required|min:5|max:30|same:password',
+            'age'=>'required',
+            
         ]);
 
         //Insert User in table
@@ -26,6 +28,7 @@ class UserController extends Controller
           $user->name = $request->name;
           $user->email = $request->email;
           $user->password = \Hash::make($request->password);
+          $user->age = $request->age;
           $save = $user->save();
 
           if( $save ){
@@ -47,11 +50,18 @@ class UserController extends Controller
         ]);
 
         $creds = $request->only('email','password');
-        if( Auth::guard('web')->attempt($creds) ){ // validate matchesif the creds are matched
+        if( Auth::guard('web')->attempt($creds) ){ // validate matches if the creds are matched
             return redirect()->route('user.home');
         }else{
             return redirect()->route('user.login')->with('fail','Mismatched credentials!');
         }
+    }
+
+    //Retrive Data
+
+    public function show(User $user){
+
+        return view('admin.student-tab',compact('user'));
     }
 
 

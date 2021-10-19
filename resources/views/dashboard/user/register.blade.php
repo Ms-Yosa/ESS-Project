@@ -85,6 +85,11 @@
                 
                 <!-- ADDITIONAL INFO  -->
 
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" name="age" min="1" value="{{ old('age') }}">
+                        <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                    </div>
 
                     <div class="form-group">
                         <label for="birthday">Birthday</label>
@@ -92,12 +97,6 @@
                         <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
                     </div>
 
-
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" class="form-control" name="age" min="1">
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
-                    </div>
 
                     <div class="form-group ">
                         <p>Gender</p>
