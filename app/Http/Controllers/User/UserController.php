@@ -65,6 +65,13 @@ class UserController extends Controller
         return view('dashboard.admin.student-tab',compact('users'));
     }
 
+    //Delete Data
+
+    function destroy($id){
+        $users = User::find($id);
+        $users -> delete();
+        return redirect()->route('admin.student-tab');    
+    }
 
         //Logout
 

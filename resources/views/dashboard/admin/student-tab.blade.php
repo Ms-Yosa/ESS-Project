@@ -53,8 +53,16 @@
                               <td>{{ $user->email }}</td>
                               <td>{{ $user->age }}</td>
                               <td>
-                                <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+
+                              <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">  
+                              @method('DELETE')
+                                @csrf  
+                                
+                                <button class="btn btn-danger" type="submit">Delete</button>  
+                              </form>   
+
+                                <!-- <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form> -->
                               </td>
 
                            </tr>
