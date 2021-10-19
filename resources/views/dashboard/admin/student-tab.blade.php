@@ -35,6 +35,12 @@
 
   <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
 
+                    <!-- @if (Session::get('success'))
+                         <div class="alert alert-success">
+                             {{ Session::get('success') }}
+                         </div>
+                    @endif -->
+
   <table class="table table-striped table-inverse table-responsive">
                      <thead class="thead-inverse">
                          <tr>
@@ -54,7 +60,16 @@
                               <td>{{ $user->age }}</td>
                               <td>
 
-                              <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">  
+                              <!-- <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a> -->
+                              <form action="{{ route('user.edit', $user->id)}}" method="GET">  
+                                  @csrf  
+                                  
+                                  <button class="btn btn-primary" type="submit">Edit</button>  
+                              </form>  
+
+
+
+                              <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
                               @method('DELETE')
                                 @csrf  
                                 

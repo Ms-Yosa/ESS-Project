@@ -34,6 +34,10 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::view('/register','dashboard.user.register')->name('register');
         Route::post('/create',[UserController::class,'create'])->name('create');
         Route::post('/check',[UserController::class,'check'])->name('check');
+        // Route::view('/update/{id}','dashboard.user.edit')->name('edit');
+         Route::put('/update/{id}',[UserController::class,'update'])->name('update');
+        Route::get('/update/{id}',[UserController::class,'edit'])->name('edit');
+
         
     });
 

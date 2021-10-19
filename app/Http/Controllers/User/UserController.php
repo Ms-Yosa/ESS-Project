@@ -57,7 +57,7 @@ class UserController extends Controller
         }
     }
 
-    //Retrive Data
+    //Retrieve Data
 
      function index(){
 
@@ -73,7 +73,43 @@ class UserController extends Controller
         return redirect()->route('admin.student-tab');    
     }
 
-        //Logout
+    //Edit button
+
+    function edit($id){
+        $user = User::find($id);
+        return view('dashboard.user.edit',compact('user'));
+    }
+
+    //Update Data
+
+    function update(Request $request, $id){
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:users,email',
+            'password'=>'required|min:5|max:30',
+            'confirm-password'=>'required|min:5|max:30|same:password',
+            'age'=>'required',
+    ]);
+
+
+
+        //Insert Updates User in table
+        $user =  User::find($id);
+          $user->name = $request->name;
+          $user->email = $request->email;
+          $user->password = \Hash::make($request->password);
+          $user->age = $request->age;
+          $save = $user->save();
+
+          if( $save ){
+              return redirect()->route('admin.student-tab');
+          }else{
+              return redirect()->back()->with('fail','Something went wrong, failed to update');
+        }
+    }
+
+    
+    //Logout
 
     function logout(){
         Auth::guard('web')->logout();
