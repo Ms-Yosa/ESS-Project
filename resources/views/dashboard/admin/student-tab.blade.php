@@ -72,7 +72,7 @@
                               <td>{{ $user->guardian }}</td>
                               <td>{{ $user->contact_number }}</td>
                               <td>{{ $user->relation }}</td>
-                              <td>{{ $user->guradian_bloodtype }}</td>
+                              <td>{{ $user->guardian_bloodtype }}</td>
                               <td>{{ $user->address }}</td>
                               <td>
 
