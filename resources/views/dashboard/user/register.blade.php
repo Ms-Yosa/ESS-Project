@@ -87,8 +87,8 @@
 
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="number" class="form-control" name="age" min="1" value="{{ old('age') }}">
-                        <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                        <input type="number" class="form-control" name="age" value="{{ old('age') }}">
+                        <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
@@ -101,25 +101,25 @@
                     <div class="form-group ">
                         <p>Gender</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="female" >
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" >
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
+                        <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label for="religion">Religion</label>
-                        <input type="text" class="form-control" name="religion" >
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
+                        <input type="text" class="form-control" name="religion" value="{{ old('religion') }}">
+                        <span class="text-danger">@error('religion'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label for="bloodtype">Bloodtype</label>
-                        <select name="bloodtype" class="form-select" aria-label="Default select example">
+                        <select name="student_bloodtype" class="form-select" aria-label="Default select example">
                             <option selected disabled>Open this select menu</option>
                             <option value="A+">A+</option>
                             <option value="O+">O+</option>
@@ -131,31 +131,31 @@
                             <option value="AB-">AB-</option>
                             <option value="Unknown">Unknown</option>
                         </select>
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
+                        <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
-                          <label for="guardian-name">Guardian's Name</label>
-                          <input type="text" class="form-control" name="guardian-name" placeholder="Enter full name" >
-                          <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                          <label for="guardian">Guardian's Name</label>
+                          <input type="text" class="form-control" name="guardian" placeholder="Enter full name" value="{{ old('guardian') }}">
+                          <span class="text-danger">@error('guardian'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">
-                          <label for="guardian-number">Guardian's Contact Number</label>
-                          <input type="tel" class="form-control" name="guardian-number" placeholder="09XXXXXXXXX" pattern=[0-9]{11}>
-                          <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                          <label for="contact_number">Guardian's Contact Number</label>
+                          <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
+                          <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">
                           <label for="relation">Relation to student</label>
-                          <input type="text" class="form-control" name="relation" placeholder="Enter your relation" >
-                          <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                          <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ old('relation') }}">
+                          <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">
-                        <label for="bloodtype">Bloodtype</label>
-                        <select name="bloodtype" class="form-select" aria-label="Default select example">
-                            <option selected disabled>Open this select menu</option>
+                        <label for="guardian_bloodtype">Bloodtype</label>
+                        <select name="guardian_bloodtype" class="form-select" aria-label="Default select example">
+                        <option selected disabled>Open this select menu</option>
                             <option value="A+">A+</option>
                             <option value="O+">O+</option>
                             <option value="B+">B+</option>
@@ -166,13 +166,13 @@
                             <option value="AB-">AB-</option>
                             <option value="Unknown">Unknown</option>
                         </select>
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
+                        <span class="text-danger">@error('guardian_bloodtype'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                           <label for="address">Residential Address</label>
-                          <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" >
-                          <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                          <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
+                          <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">

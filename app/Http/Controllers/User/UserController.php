@@ -19,7 +19,15 @@ class UserController extends Controller
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
-            'age'=>'required',
+            'age'=>'required|min:1|max:5',
+            'gender'=>'required|in:female,male',
+            'religion'=>'required',
+            'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'guardian'=>'required',
+            'contact_number'=>'required',
+            'relation'=>'required',
+            'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'address'=>'required',
             
         ]);
 
@@ -29,6 +37,14 @@ class UserController extends Controller
           $user->email = $request->email;
           $user->password = \Hash::make($request->password);
           $user->age = $request->age;
+          $user->gender = $request->gender;
+          $user->religion = $request->religion;
+          $user->student_bloodtype = $request->student_bloodtype;
+          $user->guardian = $request->guardian;
+          $user->contact_number = $request->contact_number;
+          $user->relation = $request->relation;
+          $user->guardian_bloodtype = $request->guardian_bloodtype;
+          $user->address = $request->address;
           $save = $user->save();
 
           if( $save ){
@@ -65,13 +81,17 @@ class UserController extends Controller
         return view('dashboard.admin.student-tab',compact('users'));
     }
 
-    //Delete Data
+   
+
+
+    //Destroy Data
 
     function destroy($id){
         $users = User::find($id);
         $users -> delete();
-        return redirect()->route('admin.student-tab');    
+        return redirect()->route('admin.student-tab'); 
     }
+
 
     //Edit button
 
@@ -85,10 +105,18 @@ class UserController extends Controller
     function update(Request $request, $id){
         $request->validate([
             'name'=>'required',
-            'email'=>'required|email|unique:users,email',
+            'email'=>"required|email|unique:users,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required',
+            'gender'=>'required|in:female,male',
+            'religion'=>'required',
+            'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'guardian'=>'required',
+            'contact_number'=>'required',
+            'relation'=>'required',
+            'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'address'=>'required',
     ]);
 
 
@@ -99,6 +127,14 @@ class UserController extends Controller
           $user->email = $request->email;
           $user->password = \Hash::make($request->password);
           $user->age = $request->age;
+          $user->gender = $request->gender;
+          $user->religion = $request->religion;
+          $user->student_bloodtype = $request->student_bloodtype;
+          $user->guardian = $request->guardian;
+          $user->contact_number = $request->contact_number;
+          $user->relation = $request->relation;
+          $user->guardian_bloodtype = $request->guardian_bloodtype;
+          $user->address = $request->address;
           $save = $user->save();
 
           if( $save ){

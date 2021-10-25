@@ -41,13 +41,21 @@
                          </div>
                     @endif -->
 
-  <table class="table table-striped table-inverse table-responsive">
+                  <table class="table table-striped table-inverse table-responsive">
                      <thead class="thead-inverse">
                          <tr>
                              <th>ID</th>
                              <th>Name</th>
                              <th>Email</th>
                              <th>Age</th>
+                             <th>Gender</th>
+                             <th>Religion</th>
+                             <th>Bloodtype</th>
+                             <th>Guardian</th>
+                             <th>Contact Number</th>
+                             <th>Relation</th>
+                             <th>Bloodtype</th>
+                             <th>Address</th>
                              <th>Action</th>
                          </tr>
                          </thead>
@@ -58,6 +66,14 @@
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->email }}</td>
                               <td>{{ $user->age }}</td>
+                              <td>{{ $user->gender }}</td>
+                              <td>{{ $user->religion }}</td>
+                              <td>{{ $user->student_bloodtype }}</td>
+                              <td>{{ $user->guardian }}</td>
+                              <td>{{ $user->contact_number }}</td>
+                              <td>{{ $user->relation }}</td>
+                              <td>{{ $user->guradian_bloodtype }}</td>
+                              <td>{{ $user->address }}</td>
                               <td>
 
                               <!-- <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a> -->
@@ -67,8 +83,7 @@
                                   <button class="btn btn-primary" type="submit">Edit</button>  
                               </form>  
 
-
-
+                              
                               <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
                               @method('DELETE')
                                 @csrf  
