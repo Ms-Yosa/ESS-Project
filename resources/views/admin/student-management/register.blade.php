@@ -101,11 +101,11 @@
                     <div class="form-group ">
                         <p>Gender</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female" >
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female" >
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" >
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male" >
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                         <span class="text-danger">@error('gender'){{ $message }} @enderror</span>

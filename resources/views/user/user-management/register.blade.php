@@ -47,7 +47,7 @@
                         </label>   
                     </div>
                     
-                    <form action="{{ route('user.update', $user->id)}}" method="POST" autocomplete="off">
+                    <form action="{{ route('user.create')}}" method="post" autocomplete="off">
                     @if (Session::get('success'))
                          <div class="alert alert-success">
                              {{ Session::get('success') }}
@@ -60,22 +60,20 @@
                     @endif
 
                     @csrf
-                    @method('PUT')
-
 
                       <div class="form-group">
                           <label for="name">Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ $user->name}}">
+                          <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ old('name') }}">
                           <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
                       </div>
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ $user->email }}">
+                        <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
                         <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
                     </div>
                       <div class="form-group">
                           <label for="password">Password</label>
-                          <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ $user->password }}">
+                          <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
                           <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
                       </div>
 
@@ -89,8 +87,8 @@
 
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input type="number" class="form-control" name="age" min="1" value="{{ $user->age }}">
-                        <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                        <input type="number" class="form-control" name="age" value="{{ old('age') }}">
+                        <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
@@ -103,19 +101,19 @@
                     <div class="form-group ">
                         <p>Gender</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female" {{ $user->gender == 'Female' ? 'checked' : ''}}>
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female" >
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male" >
-                                <label class="form-check-label" for="male" >Male</label>
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male" >
+                                <label class="form-check-label" for="male">Male</label>
                             </div>
                         <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
                     </div>
 
                     <div class="form-group">
                         <label for="religion">Religion</label>
-                        <input type="text" class="form-control" name="religion" value="{{ $user->religion }}">
+                        <input type="text" class="form-control" name="religion" value="{{ old('religion') }}">
                         <span class="text-danger">@error('religion'){{ $message }} @enderror</span>
                     </div>
 
@@ -138,19 +136,19 @@
 
                     <div class="form-group">
                           <label for="guardian">Guardian's Name</label>
-                          <input type="text" class="form-control" name="guardian" placeholder="Enter full name" value="{{ $user->guardian }}">
+                          <input type="text" class="form-control" name="guardian" placeholder="Enter full name" value="{{ old('guardian') }}">
                           <span class="text-danger">@error('guardian'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">
                           <label for="contact_number">Guardian's Contact Number</label>
-                          <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ $user->contact_number }}">
+                          <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
                           <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                     </div>
 
                     <div class="form-group">
                           <label for="relation">Relation to student</label>
-                          <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ $user->relation }}">
+                          <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ old('relation') }}">
                           <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
                     </div>
 
@@ -173,7 +171,7 @@
 
                     <div class="form-group">
                           <label for="address">Residential Address</label>
-                          <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" value="{{ $user->address }}">
+                          <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
                           <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                     </div>
 

@@ -20,7 +20,7 @@ class UserController extends Controller
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required|min:1|max:5',
-            'gender'=>'required|in:female,male',
+            'gender'=>'required|in:Female,Male',
             'religion'=>'required',
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'guardian'=>'required',
@@ -74,18 +74,13 @@ class UserController extends Controller
     }
 
     //Retrieve Data
-
      function index(){
-
         $users = User::all();
-        return view('dashboard.admin.student-tab',compact('users'));
+        return view('admin.student-tab',compact('users'));
     }
-
-   
 
 
     //Destroy Data
-
     function destroy($id){
         $users = User::find($id);
         $users -> delete();
@@ -94,14 +89,12 @@ class UserController extends Controller
 
 
     //Edit button
-
     function edit($id){
         $user = User::find($id);
-        return view('dashboard.user.edit',compact('user'));
+        return view('admin.student-management.edit',compact('user'));
     }
 
     //Update Data
-
     function update(Request $request, $id){
         $request->validate([
             'name'=>'required',
@@ -109,7 +102,7 @@ class UserController extends Controller
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required',
-            'gender'=>'required|in:female,male',
+            'gender'=>'required|in:Female,Male',
             'religion'=>'required',
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'guardian'=>'required',
@@ -118,8 +111,6 @@ class UserController extends Controller
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'address'=>'required',
     ]);
-
-
 
         //Insert Updates User in table
         $user =  User::find($id);
@@ -143,10 +134,8 @@ class UserController extends Controller
               return redirect()->back()->with('fail','Something went wrong, failed to update');
         }
     }
-
-    
+ 
     //Logout
-
     function logout(){
         Auth::guard('web')->logout();
         return redirect('/');
