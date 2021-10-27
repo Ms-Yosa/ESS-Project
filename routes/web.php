@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Faculty\FacultyController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserCRUD;
 
 
 /*
@@ -34,13 +35,13 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::view('/register','admin.student-management.register')->name('register');
 
         // USER Register (create) and Login (check)
-        Route::post('/create',[UserController::class,'create'])->name('create');
-        Route::post('/check',[UserController::class,'check'])->name('check');
+        Route::post('/create',[UserCRUD::class,'create'])->name('create');
+        Route::post('/check',[UserCRUD::class,'check'])->name('check');
 
 
         // User CRUD
-        Route::put('/update/{id}',[UserController::class,'update'])->name('update');
-        Route::get('/update/{id}',[UserController::class,'edit'])->name('edit');
+        Route::put('/update/{id}',[UserCRUD::class,'update'])->name('update');
+        Route::get('/update/{id}',[UserCRUD::class,'edit'])->name('edit');
 
         
     });
@@ -91,11 +92,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
-        Route::delete('/destroy/{id}',[UserController::class,'destroy'])->name('student-destroy');
+        Route::delete('/destroy/{id}',[UserCRUD::class,'destroy'])->name('student-destroy');
 
         //Sidebar route
         Route::view('/admin tab', 'admin.admin-tab')->name('admin-tab');
-        Route::get('/student tab', [UserController::class,'index'])->name('student-tab');
+        Route::get('/student tab', [UserCRUD::class,'index'])->name('student-tab');
         Route::view('/faculty tab', 'admin.faculty-tab')->name('faculty-tab');
         Route::view('/class tab', 'admin.class-tab')->name('class-tab');
         Route::view('/message tab', 'admin.message-tab')->name('message-tab');
