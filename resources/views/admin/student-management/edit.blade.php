@@ -103,11 +103,11 @@
                     <div class="form-group ">
                         <p>Gender</p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female" {{ ($user->gender=="female")? "checked" : "" }} >
+                                <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" {{ ($user->gender=="Female")? "checked" : "" }} >
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="male" {{ ($user->gender=="male")? "checked" : "" }} >
+                                <input class="form-check-input" type="radio" name="gender" value="Male" {{ ($user->gender=="Male")? "checked" : "" }} >
                                 <label class="form-check-label" for="male" >Male</label>
                             </div>
                         <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
