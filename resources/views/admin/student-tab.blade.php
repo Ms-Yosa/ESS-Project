@@ -1,109 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Admin </title>
-          
-        <!-- Style -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/session.css') }}" rel="stylesheet">
-             <!-- Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- BOOTSTRAP -->
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   
-   <!-- FONT-AWESOME -->
-   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
-   <!-- FOOTER -->
-   <link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
-</head>
-<body>
-
-  <nav class="navbar navbar-light" style="background-color:#FBD848" >
-        @include('partials.admin.navbar')
-  </nav>
+@extends('layouts.admin.master')
+{{-- @section('menu')
+@extends('partials.admin.sidebar')
+@endsection --}}
+@section('content')
 
 
-  <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
+    <!--  SIDE BAR-->
 
-                    <!-- @if (Session::get('success'))
-                         <div class="alert alert-success">
-                             {{ Session::get('success') }}
-                         </div>
-                    @endif -->
+    <div class="dlabnav">
+        <div class="dlabnav-scroll">
+            <ul class="metismenu" id="menu">
+            
+                <li class="nav-label first">Main Menu</li>
+                
+                <li>
+                    <a class="has-arrow " href="javascript:void() {{ route('admin.home') }}" aria-expanded="false">
+                        <i class="la la-home"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-user"></i>
+                        <span class="nav-text">Professors</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-professors.html">All Professor</a></li>
+                        <li><a href="add-professor.html">Add Professor</a></li>
+                        <li><a href="edit-professor.html">Edit Professor</a></li>
+                        <li><a href="professor-profile.html">Professor Profile</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-users"></i>
+                        <span class="nav-text">Students</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
+                        <li><a href="#">Add Students</a></li>
+                        <li><a href="edit-student.html">Edit Students</a></li>
+                        <li><a href="about-student.html">About Students</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-graduation-cap"></i>
+                        <span class="nav-text">Courses</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-courses.html">All Courses</a></li>
+                        <li><a href="add-courses.html">Add Courses</a></li>
+                        <li><a href="edit-courses.html">Edit Courses</a></li>
+                        <li><a href="about-courses.html">About Courses</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-book"></i>
+                        <span class="nav-text">Library</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-library.html">All Library</a></li>
+                        <li><a href="add-library.html">Add Library</a></li>
+                        <li><a href="edit-library.html">Edit Library</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-building"></i>
+                        <span class="nav-text">Departments</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-departments.html">All Departments</a></li>
+                        <li><a href="add-departments.html">Add Departments</a></li>
+                        <li><a href="edit-departments.html">Edit Departments</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-label">Forms</li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-file-text"></i>
+                        <span class="nav-text">Forms</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="form-element.html">Form Elements</a></li>
+                        <li><a href="form-wizard.html">Wizard</a></li>
+                        <li><a href="form-editor-summernote.html">Summernote</a></li>
+                        <li><a href="form-pickers.html">Pickers</a></li>
+                        <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <!-- END OF SIDE BAR -->
 
-                  <table class="table table-striped table-inverse table-responsive">
-                     <thead class="thead-inverse">
-                         <tr>
-                             <th>ID</th>
-                             <th>Name</th>
-                             <th>Email</th>
-                             <th>Age</th>
-                             <th>Gender</th>
-                             <th>Religion</th>
-                             <th>Bloodtype</th>
-                             <th>Guardian</th>
-                             <th>Contact Number</th>
-                             <th>Relation</th>
-                             <th>Bloodtype</th>
-                             <th>Address</th>
-                             <th>Action</th>
-                         </tr>
-                         </thead>
-                         <tbody>
-                           @foreach ($users as $user)
-                           <tr>
-                              <td>{{ $user->id }}</td>
-                              <td>{{ $user->name }}</td>
-                              <td>{{ $user->email }}</td>
-                              <td>{{ $user->age }}</td>
-                              <td>{{ $user->gender }}</td>
-                              <td>{{ $user->religion }}</td>
-                              <td>{{ $user->student_bloodtype }}</td>
-                              <td>{{ $user->guardian }}</td>
-                              <td>{{ $user->contact_number }}</td>
-                              <td>{{ $user->relation }}</td>
-                              <td>{{ $user->guardian_bloodtype }}</td>
-                              <td>{{ $user->address }}</td>
-                              <td>
 
-                              <!-- <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a> -->
-                              <form action="{{ route('user.edit', $user->id)}}" method="GET">  
-                                  @csrf  
-                                  
-                                  <button class="btn btn-primary" type="submit">Edit</button>  
-                              </form>  
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>All Student</h4>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Students</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">All Student</a></li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-3">
+                        <li class="nav-item"><a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">List View</a></li>
+                        <li class="nav-item"><a href="#grid-view" data-toggle="tab" class="nav-link btn-primary">Grid View</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row tab-content">
+                        <div id="list-view" class="tab-pane fade active show col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">All Students List  </h4>
+                                    <a href="#" class="btn btn-primary">+ Add new</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example3" class="display" style="min-width: 845px">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Image</th>
+                                                    <th>Roll No.</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Mobile</th>
+                                                    <th>Group</th>
+                                                    <th>Date Of Birth</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                              
-                              <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
-                              @method('DELETE')
-                                @csrf  
-                                
-                                <button class="btn btn-danger" type="submit">Delete</button>  
-                              </form>   
-
-                                <!-- <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form> -->
-                              </td>
-
-                           </tr>
-
-                           @endforeach
-                    
-                         </tbody>
-                 </table>
-
-    <footer>
-        @include('partials.admin.footer')
-    </footer>
-</body>
-</html>
+                        <div id="grid-view" class="tab-pane fade col-lg-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

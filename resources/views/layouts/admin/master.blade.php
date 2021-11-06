@@ -191,7 +191,7 @@
 	<!-- Svganimation scripts -->
     <script src="{{ URL::to('assets_reference/vendor/svganimation/vivus.min.js') }}"></script>
     <script src="{{ URL::to('assets_reference/vendor/svganimation/svg.animation.js') }}"></script>
-    <script src="{{ URL::to('assets_reference/js/styleSwitcher.js') }}"></script>
+    <!-- <script src="{{ URL::to('assets_reference/js/styleSwitcher.js') }}"></script> -->
     <!-- pickdate -->
     <script src="{{ URL::to('assets_reference/vendor/pickadate/picker.js') }}"></script>
     <script src="{{ URL::to('assets_reference/vendor/pickadate/picker.time.js') }}"></script>

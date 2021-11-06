@@ -3,20 +3,21 @@
 @extends('partials.admin.sidebar')
 @endsection --}}
 @section('content')
+
+
+    <!--  SIDE BAR-->
+
     <div class="dlabnav">
         <div class="dlabnav-scroll">
             <ul class="metismenu" id="menu">
+            
                 <li class="nav-label first">Main Menu</li>
-                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                
+                <li>
+                    <a class="has-arrow " href="javascript:void() {{ route('admin.home') }}" aria-expanded="false">
                         <i class="la la-home"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
-                    <ul aria-expanded="false">
-                        <li><a href="#">Admin</a></li>
-                        <li><a href="#">Students</a></li>
-                        <li><a href="#">Teachers</a></li>
-                        <li><a href="#">Parents</a></li>
-                    </ul>
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-user"></i>
@@ -34,7 +35,7 @@
                         <span class="nav-text">Students</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">All Students</a></li>
+                        <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
                         <li><a href="#">Add Students</a></li>
                         <li><a href="edit-student.html">Edit Students</a></li>
                         <li><a href="about-student.html">About Students</a></li>
@@ -89,7 +90,9 @@
         </div>
     </div>
 
-    
+
+
+    <!-- END OF SIDE BAR -->
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
