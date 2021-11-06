@@ -103,7 +103,7 @@
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Students</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">All Student</a></li>
                     </ol>
@@ -117,7 +117,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">All Students List  </h4>
-                                    <a href="#" class="btn btn-primary">+ Add new</a>
+                                    <a href="{{ route('user.register') }}" class="btn btn-primary">+ Add new</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -160,7 +160,7 @@
                                                       <form action="{{ route('user.edit', $user->id)}}" method="GET">  
                                                           @csrf  
                                                           
-                                                          <button class="badge bg-success" type="submit"><i class="bi bi-pencil-square"></i></button>  
+                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
                                                       </form>  
 
                                                       
@@ -168,7 +168,7 @@
                                                         @method('DELETE')
                                                           @csrf  
                                                         
-                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="bi bi-trash"></i></a></button>  
+                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
                                                       </form>   
 
                                                       

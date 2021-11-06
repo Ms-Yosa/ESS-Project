@@ -1,194 +1,289 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.admin.master')
+{{-- @section('menu')
+@extends('partials.admin.sidebar')
+@endsection --}}
+@section('content')
 
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  SIDE BAR-->
 
-        <title>User Login</title>
-
-        <!-- Style -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/session.css') }}" rel="stylesheet">
-             <!-- Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- BOOTSTRAP -->
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   
-   <!-- FONT-AWESOME -->
-   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
-   <!-- FOOTER -->
-   <link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
-
-    </head>
-    <body>
-    <nav class="navbar navbar-light" style="background-color:#FBD848" >
-        @include('partials.admin.navbar')
-    </nav>
-        <div class="container">
-            <div >
-                <div class="form-box">
-                   <a href="{{ route('admin.admin-tab') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a> 
-                    <div class="header">
-                        <label  class="name school">
-                            AMSAI LEARNING SCHOOL
-                        </label>
-                        <br>
-                        <label class="name system">
-                            STUDENT INFORMATION SYSTEM
-                        </label>   
-                    </div>
-                    
-                    <form action="{{ route('user.update', $user->id)}}" method="POST" autocomplete="off">
-                    @if (Session::get('success'))
-                         <div class="alert alert-success">
-                             {{ Session::get('success') }}
-                         </div>
-                    @endif
-                    @if (Session::get('fail'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('fail') }}
-                    </div>
-                    @endif
-
-                    @csrf
-                    @method('PUT')
-
-
-                      <div class="form-group">
-                          <label for="name">Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ $user->name}}">
-                          <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ $user->email }}">
-                        <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
-                    </div>
-                      <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ $user->password }}">
-                          <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
-                      </div>
-
-                    <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" class="form-control" name="confirm-password" placeholder="Enter confirm password" value="{{ old('confirm-password') }}">
-                        <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span>
-                    </div>
+    <div class="dlabnav">
+        <div class="dlabnav-scroll">
+            <ul class="metismenu" id="menu">
+            
+                <li class="nav-label first">Main Menu</li>
                 
-                <!-- ADDITIONAL INFO  -->
-
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="number" class="form-control" name="age" min="1" value="{{ $user->age }}">
-                        <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                <li>
+                    <a class="has-arrow " href="javascript:void() {{ route('admin.home') }}" aria-expanded="false">
+                        <i class="la la-home"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-user"></i>
+                        <span class="nav-text">Professors</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-professors.html">All Professor</a></li>
+                        <li><a href="add-professor.html">Add Professor</a></li>
+                        <li><a href="edit-professor.html">Edit Professor</a></li>
+                        <li><a href="professor-profile.html">Professor Profile</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-users"></i>
+                        <span class="nav-text">Students</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
+                        <li><a href="#">Add Students</a></li>
+                        <li><a href="edit-student.html">Edit Students</a></li>
+                        <li><a href="about-student.html">About Students</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-graduation-cap"></i>
+                        <span class="nav-text">Courses</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-courses.html">All Courses</a></li>
+                        <li><a href="add-courses.html">Add Courses</a></li>
+                        <li><a href="edit-courses.html">Edit Courses</a></li>
+                        <li><a href="about-courses.html">About Courses</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-book"></i>
+                        <span class="nav-text">Library</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-library.html">All Library</a></li>
+                        <li><a href="add-library.html">Add Library</a></li>
+                        <li><a href="edit-library.html">Edit Library</a></li>
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-building"></i>
+                        <span class="nav-text">Departments</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="all-departments.html">All Departments</a></li>
+                        <li><a href="add-departments.html">Add Departments</a></li>
+                        <li><a href="edit-departments.html">Edit Departments</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-label">Forms</li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-file-text"></i>
+                        <span class="nav-text">Forms</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="form-element.html">Form Elements</a></li>
+                        <li><a href="form-wizard.html">Wizard</a></li>
+                        <li><a href="form-editor-summernote.html">Summernote</a></li>
+                        <li><a href="form-pickers.html">Pickers</a></li>
+                        <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <!-- END OF SIDE BAR -->
+<div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Update Student Information</h4>
                     </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Students</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Student Update</a></li>
+                    </ol>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-xl-12 col-xxl-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Basic Info</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('user.update', $user->id)}}" method="POST" autocomplete="off">
+                                @if (Session::get('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+                                @if (Session::get('fail'))
+                                    <div class="alert alert-danger">
+                                        {{ Session::get('fail') }}
+                                    </div>
+                                @endif
 
-                    <div class="form-group">
-                        <label for="birthday">Birthday</label>
-                        <input type="date" class="form-control" name="birtday" >
-                        <!-- <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span> -->
+                                @csrf
+                                @method('PUT')
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ $user->name}}">
+                                            <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ $user->email }}">
+                                            <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
+                                            <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirm Password</label>
+                                            <input type="password" class="form-control" name="confirm-password" placeholder="Enter confirm password" value="{{ old('confirm-password') }}">
+                                            <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label for="age">Age</label>
+                                                <input type="number" class="form-control" name="age" min="1" value="{{ $user->age }}">
+                                                <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group ">
+                                            <p>Gender</p>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" {{ ($user->gender=="Female")? "checked" : "" }} >
+                                                    <label class="form-check-label" for="female">Female</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" value="Male" {{ ($user->gender=="Male")? "checked" : "" }} >
+                                                    <label class="form-check-label" for="male" >Male</label>
+                                                </div>
+                                            <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="religion">Religion</label>
+                                            <input type="text" class="form-control" name="religion" value="{{ $user->religion }}">
+                                            <span class="text-danger">@error('religion'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="bloodtype">Bloodtype</label>
+                                            <select name="student_bloodtype" class="form-select" aria-label="Default select example">
+                                                <option value="{{$user->student_bloodtype}}" {{ ($user->student_bloodtype ==$user->student_bloodtype) ? 'selected' : '' }}> 
+                                                {{ $user->student_bloodtype }}
+                                                </option>
+                                                <option value="A+" >A+</option>
+                                                <option value="O+" >O+</option>
+                                                <option value="B+" >B+</option>
+                                                <option value="AB+" >AB+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="O-" >O-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-" >AB-</option>
+                                                <option value="Unknown" >Unknown</option>
+                                            </select>
+                                            <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="guardian">Guardian's Name</label>
+                                            <input type="text" class="form-control" name="guardian" placeholder="Enter full name" value="{{ $user->guardian }}">
+                                            <span class="text-danger">@error('guardian'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="contact_number">Guardian's Contact Number</label>
+                                            <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ $user->contact_number }}">
+                                            <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
+                                         </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="relation">Relation to student</label>
+                                            <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ $user->relation }}">
+                                            <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="guardian_bloodtype">Bloodtype</label>
+                                            <select name="guardian_bloodtype" class="form-select" aria-label="Default select example">
+                                            <option value="{{$user->guardian_bloodtype}}" {{ ($user->guardian_bloodtype ==$user->guardian_bloodtype) ? 'selected' : '' }}> 
+                                                {{ $user->guardian_bloodtype }}
+                                                </option>
+                                                <option value="A+">A+</option>
+                                                <option value="O+">O+</option>
+                                                <option value="B+">B+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="O-">O-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-">AB-</option>
+                                                <option value="Unknown">Unknown</option>
+                                            </select>
+                                            <span class="text-danger">@error('guardian_bloodtype'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="address">Residential Address</label>
+                                            <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" value="{{ $user->address }}">
+                                            <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
+                                        </div>
+
+                                    </div>
+
+                                    
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button class="btn btn-light"><a href="{{ route('admin.student-tab') }}" >Cancel</a></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-
-
-                    <div class="form-group ">
-                        <p>Gender</p>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" {{ ($user->gender=="Female")? "checked" : "" }} >
-                                <label class="form-check-label" for="female">Female</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" value="Male" {{ ($user->gender=="Male")? "checked" : "" }} >
-                                <label class="form-check-label" for="male" >Male</label>
-                            </div>
-                        <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="religion">Religion</label>
-                        <input type="text" class="form-control" name="religion" value="{{ $user->religion }}">
-                        <span class="text-danger">@error('religion'){{ $message }} @enderror</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bloodtype">Bloodtype</label>
-                        <select name="student_bloodtype" class="form-select" aria-label="Default select example">
-                            <option selected disabled>Open this select menu</option>
-                            <option value="A+" >A+</option>
-                            <option value="O+" >O+</option>
-                            <option value="B+" >B+</option>
-                            <option value="AB+" >AB+</option>
-                            <option value="A-" >A-</option>
-                            <option value="O-" >O-</option>
-                            <option value="B-">B-</option>
-                            <option value="AB-" >AB-</option>
-                            <option value="Unknown" >Unknown</option>
-                        </select>
-                        <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span>
-                    </div>
-
-                    <div class="form-group">
-                          <label for="guardian">Guardian's Name</label>
-                          <input type="text" class="form-control" name="guardian" placeholder="Enter full name" value="{{ $user->guardian }}">
-                          <span class="text-danger">@error('guardian'){{ $message }} @enderror</span><br>
-                    </div>
-
-                    <div class="form-group">
-                          <label for="contact_number">Guardian's Contact Number</label>
-                          <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ $user->contact_number }}">
-                          <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
-                    </div>
-
-                    <div class="form-group">
-                          <label for="relation">Relation to student</label>
-                          <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ $user->relation }}">
-                          <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="guardian_bloodtype">Bloodtype</label>
-                        <select name="guardian_bloodtype" class="form-select" aria-label="Default select example">
-                        <option selected disabled>Open this select menu</option>
-                            <option value="A+">A+</option>
-                            <option value="O+">O+</option>
-                            <option value="B+">B+</option>
-                            <option value="AB+">AB+</option>
-                            <option value="A-">A-</option>
-                            <option value="O-">O-</option>
-                            <option value="B-">B-</option>
-                            <option value="AB-">AB-</option>
-                            <option value="Unknown">Unknown</option>
-                        </select>
-                        <span class="text-danger">@error('guardian_bloodtype'){{ $message }} @enderror</span>
-                    </div>
-
-                    <div class="form-group">
-                          <label for="address">Residential Address</label>
-                          <input type="text" class="form-control" name="address" placeholder="Enter your complete current address" value="{{ $user->address }}">
-                          <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </div>
-                    
-                   
-
-                  </form>
                 </div>
             </div>
         </div>
-        <footer>
-        @include('partials.admin.footer')
-    </footer>
-    </body>
-</html>
+    </div>
+@endsection
