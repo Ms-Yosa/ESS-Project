@@ -112,12 +112,6 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <ul class="nav nav-pills mb-3">
-                        <li class="nav-item"><a href="#list-view" data-toggle="tab" class="nav-link btn-primary mr-1 show active">List View</a></li>
-                        <li class="nav-item"><a href="#grid-view" data-toggle="tab" class="nav-link btn-primary">Grid View</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
                     <div class="row tab-content">
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
@@ -130,27 +124,66 @@
                                         <table id="example3" class="display" style="min-width: 845px">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Image</th>
-                                                    <th>Roll No.</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Mobile</th>
-                                                    <th>Group</th>
-                                                    <th>Date Of Birth</th>
-                                                    <th>Action</th>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Age</th>
+                                                <th>Gender</th>
+                                                <th>Religion</th>
+                                                <th>Bloodtype</th>
+                                                <th>Guardian</th>
+                                                <th>Number</th>
+                                                <th>Relation</th>
+                                                <th>Bloodtype</th>
+                                                <th>Address</th>
+                                                <th>Action</th>
+
                                                 </tr>
                                             </thead>
-                                            
+                                            <tbody>
+                                              @foreach ($users as $key => $user)
+                                                  <tr>
+                                                      <td class="id">{{ ++$key }}</td>
+                                                      <td class="name">{{ $user->name }}</td>
+                                                      <td class="email">{{ $user->email }}</td>
+                                                      <td class="age">{{ $user->age }}</td>
+                                                      <td class="gender">{{ $user->gender }}</td>
+                                                      <td class="religion">{{ $user->religion }}</td>
+                                                      <td class="student_bloodtype">{{ $user->student_bloodtype }}</td>
+                                                      <td class="guardian"> {{ $user->guardian }}</td>
+                                                      <td class="contact_number">{{ $user->contact_number }}</td>
+                                                      <td class="relation">{{ $user->relation }}</td>
+                                                      <td class="guardian_bloodtype">{{ $user->guardian_bloodtype }}</td>
+                                                      <td class="address">{{ $user->address }}</td>
+                                                      <td class="text-center">
+                                                        
+                                                      <form action="{{ route('user.edit', $user->id)}}" method="GET">  
+                                                          @csrf  
+                                                          
+                                                          <button class="badge bg-success" type="submit"><i class="bi bi-pencil-square"></i></button>  
+                                                      </form>  
+
+                                                      
+                                                      <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
+                                                        @method('DELETE')
+                                                          @csrf  
+                                                        
+                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="bi bi-trash"></i></a></button>  
+                                                      </form>   
+
+                                                      
+                                                      </td>
+                                                  </tr>
+                                              @endforeach
+                                            <tbody>
+
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="grid-view" class="tab-pane fade col-lg-12">
-                            
-                        </div>
+                       
                     </div>
                 </div>
             </div>
