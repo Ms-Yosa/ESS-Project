@@ -9,6 +9,7 @@
         <title>AMSAI SIS</title>
 
         <!-- Style-->
+        <link rel="icon" type="image/png" sizes="16x16"  style="border-radius:25px" href="{{ URL::to('Assets/Logo.png') }}">
 
         <link rel="stylesheet" href="{{ URL::asset('css/landing.css'); }} ">
         <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
