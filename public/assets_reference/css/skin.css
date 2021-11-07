@@ -143,7 +143,7 @@ table.dataTable tr.selected {
 .badge-primary {
   background-color: #ff8f16; }
 .page-titles h4 {
-  color: #ff8f16; }
+  color: black; }
 .card-action > a {
   background: black; }
 .card-action .dropdown {

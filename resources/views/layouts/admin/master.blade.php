@@ -42,10 +42,7 @@
                 </div>
             </div>
 
-            <!-- <a href="#" class="brand-logo">
-                <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
-                 
-            </a> -->
+            
         </div>
         <!-- Nav header end -->
 
@@ -64,7 +61,7 @@
 
         <!-- Sidebar start -->
       
-        @yield('menu')
+        @include('partials.admin.sidebar')
    
         <!-- Sidebar end -->
 		

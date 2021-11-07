@@ -22244,7 +22244,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 .page-titles {
   padding: 0.9375rem 1.25rem;
-  background: #fff;
+  background: #FBD848;
+  letter-spacing: 3px;
   margin-bottom: 30px;
   border-radius: 5px; }
   [data-theme-version="dark"] .page-titles {
