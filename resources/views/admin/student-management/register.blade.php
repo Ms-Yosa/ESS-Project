@@ -20,12 +20,23 @@
                     </a>
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-user"></i>
-                        <span class="nav-text">Professors</span>
+                        <i class="la la-shield"></i>
+                        <span class="nav-text">Admin</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">All Professor</a></li>
-                        <li><a href="#">Add Professor</a></li>
+                        <li><a href="{{ route('admin.admin-tab') }}">All Admins</a></li>
+                        <li><a href="#">Add Admin</a></li>
+                        <!-- <li><a href="#">Edit Professor</a></li>
+                        <li><a href="#">Professor Profile</a></li> -->
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-user"></i>
+                        <span class="nav-text">Faculties</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ route('admin.faculty-tab') }}">All Faculties</a></li>
+                        <li><a href="#">Add Faculties</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
@@ -46,46 +57,34 @@
                         <span class="nav-text">Classes</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-courses.html">All Classes</a></li>
-                        <li><a href="add-courses.html">Add Courses</a></li>
+                        <li><a href="{{ route('admin.class-tab') }}">All Classes</a></li>
+                        <li><a href="add-courses.html">Add Classes</a></li>
                         <!-- <li><a href="edit-courses.html">Edit Courses</a></li>
                         <li><a href="about-courses.html">About Courses</a></li> -->
                     </ul>
                 </li>
-                <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-book"></i>
-                        <span class="nav-text">Library</span>
+                <li>
+                    <a  href="{{ route('admin.message-tab') }}" >
+                        <i class="la la-inbox"></i>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-calendar-o"></i>
+                        <span class="nav-text">Calendar</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-library.html">All Library</a></li>
-                        <li><a href="add-library.html">Add Library</a></li>
-                        <li><a href="edit-library.html">Edit Library</a></li>
-                    </ul>
-                </li> -->
-                <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-building"></i>
-                        <span class="nav-text">Departments</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="all-departments.html">All Departments</a></li>
-                        <li><a href="add-departments.html">Add Departments</a></li>
-                        <li><a href="edit-departments.html">Edit Departments</a></li>
+                        <li><a href="{{ route('admin.calendar-tab') }}">All Events </a></li>
+                        <li><a href="add-library.html">Add Event</a></li>
+                        <!-- <li><a href="edit-library.html">Edit Library</a></li> -->
                     </ul>
                 </li>
-                
-                <li class="nav-label">Forms</li>
-                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-file-text"></i>
-                        <span class="nav-text">Forms</span>
+                <li>    
+                    <a class="nav-label" href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="la la-arrow-circle-right"></i>
+                        <span class="nav-text">Logout</span>
                     </a>
-                    <ul aria-expanded="false">
-                        <li><a href="form-element.html">Form Elements</a></li>
-                        <li><a href="form-wizard.html">Wizard</a></li>
-                        <li><a href="form-editor-summernote.html">Summernote</a></li>
-                        <li><a href="form-pickers.html">Pickers</a></li>
-                        <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
-                    </ul>
-                </li> -->
+                    <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+                </li>
             </ul>
         </div>
     </div>
@@ -97,7 +96,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Update Student Information</h4>
+                        <h4>Register Student Information</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -142,9 +141,25 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
+                                            <label for="surname">Surname</label>
+                                            <input type="text" class="form-control" name="surname" placeholder="Enter Surname" value="">
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
                                             <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="email">Birthday</label>
+                                            <input type="text" class="datepicker-default form-control" value="{{ old('dateOfBirth') }}" name="birthday" id="birthday">
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
                                         </div>
                                     </div>
 
@@ -227,18 +242,20 @@
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="form-group">
-                                            <label for="contact_number">Guardian's Contact Number</label>
-                                            <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
-                                            <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
-                                         </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="form-group">
                                             <label for="relation">Relation to student</label>
                                             <input type="text" class="form-control" name="relation" placeholder="Enter your relation" value="{{ old('relation') }}">
                                             <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
                                         </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                       
+                                        <div class="form-group">
+                                            <label for="contact_number">Guardian's Contact Number</label>
+                                            <input type="tel" class="form-control" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
+                                            <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
+                                         </div>
+                                    
                                     </div>
 
                                     <div class="col-lg-6 col-md-6 col-sm-12">

@@ -1,5 +1,4 @@
 @extends('layouts.admin.master')
-
 @section('content')
 
 
@@ -18,12 +17,23 @@
                     </a>
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-user"></i>
-                        <span class="nav-text">Professors</span>
+                        <i class="la la-shield"></i>
+                        <span class="nav-text">Admin</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">All Professor</a></li>
-                        <li><a href="#">Add Professor</a></li>
+                        <li><a href="{{ route('admin.admin-tab') }}">All Admins</a></li>
+                        <li><a href="#">Add Admin</a></li>
+                        <!-- <li><a href="#">Edit Professor</a></li>
+                        <li><a href="#">Professor Profile</a></li> -->
+                    </ul>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-user"></i>
+                        <span class="nav-text">Faculties</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ route('admin.faculty-tab') }}">All Faculties</a></li>
+                        <li><a href="#">Add Faculties</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
@@ -44,22 +54,36 @@
                         <span class="nav-text">Classes</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-courses.html">All Classes</a></li>
-                        <li><a href="add-courses.html">Add Courses</a></li>
+                        <li><a href="{{ route('admin.class-tab') }}">All Classes</a></li>
+                        <li><a href="add-courses.html">Add Classes</a></li>
                         <!-- <li><a href="edit-courses.html">Edit Courses</a></li>
                         <li><a href="about-courses.html">About Courses</a></li> -->
                     </ul>
                 </li>
-                <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="la la-book"></i>
-                        <span class="nav-text">Library</span>
+                <li>
+                    <a  href="{{ route('admin.message-tab') }}" >
+                        <i class="la la-inbox"></i>
+                        <span class="nav-text">Messages</span>
+                    </a>
+                </li>
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-calendar-o"></i>
+                        <span class="nav-text">Calendar</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-library.html">All Library</a></li>
-                        <li><a href="add-library.html">Add Library</a></li>
-                        <li><a href="edit-library.html">Edit Library</a></li>
+                        <li><a href="{{ route('admin.calendar-tab') }}">All Events </a></li>
+                        <li><a href="add-library.html">Add Event</a></li>
+                        <!-- <li><a href="edit-library.html">Edit Library</a></li> -->
                     </ul>
-                </li> -->
+                </li>
+                <li>    
+                    <a class="nav-label" href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="la la-arrow-circle-right"></i>
+                        <span class="nav-text">Logout</span>
+                    </a>
+                    <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+                </li>
+
+                                     
                 <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-building"></i>
                         <span class="nav-text">Departments</span>
@@ -98,13 +122,12 @@
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
                         <h4>Admin Dashboard</h4>
-                        <span class="ml-1">Student</span>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Student</a></li>
+                        
                     </ol>
                 </div>
             </div>
@@ -120,9 +143,9 @@
                                     </svg>
                                 </span>
                                 <div class="media-body">
-                                    <p class="mb-1">Patient</p>
+                                    <p class="mb-1">Students</p>
                                     <h4 class="mb-0">3280</h4>
-                                    <span class="badge badge-primary">+3.5%</span>
+                                    <span class="badge badge-primary">Enrolled</span>
                                 </div>
                             </div>
                         </div>
@@ -142,9 +165,9 @@
                                     </svg>
                                 </span>
                                 <div class="media-body">
-                                    <p class="mb-1">Bills</p>
+                                    <p class="mb-1">Faculties</p>
                                     <h4 class="mb-0">2570</h4>
-                                    <span class="badge badge-warning">+3.5%</span>
+                                    <span class="badge badge-warning">Registered</span>
                                 </div>
                             </div>
                         </div>
@@ -200,95 +223,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="example" class="display" style="min-width: 845px">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Exam Name</th>
-                                            <th>Grade</th>
-                                            <th>Percent</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>A</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2011/04/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>B</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2011/07/25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>C</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2009/01/12</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>A</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>B</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>C</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>D</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>C</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>A</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>B</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2012/03/29</td>
-                                          
-                                        </tr>
-                                        <tr>
-                                            <td>#0025</td>
-                                            <td>Class Test</td>
-                                            <td>C</td>
-                                            <td>99.00 > 100</td>
-                                            <td>2011/01/25</td>
-                                        </tr>
-                                    </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
@@ -297,78 +232,15 @@
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>About Me</h4>
+                            <h4>Admin Profile</h4>
                         </div>
                         <div class="student-info">
                             <div class="text-center container-fluid">
-                                <div class="profile-photo">
-                                    <img class="img-fluid rounded-circle" width="100" src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->avatar }}">
-                                </div>
-                                <h3 class="item-title">{{ Auth::user()->name }}</h3>
-                                    <p>Web Developer and Web Designer</p>
-                            </div>
-                            <div class="table-responsive info-table">
-                                <table class="table text-nowrap">
-                                    <tbody>
-                                        <tr>
-                                            <td>Name:</td>
-                                            <td class="font-medium text-dark-medium">Soeng Souy</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gender:</td>
-                                            <td class="font-medium text-dark-medium">Male</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Father Name:</td>
-                                            <td class="font-medium text-dark-medium">Fahim Rahman</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mother Name:</td>
-                                            <td class="font-medium text-dark-medium">Jannatul Kazi</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Date Of Birth:</td>
-                                            <td class="font-medium text-dark-medium">07.08.2006</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Religion:</td>
-                                            <td class="font-medium text-dark-medium">Islam</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Father Occupation:</td>
-                                            <td class="font-medium text-dark-medium">Graphic Designer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>E-Mail:</td>
-                                            <td class="font-medium text-dark-medium">soengsouy@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Admission Date:</td>
-                                            <td class="font-medium text-dark-medium">05.01.2019</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Class:</td>
-                                            <td class="font-medium text-dark-medium">2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Section:</td>
-                                            <td class="font-medium text-dark-medium">Pink</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Roll:</td>
-                                            <td class="font-medium text-dark-medium">10005</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Adress:</td>
-                                            <td class="font-medium text-dark-medium">PP #10, Road #6,
-                                                Australia</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phone:</td>
-                                            <td class="font-medium text-dark-medium">+ 88 9856418</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                
+                                <h3 class="item-title">{{ Auth::guard('admin')->user()->name }}</h3>
+                                    <p>{{ Auth::guard('admin')->user()->email }}</p>
+                                    <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                     <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
                             </div>
                         </div>
                     </div>
@@ -381,42 +253,6 @@
                         </div>
                         <div class="card-body">
                             <div id="DZ_W_Message" class="widget-message dz-scroll" style="height:350px;">
-                                <div class="media mb-3">
-                                    <img class="mr-3 rounded-circle" alt="image" width="50" src="{{URL::to('assets/images/avatar/1.jpg')}}">
-                                    <div class="media-body">
-                                        <h5>Jacob Tucker<small class="text-primary">April 29, 2018</small></h5>
-                                        <p class="mb-2">I shared this on my fb wall a few months back, and I thought.</p>
-                                        <a href="javascript:void()" class="btn btn-primary btn-sm d-inline-block px-3">Reply</a>
-                                        <a href="javascript:void()" class="btn btn-outline-danger btn-sm d-inline-block px-3">Delete</a>
-                                    </div>
-                                </div>
-                                <div class="media mb-3">
-                                    <img class="mr-3 rounded-circle" alt="image" width="50" src="{{URL::to('assets/images/avatar/2.jpg')}}">
-                                    <div class="media-body">
-                                        <h5>Noah Baldon <small class="text-primary">April 28, 2018</small></h5>
-                                        <p class="mb-2">I shared this on my fb wall a few months back, and I thought.</p>
-                                        <a href="javascript:void()" class="btn btn-primary btn-sm d-inline-block px-3">Reply</a>
-                                        <a href="javascript:void()" class="btn btn-outline-danger btn-sm d-inline-block px-3">Delete</a>
-                                    </div>
-                                </div>
-                                <div class="media mb-3">
-                                    <img class="mr-3 rounded-circle" alt="image" width="50" src="{{URL::to('assets/images/avatar/3.jpg')}}">
-                                    <div class="media-body">
-                                        <h5>Muhammad Clay <small class="text-primary">March 24, 2020</small></h5>
-                                        <p class="mb-2">I shared this on my fb wall a few months back, and I thought.</p>
-                                        <a href="javascript:void()" class="btn btn-primary btn-sm d-inline-block px-3">Reply</a>
-                                        <a href="javascript:void()" class="btn btn-outline-danger btn-sm d-inline-block px-3">Delete</a>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <img class="mr-3 rounded-circle" alt="image" width="50" src="{{URL::to('assets/images/avatar/4.jpg')}}">
-                                    <div class="media-body">
-                                        <h5>William Logan <small class="text-primary">Dec 24, 2019</small></h5>
-                                        <p class="mb-2">I shared this on my fb wall a few months back, and I thought.</p>
-                                        <a href="javascript:void()" class="btn btn-primary btn-sm d-inline-block px-3">Reply</a>
-                                        <a href="javascript:void()" class="btn btn-outline-danger btn-sm d-inline-block px-3">Delete</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -425,58 +261,7 @@
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Speciality</h4>
-                        </div>
-                        <div class="card-body dz-scroll" style="height:350px;" id="DZ_W_Speciality">
-                            <div class="media mb-3 align-items-center dz-scroll" id="DZ_W_Speciality">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/20.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Certified</h5>
-                                    <span class="text-muted mb-0">Cold Laser Therapy</span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/21.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Medication Laser</h5>
-                                    <span class="text-muted mb-0">Hair Lose Product</span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/22.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Professional</h5>
-                                    <span class="text-muted mb-0">Certified Hair Lose Surgery</span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/23.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Dentist Certified</h5>
-                                    <span class="text-muted mb-0">Dentist </span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/21.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Medication Laser</h5>
-                                    <span class="text-muted mb-0">Hair Lose Product</span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/22.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Professional</h5>
-                                    <span class="text-muted mb-0">Certified Hair Lose Surgery</span>
-                                </div>
-                            </div>
-                            <div class="media mb-3 align-items-center">
-                                <img class="mr-3 p-2 border" alt="image" width="40" src="{{URL::to('assets/images/icons/23.png')}}">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1 text-pale-sky">Dentist Certified</h5>
-                                    <span class="text-muted mb-0">Dentist </span>
-                                </div>
-                            </div>
+                            <h4 class="card-title">Faculties</h4>
                         </div>
                     </div>
                 </div>
@@ -484,100 +269,10 @@
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">					
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Doctor List</h4>
+                            <h4 class="card-title">Events</h4>
                         </div>
                         <div class="py-2">
                             <ul class="list-group list-group-flush dz-scroll" id="DZ_W_Doctor_List" style="height:350px;">
-                                <li class="list-group-item">
-                                    <a class="timeline-panel text-muted d-flex align-items-center" href="#">
-                                        <img class="rounded-sm" alt="image" width="50" src="{{URL::to('assets/images/avatar/1.jpg')}}">
-                                        <div class="col">
-                                            <h5 class="mb-1">James Logan</h5>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="d-block">Dentist - Specialist</small>
-                                                <div class="rating-bar">
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="timeline-panel text-muted d-flex align-items-center" href="#">
-                                        <img class="rounded-sm" alt="image" width="50" src="{{URL::to('assets/images/avatar/5.jpg')}}">
-                                        <div class="col">
-                                            <h5 class="mb-1">Muhammad Clay</h5>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="d-block">Fever - Specialist</small>
-                                                <div class="rating-bar">
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="timeline-panel text-muted d-flex align-items-center" href="#">
-                                        <img class="rounded-sm" alt="image" width="50" src="{{URL::to('assets/images/avatar/4.jpg')}}">
-                                        <div class="col">
-                                            <h5 class="mb-1">Jacob Tucker</h5>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="d-block">Dentist - Specialist</small>
-                                                <div class="rating-bar">
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="timeline-panel text-muted d-flex align-items-center" href="#">
-                                        <img class="rounded-sm" alt="image" width="50" src="{{URL::to('assets/images/avatar/3.jpg')}}">
-                                        <div class="col">
-                                            <h5 class="mb-1">Harry Parker</h5>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="d-block">Fever - Specialist</small>
-                                                <div class="rating-bar">
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a class="timeline-panel text-muted d-flex align-items-center" href="#">
-                                        <img class="rounded-sm" alt="image" width="50" src="{{URL::to('assets/images/avatar/2.jpg')}}">
-                                        <div class="col">
-                                            <h5 class="mb-1">George Carson</h5>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="d-block">Clinical Doctor</small>
-                                                <div class="rating-bar">
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                    <i class="fa fa-star text-warning"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
