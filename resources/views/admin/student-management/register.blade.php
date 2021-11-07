@@ -84,8 +84,8 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="email">Birthday</label></h6>
-                                            <input type="date" class="form-control form-control-sm" value="{{ old('birthday') }}" name="birthday" id="birthday">
+                                        <h6><label for="birthday">Birthday</label></h6>
+                                            <input type="date" class="form-control form-control-sm" value="" name="birthday" id="birthday">
                                             <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
                                         </div>
                                     </div>
