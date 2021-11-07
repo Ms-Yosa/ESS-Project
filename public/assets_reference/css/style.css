@@ -395,7 +395,9 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem; }
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+ }
 
 button {
   border-radius: 0; }
@@ -9026,6 +9028,7 @@ a {
   left: 0;
   top: 0;
   background-color: #fff;
+  border-bottom:1px solid white;
   transition: all .2s ease;
   z-index: 4; }
   .nav-header .logo-abbr {

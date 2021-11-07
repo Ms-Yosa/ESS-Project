@@ -71,7 +71,7 @@ class UserCRUD extends Controller
             return redirect()->route('user.login')->with('fail','Mismatched credentials!');
         }
     }
-
+ 
     //Retrieve Data
      function index(){
         $users = User::all();

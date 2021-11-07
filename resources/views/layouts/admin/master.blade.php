@@ -72,7 +72,7 @@
         <!-- Footer start -->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://www.soengsouy.com/" target="_blank">SoengSouy</a> 2021</p>
+                <!-- <p>Copyright © Designed &amp; Developed by <a href="https://www.soengsouy.com/" target="_blank">SoengSouy</a> 2021</p> -->
             </div>
         </div>
         <!-- Footer end -->
