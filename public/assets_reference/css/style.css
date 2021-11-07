@@ -8779,11 +8779,13 @@ a {
 .content-body .container {
   margin-top: 30px; }
 .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl {
+  
   padding-top: 30px;
   padding-right: 30px;
   padding-left: 30px; }
   @media only screen and (max-width: 575px) {
     .content-body .container-fluid, .content-body .container-sm, .content-body .container-md, .content-body .container-lg, .content-body .container-xl {
+      margin-top:75px;
       padding-top: 15px;
       padding-right: 15px;
       padding-left: 15px; } }
@@ -9068,7 +9070,7 @@ a {
 .nav-control {
   cursor: pointer;
   position: absolute;
-  right: -4.0625rem;
+  /* right: -4.0625rem; */
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
@@ -9076,12 +9078,13 @@ a {
   font-size: 1.4rem;
   padding: 2px 0.5rem 0;
   border-radius: 2px; }
-  @media only screen and (max-width: 767px) {
+  /* @media only screen and (max-width: 767px) {
     .nav-control {
-      right: -4rem; } }
+      right: -4rem; 
+    } }
   @media only screen and (max-width: 575px) {
     .nav-control {
-      right: -4rem; } }
+      right: -4rem; } } */
 
 .hamburger {
   display: inline-block;
@@ -11630,7 +11633,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 @media (max-width: 767px) {
   .nav-header {
-    width: 3.75rem; }
+    width: 100%; }
     .nav-header .brand-title {
       display: none; }
 
@@ -13053,7 +13056,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-nav-headerbg="color_10"][data-theme-version="dark"] .nav-header,
 [data-nav-headerbg="color_10"] .nav-header {
-  background-color: #ff8f16; }
+  background-color: #FBD848; }
   [data-nav-headerbg="color_10"][data-theme-version="dark"] .nav-header .brand-logo,
   [data-nav-headerbg="color_10"] .nav-header .brand-logo {
     color: #fff; }
@@ -13167,7 +13170,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-headerbg="color_2"][data-theme-version="dark"] .header,
 [data-headerbg="color_2"] .header {
-  background-color: #143b64;
+  background-color: #FBD848;
   color: #fff; }
 [data-headerbg="color_2"][data-theme-version="dark"] .header-left input,
 [data-headerbg="color_2"] .header-left input {
@@ -13208,7 +13211,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background-color: inherit; }
 [data-headerbg="color_2"][data-theme-version="dark"] .nav-control,
 [data-headerbg="color_2"] .nav-control {
-  background-color: #0c223a;
+  background-color: #FBD848;
   color: #fff; }
 
 [data-headerbg="color_3"][data-theme-version="dark"] .header,
@@ -13811,14 +13814,14 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav,
 [data-sibebarbg="color_2"] .dlabnav {
-  background-color: #143b64; }
+  background-color: #FBD848; }
   [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav .metismenu .nav-label,
   [data-sibebarbg="color_2"] .dlabnav .metismenu .nav-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: black;
     border-color: rgba(255, 255, 255, 0.2); }
   [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav .metismenu > li > a,
   [data-sibebarbg="color_2"] .dlabnav .metismenu > li > a {
-    color: rgba(255, 255, 255, 0.7); }
+    color: black; }
     [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav .metismenu > li > a svg,
     [data-sibebarbg="color_2"] .dlabnav .metismenu > li > a svg {
       color: #fff; }

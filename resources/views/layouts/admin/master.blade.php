@@ -38,19 +38,19 @@
             
             <div class="nav-control">
                 <div class="hamburger">
-                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
                 </div>
             </div>
 
-            <a href="#" class="brand-logo">
+            <!-- <a href="#" class="brand-logo">
                 <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
                  
-            </a>
+            </a> -->
         </div>
         <!-- Nav header end -->
 
         <!-- Header start -->
-        <div class="header">
+        <!-- <div class="header">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
@@ -59,7 +59,7 @@
                      </div>
                 </nav>
             </div>
-        </div>
+        </div> -->
         <!-- Header end ti-comment-alt -->
 
         <!-- Sidebar start -->
