@@ -1,7 +1,4 @@
 @extends('layouts.admin.master')
-{{-- @section('menu')
-@extends('partials.admin.sidebar')
-@endsection --}}
 @section('content')
 
 
@@ -14,7 +11,7 @@
                 <li class="nav-label first">Main Menu</li>
                 
                 <li>
-                    <a class="has-arrow " href="javascript:void() {{ route('admin.home') }}" aria-expanded="false">
+                    <a  href="{{ route('admin.home') }}" >
                         <i class="la la-home"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
@@ -24,10 +21,10 @@
                         <span class="nav-text">Professors</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-professors.html">All Professor</a></li>
-                        <li><a href="add-professor.html">Add Professor</a></li>
-                        <li><a href="edit-professor.html">Edit Professor</a></li>
-                        <li><a href="professor-profile.html">Professor Profile</a></li>
+                        <li><a href="#">All Professor</a></li>
+                        <li><a href="#">Add Professor</a></li>
+                        <!-- <li><a href="#">Edit Professor</a></li>
+                        <li><a href="#">Professor Profile</a></li> -->
                     </ul>
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -36,23 +33,23 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
-                        <li><a href="#">Add Students</a></li>
-                        <li><a href="edit-student.html">Edit Students</a></li>
-                        <li><a href="about-student.html">About Students</a></li>
+                        <li><a href="{{ route('user.register') }}">Add Students</a></li>
+                        <!-- <li><a href="edit-student.html">Edit Students</a></li>
+                        <li><a href="about-student.html">About Students</a></li> -->
                     </ul>
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-graduation-cap"></i>
-                        <span class="nav-text">Courses</span>
+                        <span class="nav-text">Classes</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="all-courses.html">All Courses</a></li>
+                        <li><a href="all-courses.html">All Classes</a></li>
                         <li><a href="add-courses.html">Add Courses</a></li>
-                        <li><a href="edit-courses.html">Edit Courses</a></li>
-                        <li><a href="about-courses.html">About Courses</a></li>
+                        <!-- <li><a href="edit-courses.html">Edit Courses</a></li>
+                        <li><a href="about-courses.html">About Courses</a></li> -->
                     </ul>
                 </li>
-                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-book"></i>
                         <span class="nav-text">Library</span>
                     </a>
@@ -61,8 +58,8 @@
                         <li><a href="add-library.html">Add Library</a></li>
                         <li><a href="edit-library.html">Edit Library</a></li>
                     </ul>
-                </li>
-                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                </li> -->
+                <!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-building"></i>
                         <span class="nav-text">Departments</span>
                     </a>
@@ -85,10 +82,11 @@
                         <li><a href="form-pickers.html">Pickers</a></li>
                         <li><a href="form-validation-jquery.html">Jquery Validate</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
+
      <!-- END OF SIDE BAR -->
 
 
