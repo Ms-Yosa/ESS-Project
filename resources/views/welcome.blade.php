@@ -34,7 +34,7 @@
 <!-- MAIN  -->
         <div class="container">
             <div class="content-1">
-                <img class="logo amsai" src="/Assets/Logo.png" alt="AMSAI Logo">
+            <a href="{{ route('admin.login') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a>
             
                 <div class="content-1 mid">
                     <div class="name">

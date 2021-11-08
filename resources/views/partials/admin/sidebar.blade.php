@@ -47,11 +47,11 @@
                 </li>
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                         <i class="la la-graduation-cap"></i>
-                        <span class="nav-text">Classes</span>
+                        <span class="nav-text">Class Management</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.class-tab') }}">All Classes</a></li>
-                        <li><a href="add-courses.html">Add Classes</a></li>
+                        
                         <!-- <li><a href="edit-courses.html">Edit Courses</a></li>
                         <li><a href="about-courses.html">About Courses</a></li> -->
                     </ul>
