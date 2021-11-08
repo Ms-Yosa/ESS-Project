@@ -1,103 +1,214 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.admin.master')
+@section('content')
 
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Register</title>
-
-        <!-- Style -->
-       <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/session.css') }}" rel="stylesheet">
-        
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-        <!-- BOOTSTRAP -->
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        
-        <!-- FONT-AWESOME -->
-        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-
-        <!-- FOOTER -->
-        <link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
-
-    </head>
-    <body>
-
-    <nav class="navbar navbar-light" style="background-color:#FBD848" >
-        @include('partials.admin.navbar')
-    </nav>
-
-    <section>
-    <div class="container">
-            <div >
-                <div class="form-box">
-                   <a href="{{ route('admin.home') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a> 
-                    <div class="header">
-                        <label  class="name school">
-                            AMSAI LEARNING SCHOOL
-                        </label>
-                        <br>
-                        <label class="name system">
-                            STUDENT INFORMATION SYSTEM
-                        </label>   
+     
+<div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Register Student Information</h4>
                     </div>
-                    
-                    <form action="{{ route('faculty.create')}}" method="post" autocomplete="off">
-                    @if (Session::get('success'))
-                         <div class="alert alert-success">
-                             {{ Session::get('success') }}
-                         </div>
-                    @endif
-                    @if (Session::get('fail'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('fail') }}
-                    </div>
-                    @endif
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="{{ route('admin.faculty-tab') }} ">Faculties</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);"> Faculty Add</a></li>
+                    </ol>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-xl-12 col-xxl-12 col-sm-12">
+                    <form action="{{ route('faculty.create')}}"  method="POST" autocomplete="off">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Personal Details</h5>
+                            </div>
+                            <div class="card-body">
+                                @if (Session::get('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+                                @if (Session::get('fail'))
+                                    <div class="alert alert-danger">
+                                        {{ Session::get('fail') }}
+                                    </div>
+                                @endif
 
-                    @csrf
-                      <div class="form-group">
-                          <label for="name">Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Enter full name" value="{{ old('name') }}">
-                          <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
-                        <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
-                    </div>
-                      <div class="form-group">
-                          <label for="password">Password</label>
-                          <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
-                          <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
-                      </div>
-                      <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" class="form-control" name="confirm-password" placeholder="Enter confirm password" value="{{ old('confirm-password') }}">
-                        <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span>
-                    </div>
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary">Register</button>
-                      </div>
-                      
+                                @csrf
+                            
 
-                  </form>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="name">Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="">
+                                            <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="middle_name">Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="">
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="surname">Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="">
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group ">
+                                        <h6> <p style="font-weight:bold">Gender</p></h6>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" id="Female" value="Female"  >
+                                                    <h6><label class="form-check-label" for="female">Female</label></h6>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                <h6><input class="form-check-input" type="radio" name="gender" value="Male" >
+                                            <h6><label class="form-check-label" for="male" >Male</label></h6>
+                                                </div>
+                                            <!-- <span class="text-danger">@error('gender'){{ $message }} @enderror</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="birthday">Birthday</label></h6>
+                                            <input type="date" class="form-control form-control-sm" value="" name="birthday" id="birthday">
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <h6><label for="age">Age</label></h6>
+                                                <input type="number" class="form-control form-control-sm" name="age" min="1" value="">
+                                                <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="bloodtype"> Student Bloodtype</label></h6>
+                                            <select name="student_bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="A+" >A+</option>
+                                                <option value="O+" >O+</option>
+                                                <option value="B+" >B+</option>
+                                                <option value="AB+" >AB+</option>
+                                                <option value="A-" >A-</option>
+                                                <option value="O-" >O-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-" >AB-</option>
+                                                <option value="Unknown" >Unknown</option>
+                                            </select>
+                                            <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                    
+                                        <div class="form-group">
+                                        <h6> <label for="contact_number">Contact Number</label></h6>
+                                            <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="">
+                                            <!-- <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    
+                                    </div>
+
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
+                                            <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!--        STUDENT DETAILS                                 -->
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Faculty Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="email">Email</label></h6>
+                                            <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter email address" value="{{ old('email') }}">
+                                            <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="password">Password</label></h6>
+                                            <input type="password" class="form-control form-control-sm" name="password" placeholder="Enter password" value="{{ old('password') }}">
+                                            <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="confirm-password">Confirm Password</label></h6>
+                                            <input type="password" class="form-control form-control-sm" name="confirm-password" placeholder="Enter confirm password" value="{{ old('confirm-password') }}">
+                                            <span class="text-danger">@error('confirm-password'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="class"> Class</label></h6>
+                                            <select name="class" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select class</option>
+                                                <option value="A" >A</option>
+                                                <option value="O" >O</option>
+                                            </select>
+                                            <!-- <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="session">Session</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="adviser" placeholder="Depends on section" value="" readonly>
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                        <button class="btn btn-light"><a href="{{ route('admin.faculty-tab') }}" >Cancel</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                                
+                            
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <footer>
-        @include('partials.admin.footer')
-    </footer>
-    
-    </body>
-</html>
+    </div>
+@endsection

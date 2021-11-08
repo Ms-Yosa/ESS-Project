@@ -29,7 +29,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.faculty-tab') }}">All Faculties</a></li>
-                        <li><a href="#">Add Faculties</a></li>
+                        <li><a href="{{ route('faculty.register') }}">Add Faculties</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
