@@ -102,8 +102,8 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="bloodtype"> Student Bloodtype</label></h6>
-                                            <select name="student_bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                        <h6><label for="bloodtype">Bloodtype</label></h6>
+                                            <select name="bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="A+" >A+</option>
                                                 <option value="O+" >O+</option>

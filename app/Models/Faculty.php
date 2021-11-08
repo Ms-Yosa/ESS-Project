@@ -17,10 +17,16 @@ class faculty extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'surname',
         'name',
+        'middle_name',
         'email',
-        'subbject',
         'password',
+        'gender',
+        'age',
+        'bloodtype',
+        'contact_number',
+        'address',
     ];
 
     /**
