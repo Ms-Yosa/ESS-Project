@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Faculty;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,22 +10,37 @@ use Illuminate\Support\Facades\Auth;
 
 class FacultyCRUD extends Controller
 {
-
+ 
      //Create new faculty (registration)
      function create(Request $request){
         //validate Inputs
         $request->validate([
+
+            'surname'=>'required',
             'name'=>'required',
-            'email'=>'required|email|unique:faculties,email',
+            'middle_name'=>'required',
+            'email'=>'required|email|unique:users,email',
             'password'=>'required|min:5|max:30',
-            'confirm-password'=>'required|min:5|max:30|same:password'
+            'confirm-password'=>'required|min:5|max:30|same:password',
+            'gender'=>'required|in:Female,Male',
+            'age'=>'required|min:1|max:5',
+            'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'contact_number'=>'required',
+            'address'=>'required',
         ]);
 
         //Insert Faculties in table
         $faculty = new Faculty();
+          $faculty->surname = $request->surname;
+          $faculty->middle_name = $request->middle_name;
           $faculty->name = $request->name;
           $faculty->email = $request->email;
           $faculty->password = \Hash::make($request->password);
+          $faculty->gender = $request->gender;
+          $faculty->age = $request->age;
+          $faculty->bloodtype = $request->bloodtype;
+          $faculty->contact_number = $request->contact_number;
+          $faculty->address = $request->address;
           $save = $faculty->save();
 
           if( $save ){

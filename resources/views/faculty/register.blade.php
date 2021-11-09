@@ -46,24 +46,24 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="name">Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="">
-                                            <!-- <span class="text-danger">@error('name'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ old('name') }}">
+                                            <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ old('middle_name') }}">
+                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ old('surname') }}">
+                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
@@ -78,7 +78,7 @@
                                                 <h6><input class="form-check-input" type="radio" name="gender" value="Male" >
                                             <h6><label class="form-check-label" for="male" >Male</label></h6>
                                                 </div>
-                                            <!-- <span class="text-danger">@error('gender'){{ $message }} @enderror</span> -->
+                                            <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
@@ -94,8 +94,8 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <h6><label for="age">Age</label></h6>
-                                                <input type="number" class="form-control form-control-sm" name="age" min="1" value="">
-                                                <span class="text-danger">@error(''){{ $message }} @enderror</span>
+                                                <input type="number" class="form-control form-control-sm" name="age" min="1" value="{{ old('age') }}">
+                                                <span class="text-danger">@error('age'){{ $message }} @enderror</span>
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                                                 <option value="AB-" >AB-</option>
                                                 <option value="Unknown" >Unknown</option>
                                             </select>
-                                            <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span>
+                                            <span class="text-danger">@error('bloodtype'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
@@ -124,8 +124,8 @@
                                     
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Contact Number</label></h6>
-                                            <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="">
-                                            <!-- <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br> -->
+                                            <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
+                                            <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
                                     
                                     </div>
@@ -142,7 +142,7 @@
                             </div>
                         </div>
 
-<!--        STUDENT DETAILS                                 -->
+<!--        FACULTY DETAILS                                 -->
 
                         <div class="card">
                             <div class="card-header">
@@ -195,16 +195,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <button type="submit" class="btn btn-primary">Register</button>
-                                        <button class="btn btn-light"><a href="{{ route('admin.faculty-tab') }}" >Cancel</a></button>
-                                    </div>
+                                    
                                 </div>
                             </div>
-                            
-                            
-                                
-                            
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button class="btn btn-light"><a href="{{ route('admin.faculty-tab') }}" >Cancel</a></button>
                         </div>
                     </form>
                 </div>
