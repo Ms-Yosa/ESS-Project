@@ -84,10 +84,10 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="year">Birth Year</label></h6>
+                                        <h6><label for="birth_year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option value="{{$faculty->birth_year}}" {{ ($faculty->birth_year ==$faculty->birth_year) ? 'selected' : '' }}> 
-                                                {{ $faculty->year }}
+                                                {{ $faculty->birth_year }}
                                                 </option>
                                                 <option value="2021" >2020</option>
                                                 <option value="2021" >2021</option>
@@ -98,10 +98,10 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="month">Month</label></h6>
+                                        <h6><label for="birth_month">Month</label></h6>
                                             <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option value="{{$faculty->birth_month}}" {{ ($faculty->birth_month ==$faculty->birth_month) ? 'selected' : '' }}> 
-                                                {{ $faculty->month }}
+                                                {{ $faculty->birth_month }}
                                                 </option>
                                                 <option value="April" >April</option>
                                                 <option value="May" >May</option>
@@ -112,15 +112,15 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="day">Day</label></h6>
-                                            <select name="day" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                        <h6><label for="birth_day">Day</label></h6>
+                                            <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option value="{{$faculty->birth_day}}" {{ ($faculty->birth_day ==$faculty->birth_day) ? 'selected' : '' }}> 
                                                 {{ $faculty->birth_day }}
                                                 </option>
                                                 <option value="1" >1</option>
                                                 <option value="2" >2</option>
                                             </select>
-                                            <span class="text-danger">@error('day'){{ $message }} @enderror</span>
+                                            <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 

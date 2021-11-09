@@ -98,7 +98,7 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="month">Month</label></h6>
+                                        <h6><label for="birth_month">Month</label></h6>
                                             <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option value="{{$admin->birth_month}}" {{ ($admin->birth_month ==$admin->birth_month) ? 'selected' : '' }}> 
                                                 {{ $admin->birth_month }}
@@ -120,7 +120,7 @@
                                                 <option value="1" >1</option>
                                                 <option value="2" >2</option>
                                             </select>
-                                            <span class="text-danger">@error('day'){{ $message }} @enderror</span>
+                                            <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
