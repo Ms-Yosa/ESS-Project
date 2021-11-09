@@ -14,15 +14,22 @@ class UserCRUD extends Controller
      function create(Request $request){
         //validate Inputs
         $request->validate([
+            'surname'=>'required',
             'name'=>'required',
+            'middle_name'=>'required',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required|min:1|max:5',
             'gender'=>'required|in:Female,Male',
+            'birth_year'=>'required|in:2020,2021',
+            'birth_month'=>'required|in:April,May',
+            'birth_day'=>'required|in:1,2',
             'religion'=>'required',
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'guardian_surname'=>'required',
             'guardian'=>'required',
+            'guardian_middle_name'=>'required',
             'contact_number'=>'required',
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
@@ -32,14 +39,21 @@ class UserCRUD extends Controller
 
         //Insert User in table
         $user = new User();
+          $user->surname = $request->surname;
           $user->name = $request->name;
+          $user->middle_name = $request->middle_name;
           $user->email = $request->email;
           $user->password = \Hash::make($request->password);
           $user->age = $request->age;
           $user->gender = $request->gender;
+          $user->birth_year = $request->birth_year;
+          $user->birth_month = $request->birth_month;
+          $user->birth_day = $request->birth_day;
           $user->religion = $request->religion;
           $user->student_bloodtype = $request->student_bloodtype;
+          $user->guardian_surname = $request->guardian_surname;
           $user->guardian = $request->guardian;
+          $user->guardian_middle_name = $request->guardian_middle_name;
           $user->contact_number = $request->contact_number;
           $user->relation = $request->relation;
           $user->guardian_bloodtype = $request->guardian_bloodtype;
@@ -79,15 +93,22 @@ class UserCRUD extends Controller
     //Update Data
     function update(Request $request, $id){
         $request->validate([
+            'surname'=>'required',
             'name'=>'required',
+            'middle_name'=>'required',
             'email'=>"required|email|unique:users,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required',
             'gender'=>'required|in:Female,Male',
+            'birth_year'=>'required|in:2020,2021',
+            'birth_month'=>'required|in:April,May',
+            'birth_day'=>'required|in:1,2',
             'religion'=>'required',
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'guardian_surname'=>'required',
             'guardian'=>'required',
+            'guardian_middle_name'=>'required',
             'contact_number'=>'required',
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
@@ -96,15 +117,21 @@ class UserCRUD extends Controller
 
         //Insert Updated User in table
         $user =  User::find($id);
-          $user->name = $request->name;
+            $user->surname = $request->surname;
+            $user->name = $request->name;
+            $user->middle_name = $request->middle_name;
           $user->email = $request->email;
           $user->password = \Hash::make($request->password);
           $user->age = $request->age;
           $user->gender = $request->gender;
+          $user->birth_year = $request->birth_year;
+          $user->birth_month = $request->birth_month;
+          $user->birth_day = $request->birth_day;
           $user->religion = $request->religion;
           $user->student_bloodtype = $request->student_bloodtype;
+          $user->guardian_surname = $request->guardian_surname;
           $user->guardian = $request->guardian;
-          $user->contact_number = $request->contact_number;
+          $user->guardian_middle_name = $request->guardian_middle_name;          $user->contact_number = $request->contact_number;
           $user->relation = $request->relation;
           $user->guardian_bloodtype = $request->guardian_bloodtype;
           $user->address = $request->address;

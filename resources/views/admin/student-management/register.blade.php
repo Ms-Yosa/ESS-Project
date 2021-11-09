@@ -54,19 +54,19 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ old('middle_name') }}">
+                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ old('surname') }}">
+                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
-
+ 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group ">
                                         <h6> <p style="font-weight:bold">Gender</p></h6>
@@ -84,9 +84,36 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="birthday">Birthday</label></h6>
-                                            <input type="date" class="form-control form-control-sm" value="" name="birthday" id="birthday">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        <h6><label for="year">Birth Year</label></h6>
+                                            <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="2021" >2020</option>
+                                                <option value="2021" >2021</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="month">Month</label></h6>
+                                            <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="April" >April</option>
+                                                <option value="May" >May</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_month'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="day">Day</label></h6>
+                                            <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="1" >1</option>
+                                                <option value="2" >2</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
@@ -141,6 +168,22 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
+                                        <h6><label for="guardian_middle_name">Guardian's Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="guardian_middle_name" placeholder="Enter Middle Name" value="{{ old('guardian_middle_name') }}">
+                                            <span class="text-danger">@error('guardian_middle_name'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="guardian_surname">Guardian's Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="guardian_surname" placeholder="Enter Surname" value="{{ old('guardian_surname') }}">
+                                            <span class="text-danger">@error('guardian_surname'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
                                             <h6><label for="relation">Relation to student</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="relation" placeholder="Enter your relation" value="{{ old('relation') }}">
                                             <span class="text-danger">@error('relation'){{ $message }} @enderror</span><br>
@@ -159,7 +202,7 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="guardian_bloodtype">Bloodtype</label></h6>  
+                                        <h6><label for="guardian_bloodtype">Guardian Bloodtype</label></h6>  
                                             <select name="guardian_bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="A+">A+</option>

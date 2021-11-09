@@ -54,16 +54,16 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ $user->middle_name}}">
+                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ $user->surname}}">
+                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
@@ -84,9 +84,43 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="birthday">Birthday</label></h6>
-                                            <input type="date" class="form-control form-control-sm" value="" name="birthday" id="birthday">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        <h6><label for="birth_year">Birth Year</label></h6>
+                                            <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option value="{{$user->birth_year}}" {{ ($user->birth_year ==$user->birth_year) ? 'selected' : '' }}> 
+                                                {{ $user->birth_year }}
+                                                </option>
+                                                <option value="2021" >2020</option>
+                                                <option value="2021" >2021</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="birth_month">Month</label></h6>
+                                            <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option value="{{$user->birth_month}}" {{ ($user->birth_month ==$user->birth_month) ? 'selected' : '' }}> 
+                                                {{ $user->birth_month }}
+                                                </option>
+                                                <option value="April" >April</option>
+                                                <option value="May" >May</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_month'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="birth_day">Day</label></h6>
+                                            <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option value="{{$user->birth_day}}" {{ ($user->birth_day ==$user->birth_day) ? 'selected' : '' }}> 
+                                                {{ $user->birth_day }}
+                                                </option>
+                                                <option value="1" >1</option>
+                                                <option value="2" >2</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
@@ -137,6 +171,21 @@
                                         <h6><label for="guardian">Guardian's Name</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="guardian" placeholder="Enter full name" value="{{ $user->guardian }}">
                                             <span class="text-danger">@error('guardian'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="guardian_middle_name">Guardian's Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="guardian_middle_name" placeholder="Enter Middle Name" value="{{ $user->guardian_middle_name }}">
+                                            <span class="text-danger">@error('guardian_middle_name'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="guardian_surname">Guardian's Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="guardian_surname" placeholder="Enter Surname" value="{{ $user->guardian_surname }}">
+                                            <span class="text-danger">@error('guardian_surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
