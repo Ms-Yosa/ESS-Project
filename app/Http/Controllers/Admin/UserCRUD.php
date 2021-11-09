@@ -61,7 +61,7 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-              return redirect()->back()->with('success','You are now registered successfully');
+              return redirect()->back()->with('success','New Student has been registered successfully');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }

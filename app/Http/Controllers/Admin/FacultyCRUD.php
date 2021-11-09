@@ -50,7 +50,7 @@ class FacultyCRUD extends Controller
           $save = $faculty->save();
 
           if( $save ){
-              return redirect()->back()->with('success','You are now registered successfully as Faculty');
+              return redirect()->back()->with('success','New Faculty has been registered successfully!');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }

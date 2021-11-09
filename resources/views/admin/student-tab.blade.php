@@ -38,8 +38,8 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Age</th>
+                                                <th>Birthday</th>
                                                 <th>Gender</th>
-                                                
                                                 <th>Action</th>
 
                                                 </tr>
@@ -48,9 +48,10 @@
                                               @foreach ($users as $key => $user)
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
-                                                      <td class="name">{{ $user->name }}</td>
+                                                      <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
                                                       <td class="email">{{ $user->email }}</td>
                                                       <td class="age">{{ $user->age }}</td>
+                                                      <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
                                                       <td class="gender">{{ $user->gender }}</td>
                                                       <td>
                                                           
