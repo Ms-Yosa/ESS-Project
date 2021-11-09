@@ -98,7 +98,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //Sidebar route
         Route::view('/admin tab', 'admin.admin-tab')->name('admin-tab');
         Route::get('/student tab', [UserCRUD::class,'index'])->name('student-tab');
-        Route::view('/faculty tab', 'admin.faculty-tab')->name('faculty-tab');
+        Route::get('/faculty tab', [FacultyCRUD::class,'index'])->name('faculty-tab');
         Route::view('/class tab', 'admin.class-tab')->name('class-tab');
         Route::view('/message tab', 'admin.message-tab')->name('message-tab');
         Route::view('/calendar tab', 'admin.calendar-tab')->name('calendar-tab');

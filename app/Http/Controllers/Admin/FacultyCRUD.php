@@ -69,4 +69,25 @@ class FacultyCRUD extends Controller
         }
     }
 
+     //Retrieve Data
+     function index(){
+        $faculties = Faculty::all();
+        return view('admin.faculty-tab',compact('faculties'));
+    }
+
+     //Destroy Data
+     function destroy($id){
+        $faculties = Faculty::find($id);
+        $faculties -> delete();
+        return redirect()->route('admin.student-tab'); 
+    }
+
+
+    //Edit button
+    function edit($id){
+        $faculty = Faculty::find($id);
+        return view('admin.student-management.edit',compact('faculty'));
+    }
+
+
 }

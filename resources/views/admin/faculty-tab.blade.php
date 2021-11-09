@@ -34,18 +34,42 @@
                                         <table id="example3" class="display" style="min-width: 845px">
                                             <thead>
                                                 <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Age</th>
-                                                <th>Gender</th>
-                                                
-                                                <th>Action</th>
-
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Age</th>
+                                                    <th>Gender</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                              
+                                            @foreach ($faculties as $key => $faculty)
+                                                  <tr>
+                                                      <td class="id">{{ ++$key }}</td>
+                                                      <td class="name">{{ $faculty->surname }}, {{ $faculty->name }} {{ $faculty->middle_name }}</td>
+                                                      <td class="email">{{ $faculty->email }}</td>
+                                                      <td class="age">{{ $faculty->age }}</td>
+                                                      <td class="gender">{{ $faculty->gender }}</td>
+                                                      <td>
+                                                          
+                                                      <form action="{{ route('user.edit', $faculty->id)}}" method="GET">  
+                                                          @csrf  
+                                                          
+                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
+                                                      </form>  
+
+                                                      
+                                                      <form action="{{ route('admin.student-destroy', $faculty->id)}}" method="POST">
+                                                        @method('DELETE')
+                                                          @csrf  
+                                                        
+                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
+                                                      </form>   
+
+                                                      
+                                                      </td>
+                                                  </tr>
+                                              @endforeach
                                             <tbody>
 
                                         </table>
