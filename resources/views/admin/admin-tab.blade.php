@@ -1,43 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Admin </title>
-          
-        <!-- Style -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/session.css') }}" rel="stylesheet">
-             <!-- Fonts -->
-     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- BOOTSTRAP -->
-   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   
-   <!-- FONT-AWESOME -->
-   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+@extends('layouts.admin.master')
+@section('content')
 
-   <!-- FOOTER -->
-   <link rel="stylesheet" href="{{ URL::asset('css/partials/footer.css') }}" />
-</head>
-<body>
+    <div class="content-body">
+        <!-- row -->
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Faculties Tab</h4>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0);">Admins</a></li>
+                        
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row tab-content">
+                        <div id="list-view" class="tab-pane fade active show col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">All Admin List  </h4>
+                                    <a href="{{ route('admin.admin-register') }}" class="btn btn-primary"><li class=
+"la la-user-plus"></li>  Add new</a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example3" class="display" style="min-width: 845px">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Age</th>
+                                                    <th>Birthday</th>
+                                                    <th>Gender</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach ($admins as $key => $admin)
+                                                  <tr>
+                                                      <td class="id">{{ ++$key }}</td>
+                                                      <td class="name">{{ $admin->surname }}, {{ $admin->name }} {{ $admin->middle_name }}</td>
+                                                      <td class="email">{{ $admin->email }}</td>
+                                                      <td class="age">{{ $admin->age }}</td>
+                                                      <td class="age">{{ $admin->birth_year }}, {{ $admin->birth_month }} {{ $admin->birth_day }}</td>
+                                                      <td class="gender">{{ $admin->gender }}</td>
+                                                      <td>
+                                                          
+                                                      <form action="{{ route('admin.admin-edit', $admin->id)}}" method="GET">  
+                                                          @csrf  
+                                                          
+                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
+                                                      </form>  
 
-  <nav class="navbar navbar-light" style="background-color:#FBD848" >
-        @include('partials.admin.navbar')
-  </nav>
+                                                      
+                                                      <form action="{{ route('admin.admin-destroy', $admin->id)}}" method="POST">
+                                                        @method('DELETE')
+                                                          @csrf  
+                                                        
+                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
+                                                      </form>   
 
+                                                      
+                                                      </td>
+                                                  </tr>
+                                              @endforeach
+                                            <tbody>
 
-    <button ><a href="{{ route('user.register') }}" >Register Students</a></button>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-
-    <footer>
-        @include('partials.admin.footer')
-    </footer>
-</body>
-</html>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

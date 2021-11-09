@@ -18,7 +18,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.admin-tab') }}">All Admins</a></li>
-                        <li><a href="#">Add Admin</a></li>
+                        <li><a href="{{ route('admin.admin-register') }}">Add Admin</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>

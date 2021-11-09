@@ -6,6 +6,7 @@ use App\Http\Controllers\Faculty\FacultyController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserCRUD;
 use App\Http\Controllers\Admin\FacultyCRUD;
+use App\Http\Controllers\Admin\AdminCRUD;
 
 
 /*
@@ -99,8 +100,15 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/update faculty account/{id}',[FacultyCRUD::class,'update'])->name('faculty-update');
         Route::delete('/delete faculty/{id}',[FacultyCRUD::class,'destroy'])->name('faculty-destroy');
 
+        // CRUD Admin Route
+        Route::view('/register admin','admin.admin-management.register')->name('admin-register');
+        Route::post('/create admin account',[AdminCRUD::class,'create'])->name('admin-create');
+        Route::get('/update admin account/{id}',[AdminCRUD::class,'edit'])->name('admin-edit');
+        Route::put('/update admin account/{id}',[AdminCRUD::class,'update'])->name('admin-update');
+        Route::delete('/delete admin/{id}',[AdminCRUD::class,'destroy'])->name('admin-destroy');
+
         //Sidebar route
-        Route::view('/admin tab', 'admin.admin-tab')->name('admin-tab');
+        Route::get('/admin tab', [AdminCRUD::class,'index'])->name('admin-tab');
         Route::get('/student tab', [UserCRUD::class,'index'])->name('student-tab');
         Route::get('/faculty tab', [FacultyCRUD::class,'index'])->name('faculty-tab');
         Route::view('/class tab', 'admin.class-tab')->name('class-tab');
