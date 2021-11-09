@@ -67,6 +67,8 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
     Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
          Route::view('/login','faculty.login')->name('login');
          Route::view('/register','admin.faculty-management.register')->name('register');
+
+         // FACULTY Register (create) and Login (check)
          Route::post('/create',[FacultyCRUD::class,'create'])->name('create');
          Route::post('/check',[FacultyCRUD::class,'check'])->name('check');
     });
@@ -94,6 +96,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // CRUD Student Route
         Route::delete('/destroy/{id}',[UserCRUD::class,'destroy'])->name('student-destroy');
+
+        // CRUD Faculty Route
+        Route::delete('/destroy/{id}',[FacultyCRUD::class,'destroy'])->name('faculty-destroy');
 
         //Sidebar route
         Route::view('/admin tab', 'admin.admin-tab')->name('admin-tab');

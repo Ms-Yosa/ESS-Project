@@ -59,7 +59,7 @@
                                                       </form>  
 
                                                       
-                                                      <form action="{{ route('admin.student-destroy', $faculty->id)}}" method="POST">
+                                                      <form action="{{ route('admin.faculty-destroy', $faculty->id)}}" method="POST">
                                                         @method('DELETE')
                                                           @csrf  
                                                         

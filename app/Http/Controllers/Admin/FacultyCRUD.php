@@ -79,14 +79,14 @@ class FacultyCRUD extends Controller
      function destroy($id){
         $faculties = Faculty::find($id);
         $faculties -> delete();
-        return redirect()->route('admin.student-tab'); 
+        return redirect()->route('admin.faculty-tab'); 
     }
 
 
     //Edit button
     function edit($id){
         $faculty = Faculty::find($id);
-        return view('admin.student-management.edit',compact('faculty'));
+        return view('admin.faculty-management.edit',compact('faculty'));
     }
 
 
