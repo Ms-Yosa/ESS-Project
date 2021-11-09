@@ -23,6 +23,9 @@ class FacultyCRUD extends Controller
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
+            'birth_year'=>'required|in:2020,2021',
+            'birth_month'=>'required|in:April,May',
+            'birth_day'=>'required|in:1,2',
             'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required',
@@ -37,6 +40,9 @@ class FacultyCRUD extends Controller
           $faculty->email = $request->email;
           $faculty->password = \Hash::make($request->password);
           $faculty->gender = $request->gender;
+          $faculty->birth_year = $request->birth_year;
+          $faculty->birth_month = $request->birth_month;
+          $faculty->birth_day = $request->birth_day;
           $faculty->age = $request->age;
           $faculty->bloodtype = $request->bloodtype;
           $faculty->contact_number = $request->contact_number;
@@ -82,6 +88,9 @@ class FacultyCRUD extends Controller
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
+            'birth_year'=>'required|in:2020,2021',
+            'birth_month'=>'required|in:April,May',
+            'birthday'=>'required|in:1,2',
             'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required',
@@ -96,6 +105,9 @@ class FacultyCRUD extends Controller
             $faculty->email = $request->email;
             $faculty->password = \Hash::make($request->password);
             $faculty->gender = $request->gender;
+            $faculty->birth_year = $request->birth_year;
+            $faculty->birth_month = $request->birth_month;
+            $faculty->birthday = $request->birthday;
             $faculty->age = $request->age;
             $faculty->bloodtype = $request->bloodtype;
             $faculty->contact_number = $request->contact_number;

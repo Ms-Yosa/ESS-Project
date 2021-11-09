@@ -19,7 +19,6 @@ class AddColumnToFaculties extends Migration
             $table->string('surname')->after('id');
             $table->string('middle_name')->after('name');
             $table->string('gender');
-            // $table->date('birthday');
             $table->string('age');
             $table->string('bloodtype');
             $table->string('contact_number');
@@ -42,7 +41,6 @@ class AddColumnToFaculties extends Migration
             $table->dropColumn('surname');
             $table->dropColumn('middle_name');
             $table->dropColumn('gender');
-            // $table->dropColumn('birthday');
             $table->dropColumn('age');
             $table->dropColumn('bloodtype');
             $table->dropColumn('contact_number');

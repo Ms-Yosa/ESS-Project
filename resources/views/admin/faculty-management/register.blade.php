@@ -84,9 +84,36 @@
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="birthday">Birthday</label></h6>
-                                            <input type="date" class="form-control form-control-sm" value="" name="birthday" id="birthday">
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        <h6><label for="year">Birth Year</label></h6>
+                                            <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="2021" >2020</option>
+                                                <option value="2021" >2021</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="month">Month</label></h6>
+                                            <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="April" >April</option>
+                                                <option value="May" >May</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_month'){{ $message }} @enderror</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="day">Day</label></h6>
+                                            <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select menu</option>
+                                                <option value="1" >1</option>
+                                                <option value="2" >2</option>
+                                            </select>
+                                            <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
 

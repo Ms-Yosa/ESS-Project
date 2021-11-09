@@ -38,6 +38,7 @@
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Age</th>
+                                                    <th>Birthday</th>
                                                     <th>Gender</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -49,6 +50,7 @@
                                                       <td class="name">{{ $faculty->surname }}, {{ $faculty->name }} {{ $faculty->middle_name }}</td>
                                                       <td class="email">{{ $faculty->email }}</td>
                                                       <td class="age">{{ $faculty->age }}</td>
+                                                      <td class="age">{{ $faculty->birth_year }}, {{ $faculty->birth_month }} {{ $faculty->birth_day }}</td>
                                                       <td class="gender">{{ $faculty->gender }}</td>
                                                       <td>
                                                           

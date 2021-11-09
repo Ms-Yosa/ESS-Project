@@ -21,7 +21,6 @@ class User extends Authenticatable
         'email',
         'password',
         'age',
-        // 'birthday',
         'gender',
         'religion',
         'student_bloodtype',
