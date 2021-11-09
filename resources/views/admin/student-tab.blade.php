@@ -26,7 +26,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">All Students List  </h4>
-                                    <a href="{{ route('user.register') }}" class="btn btn-primary"><li class=
+                                    <a href="{{ route('admin.student-register') }}" class="btn btn-primary"><li class=
 "la la-user-plus"></li>  Add new</a>
                                 </div>
                                 <div class="card-body">
@@ -54,7 +54,7 @@
                                                       <td class="gender">{{ $user->gender }}</td>
                                                       <td>
                                                           
-                                                      <form action="{{ route('user.edit', $user->id)}}" method="GET">  
+                                                      <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">  
                                                           @csrf  
                                                           
                                                           <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  

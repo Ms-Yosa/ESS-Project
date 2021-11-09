@@ -22,7 +22,7 @@
            
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
-                    <form action="{{ route('user.update', $user->id)}}" method="POST" autocomplete="off">
+                    <form action="{{ route('admin.student-update', $user->id)}}" method="POST" autocomplete="off">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">Personal Details</h5>

@@ -29,7 +29,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.faculty-tab') }}">All Faculties</a></li>
-                        <li><a href="{{ route('faculty.register') }}">Add Faculties</a></li>
+                        <li><a href="{{ route('admin.faculty-register') }}">Add Faculties</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
@@ -40,7 +40,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
-                        <li><a href="{{ route('user.register') }}">Add Students</a></li>
+                        <li><a href="{{ route('admin.student-register') }}">Add Students</a></li>
                         <!-- <li><a href="edit-student.html">Edit Students</a></li>
                         <li><a href="about-student.html">About Students</a></li> -->
                     </ul>

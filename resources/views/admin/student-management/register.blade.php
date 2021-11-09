@@ -22,7 +22,7 @@
            
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
-                    <form action="{{ route('user.create')}}"  method="POST" autocomplete="off">
+                    <form action="{{ route('admin.student-create')}}"  method="POST" autocomplete="off">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">Personal Details</h5>
