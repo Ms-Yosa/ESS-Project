@@ -60,8 +60,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
     Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
          Route::view('/login','faculty.login')->name('login');
         
-         // FACULTY Register (create) and Login (check)
-         
+         // FACULTY Login (check)
          Route::post('/check',[FacultyController::class,'check'])->name('check');
     });
 
@@ -87,7 +86,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
-        Route::view('/register student','admin.student-management.register')->name('student-register');
+        Route::view('/register student','admin.studen t-management.register')->name('student-register');
         Route::post('/create student account',[UserCRUD::class,'create'])->name('student-create');
         Route::get('/update student account/{id}',[UserCRUD::class,'edit'])->name('student-edit');
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
@@ -96,8 +95,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         // CRUD Faculty Route
         Route::view('/register faculty','admin.faculty-management.register')->name('faculty-register');
         Route::post('/create faculty account',[FacultyCRUD::class,'create'])->name('faculty-create');
-        Route::get('/update faculty account/{id}',[UserCRUD::class,'edit'])->name('faculty-edit');
-        Route::put('/update faculty account/{id}',[UserCRUD::class,'update'])->name('faculty-update');
+        Route::get('/update faculty account/{id}',[FacultyCRUD::class,'edit'])->name('faculty-edit');
+        Route::put('/update faculty account/{id}',[FacultyCRUD::class,'update'])->name('faculty-update');
         Route::delete('/delete faculty/{id}',[FacultyCRUD::class,'destroy'])->name('faculty-destroy');
 
         //Sidebar route

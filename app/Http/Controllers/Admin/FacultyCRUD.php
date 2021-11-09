@@ -19,7 +19,7 @@ class FacultyCRUD extends Controller
             'surname'=>'required',
             'name'=>'required',
             'middle_name'=>'required',
-            'email'=>'required|email|unique:users,email',
+            'email'=>'required|email|unique:faculties,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -32,8 +32,8 @@ class FacultyCRUD extends Controller
         //Insert Faculties in table
         $faculty = new Faculty();
           $faculty->surname = $request->surname;
-          $faculty->middle_name = $request->middle_name;
           $faculty->name = $request->name;
+          $faculty->middle_name = $request->middle_name;
           $faculty->email = $request->email;
           $faculty->password = \Hash::make($request->password);
           $faculty->gender = $request->gender;
@@ -70,6 +70,43 @@ class FacultyCRUD extends Controller
     function edit($id){
         $faculty = Faculty::find($id);
         return view('admin.faculty-management.edit',compact('faculty'));
+    }
+
+    //Update Data
+    function update(Request $request, $id){
+        $request->validate([
+            'surname'=>'required',
+            'name'=>'required',
+            'middle_name'=>'required',
+            'email'=>"required|email|unique:faculties,email,$id",
+            'password'=>'required|min:5|max:30',
+            'confirm-password'=>'required|min:5|max:30|same:password',
+            'gender'=>'required|in:Female,Male',
+            'age'=>'required|min:1|max:5',
+            'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
+            'contact_number'=>'required',
+            'address'=>'required',
+    ]);
+
+        //Insert Updates Faculty Info in table
+        $faculty =  Faculty::find($id);
+            $faculty->surname = $request->surname;
+            $faculty->name = $request->name;
+            $faculty->middle_name = $request->middle_name;
+            $faculty->email = $request->email;
+            $faculty->password = \Hash::make($request->password);
+            $faculty->gender = $request->gender;
+            $faculty->age = $request->age;
+            $faculty->bloodtype = $request->bloodtype;
+            $faculty->contact_number = $request->contact_number;
+            $faculty->address = $request->address;
+            $save = $faculty->save();
+
+            if( $save ){
+                return redirect()->back()->with('success','Update Information Successfully');
+            }else{
+                return redirect()->back()->with('fail','Something went wrong, failed to update');
+        }
     }
 
 

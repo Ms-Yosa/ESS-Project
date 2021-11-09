@@ -94,7 +94,7 @@ class UserCRUD extends Controller
             'address'=>'required',
     ]);
 
-        //Insert Updates User in table
+        //Insert Updated User in table
         $user =  User::find($id);
           $user->name = $request->name;
           $user->email = $request->email;
@@ -111,9 +111,9 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-              return redirect()->route('admin.student-tab');
-          }else{
-              return redirect()->back()->with('fail','Something went wrong, failed to update');
-        }
+            return redirect()->back()->with('success','Update Information Successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to update');
+    }
     }
 }
