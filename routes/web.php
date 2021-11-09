@@ -86,7 +86,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
-        Route::view('/register student','admin.studen t-management.register')->name('student-register');
+        Route::view('/register student','admin.student-management.register')->name('student-register');
         Route::post('/create student account',[UserCRUD::class,'create'])->name('student-create');
         Route::get('/update student account/{id}',[UserCRUD::class,'edit'])->name('student-edit');
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
