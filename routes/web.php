@@ -66,7 +66,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
     Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
          Route::view('/login','faculty.login')->name('login');
-         Route::view('/register','faculty.register')->name('register');
+         Route::view('/register','admin.faculty-management.register')->name('register');
          Route::post('/create',[FacultyCRUD::class,'create'])->name('create');
          Route::post('/check',[FacultyCRUD::class,'check'])->name('check');
     });
