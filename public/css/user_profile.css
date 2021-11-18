@@ -1,0 +1,54 @@
+
+/* student profile */
+
+.student-profile .card {
+	border-radius: 10px;
+	box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+	border: 1px solid transparent;
+  }
+  
+
+  .student-profile .card .card-header{
+	background: #fbc02d;
+  }
+  
+  .student-profile .card .card-header .profile_img {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	margin: 10px auto;
+	border: 10px solid rgba(255,255,255,0.3);
+	border-radius: 50%;
+  }
+  
+  .student-profile .card h3 {
+	font-size: 20px;
+	font-weight: 700;
+	color: white;
+	padding: 10px;
+  }
+
+  .student-profile .card ul{
+    list-style: none;
+	padding: 10px 15px;
+}
+  .student-profile .card ul > li {
+    border-bottom: 1px solid #ebeae6;
+    margin-top: 0;
+    line-height: 30px;
+	padding: 10px 15px;
+}
+.student-profile .card ul > li:last-child {
+    border-bottom: none;
+}
+
+.student-profile .table tr{
+	border-bottom: 1px solid #ebeae6;
+	font-size: 15px;
+	width: 50%;
+    float: left;
+    margin-bottom: 10px;
+    padding: 10px 10px 0px 10px;
+  }
+
+  

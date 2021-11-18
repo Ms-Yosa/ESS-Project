@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FacultyCRUD extends Controller
 {
- 
+
      //Create new faculty (registration)
      function create(Request $request){
         //validate Inputs
@@ -56,7 +56,7 @@ class FacultyCRUD extends Controller
         }
     }
 
-   
+
 
      //Retrieve Data
      function index(){
@@ -68,7 +68,7 @@ class FacultyCRUD extends Controller
      function destroy($id){
         $faculties = Faculty::find($id);
         $faculties -> delete();
-        return redirect()->route('admin.faculty-tab'); 
+        return redirect()->route('admin.faculty-tab');
     }
 
 

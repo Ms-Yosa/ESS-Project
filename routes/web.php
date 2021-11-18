@@ -38,7 +38,7 @@ Route::prefix('user')->name('user.')->group(function(){
 
     Route::middleware(['guest:web', 'PreventBackHistory'])->group(function(){
         Route::view('/login','user.login')->name('login');
-        
+
 
         // USER Login (check)
         Route::post('/check',[UserController::class,'check'])->name('check');
@@ -47,16 +47,20 @@ Route::prefix('user')->name('user.')->group(function(){
 
     // When the user is now logged-in
 
-    //Middleware:PreventBackHistory prevents browser to go back from previous pages when already logged 
-    
+    //Middleware:PreventBackHistory prevents browser to go back from previous pages when already logged
+
     Route::middleware(['auth:web', 'PreventBackHistory'])->group(function(){
-        Route::view('/home','user.home')->name('home'); 
+        Route::view('/home','user.home')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
-        
-        
-        
+
+        //User Pages
+        Route::view('/grade','user.student-grade')->name('grade');
+        Route::view('/profile','user.student-profile')->name('profile');
+        Route::view('/behavior','user.student-behavior')->name('behavior');
+        Route::view('/schedule','user.student-schedule')->name('schedule');
+
     });
-    
+
 
 });
 
@@ -64,7 +68,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
     Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
          Route::view('/login','faculty.login')->name('login');
-        
+
          // FACULTY Login (check)
          Route::post('/check',[FacultyController::class,'check'])->name('check');
     });
@@ -79,7 +83,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
 
 Route::prefix('admin')->name('admin.')->group(function(){
-       
+
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
           Route::view('/login','admin.login')->name('login');
           Route::post('/check',[AdminController::class,'check'])->name('check');
@@ -87,7 +91,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         // Route::view('/home','dashboard.admin.home')->name('home');
-        Route::view('/home','admin-home')->name('home'); 
+        Route::view('/home','admin-home')->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
