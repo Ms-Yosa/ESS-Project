@@ -22,7 +22,10 @@ class AddColumnToFaculties extends Migration
             $table->string('age');
             $table->string('bloodtype');
             $table->string('contact_number');
-            $table->string('address'); 
+            $table->string('address');
+            $table->string('birth_year')->after('gender');
+            $table->string('birth_month')->after('birth_year');
+            $table->string('birth_day')->after('birth_month');
 
         });
     }
@@ -45,6 +48,9 @@ class AddColumnToFaculties extends Migration
             $table->dropColumn('bloodtype');
             $table->dropColumn('contact_number');
             $table->dropColumn('address');
+            $table->dropColumn('birth_year');
+            $table->dropColumn('birth_month');
+            $table->dropColumn('birth_day');
         });
     }
 }
