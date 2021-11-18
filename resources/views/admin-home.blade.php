@@ -7,7 +7,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>ADMIN DASHBOARD</h4>
+                        <h4>Admin Dashboard</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -60,7 +60,7 @@
                                 <div class="media-body">
                                     <p class="mb-1">Admins</p>
                                     <h4 class="mb-0">2</h4>
-                                    <span class="badge badge-danger">Registred</span>
+                                    <span class="badge badge-danger">Registered</span>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                         <div class="student-info">
                             <div class="text-center container-fluid">
                                 
-                                <h3 class="item-title">{{ Auth::guard('admin')->user()->name }}</h3>
+                                <h3 class="item-title">{{ Auth::guard('admin')->user()->name }} {{ Auth::guard('admin')->user()->middle_name }} {{ Auth::guard('admin')->user()->surname }}</h3>
                                     <p>{{ Auth::guard('admin')->user()->email }}</p>
                                     <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                      <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
