@@ -96,8 +96,13 @@
 
                                                         <!-- Class Level Field -->
                                                         <div class="form-group col-sm-6">
-                                                            {!! Form::label('class_code', 'Level:') !!}
-                                                            {!! Form::text('level', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                                                            {{-- {!! Form::label('class_code', 'Level:') !!}
+                                                            {!! Form::text('level', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!} --}}
+                                                            <select class="form-group" name="level" id="level">
+                                                                <option value="">Select Level</option>
+                                                                <option value="Kindergarten">Kindergarten</option>
+                                                                <option value="Nursery">Nursery</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">

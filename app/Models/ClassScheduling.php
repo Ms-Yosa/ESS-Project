@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @version November 7, 2021, 6:35 pm UTC
  *
  * @property integer $subject_id
- * @property integer $level_id
  * @property integer $class_id
  * @property integer $day_id
  * @property string $start_time
@@ -37,7 +36,6 @@ class ClassScheduling extends Model
 
     public $fillable = [
         'subject_id',
-        'level_id',
         'class_id',
         'day_id',
         'start_time',
@@ -53,7 +51,6 @@ class ClassScheduling extends Model
     protected $casts = [
         'schedule_id' => 'integer',
         'subject_id' => 'integer',
-        'level_id' => 'integer',
         'class_id' => 'integer',
         'day_id' => 'integer',
         'start_time' => 'string',
@@ -68,7 +65,6 @@ class ClassScheduling extends Model
      */
     public static $rules = [
         'subject_id' => 'required|integer',
-        'level_id' => 'required|integer',
         'class_id' => 'required|integer',
         'day_id' => 'required|integer',
         'start_time' => 'required|string',

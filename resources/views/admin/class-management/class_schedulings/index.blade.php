@@ -40,7 +40,6 @@
                                                 <tr>
                                                     <th>Class</th>
                                                     <th>Subject</th>
-                                                    <th>Level</th>
                                                     <th>Day</th>
                                                     <th>Start Time</th>
                                                     <th>End Time</th>
@@ -54,7 +53,6 @@
                                                 <tr>
                                                     <td>{{ $classScheduling->class_name }}</td>
                                                     <td>{{ $classScheduling->subject_name }}</td>
-                                                    <td>{{ $classScheduling->level }}</td>
                                                     <td>
                                                         @switch($classScheduling->day_id)
                                                             @case('1')
@@ -121,17 +119,6 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="row">
-                                                            <!-- Subject Id Field -->
-                                                            <div class="form-group col-sm-6">
-                                                                {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
-                                                                {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                                <select class="form-group" name="subject_id" id="subject_id">
-                                                                    <option value="">Select Subject</option>
-                                                                    @foreach ($subject as $subj)
-                                                                        <option value="{{$subj -> subject_id}}">{{ $subj -> subject_name}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
 
                                                             <!-- Class Id Field -->
                                                             <div class="form-group col-sm-6">
@@ -145,14 +132,14 @@
                                                                 </select>
                                                             </div>
 
-                                                            <!-- Level Id Field -->
+                                                            <!-- Subject Id Field -->
                                                             <div class="form-group col-sm-6">
-                                                                {{-- {!! Form::label('level_id', 'Level Id:') !!}
-                                                                {!! Form::number('level_id', null, ['class' => 'form-control']) !!} --}}
-                                                                <select class="form-group" name="level_id" id="level_id">
-                                                                    <option value="">Select Level</option>
-                                                                    @foreach ($level as $lvl)
-                                                                        <option value="{{$lvl -> level_id}}">{{ $lvl -> level}}</option>
+                                                                {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
+                                                                {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
+                                                                <select class="form-group" name="subject_id" id="subject_id">
+                                                                    <option value="">Select Subject</option>
+                                                                    @foreach ($subject as $subj)
+                                                                        <option value="{{$subj -> subject_id}}">{{ $subj -> subject_name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>

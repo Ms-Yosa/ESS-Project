@@ -12,7 +12,6 @@ use Response;
 use Illuminate\Support\Facades\DB;
 use App\Models\Subject;
 use App\Models\Classes;
-use App\Models\Level;
 use App\Models\Day;
 
 class ClassSchedulingController extends AppBaseController
@@ -36,7 +35,6 @@ class ClassSchedulingController extends AppBaseController
     {
         $subject = Subject::all();
         $class = Classes::all();
-        $level = Level::all();
 
         $classSchedulings = $this->classSchedulingRepository->all();
 
@@ -50,7 +48,7 @@ class ClassSchedulingController extends AppBaseController
                         ->get();
 
                         // dd($classSchedule);die;
-        return view('admin.class-management.class_schedulings.index', compact('subject','class','level','classSchedule'))
+        return view('admin.class-management.class_schedulings.index', compact('subject','class','classSchedule'))
             ->with('classSchedulings', $classSchedulings);
     }
 

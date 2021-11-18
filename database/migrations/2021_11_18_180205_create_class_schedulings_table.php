@@ -16,7 +16,6 @@ class CreateClassSchedulingsTable extends Migration
         Schema::create('class_schedulings', function (Blueprint $table) {
             $table->bigIncrements('schedule_id');
             $table->integer('subject_id');
-            $table->integer('level_id');
             $table->integer('class_id');
             $table->integer('day_id');
             $table->string('start_time');

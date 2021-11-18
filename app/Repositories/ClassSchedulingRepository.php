@@ -18,7 +18,7 @@ class ClassSchedulingRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'subject_id',
-        'level_id',
+        'level',
         'class_id',
         'day_id',
         'start_time',
