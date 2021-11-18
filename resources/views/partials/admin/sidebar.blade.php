@@ -50,10 +50,12 @@
                         <span class="nav-text">Class Management</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.class-tab') }}">All Classes</a></li>
-                        
-                        <!-- <li><a href="edit-courses.html">Edit Courses</a></li>
-                        <li><a href="about-courses.html">About Courses</a></li> -->
+                        <li><a href="#">Academic Year</a></li>
+                        <li><a href="#">Classes</a></li>
+                        <li><a href="#">Levels</a></li>
+                        <li><a href="#">Class Assigning</a></li>
+                        <li><a href="#">Class Scheduling</a></li>
+                        <li><a href="#">Subjects</a></li>
                     </ul>
                 </li>
                 <li>
