@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserCRUD;
 use App\Http\Controllers\Admin\FacultyCRUD;
 use App\Http\Controllers\Admin\AdminCRUD;
+use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\ClassesController;
+use App\Http\Controllers\Admin\LevelController;
+use App\Http\Controllers\Admin\ClassSchedulingController;
 
 
 /*
@@ -114,6 +118,35 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::view('/class tab', 'admin.class-tab')->name('class-tab');
         Route::view('/message tab', 'admin.message-tab')->name('message-tab');
         Route::view('/calendar tab', 'admin.calendar-tab')->name('calendar-tab');
+
+        //class management routes
+        //**CRUD Subject Route
+        Route::get('/subjects', [SubjectController::class,'index'])->name('subjects');
+        Route::post('subjects', [SubjectController::class,'store'])->name('subjects.store');
+        Route::get('subjects/edit/{id}', [SubjectController::class,'edit'])->name('subjects.edit');
+        Route::post('subjects/update/{id}', [SubjectController::class,'update'])->name('subjects.update');
+        Route::get('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');
+
+        //**CRUD Levels Route
+        Route::get('/levels', [LevelController::class,'index'])->name('levels');
+        Route::post('/levels', [LevelController::class,'store'])->name('levels.store');
+        Route::get('/levels/edit/{id}', [LevelController::class,'edit'])->name('levels.edit');
+        Route::post('/levels/update/{id}', [LevelController::class,'update'])->name('levels.update');
+        Route::get('/levels/{id}', [LevelController::class,'destroy'])->name('levels.destroy');
+
+        //**CRUD Class Route
+        Route::get('/classes', [ClassesController::class,'index'])->name('classes');
+        Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
+        Route::get('/classes/edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
+        Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
+        Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
+
+        //**CRUD classSchedulings Route
+        Route::get('/classSchedulings', [ClassSchedulingController::class,'index'])->name('classSchedulings');
+        Route::post('/classSchedulings', [ClassSchedulingController::class,'store'])->name('classSchedulings.store');
+        Route::get('/classSchedulings/edit/{id}', [ClassSchedulingController::class,'edit'])->name('classSchedulings.edit');
+        Route::post('/classSchedulings/update/{id}', [ClassSchedulingController::class,'update'])->name('classSchedulings.update');
+        Route::get('/classSchedulings/{id}', [ClassSchedulingController::class,'destroy'])->name('classSchedulings.destroy');
     });
 
 });

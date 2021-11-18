@@ -51,11 +51,11 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="#">Academic Year</a></li>
-                        <li><a href="#">Classes</a></li>
-                        <li><a href="#">Levels</a></li>
+                        <li><a href="{{ route('admin.classes') }}">Classes</a></li>
+                        <li><a href="{{ route('admin.levels') }}">Levels</a></li>
                         <li><a href="#">Class Assigning</a></li>
-                        <li><a href="#">Class Scheduling</a></li>
-                        <li><a href="#">Subjects</a></li>
+                        <li><a href="{{ route('admin.classSchedulings') }}">Class Scheduling</a></li>
+                        <li><a href="{{ route('admin.subjects') }}">Subjects</a></li>
                     </ul>
                 </li>
                 <li>

@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -11,7 +14,12 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "pusher/pusher-php-server": "^7.0",
+        "infyomlabs/laravel-generator": "^3.0",
+        "laravelcollective/html": "^6.2",
+        "infyomlabs/adminlte-templates": "^3.0",
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
