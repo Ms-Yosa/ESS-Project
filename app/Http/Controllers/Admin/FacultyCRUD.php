@@ -25,7 +25,7 @@ class FacultyCRUD extends Controller
             'gender'=>'required|in:Female,Male',
             'birth_year'=>'required|in:2020,2021',
             'birth_month'=>'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
-            'birth_day'=>'required|in:1,2',
+            'birth_day'=>'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
             'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required',
