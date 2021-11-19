@@ -102,7 +102,7 @@ class UserCRUD extends Controller
             'age'=>'required',
             'gender'=>'required|in:Female,Male',
             'birth_year'=>'required|in:2020,2021',
-            'birth_month'=>'required|in:April,May',
+            'birth_month'=>'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
             'birth_day'=>'required|in:1,2',
             'religion'=>'required',
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
