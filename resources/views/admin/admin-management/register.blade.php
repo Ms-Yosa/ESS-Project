@@ -99,8 +99,18 @@
                                         <h6><label for="month">Month</label></h6>
                                             <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
+                                                <option value="January" >January</option>
+                                                <option value="February" >February</option>
+                                                <option value="March" >March</option>
                                                 <option value="April" >April</option>
                                                 <option value="May" >May</option>
+                                                <option value="June" >June</option>
+                                                <option value="July" >July</option>
+                                                <option value="August" >August</option>
+                                                <option value="September" >September</option>
+                                                <option value="October" >October</option>
+                                                <option value="November" >November</option>
+                                                <option value="December" >December</option>
                                             </select>
                                             <span class="text-danger">@error('birth_month'){{ $message }} @enderror</span>
                                         </div>
