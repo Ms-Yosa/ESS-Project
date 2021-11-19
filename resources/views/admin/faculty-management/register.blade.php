@@ -87,8 +87,33 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                                <option value="2021" >2020</option>
-                                                <option value="2021" >2021</option>
+                                                <option value="2021" >1999</option>
+                                                <option value="1999" >1999</option>
+                                                <option value="1998" >1998</option>
+                                                <option value="1997" >1997</option>
+                                                <option value="1996" >1996</option>
+                                                <option value="1995" >1995</option>
+                                                <option value="1994" >1994</option>
+                                                <option value="1993" >1993</option>
+                                                <option value="1992" >1992</option>
+                                                <option value="1991" >1991</option>
+                                                <option value="1990" >1990</option>
+                                                <option value="1989" >1989</option>
+                                                <option value="1988" >1988</option>
+                                                <option value="1987" >1987</option>
+                                                <option value="1986" >1986</option>
+                                                <option value="1985" >1985</option>
+                                                <option value="1984" >1984</option>
+                                                <option value="1983" >1983</option>
+                                                <option value="1982" >1982</option>
+                                                <option value="1981" >1981</option>
+                                                <option value="1980" >1980</option>
+                                                <option value="1979" >1979</option>
+                                                <option value="1978" >1978</option>
+                                                <option value="1977" >1977</option>
+                                                <option value="1976" >1976</option>
+                                                <option value="1975" >1975</option>
+                                                <option value="1974" >1974</option>
                                             </select>
                                             <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
                                         </div>
