@@ -131,13 +131,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('subjects/update/{id}', [SubjectController::class,'update'])->name('subjects.update');
         Route::get('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');
 
-        //**CRUD Levels Route
-        Route::get('/levels', [LevelController::class,'index'])->name('levels');
-        Route::post('/levels', [LevelController::class,'store'])->name('levels.store');
-        Route::get('/levels/edit/{id}', [LevelController::class,'edit'])->name('levels.edit');
-        Route::post('/levels/update/{id}', [LevelController::class,'update'])->name('levels.update');
-        Route::get('/levels/{id}', [LevelController::class,'destroy'])->name('levels.destroy');
-
         //**CRUD Class Route
         Route::get('/classes', [ClassesController::class,'index'])->name('classes');
         Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
