@@ -115,10 +115,10 @@ class SubjectController extends AppBaseController
             Flash::error('Subject not found');
 
             return redirect(route('admin.subjects'));
-        }
-
+        } 
+        
         $this->subjectRepository->delete($id);
-
+        
         Flash::success('Subject deleted successfully.');
 
         return redirect(route('admin.subjects'));

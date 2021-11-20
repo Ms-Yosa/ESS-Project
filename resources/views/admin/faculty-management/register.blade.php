@@ -87,7 +87,7 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                                <option value="2021" >1999</option>
+                                               
                                                 <option value="1999" >1999</option>
                                                 <option value="1998" >1998</option>
                                                 <option value="1997" >1997</option>
