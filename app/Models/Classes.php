@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Classes extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     use HasFactory;
 
