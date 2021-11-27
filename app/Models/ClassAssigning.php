@@ -9,12 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class ClassAssigning
  * @package App\Models
- * @version November 7, 2021, 6:34 pm UTC
+ * @version November 26, 2021, 10:54 pm UTC
  *
- * @property integer $subject_id
- * @property integer $level_id
- * @property integer $classroom_id
- * @property integer $day_id
+ * @property integer $teacher_id
+ * @property integer $class_schedule_id
  */
 class ClassAssigning extends Model
 {
@@ -33,10 +31,8 @@ class ClassAssigning extends Model
 
 
     public $fillable = [
-        'subject_id',
-        'level_id',
-        'class_id',
-        'day_id'
+        'teacher_id',
+        'class_schedule_id'
     ];
 
     /**
@@ -46,10 +42,8 @@ class ClassAssigning extends Model
      */
     protected $casts = [
         'class_assign_id' => 'integer',
-        'subject_id' => 'integer',
-        'level_id' => 'integer',
-        'class_id' => 'integer',
-        'day_id' => 'integer'
+        'teacher_id' => 'integer',
+        'class_schedule_id' => 'integer'
     ];
 
     /**
@@ -58,10 +52,8 @@ class ClassAssigning extends Model
      * @var array
      */
     public static $rules = [
-        'subject_id' => 'required|integer',
-        'level_id' => 'required|integer',
-        'class_id' => 'required|integer',
-        'day_id' => 'required|integer',
+        'teacher_id' => 'required|integer',
+        'class_schedule_id' => 'required|integer',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

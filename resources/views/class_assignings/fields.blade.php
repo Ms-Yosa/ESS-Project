@@ -1,23 +1,11 @@
-<!-- Subject Id Field -->
+<!-- Teacher Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('subject_id', 'Subject Id:') !!}
-    {!! Form::number('subject_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('teacher_id', 'Teacher Id:') !!}
+    {!! Form::number('teacher_id', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Level Id Field -->
+<!-- Class Schedule Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('level_id', 'Level Id:') !!}
-    {!! Form::number('level_id', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Classroom Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('classroom_id', 'Classroom Id:') !!}
-    {!! Form::number('classroom_id', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Day Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('day_id', 'Day Id:') !!}
-    {!! Form::number('day_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('class_schedule_id', 'Class Schedule Id:') !!}
+    {!! Form::number('class_schedule_id', null, ['class' => 'form-control']) !!}
 </div>

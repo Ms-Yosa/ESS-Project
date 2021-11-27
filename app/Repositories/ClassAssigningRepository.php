@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ClassAssigningRepository
  * @package App\Repositories
- * @version November 7, 2021, 6:34 pm UTC
+ * @version November 26, 2021, 10:54 pm UTC
 */
 
 class ClassAssigningRepository extends BaseRepository
@@ -17,12 +17,9 @@ class ClassAssigningRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'subject_id',
-        'level_id',
-        'classroom_id',
-        'day_id'
+        'teacher_id',
+        'class_schedule_id'
     ];
-
 
     /**
      * Return searchable fields

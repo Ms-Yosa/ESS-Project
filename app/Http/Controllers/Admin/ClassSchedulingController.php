@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Subject;
 use App\Models\Classes;
 use App\Models\Day;
+use App\Models\ClassScheduling;
 
 class ClassSchedulingController extends AppBaseController
 {
@@ -107,17 +108,11 @@ class ClassSchedulingController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $classScheduling = $this->classSchedulingRepository->find($id);
-
-        if (empty($classScheduling)) {
-            Flash::error('Class Scheduling not found');
-
-            return redirect(route('admin.classSchedulings'));
+        if($request->ajax()){
+            return response(ClassScheduling::find($request->id));
         }
-
-        return view('admin.class-management.class_schedulings.edit')->with('classScheduling', $classScheduling);
     }
 
     /**

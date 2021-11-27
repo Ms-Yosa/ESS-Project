@@ -8,7 +8,7 @@
                 <div class="card shadow-sm">
                     <div class="card-header text-center">
                         <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
-                        <h3>{{ Auth::guard('web')->user()->name }}</h3>
+                        <h3>{{ Auth::guard('web')->user()->surname }}, {{ Auth::guard('web')->user()->name }} {{ Auth::guard('web')->user()->middle_name }}</h3>
                     </div>
                     <ul class="card-body">
                         <li class="mb-0"><strong class="pr-1">Student Number:</strong>123456789</li>
@@ -32,7 +32,7 @@
                     </tr>
                     <tr>
                         <th>Birthday</th>
-                        <td></td>
+                        <td>{{ Auth::guard('web')->user()->birth_year }}, {{ Auth::guard('web')->user()->birth_month }} {{ Auth::guard('web')->user()->birth_day }}</td>
                     </tr>
                     <tr>
                         <th>Gender</th>

@@ -1,7 +1,7 @@
 <body style="font-family: 'Nunito', sans-serif">
     <table class="table table-borderless grades-student-personal" >
         <thead class="border border-warning border border-2 ">
-            <th scope="col" colspan="2" class="text-center grades-header "><span>Dela Cruz, Juan</span> </th>
+            <th scope="col" colspan="2" class="text-center grades-header "><span>{{ Auth::guard('web')->user()->surname }}, {{ Auth::guard('web')->user()->name }} {{ Auth::guard('web')->user()->middle_name }}</span> </th>
         </thead>
         <tbody>
             <tr>

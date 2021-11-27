@@ -22,10 +22,8 @@ class ClassAssigningFactory extends Factory
     public function definition()
     {
         return [
-            'subject_id' => $this->faker->randomDigitNotNull,
-        'level_id' => $this->faker->randomDigitNotNull,
-        'classroom_id' => $this->faker->randomDigitNotNull,
-        'day_id' => $this->faker->randomDigitNotNull,
+            'teacher_id' => $this->faker->randomDigitNotNull,
+        'class_schedule_id' => $this->faker->randomDigitNotNull,
         'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')

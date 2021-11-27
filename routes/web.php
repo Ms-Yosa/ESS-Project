@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\ClassSchedulingController;
+use App\Http\Controllers\Admin\ClassAssigningController;
 
 
 /*
@@ -141,12 +142,23 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //**CRUD classSchedulings Route
         Route::get('/classSchedulings', [ClassSchedulingController::class,'index'])->name('classSchedulings');
         Route::post('/classSchedulings', [ClassSchedulingController::class,'store'])->name('classSchedulings.store');
-        Route::get('/classSchedulings/edit/{id}', [ClassSchedulingController::class,'edit'])->name('classSchedulings.edit');
+        Route::get('/classSchedulings/edit', [ClassSchedulingController::class,'edit'])->name('classSchedulings.edit');
         Route::post('/classSchedulings/update/{id}', [ClassSchedulingController::class,'update'])->name('classSchedulings.update');
         Route::get('/classSchedulings/{id}', [ClassSchedulingController::class,'destroy'])->name('classSchedulings.destroy');
+        // Route::get('/classSchedulings/edit', ['as' => 'edit', 'uses' => 'ClassSchedulingController@edit']);
+
+        //**CRUD Class Assigning Route
+        Route::get('/classAssignings', [ClassAssigningController::class,'index'])->name('classAssignings');
+        Route::post('/classAssignings', [ClassAssigningController::class,'store'])->name('classAssignings.store');
+        Route::get('/classAssignings/edit/{id}', [ClassAssigningController::class,'edit'])->name('classAssignings.edit');
+        Route::post('/classAssignings/update/{id}', [ClassAssigningController::class,'update'])->name('classAssignings.update');
+        Route::get('/classAssignings/{id}', [ClassesConClassAssigningControllertroller::class,'destroy'])->name('classAssignings.destroy');
     });
 
 });
 
 
 
+
+
+Route::resource('classAssignings', App\Http\Controllers\ClassAssigningController::class);

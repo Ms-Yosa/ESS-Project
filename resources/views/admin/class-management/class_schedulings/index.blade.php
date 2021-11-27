@@ -24,6 +24,7 @@
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
                               @include('flash::message')
+
                               @include('adminlte-templates::common.errors')
                                 <div class="card-header">
                                     <h4 class="card-title">All Schedule List  </h4>
@@ -91,10 +92,11 @@
                                                     <td width="120">
                                                         {!! Form::open(['route' => ['admin.classSchedulings.destroy', $classScheduling->schedule_id], 'method' => 'get']) !!}
                                                         <div class='btn-group'>
-                                                            <a href="{{ route('admin.classSchedulings.edit', [$classScheduling->schedule_id]) }}"
-                                                               class='btn badge bg-success'>
+                                                            {{-- edit --}}
+                                                            <a data-toggle="modal" data-target="#edit-schedule-modal" id="Edit" data-id="{{$classScheduling->schedule_id}}" class='btn badge bg-success'>
                                                                <i class="la la-pencil-square"></i>
                                                             </a>
+                                                            {{-- delete --}}
                                                             {!! Form::button('<i class="la la-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                                                         </div>
                                                         {!! Form::close() !!}
@@ -112,7 +114,7 @@
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Add new schedule</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -224,10 +226,10 @@
 
                                                             <!-- Status Field -->
                                                             <div class="form-group col-sm-6">
-                                                                <div class="form-check">
+                                                                <div class="form-check" name="status" id="status">
                                                                     {!! Form::hidden('status', 0, ['class' => 'form-check-input']) !!}
                                                                     {!! Form::checkbox('status', '1', null, ['class' => 'form-check-input']) !!}
-                                                                    {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!}
+                                                                    {{-- {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!} --}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -241,6 +243,7 @@
 
                                         </div>
                                     {!! Form::close() !!}
+                                    @include('admin.class-management.class_schedulings.edit')
                                 </div>
                             </div>
                         </div>

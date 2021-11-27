@@ -178,11 +178,11 @@ i {
 
 /* footer css */
   footer{
-	background-color: #FFE077; 
-	width: 100%; 
-	text-align: center; 
-	line-height: 35px; 
-	height: 35px; 
+	background-color: #FFE077;
+	width: 100%;
+	text-align: center;
+	line-height: 35px;
+	height: 35px;
 	color: #1b1b1f;
 	font-size: 14px;
   }
@@ -190,7 +190,7 @@ i {
 	padding-right: 10px;
   }
   span#site-credit a{
-	color: #3399fe; 
+	color: #3399fe;
 	font-size: 75%;
   }
   span#site-credit a:hover{
@@ -219,8 +219,8 @@ i {
 	  padding-right: 0px;
 	}
 	#footer-social-links li{
-	  list-style: none; 
-	  display: inline-block; 
+	  list-style: none;
+	  display: inline-block;
 	  padding: 0px 10px;
 	}
   }
@@ -229,18 +229,18 @@ i {
 	.footer-bottom{text-align: left;
 	}
 	.footer-bottom-copyright-text{
-	  max-width: 480px; 
-	  float: left; 
-	  padding: 5px 5px 5px 10px; 
+	  max-width: 480px;
+	  float: left;
+	  padding: 5px 5px 5px 10px;
 	}
 	.footer-bottom-social-icons{
-	  background-color: #FFE077; 
-	  text-align: right; 
+	  background-color: #FFE077;
+	  text-align: right;
 	  padding: 0px 10px;
 	}
 	  #footer-social-links li{
-		list-style: none; 
-		display: inline-block; 
+		list-style: none;
+		display: inline-block;
 		padding: 5px;
 	}
   }
@@ -270,6 +270,7 @@ i {
 	padding-left: 0;
 	width: 200px;
 	margin-top: 15%;
+	z-index: 999;
 
     /* Styles */
     background: #fff;
@@ -332,4 +333,8 @@ i {
     border-bottom: 1px solid rgba(0,0,0,0.2);
     max-height: 400px;
 	margin-right: 1em;
+}
+
+.fa-user{
+	font-size: 15pt!important;
 }

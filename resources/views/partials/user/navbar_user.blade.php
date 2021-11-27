@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-custom navbar-mainbg">
+<nav class="navbar navbar-expand-custom navbar-mainbg p-0">
     <a class="navbar-brand" href="#" >
         <img src="/assets/Logo.png" width="30" height="30" style="border-radius:100%;border: 2px solid #FD6300 " class="d-inline-block align-top" alt="AMSAI Logo">
         AMSAI Student Information System
@@ -27,16 +27,16 @@
             <a class="student-notif-icon" href="javascript:void(0);"><i class="fa fa-bell" aria-hidden="true"></i></a>
         </div>
         <div id="dd" class="wrapper-dropdown-5" tabindex="1"><i class="fa fa-user" aria-hidden="true"></i>
-        <ul class="dropdown">
-            <li class="logged-in-user"><a  href="{{ route('user.profile') }}">{{ Auth::guard('web')->user()->name }}<i class="fas fa-user-circle"></i></a></li>
-            <li>
-                <a  href="#">Message <i class="fa fa-comment" aria-hidden="true"></i> </a>
-            </li>
-            <li>
-                <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout<i class="fas fa-sign-out-alt"></i></a>
-                <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+            <ul class="dropdown">
+                <li class="logged-in-user"><a  href="{{ route('user.profile') }}">{{ Auth::guard('web')->user()->name }} {{ Auth::guard('web')->user()->surname }}<i class="fas fa-user-circle float-right"></i></a></li>
+                <li>
+                    <a  href="#">Message <i class="fa fa-comment float-right" aria-hidden="true"></i> </a>
+                </li>
+                <li>
+                    <a href="{{ route('user.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout<i class="fas fa-sign-out-alt float-right"></i></a>
+                    <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
 
-            </li>
-        </ul>
+                </li>
+            </ul>
         </div>
     </nav>

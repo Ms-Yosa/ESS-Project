@@ -29,13 +29,13 @@ class UserController extends Controller
             return redirect()->route('user.login')->with('fail','Mismatched credentials!');
         }
     }
-   
- 
+
+
     //Logout
     function logout(){
         Auth::guard('web')->logout();
         return redirect('/');
     }
-   
+
 }
 
