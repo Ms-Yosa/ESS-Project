@@ -51,7 +51,6 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.classes') }}">Classes</a></li>
-                        <li><a href="{{ route('admin.classAssignings') }}">Class Assigning</a></li>
                         <li><a href="{{ route('admin.classSchedulings') }}">Class Scheduling</a></li>
                         <li><a href="{{ route('admin.subjects') }}">Subjects</a></li>
                     </ul>

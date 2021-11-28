@@ -40,7 +40,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Class</th>
-                                                    <th>Subject</th>
+                                                    <th>Faculty</th>
                                                     <th>Day</th>
                                                     <th>Start Time</th>
                                                     <th>End Time</th>
@@ -53,7 +53,7 @@
                                             @foreach($classSchedule as $classScheduling)
                                                 <tr>
                                                     <td>{{ $classScheduling->class_name }}</td>
-                                                    <td>{{ $classScheduling->subject_name }}</td>
+                                                    <td>{{ $classScheduling->name }}</td>
                                                     <td>
                                                         @switch($classScheduling->day_id)
                                                             @case('1')

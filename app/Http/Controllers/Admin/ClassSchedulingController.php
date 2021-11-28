@@ -14,6 +14,7 @@ use App\Models\Subject;
 use App\Models\Classes;
 use App\Models\Day;
 use App\Models\ClassScheduling;
+use App\Models\Faculty;
 
 class ClassSchedulingController extends AppBaseController
 {
@@ -36,20 +37,23 @@ class ClassSchedulingController extends AppBaseController
     {
         $subject = Subject::all();
         $class = Classes::all();
+        $faculty = Faculty::all();
 
         $classSchedulings = $this->classSchedulingRepository->all();
 
         $classSchedule = DB::table('class_schedulings')->select(
-                        'subjects.*',
+                        // 'subjects.*',
                         'classes.*',
+                        'faculties.*',
                         'class_schedulings.*'
                         )
-                        ->join('subjects','subjects.subject_id', '=', 'class_schedulings.subject_id' )
+                        ->join('faculties','faculties.id', '=', 'class_schedulings.subject_id' )
                         ->join('classes','classes.class_id', '=', 'class_schedulings.class_id' )
+                        // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
                         ->get();
 
                         // dd($classSchedule);die;
-        return view('admin.class-management.class_schedulings.index', compact('subject','class','classSchedule'))
+        return view('admin.class-management.class_schedulings.index', compact('subject','class', 'faculty','classSchedule'))
             ->with('classSchedulings', $classSchedulings);
     }
 
