@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Classes;
 use Illuminate\Support\Facades\Auth;
 
 class UserCRUD extends Controller
@@ -34,7 +36,8 @@ class UserCRUD extends Controller
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'address'=>'required',
-            
+            'class_id'=>'required'
+
         ]);
 
         //Insert User in table
@@ -58,6 +61,7 @@ class UserCRUD extends Controller
           $user->relation = $request->relation;
           $user->guardian_bloodtype = $request->guardian_bloodtype;
           $user->address = $request->address;
+          $user->class_id = $request->class_id;
           $save = $user->save();
 
           if( $save ){
@@ -65,14 +69,30 @@ class UserCRUD extends Controller
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
+
     }
 
-   
- 
+
+
     //Retrieve Data
-     function index(){
+     function index(Request $request){
         $users = User::all();
         return view('admin.student-tab',compact('users'));
+    }
+
+    //Pass class table
+    function register(Request $request){
+        $users = User::all();
+        $class = Classes::all();
+        $user = DB::table('users')->select(
+            // 'subjects.*',
+            'classes.*'
+            )
+            ->join('classes','classes.class_id', '=', 'users.class_id' )
+            // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
+            ->get();
+        return view('admin.student-management.register', compact('class','user'))
+        ->with('users', $users);
     }
 
 
@@ -80,7 +100,7 @@ class UserCRUD extends Controller
     function destroy($id){
         $users = User::find($id);
         $users -> delete();
-        return redirect()->route('admin.student-tab'); 
+        return redirect()->route('admin.student-tab');
     }
 
 
@@ -113,6 +133,7 @@ class UserCRUD extends Controller
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'address'=>'required',
+            'class_id'=>'required'
     ]);
 
         //Insert Updated User in table
@@ -135,6 +156,7 @@ class UserCRUD extends Controller
           $user->relation = $request->relation;
           $user->guardian_bloodtype = $request->guardian_bloodtype;
           $user->address = $request->address;
+          $user->class_id = $request->class_id;
           $save = $user->save();
 
           if( $save ){
