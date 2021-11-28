@@ -12,6 +12,7 @@ use Response;
 use Illuminate\Support\Facades\DB;
 use App\Models\Subject;
 use App\Models\Classes;
+use App\Models\Faculty;
 use App\Models\Day;
 
 class ClassSchedulingController extends AppBaseController
@@ -33,22 +34,22 @@ class ClassSchedulingController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $subject = Subject::all();
         $class = Classes::all();
+        $faculty = Faculty::all();
 
         $classSchedulings = $this->classSchedulingRepository->all();
 
         $classSchedule = DB::table('class_schedulings')->select(
-                        'subjects.*',
+                        'faculties.*',
                         'classes.*',
                         'class_schedulings.*'
                         )
-                        ->join('subjects','subjects.subject_id', '=', 'class_schedulings.subject_id' )
+                        ->join('faculties','faculties.id', '=', 'class_schedulings.subject_id' )
                         ->join('classes','classes.class_id', '=', 'class_schedulings.class_id' )
                         ->get();
 
                         // dd($classSchedule);die;
-        return view('admin.class-management.class_schedulings.index', compact('subject','class','classSchedule'))
+        return view('admin.class-management.class_schedulings.index', compact('faculty','class','classSchedule'))
             ->with('classSchedulings', $classSchedulings);
     }
 

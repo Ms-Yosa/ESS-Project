@@ -101,7 +101,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
         Route::delete('/delete student/{id}',[UserCRUD::class,'destroy'])->name('student-destroy');
 
-
         // CRUD Faculty Route
         Route::view('/register faculty','admin.faculty-management.register')->name('faculty-register');
         Route::post('/create faculty account',[FacultyCRUD::class,'create'])->name('faculty-create');
