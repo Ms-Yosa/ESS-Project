@@ -9,7 +9,7 @@ use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
-{    
+{
     function check(Request $request){
          //Validate Inputs
          $request->validate([
@@ -33,7 +33,7 @@ class AdminController extends Controller
         return redirect('/');
     }
 
-    // Sidebar Controller 
+    // Sidebar Controller
 
     function adminTab(){
         Auth::guard('admin')->adminTab();
