@@ -34,7 +34,14 @@ class Classes extends Model
     public $fillable = [
         'class_name',
         'class_code',
-        'level'
+        'level',
+        'faculty_id',
+        'subject_id',
+        'class_id',
+        'day_id',
+        'start_time',
+        'end_time',
+        'status'
     ];
 
     /**
@@ -46,7 +53,14 @@ class Classes extends Model
         'class_id' => 'integer',
         'class_name' => 'string',
         'class_code' => 'string',
-        'level' => 'string'
+        'level' => 'string',
+        'faculty_id' => 'integer',
+        'subject_id' => 'integer',
+        'class_id' => 'integer',
+        'day_id' => 'integer',
+        'start_time' => 'string',
+        'end_time' => 'string',
+        'status' => 'boolean'
     ];
 
     /**
@@ -58,6 +72,12 @@ class Classes extends Model
         'class_name' => 'required|string|max:255',
         'class_code' => 'required|string|max:255',
         'level' => 'required|string|max:255',
+        'faculty_id' => 'required|integer',
+        'subject_id' => 'required|integer',
+        'day_id' => 'required|integer',
+        'start_time' => 'required|string',
+        'end_time' => 'required|string',
+        'status' => 'required|boolean',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

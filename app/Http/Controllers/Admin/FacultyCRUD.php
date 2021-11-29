@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Faculty;
+use App\Models\Classes;
 use Illuminate\Support\Facades\Auth;
 
 class FacultyCRUD extends Controller
@@ -61,7 +63,15 @@ class FacultyCRUD extends Controller
      //Retrieve Data
      function index(){
         $faculties = Faculty::all();
-        return view('admin.faculty-tab',compact('faculties'));
+        $class = Classes::all();
+        $faculty = DB::table('faculties')->select(
+            'classes.*',
+            'faculties.*'
+            )
+            ->join('classes','classes.faculty_id', '=', 'faculties.id' )
+            ->get();
+            return view('admin.faculty-tab', compact('class','faculty'))
+            ->with('faculties', $faculties);
     }
 
      //Destroy Data

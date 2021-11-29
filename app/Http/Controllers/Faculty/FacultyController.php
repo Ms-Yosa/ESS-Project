@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Faculty;
+use App\Models\Classes;
 use Illuminate\Support\Facades\Auth;
 
 class FacultyController extends Controller
@@ -36,6 +37,6 @@ class FacultyController extends Controller
         Auth::guard('faculty')->logout();
         return redirect('/');
     }
-   
+
 }
 

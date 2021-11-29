@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
+use App\Models\Subject;
+use App\Models\Classes;
+use App\Models\Faculty;
+
 class ClassesController extends AppBaseController
 {
     /** @var  ClassesRepository */
@@ -30,8 +34,10 @@ class ClassesController extends AppBaseController
     public function index(Request $request)
     {
         $classes = $this->classesRepository->all();
+        $faculty = Faculty::all();
+        $subject = Subject::all();
 
-        return view('admin.class-management.classes.index')
+        return view('admin.class-management.classes.index', compact('faculty','subject'))
             ->with('classes', $classes);
     }
 

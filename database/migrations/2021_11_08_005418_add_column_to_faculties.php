@@ -40,7 +40,7 @@ class AddColumnToFaculties extends Migration
         Schema::table('faculties', function (Blueprint $table) {
             //
 
-            
+
             $table->dropColumn('surname');
             $table->dropColumn('middle_name');
             $table->dropColumn('gender');

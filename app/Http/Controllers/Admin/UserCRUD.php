@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Classes;
+use App\Models\Faculty;
 use Illuminate\Support\Facades\Auth;
 
 class UserCRUD extends Controller
@@ -77,21 +78,34 @@ class UserCRUD extends Controller
     //Retrieve Data
      function index(Request $request){
         $users = User::all();
-        return view('admin.student-tab',compact('users'));
+        $class = Classes::all();
+        $faculty = Faculty::all();
+        $user = DB::table('users')->select(
+            'users.*',
+            'classes.*',
+            'faculties.*'
+            )
+            ->join('classes','classes.class_id', '=', 'users.class_id' )
+            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
+            ->get();
+            // dd($user);die;
+        return view('admin.student-tab', compact('class','user','faculty'))
+        ->with('users', $users);
     }
 
     //Pass class table
     function register(Request $request){
         $users = User::all();
         $class = Classes::all();
-        $user = DB::table('users')->select(
-            // 'subjects.*',
-            'classes.*'
-            )
-            ->join('classes','classes.class_id', '=', 'users.class_id' )
-            // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
-            ->get();
-        return view('admin.student-management.register', compact('class','user'))
+        $faculty = Faculty::all();
+        // $user = DB::table('users')->select(
+        //     // 'subjects.*',
+        //     'classes.*'
+        //     )
+        //     ->join('classes','classes.class_id', '=', 'users.class_id' )
+        //     // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
+        //     ->get();
+        return view('admin.student-management.register', compact('class','faculty'))
         ->with('users', $users);
     }
 
