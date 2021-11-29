@@ -7,7 +7,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Faculties Tab</h4>
+                        <h4>Admin Tab</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -53,23 +53,31 @@
                                                       <td class="age">{{ $admin->birth_year }}, {{ $admin->birth_month }} {{ $admin->birth_day }}</td>
                                                       <td class="gender">{{ $admin->gender }}</td>
                                                       <td>
-                                                          
-                                                      <form action="{{ route('admin.admin-edit', $admin->id)}}" method="GET">  
-                                                          @csrf  
-                                                          
-                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
-                                                      </form>  
+                                                          <div class="row">
+                                                            <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$admin->id}}"><i class="la la-eye"></i></button> 
+                                                           
+                                                            
+                                                            <form action="{{ route('admin.admin-edit', $admin->id)}}" method="GET">  
+                                                                @csrf  
+                                                                
+                                                                <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
+                                                            </form>  
+        
+                                                            
+                                                            <form action="{{ route('admin.admin-destroy', $admin->id)}}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf  
+                                                                
+                                                                <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
+                                                            </form>  
 
-                                                      
-                                                      <form action="{{ route('admin.admin-destroy', $admin->id)}}" method="POST">
-                                                        @method('DELETE')
-                                                          @csrf  
-                                                        
-                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
-                                                      </form>   
+                                                          </div>
+
+                                                       
 
                                                       
                                                       </td>
+                                                      @include('admin.admin-management.view-modal')
                                                   </tr>
                                               @endforeach
                                             <tbody>

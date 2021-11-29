@@ -241,7 +241,7 @@
                             </div>
                         </div>
 
-<!--        FACULTY DETAILS                                 -->
+<!--        ADMIN DETAILS                                 -->
 
                         <div class="card">
                             <div class="card-header">
