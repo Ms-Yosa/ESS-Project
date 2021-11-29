@@ -8,7 +8,6 @@
     <title>Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16"  style="border-radius:25px" href="{{ URL::to('Assets/Logo.png') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Datatable -->
     <link href="{{ URL::to('assets_reference/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ URL::to('assets_reference/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">

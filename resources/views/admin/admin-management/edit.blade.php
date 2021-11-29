@@ -241,7 +241,7 @@
                             </div>
                         </div>
 
-<!--        ADMIN DETAILS                                 -->
+<!--        FACULTY DETAILS                                 -->
 
                         <div class="card">
                             <div class="card-header">
@@ -274,7 +274,26 @@
                                         </div>
                                     </div>
 
-                                   
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="class"> Class</label></h6>
+                                            <select name="class" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected disabled>Open this select class</option>
+                                                <option value="A" >A</option>
+                                                <option value="O" >O</option>
+                                            </select>
+                                            <!-- <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                        <h6><label for="session">Session</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="adviser" placeholder="Depends on section" value="" readonly>
+                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
+                                        </div>
+                                    </div>
+
                                     
                                 </div>
                             </div>
