@@ -44,7 +44,7 @@ class ClassSchedulingController extends AppBaseController
                         'classes.*',
                         'class_schedulings.*'
                         )
-                        ->join('faculties','faculties.id', '=', 'class_schedulings.subject_id' )
+                        ->join('faculties','faculties.id', '=', 'class_schedulings.faculty_id' )
                         ->join('classes','classes.class_id', '=', 'class_schedulings.class_id' )
                         ->get();
 
