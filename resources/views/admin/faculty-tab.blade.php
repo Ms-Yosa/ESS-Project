@@ -53,23 +53,32 @@
                                                       <td class="age">{{ $faculty->birth_year }}, {{ $faculty->birth_month }} {{ $faculty->birth_day }}</td>
                                                       <td class="gender">{{ $faculty->gender }}</td>
                                                       <td>
-                                                          
-                                                      <form action="{{ route('admin.faculty-edit', $faculty->id)}}" method="GET">  
-                                                          @csrf  
-                                                          
-                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
-                                                      </form>  
 
-                                                      
-                                                      <form action="{{ route('admin.faculty-destroy', $faculty->id)}}" method="POST">
-                                                        @method('DELETE')
-                                                          @csrf  
+                                                        <div class="row">
+
+                                                            <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$faculty->id}}"><i class="la la-eye"></i></button> 
+                                                            
+                                                            <form action="{{ route('admin.faculty-edit', $faculty->id)}}" method="GET">  
+                                                                @csrf  
+                                                                
+                                                                <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
+                                                            </form>  
+        
+                                                            
+                                                            <form action="{{ route('admin.faculty-destroy', $faculty->id)}}" method="POST">
+                                                                @method('DELETE')
+                                                                @csrf  
+                                                                
+                                                                <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
+                                                            </form>   
+    
+
+                                                        </div>
                                                         
-                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
-                                                      </form>   
-
+                                                     
                                                       
                                                       </td>
+                                                      @include('admin.faculty-management.view-modal')
                                                   </tr>
                                               @endforeach
                                             <tbody>
