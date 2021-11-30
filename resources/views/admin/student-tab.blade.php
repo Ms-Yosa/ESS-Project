@@ -49,13 +49,14 @@
                                             <tbody>
                                               @foreach ($userJoin as $key => $user)
                                                   <tr>
-                                                      <td class="id">{{ ++$key }}</td>
-                                                      <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
-                                                      <td class="email">{{ $user->email }}</td>
-                                                      <td class="age">{{ $user->age }}</td>
-                                                      <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
-                                                      <td class="gender">{{ $user->gender }}</td>
-                                                    <td>{{ $user->class_name }}</td>
+                                                        <td class="id">{{ ++$key }}</td>
+                                                        <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
+                                                        <td class="email">{{ $user->email }}</td>
+                                                        <td class="age">{{ $user->age }}</td>
+                                                        <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
+                                                        <td class="gender">{{ $user->gender }}</td>
+                                                        <td>{{ $user->class_name }}</td>
+                                                        <td>teacher</td>
 
                                                         <td>
                                                       <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">
