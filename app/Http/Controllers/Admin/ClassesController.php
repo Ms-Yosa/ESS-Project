@@ -87,7 +87,7 @@ class ClassesController extends AppBaseController
             return redirect(route('admin.classes'));
         }
 
-        return view('admin.class-management.classes.edit')->with('classes', $classes);
+        return view('admin.class-management.classes.index')->with('classes', $classes);
     }
 
     /**

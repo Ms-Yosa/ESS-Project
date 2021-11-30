@@ -47,26 +47,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                              @foreach ($user as $key => $users)
+                                              @foreach ($userJoin as $key => $user)
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
-                                                      <td class="name">{{ $users->surname }}, {{ $users->name }} {{ $users->middle_name }}</td>
-                                                      <td class="email">{{ $users->email }}</td>
-                                                      <td class="age">{{ $users->age }}</td>
-                                                      <td class="age">{{ $users->birth_year }}, {{ $users->birth_month }} {{ $users->birth_day }}</td>
-                                                      <td class="gender">{{ $users->gender }}</td>
-                                                      <td class="gender">{{ $users->class_name }}</td>
-                                                      <td class="gender">{{ $users->name }}</td>
+                                                      <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
+                                                      <td class="email">{{ $user->email }}</td>
+                                                      <td class="age">{{ $user->age }}</td>
+                                                      <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
+                                                      <td class="gender">{{ $user->gender }}</td>
+                                                    <td>{{ $user->class_name }}</td>
 
                                                         <td>
-                                                      <form action="{{ route('admin.student-edit', $users->id)}}" method="GET">
+                                                      <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">
                                                           @csrf
 
                                                           <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
                                                       </form>
 
 
-                                                      <form action="{{ route('admin.student-destroy', $users->id)}}" method="POST">
+                                                      <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
                                                         @method('DELETE')
                                                           @csrf
 

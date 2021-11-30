@@ -79,17 +79,14 @@ class UserCRUD extends Controller
      function index(Request $request){
         $users = User::all();
         $class = Classes::all();
-        $faculty = Faculty::all();
-        $user = DB::table('users')->select(
+        $userJoin = DB::table('users')->select(
             'users.*',
             'classes.*',
-            'faculties.*'
             )
-            ->join('classes','classes.class_id', '=', 'users.class_id' )
-            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
+            ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
             ->get();
             // dd($user);die;
-        return view('admin.student-tab', compact('class','user','faculty'))
+        return view('admin.student-tab', compact('class','userJoin'))
         ->with('users', $users);
     }
 

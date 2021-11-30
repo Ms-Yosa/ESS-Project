@@ -68,8 +68,9 @@ class FacultyCRUD extends Controller
             'classes.*',
             'faculties.*'
             )
-            ->join('classes','classes.faculty_id', '=', 'faculties.id' )
+            ->leftJoin('classes','faculties.id', '=', 'classes.faculty_id' )
             ->get();
+
             return view('admin.faculty-tab', compact('class','faculty'))
             ->with('faculties', $faculties);
     }

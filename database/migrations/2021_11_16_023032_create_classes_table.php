@@ -18,8 +18,8 @@ class CreateClassesTable extends Migration
             $table->string('class_name');
             $table->string('class_code')->unique();
             $table->string('level');
-            $table->unsignedBigInteger('faculty_id'); //unsignedBigInt
-            $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('faculty_id')->nullable();; //unsignedBigInt
+            $table->unsignedBigInteger('subject_id')->nullable();;
             $table->integer('day_id');
             $table->string('start_time');
             $table->string('end_time');

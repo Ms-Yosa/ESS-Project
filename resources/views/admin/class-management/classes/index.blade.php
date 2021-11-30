@@ -57,7 +57,7 @@
                                                     <td width="120">
                                                         {!! Form::open(['route' => ['admin.classes.destroy', $class->class_id], 'method' => 'get']) !!}
                                                         <div class='btn-group'>
-                                                            <a href="{{ route('admin.classes.edit', [$class->class_id]) }}"
+                                                            <a data-toggle="modal" data-target="#edit-class-modal"
                                                                class='btn badge bg-success'>
                                                                <i class="la la-pencil-square"></i>
                                                             </a>
@@ -66,157 +66,50 @@
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>
+
+
+                                                <!-- Edit Modal -->
+                                    <div class="modal fade" id="edit-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                {!! Form::open(['route' => ['admin.classes.update', $class->class_id], 'method' => 'POST']) !!}
+                                                {{-- {!! Form::model($classes, ['route' => ['admin.classes.update', $classes->class_id], 'method' => 'POST']) !!} --}}
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Class</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @include('admin.class-management.classes.fields')
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="{{ route('admin.classes') }}" class="btn btn-default">Cancel</a>
+                                                    {!! Form::submit('Update Class',['class' => 'btn btn-primary']) !!}
+                                                </div>
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+                                    </div>
                                             @endforeach
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    {{-- fields require --}}
+                                    {{-- create --}}
                                     {!! Form::open(['route' => 'admin.classes.store']) !!}
                                         <!-- Modal -->
                                         <div class="modal fade" id="add-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Class</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <!-- Class Name Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {!! Form::label('class_name', 'Class Name:') !!}
-                                                            {!! Form::text('class_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                        </div>
-
-                                                        <!-- Class Code Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {!! Form::label('class_code', 'Class Code:') !!}
-                                                            {!! Form::text('class_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                        </div>
-
-                                                        <!-- Class Level Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('class_code', 'Level:') !!}
-                                                            {!! Form::text('level', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!} --}}
-                                                            <select class="form-group" name="level" id="level">
-                                                                <option value="">Select Level</option>
-                                                                <option value="Kindergarten">Kindergarten</option>
-                                                                <option value="Nursery">Nursery</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- Faculty Id Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
-                                                            {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                            <select class="form-group" name="faculty_id" id="faculty_id">
-                                                                <option value="">Select Instructor</option>
-                                                                @foreach ($faculty as $fac)
-                                                                    <option value="{{$fac -> id}}">{{ $fac -> name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- Subject Id Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
-                                                            {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                            <select class="form-group" name="subject_id" id="subject_id">
-                                                                <option value="">Select Subject</option>
-                                                                @foreach ($subject as $subj)
-                                                                    <option value="{{$subj -> subject_id}}">{{ $subj -> subject_name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- Day Id Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('day_id', 'Day Id:') !!}
-                                                            {!! Form::number('day_id', null, ['class' => 'form-control']) !!} --}}
-                                                            <select class="form-group" name="day_id" id="day_id">
-                                                                <option value="">Select Day</option>
-                                                                <option value="1">Monday</option>
-                                                                <option value="2">Tuesday</option>
-                                                                <option value="3">Wednesday</option>
-                                                                <option value="4">Thursday</option>
-                                                                <option value="5">Friday</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- Start Time Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('start_time', 'Start Time:') !!}
-                                                            {!! Form::number('start_time', null, ['class' => 'form-control']) !!} --}}
-                                                            <select class="form-group" name="start_time" id="start_time">
-                                                                <option value="">Select Start Time</option>
-                                                                <option value="7:00AM">7:00AM</option>
-                                                                <option value="7:30AM">7:30AM</option>
-                                                                <option value="8:00AM">8:00AM</option>
-                                                                <option value="8:30AM">8:30AM</option>
-                                                                <option value="9:00AM">9:00AM</option>
-                                                                <option value="9:30AM">9:30AM</option>
-                                                                <option value="10:00AM">10:00AM</option>
-                                                                <option value="10:30AM">10:30AM</option>
-                                                                <option value="11:00AM">11:00AM</option>
-                                                                <option value="11:30AM">11:30AM</option>
-                                                                <option value="12:00PM">12:00PM</option>
-                                                                <option value="12:30PM">12:30PM</option>
-                                                                <option value="1:00PM">1:00PM</option>
-                                                                <option value="1:30PM">1:30PM</option>
-                                                                <option value="2:00PM">2:00PM</option>
-                                                                <option value="2:30PM">2:30PM</option>
-                                                                <option value="3:00PM">3:00PM</option>
-                                                                <option value="3:30PM">3:30PM</option>
-                                                                <option value="4:00PM">4:00PM</option>
-                                                                <option value="4:30PM">4:30PM</option>
-                                                                <option value="5:00PM">5:00PM</option>
-                                                                <option value="5:30PM">5:30PM</option>
-                                                                <option value="6:00PM">6:00PM</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- End Time Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('end_time', 'End Time:') !!}
-                                                            {!! Form::number('end_time', null, ['class' => 'form-control']) !!} --}}
-                                                            <select class="form-group" name="end_time" id="end_time">
-                                                                <option value="">Select End Time</option>
-                                                                <option value="7:00AM">7:00AM</option>
-                                                                <option value="7:30AM">7:30AM</option>
-                                                                <option value="8:00AM">8:00AM</option>
-                                                                <option value="8:30AM">8:30AM</option>
-                                                                <option value="9:00AM">9:00AM</option>
-                                                                <option value="9:30AM">9:30AM</option>
-                                                                <option value="10:00AM">10:00AM</option>
-                                                                <option value="10:30AM">10:30AM</option>
-                                                                <option value="11:00AM">11:00AM</option>
-                                                                <option value="11:30AM">11:30AM</option>
-                                                                <option value="12:00PM">12:00PM</option>
-                                                                <option value="12:30PM">12:30PM</option>
-                                                                <option value="1:00PM">1:00PM</option>
-                                                                <option value="1:30PM">1:30PM</option>
-                                                                <option value="2:00PM">2:00PM</option>
-                                                                <option value="2:30PM">2:30PM</option>
-                                                                <option value="3:00PM">3:00PM</option>
-                                                                <option value="3:30PM">3:30PM</option>
-                                                                <option value="4:00PM">4:00PM</option>
-                                                                <option value="4:30PM">4:30PM</option>
-                                                                <option value="5:00PM">5:00PM</option>
-                                                                <option value="5:30PM">5:30PM</option>
-                                                                <option value="6:00PM">6:00PM</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <!-- Status Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            <div class="form-check">
-                                                                {!! Form::hidden('status', 0, ['class' => 'form-check-input']) !!}
-                                                                {!! Form::checkbox('status', '1', null, ['class' => 'form-check-input']) !!}
-                                                                {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!}
-                                                            </div>
-                                                        </div>
+                                                        @include('admin.class-management.classes.fields')
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
