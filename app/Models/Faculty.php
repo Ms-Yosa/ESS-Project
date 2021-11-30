@@ -17,9 +17,9 @@ class faculty extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'surname',
-        'name',
-        'middle_name',
+        'faculty_surname',
+        'faculty_name',
+        'faculty_middle_name',
         'email',
         'password',
         'gender',

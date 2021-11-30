@@ -16,8 +16,8 @@ class AddColumnToFaculties extends Migration
         Schema::table('faculties', function (Blueprint $table) {
             // new column for existing Faculties table in DB
 
-            $table->string('surname')->after('id');
-            $table->string('middle_name')->after('name');
+            $table->string('faculty_surname')->after('id');
+            $table->string('faculty_middle_name')->after('faculty_name');
             $table->string('gender');
             $table->string('age');
             $table->string('bloodtype');
@@ -41,8 +41,8 @@ class AddColumnToFaculties extends Migration
             //
 
 
-            $table->dropColumn('surname');
-            $table->dropColumn('middle_name');
+            $table->dropColumn('faculty_surname');
+            $table->dropColumn('faculty_middle_name');
             $table->dropColumn('gender');
             $table->dropColumn('age');
             $table->dropColumn('bloodtype');

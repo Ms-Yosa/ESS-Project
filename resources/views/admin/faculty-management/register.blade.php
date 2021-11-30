@@ -45,25 +45,25 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="name">Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ old('name') }}">
-                                            <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_name">Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_name" placeholder="Enter full name" value="{{ old('faculty_name') }}">
+                                            <span class="text-danger">@error('faculty_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ old('middle_name') }}">
-                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_middle_name">Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_middle_name" placeholder="Enter Middle Name" value="{{ old('faculty_middle_name') }}">
+                                            <span class="text-danger">@error('faculty_middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ old('surname') }}">
-                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_surname">Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_surname" placeholder="Enter Surname" value="{{ old('faculty_surname') }}">
+                                            <span class="text-danger">@error('faculty_surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 

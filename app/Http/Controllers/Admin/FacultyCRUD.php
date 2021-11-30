@@ -18,9 +18,9 @@ class FacultyCRUD extends Controller
         //validate Inputs
         $request->validate([
 
-            'surname'=>'required',
-            'name'=>'required',
-            'middle_name'=>'required',
+            'faculty_surname'=>'required',
+            'faculty_name'=>'required',
+            'faculty_middle_name'=>'required',
             'email'=>'required|email|unique:faculties,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -36,9 +36,9 @@ class FacultyCRUD extends Controller
 
         //Insert Faculties in table
         $faculty = new Faculty();
-          $faculty->surname = $request->surname;
-          $faculty->name = $request->name;
-          $faculty->middle_name = $request->middle_name;
+          $faculty->faculty_surname = $request->faculty_surname;
+          $faculty->faculty_name = $request->faculty_name;
+          $faculty->faculty_middle_name = $request->faculty_middle_name;
           $faculty->email = $request->email;
           $faculty->password = \Hash::make($request->password);
           $faculty->gender = $request->gender;
@@ -92,9 +92,9 @@ class FacultyCRUD extends Controller
     //Update Data
     function update(Request $request, $id){
         $request->validate([
-            'surname'=>'required',
-            'name'=>'required',
-            'middle_name'=>'required',
+            'faculty_surname'=>'required',
+            'faculty_name'=>'required',
+            'faculty_middle_name'=>'required',
             'email'=>"required|email|unique:faculties,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -110,9 +110,9 @@ class FacultyCRUD extends Controller
 
         //Insert Updates Faculty Info in table
         $faculty =  Faculty::find($id);
-            $faculty->surname = $request->surname;
-            $faculty->name = $request->name;
-            $faculty->middle_name = $request->middle_name;
+            $faculty->faculty_surname = $request->faculty_surname;
+            $faculty->faculty_name = $request->faculty_name;
+            $faculty->faculty_middle_name = $request->faculty_middle_name;
             $faculty->email = $request->email;
             $faculty->password = \Hash::make($request->password);
             $faculty->gender = $request->gender;
