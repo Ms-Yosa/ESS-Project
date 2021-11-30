@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 
-     
+
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <form action="{{ route('admin.faculty-create')}}"  method="POST" autocomplete="off">
@@ -40,7 +40,7 @@
                                 @endif
 
                                 @csrf
-                            
+
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -87,7 +87,7 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                               
+
                                                 <option value="1999" >1999</option>
                                                 <option value="1998" >1998</option>
                                                 <option value="1997" >1997</option>
@@ -118,7 +118,7 @@
                                             <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="month">Month</label></h6>
@@ -210,21 +210,21 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
+
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Contact Number</label></h6>
                                             <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
                                             <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
-                                    
+
                                     </div>
 
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <h6><label for="address">Residential Address</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
                                             <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                                         </div>
@@ -286,7 +286,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>

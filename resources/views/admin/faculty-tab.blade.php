@@ -48,8 +48,12 @@
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
                                                       <td class="name">{{ $faculties->surname }}, {{ $faculties->name }} {{ $faculties->middle_name }}</td>
-                                                      <td class="email">{{ $faculties->email }}</td>
+                                                      <td class="age">{{ $faculties->email }}</td>
+                                                      @if (is_null($faculties->class_name))
+                                                      <td class="email">Unassigned</td>
+                                                      @else
                                                       <td class="age">{{ $faculties->class_name }}</td>
+                                                      @endif
                                                       <td class="age">{{ $faculties->birth_year }}, {{ $faculties->birth_month }} {{ $faculties->birth_day }}</td>
                                                       <td class="gender">{{ $faculties->gender }}</td>
                                                       <td>
