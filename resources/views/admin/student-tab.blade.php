@@ -56,7 +56,11 @@
                                                         <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
                                                         <td class="gender">{{ $user->gender }}</td>
                                                         <td>{{ $user->class_name }}</td>
+<<<<<<< HEAD
                                                         <td>teacher</td>
+=======
+                                                        <td>{{ $user->faculty_name }}</td>
+>>>>>>> a687f9cef1805ec37f22133327cc03e26a8c28ef
 
                                                         <td>
                                                       <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">

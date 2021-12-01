@@ -47,7 +47,7 @@
                                             @foreach ($faculty as $key => $faculties)
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
-                                                      <td class="name">{{ $faculties->surname }}, {{ $faculties->name }} {{ $faculties->middle_name }}</td>
+                                                      <td class="name">{{ $faculties->faculty_surname }}, {{ $faculties->faculty_name }} {{ $faculties->faculty_middle_name }}</td>
                                                       <td class="age">{{ $faculties->email }}</td>
                                                       @if (is_null($faculties->class_name))
                                                       <td class="email">Unassigned</td>
