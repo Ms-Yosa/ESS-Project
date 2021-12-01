@@ -38,7 +38,7 @@
                          <tbody>
                              <tr>
                                  <td>{{ Auth::guard('faculty')->user()->faculty_name }}</td>
-                                 <td>{{ Auth::guard('faculty')->user()->email }}</td>
+                                 <td>{{ Auth::guard('faculty')->user()->faculty_email }}</td>
                                  <td>
                                      <a href="{{ route('faculty.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                                      <form action="{{ route('faculty.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>

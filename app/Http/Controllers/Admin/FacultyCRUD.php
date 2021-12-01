@@ -21,7 +21,7 @@ class FacultyCRUD extends Controller
             'faculty_surname'=>'required',
             'faculty_name'=>'required',
             'faculty_middle_name'=>'required',
-            'email'=>'required|email|unique:faculties,email',
+            'faculty_email'=>'required|email|unique:faculties,faculty_email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -39,7 +39,7 @@ class FacultyCRUD extends Controller
           $faculty->faculty_surname = $request->faculty_surname;
           $faculty->faculty_name = $request->faculty_name;
           $faculty->faculty_middle_name = $request->faculty_middle_name;
-          $faculty->email = $request->email;
+          $faculty->faculty_email = $request->faculty_email;
           $faculty->password = \Hash::make($request->password);
           $faculty->gender = $request->gender;
           $faculty->birth_year = $request->birth_year;
@@ -95,7 +95,7 @@ class FacultyCRUD extends Controller
             'faculty_surname'=>'required',
             'faculty_name'=>'required',
             'faculty_middle_name'=>'required',
-            'email'=>"required|email|unique:faculties,email,$id",
+            'faculty_email'=>"required|email|unique:faculties,faculty_email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -113,7 +113,7 @@ class FacultyCRUD extends Controller
             $faculty->faculty_surname = $request->faculty_surname;
             $faculty->faculty_name = $request->faculty_name;
             $faculty->faculty_middle_name = $request->faculty_middle_name;
-            $faculty->email = $request->email;
+            $faculty->faculty_email = $request->faculty_email;
             $faculty->password = \Hash::make($request->password);
             $faculty->gender = $request->gender;
             $faculty->birth_year = $request->birth_year;

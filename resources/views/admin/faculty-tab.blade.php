@@ -48,7 +48,7 @@
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
                                                       <td class="name">{{ $faculties->faculty_surname }}, {{ $faculties->faculty_name }} {{ $faculties->faculty_middle_name }}</td>
-                                                      <td class="age">{{ $faculties->email }}</td>
+                                                      <td class="age">{{ $faculties->faculty_email }}</td>
                                                       @if (is_null($faculties->class_name))
                                                       <td class="email">Unassigned</td>
                                                       @else

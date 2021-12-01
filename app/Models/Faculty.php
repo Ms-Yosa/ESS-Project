@@ -20,7 +20,7 @@ class faculty extends Authenticatable
         'faculty_surname',
         'faculty_name',
         'faculty_middle_name',
-        'email',
+        'faculty_email',
         'password',
         'gender',
         'birth_year',

@@ -252,9 +252,9 @@
 
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="email">Email</label></h6>
-                                            <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter email address" value="{{ $faculty->email}}">
-                                            <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_email">Email</label></h6>
+                                            <input type="email" class="form-control form-control-sm" name="faculty_email" placeholder="Enter email address" value="{{ $faculty->faculty_email}}">
+                                            <span class="text-danger">@error('faculty_email'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
