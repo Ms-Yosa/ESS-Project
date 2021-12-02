@@ -47,13 +47,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($classes as $key => $class)
+                                            @foreach($facultyJoin as $key => $class)
                                                 <tr>
                                                     <td class="id">{{ ++$key }}</td>
                                                     <td>{{ $class->class_name }}</td>
                                                     <td>{{ $class->class_code }}</td>
                                                     <td>{{ $class->level }}</td>
-                                                    <td>{{$class->name}}</td>
+                                                    <td>{{$class->faculty_name}}</td>
                                                     <td width="120">
                                                         {!! Form::open(['route' => ['admin.classes.destroy', $class->class_id], 'method' => 'get']) !!}
                                                         <div class='btn-group'>

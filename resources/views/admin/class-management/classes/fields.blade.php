@@ -1,19 +1,20 @@
 <!-- Class Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('class_name', 'Class Name:') !!}
-    {!! Form::text('class_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <h6><label for="class_name">Class Name:</label></h6>
+    <input type="text" class="form-control form-control-sm" name="class_name" placeholder="Class Name">
 </div>
 
 <!-- Class Code Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('class_code', 'Class Code:') !!}
-    {!! Form::text('class_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    <h6><label for="class_code">Class Name:</label></h6>
+    <input type="text" class="form-control form-control-sm" name="class_code" placeholder="Class Code">
 </div>
 
 <!-- Class Level Field -->
 <div class="form-group col-sm-6">
     {{-- {!! Form::label('class_code', 'Level:') !!}
     {!! Form::text('level', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!} --}}
+    <h6><label for="level">Level:</label></h6>
     <select class="form-group" name="level" id="level">
         <option value="">Select Level</option>
         <option value="Kindergarten">Kindergarten</option>
@@ -28,7 +29,7 @@
     <select class="form-group" name="faculty_id" id="faculty_id">
         <option value="">Select Instructor</option>
         @foreach ($faculty as $fac)
-            <option value="{{$fac -> id}}">{{ $fac -> name}}</option>
+            <option value="{{$fac -> id}}">{{ $fac -> faculty_name}}</option>
         @endforeach
     </select>
 </div>
