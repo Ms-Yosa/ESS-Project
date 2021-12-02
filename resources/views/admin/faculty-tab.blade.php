@@ -14,11 +14,11 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Faculties</a></li>
-                        
+
                     </ol>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
@@ -37,38 +37,42 @@
                                                     <th>#</th>
                                                     <th>Name</th>
                                                     <th>Email</th>
-                                                    <th>Age</th>
+                                                    <th>Class Advisory</th>
                                                     <th>Birthday</th>
                                                     <th>Gender</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach ($faculties as $key => $faculty)
+                                            @foreach ($faculty as $key => $faculties)
                                                   <tr>
                                                       <td class="id">{{ ++$key }}</td>
-                                                      <td class="name">{{ $faculty->surname }}, {{ $faculty->name }} {{ $faculty->middle_name }}</td>
-                                                      <td class="email">{{ $faculty->email }}</td>
-                                                      <td class="age">{{ $faculty->age }}</td>
-                                                      <td class="age">{{ $faculty->birth_year }}, {{ $faculty->birth_month }} {{ $faculty->birth_day }}</td>
-                                                      <td class="gender">{{ $faculty->gender }}</td>
+                                                      <td class="name">{{ $faculties->faculty_surname }}, {{ $faculties->faculty_name }} {{ $faculties->faculty_middle_name }}</td>
+                                                      <td class="age">{{ $faculties->faculty_email }}</td>
+                                                      @if (is_null($faculties->class_name))
+                                                      <td class="email">Unassigned</td>
+                                                      @else
+                                                      <td class="age">{{ $faculties->class_name }}</td>
+                                                      @endif
+                                                      <td class="age">{{ $faculties->birth_year }}, {{ $faculties->birth_month }} {{ $faculties->birth_day }}</td>
+                                                      <td class="gender">{{ $faculties->gender }}</td>
                                                       <td>
-                                                          
-                                                      <form action="{{ route('admin.faculty-edit', $faculty->id)}}" method="GET">  
-                                                          @csrf  
-                                                          
-                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
-                                                      </form>  
 
-                                                      
-                                                      <form action="{{ route('admin.faculty-destroy', $faculty->id)}}" method="POST">
+                                                      <form action="{{ route('admin.faculty-edit', $faculties->id)}}" method="GET">
+                                                          @csrf
+
+                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                      </form>
+
+
+                                                      <form action="{{ route('admin.faculty-destroy', $faculties->id)}}" method="POST">
                                                         @method('DELETE')
-                                                          @csrf  
-                                                        
-                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
-                                                      </form>   
+                                                          @csrf
 
-                                                      
+                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                      </form>
+
+
                                                       </td>
                                                   </tr>
                                               @endforeach
@@ -80,7 +84,7 @@
                             </div>
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>

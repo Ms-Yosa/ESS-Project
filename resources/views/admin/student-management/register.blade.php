@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 
-     
+
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <form action="{{ route('admin.student-create')}}"  method="POST" autocomplete="off">
@@ -40,7 +40,7 @@
                                 @endif
 
                                 @csrf
-                            
+
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -66,7 +66,7 @@
                                             <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
- 
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group ">
                                         <h6> <p style="font-weight:bold">Gender</p></h6>
@@ -87,11 +87,11 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                            
+
                                                 <option value="2019" >2019</option>
                                                 <option value="2018" >2018</option>
-                                                <option value="2021" >2017</option>
-                                                <option value="2017" >2016</option>
+                                                <option value="2017" >2017</option>
+                                                <option value="2016" >2016</option>
                                                 <option value="2015" >2015</option>
                                                 <option value="2014" >2014</option>
                                                 <option value="2013" >2013</option>
@@ -102,7 +102,7 @@
                                             <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="month">Month</label></h6>
@@ -175,7 +175,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
@@ -185,7 +185,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
@@ -239,18 +239,18 @@
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
+
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Guardian's Contact Number</label></h6>
                                             <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
                                             <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
-                                    
+
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="guardian_bloodtype">Guardian Bloodtype</label></h6>  
+                                        <h6><label for="guardian_bloodtype">Guardian Bloodtype</label></h6>
                                             <select name="guardian_bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="A+">A+</option>
@@ -269,7 +269,7 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <h6><label for="address">Residential Address</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
                                             <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                                         </div>
@@ -314,10 +314,11 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="class"> Class</label></h6>
-                                            <select name="class" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option selected disabled>Open this select class</option>
-                                                <option value="A" >A</option>
-                                                <option value="O" >O</option>
+                                            <select name="class_id" id="class_id" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected >Open this select class</option>
+                                                @foreach ($class as $cla)
+                                                    <option value="{{$cla -> class_id}}">{{ $cla -> class_name}}</option>
+                                                @endforeach
                                             </select>
                                             <!-- <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span> -->
                                         </div>
@@ -345,10 +346,10 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-                                
-                            
+
+
+
+
                         </div>
                     </form>
                 </div>

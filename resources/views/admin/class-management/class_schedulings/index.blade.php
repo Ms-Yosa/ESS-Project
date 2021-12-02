@@ -39,7 +39,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Class</th>
-                                                    <th>Subject</th>
+                                                    <th>Teacher</th>
                                                     <th>Day</th>
                                                     <th>Start Time</th>
                                                     <th>End Time</th>
@@ -52,7 +52,7 @@
                                             @foreach($classSchedule as $classScheduling)
                                                 <tr>
                                                     <td>{{ $classScheduling->class_name }}</td>
-                                                    <td>{{ $classScheduling->subject_name }}</td>
+                                                    <td>{{ $classScheduling->name }} {{ $classScheduling->surname }}</td>
                                                     <td>
                                                         @switch($classScheduling->day_id)
                                                             @case('1')
@@ -136,10 +136,10 @@
                                                             <div class="form-group col-sm-6">
                                                                 {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
                                                                 {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                                <select class="form-group" name="subject_id" id="subject_id">
+                                                                <select class="form-group" name="faculty_id" id="faculty_id">
                                                                     <option value="">Select Subject</option>
-                                                                    @foreach ($subject as $subj)
-                                                                        <option value="{{$subj -> subject_id}}">{{ $subj -> subject_name}}</option>
+                                                                    @foreach ($faculty as $fac)
+                                                                        <option value="{{$fac -> id}}">{{ $fac -> name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>

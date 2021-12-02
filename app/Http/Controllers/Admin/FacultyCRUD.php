@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Faculty;
+use App\Models\Classes;
 use Illuminate\Support\Facades\Auth;
 
 class FacultyCRUD extends Controller
@@ -16,10 +18,10 @@ class FacultyCRUD extends Controller
         //validate Inputs
         $request->validate([
 
-            'surname'=>'required',
-            'name'=>'required',
-            'middle_name'=>'required',
-            'email'=>'required|email|unique:faculties,email',
+            'faculty_surname'=>'required',
+            'faculty_name'=>'required',
+            'faculty_middle_name'=>'required',
+            'faculty_email'=>'required|email|unique:faculties,faculty_email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -34,10 +36,10 @@ class FacultyCRUD extends Controller
 
         //Insert Faculties in table
         $faculty = new Faculty();
-          $faculty->surname = $request->surname;
-          $faculty->name = $request->name;
-          $faculty->middle_name = $request->middle_name;
-          $faculty->email = $request->email;
+          $faculty->faculty_surname = $request->faculty_surname;
+          $faculty->faculty_name = $request->faculty_name;
+          $faculty->faculty_middle_name = $request->faculty_middle_name;
+          $faculty->faculty_email = $request->faculty_email;
           $faculty->password = \Hash::make($request->password);
           $faculty->gender = $request->gender;
           $faculty->birth_year = $request->birth_year;
@@ -61,7 +63,16 @@ class FacultyCRUD extends Controller
      //Retrieve Data
      function index(){
         $faculties = Faculty::all();
-        return view('admin.faculty-tab',compact('faculties'));
+        $class = Classes::all();
+        $faculty = DB::table('faculties')->select(
+            'classes.*',
+            'faculties.*'
+            )
+            ->leftJoin('classes','faculties.id', '=', 'classes.faculty_id' )
+            ->get();
+
+            return view('admin.faculty-tab', compact('class','faculty'))
+            ->with('faculties', $faculties);
     }
 
      //Destroy Data
@@ -81,10 +92,10 @@ class FacultyCRUD extends Controller
     //Update Data
     function update(Request $request, $id){
         $request->validate([
-            'surname'=>'required',
-            'name'=>'required',
-            'middle_name'=>'required',
-            'email'=>"required|email|unique:faculties,email,$id",
+            'faculty_surname'=>'required',
+            'faculty_name'=>'required',
+            'faculty_middle_name'=>'required',
+            'faculty_email'=>"required|email|unique:faculties,faculty_email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -99,10 +110,10 @@ class FacultyCRUD extends Controller
 
         //Insert Updates Faculty Info in table
         $faculty =  Faculty::find($id);
-            $faculty->surname = $request->surname;
-            $faculty->name = $request->name;
-            $faculty->middle_name = $request->middle_name;
-            $faculty->email = $request->email;
+            $faculty->faculty_surname = $request->faculty_surname;
+            $faculty->faculty_name = $request->faculty_name;
+            $faculty->faculty_middle_name = $request->faculty_middle_name;
+            $faculty->faculty_email = $request->faculty_email;
             $faculty->password = \Hash::make($request->password);
             $faculty->gender = $request->gender;
             $faculty->birth_year = $request->birth_year;

@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Subject;
+use App\Models\Classes;
+use App\Models\Faculty;
+
 class ClassesController extends AppBaseController
 {
     /** @var  ClassesRepository */
@@ -30,8 +35,16 @@ class ClassesController extends AppBaseController
     public function index(Request $request)
     {
         $classes = $this->classesRepository->all();
+        $faculty = Faculty::all();
+        $subject = Subject::all();
+        $facultyJoin = DB::table('classes')->select(
+            'classes.*',
+            'faculties.*'
+            )
+            ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
+            ->get();
 
-        return view('admin.class-management.classes.index')
+        return view('admin.class-management.classes.index', compact('faculty','subject','facultyJoin'))
             ->with('classes', $classes);
     }
 
@@ -81,7 +94,7 @@ class ClassesController extends AppBaseController
             return redirect(route('admin.classes'));
         }
 
-        return view('admin.class-management.classes.edit')->with('classes', $classes);
+        return view('admin.class-management.classes.index')->with('classes', $classes);
     }
 
     /**

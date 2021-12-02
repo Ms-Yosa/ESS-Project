@@ -45,25 +45,25 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="name">Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ $faculty->name}}">
-                                            <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_name">Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_name" placeholder="Enter full name" value="{{ $faculty->faculty_name}}">
+                                            <span class="text-danger">@error('faculty_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ $faculty->middle_name}}">
-                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_middle_name">Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_middle_name" placeholder="Enter Middle Name" value="{{ $faculty->faculty_middle_name}}">
+                                            <span class="text-danger">@error('faculty_middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ $faculty->surname}}">
-                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_surname">Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_surname" placeholder="Enter Surname" value="{{ $faculty->faculty_surname}}">
+                                            <span class="text-danger">@error('faculty_surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
@@ -252,9 +252,9 @@
 
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="email">Email</label></h6>
-                                            <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter email address" value="{{ $faculty->email}}">
-                                            <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_email">Email</label></h6>
+                                            <input type="email" class="form-control form-control-sm" name="faculty_email" placeholder="Enter email address" value="{{ $faculty->faculty_email}}">
+                                            <span class="text-danger">@error('faculty_email'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 

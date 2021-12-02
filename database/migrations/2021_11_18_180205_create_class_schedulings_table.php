@@ -33,6 +33,6 @@ class CreateClassSchedulingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('class_schedulings');
     }
 }

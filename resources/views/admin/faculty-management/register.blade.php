@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 
-     
+
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <form action="{{ route('admin.faculty-create')}}"  method="POST" autocomplete="off">
@@ -40,30 +40,30 @@
                                 @endif
 
                                 @csrf
-                            
+
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="name">Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ old('name') }}">
-                                            <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_name">Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_name" placeholder="Enter full name" value="{{ old('faculty_name') }}">
+                                            <span class="text-danger">@error('faculty_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="middle_name">Middle Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="middle_name" placeholder="Enter Middle Name" value="{{ old('middle_name') }}">
-                                            <span class="text-danger">@error('middle_name'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_middle_name">Middle Name</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_middle_name" placeholder="Enter Middle Name" value="{{ old('faculty_middle_name') }}">
+                                            <span class="text-danger">@error('faculty_middle_name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="surname">Surname</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="surname" placeholder="Enter Surname" value="{{ old('surname') }}">
-                                            <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_surname">Surname</label></h6>
+                                            <input type="text" class="form-control form-control-sm" name="faculty_surname" placeholder="Enter Surname" value="{{ old('faculty_surname') }}">
+                                            <span class="text-danger">@error('faculty_surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
@@ -87,7 +87,7 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                               
+
                                                 <option value="1999" >1999</option>
                                                 <option value="1998" >1998</option>
                                                 <option value="1997" >1997</option>
@@ -118,7 +118,7 @@
                                             <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="month">Month</label></h6>
@@ -210,21 +210,21 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
+
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Contact Number</label></h6>
                                             <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
                                             <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
-                                    
+
                                     </div>
 
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <h6><label for="address">Residential Address</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
                                             <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                                         </div>
@@ -244,9 +244,9 @@
 
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="email">Email</label></h6>
-                                            <input type="email" class="form-control form-control-sm" name="email" placeholder="Enter email address" value="{{ old('email') }}">
-                                            <span class="text-danger">@error('email'){{ $message }} @enderror</span><br>
+                                        <h6><label for="faculty_email">Email</label></h6>
+                                            <input type="email" class="form-control form-control-sm" name="faculty_email" placeholder="Enter email address" value="{{ old('faculty_email') }}">
+                                            <span class="text-danger">@error('faculty_email'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
 
@@ -286,7 +286,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>

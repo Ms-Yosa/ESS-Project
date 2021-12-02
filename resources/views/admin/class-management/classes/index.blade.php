@@ -42,20 +42,22 @@
                                                 <th>Class Name</th>
                                                 <th>Class Code</th>
                                                 <th>Level</th>
+                                                <th>Teacher</th>
                                                 <th colspan="3">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($classes as $key => $class)
+                                            @foreach($facultyJoin as $key => $class)
                                                 <tr>
                                                     <td class="id">{{ ++$key }}</td>
                                                     <td>{{ $class->class_name }}</td>
                                                     <td>{{ $class->class_code }}</td>
                                                     <td>{{ $class->level }}</td>
+                                                    <td>{{$class->faculty_name}}</td>
                                                     <td width="120">
                                                         {!! Form::open(['route' => ['admin.classes.destroy', $class->class_id], 'method' => 'get']) !!}
                                                         <div class='btn-group'>
-                                                            <a href="{{ route('admin.classes.edit', [$class->class_id]) }}"
+                                                            <a data-toggle="modal" data-target="#edit-class-modal"
                                                                class='btn badge bg-success'>
                                                                <i class="la la-pencil-square"></i>
                                                             </a>
@@ -64,46 +66,50 @@
                                                         {!! Form::close() !!}
                                                     </td>
                                                 </tr>
+
+
+                                                <!-- Edit Modal -->
+                                    <div class="modal fade" id="edit-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                {!! Form::open(['route' => ['admin.classes.update', $class->class_id], 'method' => 'POST']) !!}
+                                                {{-- {!! Form::model($classes, ['route' => ['admin.classes.update', $classes->class_id], 'method' => 'POST']) !!} --}}
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Class</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @include('admin.class-management.classes.fields')
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="{{ route('admin.classes') }}" class="btn btn-default">Cancel</a>
+                                                    {!! Form::submit('Update Class',['class' => 'btn btn-primary']) !!}
+                                                </div>
+                                                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+                                    </div>
                                             @endforeach
                                             </tbody>
                                         </table>
                                     </div>
 
-                                    {{-- fields require --}}
+                                    {{-- create --}}
                                     {!! Form::open(['route' => 'admin.classes.store']) !!}
                                         <!-- Modal -->
                                         <div class="modal fade" id="add-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Class</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <!-- Class Name Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {!! Form::label('class_name', 'Class Name:') !!}
-                                                            {!! Form::text('class_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                        </div>
-
-                                                        <!-- Class Code Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {!! Form::label('class_code', 'Class Code:') !!}
-                                                            {!! Form::text('class_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                        </div>
-
-                                                        <!-- Class Level Field -->
-                                                        <div class="form-group col-sm-6">
-                                                            {{-- {!! Form::label('class_code', 'Level:') !!}
-                                                            {!! Form::text('level', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!} --}}
-                                                            <select class="form-group" name="level" id="level">
-                                                                <option value="">Select Level</option>
-                                                                <option value="Kindergarten">Kindergarten</option>
-                                                                <option value="Nursery">Nursery</option>
-                                                            </select>
-                                                        </div>
+                                                        @include('admin.class-management.classes.fields')
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

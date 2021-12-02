@@ -55,7 +55,7 @@ Route::prefix('user')->name('user.')->group(function(){
 
         //User Pages
         Route::view('/grade','user.student-grade')->name('grade');
-        Route::view('/profile','user.student-profile')->name('profile');
+        Route::get('/profile',[UserController::class,'profile'])->name('profile');
         Route::view('/behavior','user.student-behavior')->name('behavior');
         Route::view('/schedule','user.student-schedule')->name('schedule');
 
@@ -95,7 +95,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
-        Route::view('/register student','admin.student-management.register')->name('student-register');
+        Route::get('/register student',[UserCRUD::class,'register'])->name('student-register');
         Route::post('/create student account',[UserCRUD::class,'create'])->name('student-create');
         Route::get('/update student account/{id}',[UserCRUD::class,'edit'])->name('student-edit');
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
@@ -134,8 +134,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //**CRUD Class Route
         Route::get('/classes', [ClassesController::class,'index'])->name('classes');
         Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
-        Route::get('/classes/edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
-        Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
+        Route::get('/classes/{id}', [ClassesController::class,'edit'])->name('classes.edit');
+        Route::post('/classes/{id}', [ClassesController::class,'update'])->name('classes.update');
         Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
         //**CRUD classSchedulings Route
