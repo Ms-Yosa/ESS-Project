@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminCRUD extends Controller
 {
-     //Create new faculty (registration)
+     //Create new admin (registration)
      function create(Request $request){
         //validate Inputs
         $request->validate([
@@ -18,7 +18,7 @@ class AdminCRUD extends Controller
             'surname'=>'required',
             'name'=>'required',
             'middle_name'=>'required',
-            'email'=>'required|email|unique:faculties,email',
+            'email'=>'required|email|unique:admins,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
@@ -83,7 +83,7 @@ class AdminCRUD extends Controller
             'surname'=>'required',
             'name'=>'required',
             'middle_name'=>'required',
-            'email'=>"required|email|unique:faculties,email,$id",
+            'email'=>"required|email|unique:admins,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
