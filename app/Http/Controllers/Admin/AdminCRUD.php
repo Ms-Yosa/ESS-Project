@@ -49,7 +49,7 @@ class AdminCRUD extends Controller
           $save = $admin->save();
 
           if( $save ){
-              return redirect()->back()->with('success','New Admin has been registered successfully');
+              return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
@@ -66,8 +66,14 @@ class AdminCRUD extends Controller
      //Destroy Data
      function destroy($id){
         $admins = Admin::find($id);
-        $admins -> delete();
-        return redirect()->route('admin.admin-tab'); 
+        $delete = $admins -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
+        
     }
 
 
@@ -114,7 +120,7 @@ class AdminCRUD extends Controller
             $save = $admin->save();
 
             if( $save ){
-                return redirect()->back()->with('success','Update Information Successfully');
+                return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
             }else{
                 return redirect()->back()->with('fail','Something went wrong, failed to update');
         }
