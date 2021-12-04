@@ -78,8 +78,13 @@ class FacultyCRUD extends Controller
      //Destroy Data
      function destroy($id){
         $faculties = Faculty::find($id);
-        $faculties -> delete();
-        return redirect()->route('admin.faculty-tab');
+        $delete = $faculties -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.faculty-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
     }
 
 
