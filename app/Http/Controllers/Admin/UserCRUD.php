@@ -81,11 +81,14 @@ class UserCRUD extends Controller
         $class = Classes::all();
         $userJoin = DB::table('users')->select(
             'users.*',
-            'faculties.*',
+            'faculties.id',
+            'faculties.faculty_name',
+            'faculties.faculty_surname',
+            'faculties.faculty_middle_name',
             'classes.*'
             )
             ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
-            ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
+            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
             ->get();
             // dd($user);die;
         return view('admin.student-tab', compact('class','userJoin'))

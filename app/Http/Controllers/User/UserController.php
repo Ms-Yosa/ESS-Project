@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Classes;
+use App\Models\Faculty;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -39,8 +41,20 @@ class UserController extends Controller
     }
 
     function profile(Request $request){
-        $class = Classes::all();
-        return view('user.student-profile',compact('class'));
+        $users = User::all();
+        $userJoin = DB::table('users')->select(
+            'users.*',
+            'faculties.id',
+            'faculties.faculty_name',
+            'faculties.faculty_surname',
+            'faculties.faculty_middle_name',
+            'classes.*'
+            )
+            ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
+            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
+            ->get();
+            // dd($user);die;
+        return view('user.student-profile', compact('userJoin'));
     }
 
 }
