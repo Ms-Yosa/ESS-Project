@@ -20,7 +20,7 @@ class FacultyCRUD extends Controller
 
             'faculty_surname'=>'required',
             'faculty_name'=>'required',
-            'faculty_middle_name'=>'required',
+            'faculty_middle_name'=>'nullable|string',
             'faculty_email'=>'required|email|unique:faculties,faculty_email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -94,7 +94,7 @@ class FacultyCRUD extends Controller
         $request->validate([
             'faculty_surname'=>'required',
             'faculty_name'=>'required',
-            'faculty_middle_name'=>'required',
+            'faculty_middle_name'=>'nullable|string',
             'faculty_email'=>"required|email|unique:faculties,faculty_email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
