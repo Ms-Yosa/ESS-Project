@@ -64,7 +64,7 @@
                                                        <div class="form-control form-control-sm position-relative" >
                                                             <div class="form-control-icon" >
                                                             <i class="la la-birthday-cake" style="padding-right:5px"></i>
-                                                            <span style="border-left:1px solid black; padding-left:10px;"></span>
+                                                            <span style="border-left:1px solid black; padding-left:10px;">{{ $user->birth_month }} {{ $user->birth_day }} {{ $user->birth_year }}</span>
                                                             </div>
                                                        </div>
                                                   </div>
