@@ -52,7 +52,7 @@ class FacultyCRUD extends Controller
           $save = $faculty->save();
 
           if( $save ){
-              return redirect()->back()->with('success','New Faculty has been registered successfully!');
+              return redirect()->route('admin.faculty-tab')->with('success','New Faculty has been registered successfully!');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
@@ -78,8 +78,13 @@ class FacultyCRUD extends Controller
      //Destroy Data
      function destroy($id){
         $faculties = Faculty::find($id);
-        $faculties -> delete();
-        return redirect()->route('admin.faculty-tab');
+        $delete = $faculties -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.faculty-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
     }
 
 
@@ -126,7 +131,7 @@ class FacultyCRUD extends Controller
             $save = $faculty->save();
 
             if( $save ){
-                return redirect()->back()->with('success','Update Information Successfully');
+                return redirect()->route('admin.faculty-tab')->with('success','Update Information Successfully');
             }else{
                 return redirect()->back()->with('fail','Something went wrong, failed to update');
         }

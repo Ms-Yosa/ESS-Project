@@ -66,7 +66,7 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-              return redirect()->back()->with('success','New Student has been registered successfully');
+              return redirect()->route('admin.student-tab')->with('success','New Student has been registered successfully');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
@@ -112,8 +112,13 @@ class UserCRUD extends Controller
     //Destroy Data
     function destroy($id){
         $users = User::find($id);
-        $users -> delete();
-        return redirect()->route('admin.student-tab');
+        $delete = $users -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.student-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
     }
 
 
@@ -173,7 +178,7 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-            return redirect()->back()->with('success','Update Information Successfully');
+            return redirect()->route('admin.student-tab')->with('success','Update Information Successfully');
         }else{
             return redirect()->back()->with('fail','Something went wrong, failed to update');
     }
