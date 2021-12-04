@@ -112,8 +112,13 @@ class UserCRUD extends Controller
     //Destroy Data
     function destroy($id){
         $users = User::find($id);
-        $users -> delete();
-        return redirect()->route('admin.student-tab');
+        $delete = $users -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.student-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
     }
 
 
