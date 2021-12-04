@@ -29,9 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('guardian_bloodtype');
             $table->string('address');
             $table->string('surname');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('guardian_surname');
-            $table->string('guardian_middle_name');
+            $table->string('guardian_middle_name')->nullable();
             $table->string('birth_year');
             $table->string('birth_month');
             $table->string('birth_day');

@@ -15,7 +15,7 @@ class AddColumnToAdmins1 extends Migration
     {
         Schema::table('admins', function (Blueprint $table) {
             $table->string('surname')->after('id');
-            $table->string('middle_name')->after('name');
+            $table->string('middle_name')->nullable()->after('name');
             $table->string('gender');
             $table->string('birth_year');
             $table->string('birth_month');
