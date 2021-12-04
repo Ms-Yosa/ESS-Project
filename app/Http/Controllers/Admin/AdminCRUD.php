@@ -17,7 +17,7 @@ class AdminCRUD extends Controller
 
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
+            'middle_name'=>'nullable|string',
             'email'=>'required|email|unique:admins,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -27,7 +27,7 @@ class AdminCRUD extends Controller
             'birth_day'=>'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
             'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
-            'contact_number'=>'required',
+            'contact_number'=>'required|numeric',
             'address'=>'required',
         ]);
 
@@ -82,7 +82,7 @@ class AdminCRUD extends Controller
         $request->validate([
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
+            'middle_name'=>'nullable|string',
             'email'=>"required|email|unique:admins,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -92,7 +92,7 @@ class AdminCRUD extends Controller
             'birth_day'=>'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
            'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
-            'contact_number'=>'required',
+            'contact_number'=>'required|numeric',
             'address'=>'required',
     ]);
 
