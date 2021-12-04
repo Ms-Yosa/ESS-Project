@@ -24,6 +24,18 @@
                     <div class="row tab-content">
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
+
+                            @if (Session::get('success'))
+                                    <div class="alert alert-success">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+                                @if (Session::get('fail'))
+                                    <div class="alert alert-danger">
+                                        {{ Session::get('fail') }}
+                                    </div>
+                                @endif
+                                
                                 <div class="card-header">
                                     <h4 class="card-title">All Students List  </h4>
                                     <a href="{{ route('admin.student-register') }}" class="btn btn-primary"><li class=
@@ -59,22 +71,24 @@
                                                         <td>{{ $user->faculty_name }}</td>
 
                                                         <td>
-                                                      <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">
-                                                          @csrf
+                                                            <div class="row">
+                                                                <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$user->id}}"><i class="la la-eye"></i></button>
 
-                                                          <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
-                                                      </form>
+                                                                <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">  
+                                                                    @csrf  
 
+                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
+                                                                </form>  
 
-                                                      <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
-                                                        @method('DELETE')
-                                                          @csrf
-
-                                                        <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                      </form>
-
-
+                                                                <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
+                                                                    @method('DELETE')
+                                                                    @csrf  
+                                                                    
+                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
+                                                                </form>   
+                                                            </div>
                                                       </td>
+                                                      @include('admin.student-management.view-modal')
                                                   </tr>
                                               @endforeach
                                             <tbody>

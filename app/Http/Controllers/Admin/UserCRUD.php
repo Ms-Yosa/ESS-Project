@@ -19,7 +19,7 @@ class UserCRUD extends Controller
         $request->validate([
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
+            'middle_name'=>'nullable|string',
             'email'=>'required|email|unique:users,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -32,7 +32,7 @@ class UserCRUD extends Controller
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'guardian_surname'=>'required',
             'guardian'=>'required',
-            'guardian_middle_name'=>'required',
+            'guardian_middle_name'=>'nullable|string',
             'contact_number'=>'required',
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
@@ -66,7 +66,7 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-              return redirect()->back()->with('success','New Student has been registered successfully');
+              return redirect()->route('admin.student-tab')->with('success','New Student has been registered successfully');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
@@ -115,8 +115,13 @@ class UserCRUD extends Controller
     //Destroy Data
     function destroy($id){
         $users = User::find($id);
-        $users -> delete();
-        return redirect()->route('admin.student-tab');
+        $delete = $users -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.student-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
     }
 
 
@@ -131,7 +136,7 @@ class UserCRUD extends Controller
         $request->validate([
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
+            'middle_name'=>'nullable|string',
             'email'=>"required|email|unique:users,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
@@ -144,7 +149,7 @@ class UserCRUD extends Controller
             'student_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'guardian_surname'=>'required',
             'guardian'=>'required',
-            'guardian_middle_name'=>'required',
+            'guardian_middle_name'=>'nullable|string',
             'contact_number'=>'required',
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
@@ -176,7 +181,7 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-            return redirect()->back()->with('success','Update Information Successfully');
+            return redirect()->route('admin.student-tab')->with('success','Update Information Successfully');
         }else{
             return redirect()->back()->with('fail','Something went wrong, failed to update');
     }
