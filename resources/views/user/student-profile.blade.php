@@ -12,16 +12,19 @@
                     </div>
                     <ul class="card-body">
                         <li class="mb-0"><strong class="pr-1">Student Number:</strong>123456789</li>
-                        <li class="mb-0"><strong class="pr-1">Section:</strong></li>
                         <li class="mb-0">
-                            <strong class="pr-1">Class:
-                                @foreach ($class as $cla)
-                                    <option value="{{$cla -> class_id}}">{{ $cla -> class_name}}</option>
-                                @endforeach
-                            </strong>
+                            <strong class="pr-1">Level:</strong>
+                            <p></p>
+                        </li>
+                        <li class="mb-0">
+                            <strong class="pr-1">Class:</strong>
+                            <p></p>
                         </li>
                         <li class="mb-0"><strong class="pr-1">Current Period:</strong></li>
-                        <li class="mb-0"><strong class="pr-1">Adviser:</strong></li>
+                        <li class="mb-0">
+                            <strong class="pr-1">Adviser:</strong>
+                            <p></p>
+                        </li>
                     </ul>
                 </div>
             </div>

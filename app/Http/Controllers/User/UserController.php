@@ -40,8 +40,8 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    function profile(Request $request){
-        $users = User::all();
+    function profile($id){
+        $users = User::find($id);
         $userJoin = DB::table('users')->select(
             'users.*',
             'faculties.id',
@@ -54,7 +54,8 @@ class UserController extends Controller
             ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
             ->get();
             // dd($user);die;
-        return view('user.student-profile', compact('userJoin'));
+        return view('user.student-profile', compact('userJoin'))
+        ->with('users', $users);;
     }
 
 }

@@ -1,19 +1,9 @@
-body{
-	font-family: 'Merriweather';
-	background-color:#fdf8db;
-}
-* {
-	margin: 0;
-	padding: 0;
-}
-i {
-	margin-right: 10px;
-}
 
 /*---------- top nav css -- multi-level-accordian-menu------------*/
 .navbar {
 	padding-top: 0em;
 	padding-bottom: 0em;
+	background-color: #FBD848;
 }
 
 .navbar a{
@@ -21,161 +11,33 @@ i {
 	padding-left: 1em;
 }
 
-.navbar img{
-	margin-right: 1em;
-}
-.navbar-mainbg{
-	background-color: #FBD848;
-	padding: 0px;
-}
-#navbarSupportedContent{
-	overflow: hidden;
-	position: relative;
-	/* display: flex; */
-	justify-content: flex-end;
-	padding-right: 20px;
-}
-#navbarSupportedContent ul{
-	padding: 0px;
-	margin: 0px;
-}
-#navbarSupportedContent ul li a i{
-	margin-right: 10px;
-}
-#navbarSupportedContent li {
-	list-style-type: none;
-	float: left;
-}
-#navbarSupportedContent ul li a{
-	color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 15px;
-	font-weight: bold;
+.navbar a:hover {
+	color: white;
+  }
+.nav-link {
     display: block;
-    padding: 20px 20px;
-    transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    position: relative;
-}
-#navbarSupportedContent>ul>li.active>a{
-	color: #1b1b1f;
-	background-color: transparent;
-	transition: all 0.7s;
-}
-#navbarSupportedContent .active>a:not(:only-child):after {
-	transform: rotate(90deg);
-}
-.hori-selector{
-	display:inline-block;
-	position:absolute;
-	height: 100%;
-	top: 0px;
-	left: 0px;
-	transition-duration:0.6s;
-	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	background-color: #fdf8db;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	margin-top: 10px;
-}
-.hori-selector .right,
-.hori-selector .left{
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	background-color: #fdf8db;
-	bottom: 10px;
-}
-.hori-selector .right{
-	right: -25px;
-}
-.hori-selector .left{
-	left: -25px;
-}
-.hori-selector .right:before,
-.hori-selector .left:before{
-	content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #FBD848;
-}
-.hori-selector .right:before{
-	bottom: 0;
-    right: -25px;
-}
-.hori-selector .left:before{
-	bottom: 0;
-    left: -25px;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    color: #1b1b1f;
+    margin-right: 10px;
+    font-size: 15px;
+	margin-left: 0.5em;
 }
 
-.navbar .secondary-menu-buttons{
-	justify-content: flex-end;
-	padding: 15px;
-	color: #fff;
-	font-size: 15pt;
-	margin: 0px;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
 }
 
-.navbar .secondary-menu-buttons .student-profile-icon{
-	padding-right: 15px;
-}
-@media(min-width: 992px){
-	.navbar-expand-custom {
-	    -ms-flex-flow: row nowrap;
-	    flex-flow: row nowrap;
-	    -ms-flex-pack: start;
-	    justify-content: flex-start;
-	}
-	.navbar-expand-custom .navbar-nav {
-	    -ms-flex-direction: row;
-	    flex-direction: row;
-	}
-	.navbar-expand-custom .navbar-toggler {
-	    display: none;
-	}
-	.navbar-expand-custom .navbar-collapse {
-	    display: -ms-flexbox!important;
-	    display: flex!important;
-	    -ms-flex-preferred-size: auto;
-	    flex-basis: auto;
-	}
+.navbar-nav .active {
+    border-bottom: 5px solid #fff;
+    font-weight: bold;
 }
 
-
-@media (max-width: 991px){
-	#navbarSupportedContent ul li a{
-		padding: 12px 30px;
-	}
-	.hori-selector{
-		margin-top: 0px;
-		margin-left: 10px;
-		border-radius: 0;
-		border-top-left-radius: 25px;
-		border-bottom-left-radius: 25px;
-	}
-	.hori-selector .left,
-	.hori-selector .right{
-		right: 10px;
-	}
-	.hori-selector .left{
-		top: -25px;
-		left: auto;
-	}
-	.hori-selector .right{
-		bottom: -25px;
-	}
-	.hori-selector .left:before{
-		left: -25px;
-		top: -25px;
-	}
-	.hori-selector .right:before{
-		bottom: -25px;
-		left: -25px;
-	}
+.navbar {
+    padding-top: .5rem;
+    padding-bottom: 0px !important
 }
-
 /* footer css */
   footer{
 	background-color: #FFE077;
@@ -245,96 +107,3 @@ i {
 	}
   }
 
-
-/* Profile Dropdown */
-.wrapper-dropdown-5 {
-    /* Size & position */
-    position: relative;
-    padding: 12px 15px;
-
-    /* Styles */
-    cursor: pointer;
-    outline: none;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.wrapper-dropdown-5 .dropdown {
-    /* Size & position */
-    position: absolute;
-    top: 100%;
-    right: 0;
-	padding-left: 0;
-	width: 200px;
-	margin-top: 15%;
-	z-index: 999;
-
-    /* Styles */
-    background: #fff;
-    border-radius: 0 0 5px 5px;
-    border: 1px solid rgba(0,0,0,0.2);
-    border-top: none;
-    border-bottom: none;
-    list-style: none;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -ms-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-
-    /* Hiding */
-    max-height: 0;
-    overflow: hidden;
-}
-
-.wrapper-dropdown-5 .dropdown li {
-    padding: 0 10px ;
-}
-
-.wrapper-dropdown-5 .dropdown li a {
-    display: block;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 0;
-    transition: all 0.3s ease-out;
-    border-bottom: 1px solid #e6e8ea;
-}
-
-.wrapper-dropdown-5 .dropdown li:last-of-type a {
-    border: none;
-}
-
-.wrapper-dropdown-5 .dropdown li i {
-    margin-right: 5px;
-    color: inherit;
-    vertical-align: middle;
-}
-
-/* Hover state */
-
-.wrapper-dropdown-5 .dropdown li:hover a {
-    color: #57a9d9;
-}
-
-/* Active state */
-
-.wrapper-dropdown-5.active {
-    color: white;
-}
-
-.wrapper-dropdown-5.active:after {
-    border-color: #82d1ff transparent;
-}
-
-.wrapper-dropdown-5.active .dropdown {
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    max-height: 400px;
-	margin-right: 1em;
-}
-
-.fa-user{
-	font-size: 15pt!important;
-}

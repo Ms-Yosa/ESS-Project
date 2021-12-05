@@ -1,6 +1,6 @@
 body{
-	font-family: 'Nunito', sans-serif;
-    background-color:#fdf8db;
+	font-family: 'Nunito', sans-serif!important;
+    background-color:#fdf8db!important;
 }
 * {
 	margin: 0;
@@ -9,7 +9,6 @@ body{
 i {
 	margin-right: 10px;
 }
-
 
 /* student grades */
 .table{
