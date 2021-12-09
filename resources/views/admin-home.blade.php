@@ -27,7 +27,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Students</p>
-                                    <h4 class="mb-0">40</h4>
+                                    <h4 class="mb-0">{{$user}}</h4>
                                     <span class="badge badge-primary">Enrolled</span>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Faculties</p>
-                                    <h4 class="mb-0">5</h4>
+                                    <h4 class="mb-0">{{$faculty}}</h4>
                                     <span class="badge badge-warning">Registered</span>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Admins</p>
-                                    <h4 class="mb-0">2</h4>
+                                    <h4 class="mb-0">{{$admin}}</h4>
                                     <span class="badge badge-danger">Registered</span>
                                 </div>
                             </div>
@@ -74,8 +74,8 @@
                                 <i class="la la-book"></i>
                                 </span>
                                 <div class="media-body">
-                                    <p class="mb-1">Subjects</p>
-                                    <h4 class="mb-0">5</h4>
+                                    <p class="mb-1">Classes</p>
+                                    <h4 class="mb-0">{{$class}}</h4>
                                     <span class="badge badge-success">Registered</span>
                                 </div>
                             </div>

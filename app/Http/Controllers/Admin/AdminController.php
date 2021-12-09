@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,21 +49,29 @@ class AdminController extends Controller
         Auth::guard('admin')->facultyTab();
         return redirect() -> route('admin.faculty-tab');
     }
-    
+
     function classTab(){
         Auth::guard('admin')->classTab();
         return redirect() -> route('admin.class-tab');
     }
-    
+
     function messageTab(){
         Auth::guard('admin')->messageTab();
         return redirect() -> route('admin.message-tab');
     }
-    
+
     function calendarTab(){
         Auth::guard('admin')->calendarTab();
         return redirect() -> route('admin.calendar-tab');
     }
-    
+
+    function dashboardCount(){
+        $user=DB::table('users')->count();
+        $faculty=DB::table('faculties')->count();
+        $admin=DB::table('admins')->count();
+        $class=DB::table('classes')->count();
+
+        return view('admin-home', compact('user', 'faculty', 'admin', 'class'));
+    }
 
 }

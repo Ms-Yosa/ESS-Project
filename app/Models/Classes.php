@@ -84,4 +84,8 @@ class Classes extends Model
     ];
 
 
+    public function faculty()
+    {
+        return $this->hasOne('App\Models\Faculty', 'faculty_id', 'id');
+    }
 }
