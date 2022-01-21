@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
+
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ URL::to('assets_reference/vendor/pickadate/themes/default.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets_reference/vendor/pickadate/themes/default.date.css') }}">
     {{-- message toastr --}}
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 </head>
@@ -35,14 +35,14 @@
     <div id="main-wrapper">
         <!-- Nav header start -->
         <div class="nav-header">
-            
+
             <div class="nav-control">
                 <div class="hamburger">
                 <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
                 </div>
             </div>
 
-            
+
         </div>
         <!-- Nav header end -->
 
@@ -60,11 +60,11 @@
         <!-- Header end ti-comment-alt -->
 
         <!-- Sidebar start -->
-      
+
         @include('partials.admin.sidebar')
-   
+
         <!-- Sidebar end -->
-		
+
 		<!-- Content body start -->
         @yield('content')
         <!-- Content body end -->

@@ -17,7 +17,7 @@
                     </ol>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
@@ -43,7 +43,7 @@
                                                     <th>Code</th>
                                                     <th>Description</th>
                                                     <th>Status</th>
-                                                    <th>Action</th>
+                                                    <th colspan="3">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -76,7 +76,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                     {{-- fields require --}}
                                     {!! Form::open(['route' => 'admin.subjects.store']) !!}
                                         <!-- Modal -->

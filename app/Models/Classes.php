@@ -88,4 +88,5 @@ class Classes extends Model
     {
         return $this->hasOne('App\Models\Faculty', 'faculty_id', 'id');
     }
+
 }

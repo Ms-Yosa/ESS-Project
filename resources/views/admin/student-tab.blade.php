@@ -25,7 +25,7 @@
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
 
-                            @if (Session::get('success'))
+                                @if (Session::get('success'))
                                     <div class="alert alert-success">
                                         {{ Session::get('success') }}
                                     </div>
@@ -35,11 +35,10 @@
                                         {{ Session::get('fail') }}
                                     </div>
                                 @endif
-                                
+
                                 <div class="card-header">
                                     <h4 class="card-title">All Students List  </h4>
-                                    <a href="{{ route('admin.student-register') }}" class="btn btn-primary"><li class=
-"la la-user-plus"></li>  Add new</a>
+                                    <a href="{{ route('admin.student-register') }}" class="btn btn-primary"><li class="la la-user-plus"></li>  Add new</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -59,7 +58,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                              @foreach ($userJoin as $key => $user)
+                                                @foreach ($userJoin as $key => $user)
                                                   <tr>
                                                         <td class="id">{{ ++$key }}</td>
                                                         <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
@@ -74,23 +73,23 @@
                                                             <div class="row">
                                                                 <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$user->id}}"><i class="la la-eye"></i></button>
 
-                                                                <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">  
-                                                                    @csrf  
+                                                                <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">
+                                                                    @csrf
 
-                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
-                                                                </form>  
+                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                </form>
 
                                                                 <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
                                                                     @method('DELETE')
-                                                                    @csrf  
-                                                                    
-                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
-                                                                </form>   
+                                                                    @csrf
+
+                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                                </form>
                                                             </div>
                                                       </td>
                                                       @include('admin.student-management.view-modal')
                                                   </tr>
-                                              @endforeach
+                                                @endforeach
                                             <tbody>
 
                                         </table>
@@ -98,8 +97,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

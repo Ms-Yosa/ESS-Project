@@ -37,14 +37,16 @@ class ClassesController extends AppBaseController
         $classes = $this->classesRepository->all();
         $faculty = Faculty::all();
         $subject = Subject::all();
-        $facultyJoin = DB::table('classes')->select(
+        $tableJoin = DB::table('classes')->select(
+            'users.*',
             'classes.*',
             'faculties.*'
             )
             ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
+            ->leftJoin('users','classes.class_id', '=', 'users.class_id' )
             ->get();
 
-        return view('admin.class-management.classes.index', compact('faculty','subject','facultyJoin'))
+        return view('admin.class-management.classes.index', compact('faculty','subject','tableJoin'))
             ->with('classes', $classes);
     }
 

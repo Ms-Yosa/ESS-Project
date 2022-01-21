@@ -134,8 +134,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //**CRUD Class Route
         Route::get('/classes', [ClassesController::class,'index'])->name('classes');
         Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
-        Route::get('/classes/{id}', [ClassesController::class,'edit'])->name('classes.edit');
-        Route::post('/classes/{id}', [ClassesController::class,'update'])->name('classes.update');
+        Route::get('/classes//edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
+        Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
         Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
         //**CRUD classSchedulings Route
