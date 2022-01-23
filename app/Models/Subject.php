@@ -68,4 +68,13 @@ class Subject extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function class()
+    {
+        return $this->belongsToMany(Classes::class);
+    }
+
+    public function subArea(){
+        return $this->belongsTo(SubArea::class,'subArea_id');
+    }
+
 }

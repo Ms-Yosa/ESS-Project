@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Classes;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**

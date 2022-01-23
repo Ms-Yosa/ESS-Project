@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Faculty;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class FacultyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Faculty::class;
 
     /**
      * Define the model's default state.
@@ -23,26 +23,19 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'surname' => $this->faker->name(),
-            'name' => $this->faker->name(),
-            'middle_name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'age' => 1,
+            'faculty_surname' => $this->faker->name(),
+            'faculty_name' => $this->faker->name(),
+            'faculty_middle_name' => $this->faker->name(),
+            'faculty_email' => $this->faker->unique()->safeEmail(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password,
             'gender' => 'Male',
             'birth_year' => '2010',
             'birth_month' => 'November',
             'birth_day' => '30',
-            'religion' => 'Catholic',
-            'student_bloodtype' => 'A',
-            'guardian_surname' => 'Test',
-            'guardian' => 'Test',
-            'guardian_middle_name' => 'Test',
+            'age' => 32,
+            'bloodtype' => 'A',
             'contact_number' => '09478481554',
-            'relation' => 'Mother',
-            'guardian_bloodtype' => 'A',
             'address' => 'test address',
-            'class_id' => \App\Models\Classes::all()->random()->class_id,
         ];
     }
 

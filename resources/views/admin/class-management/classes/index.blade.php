@@ -47,13 +47,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($tableJoin as $key => $class)
+                                                @foreach($classes as $key => $class)
                                                     <tr>
                                                         <td class="id">{{ ++$key }}</td>
                                                         <td>{{ $class->class_name }}</td>
                                                         <td>{{ $class->class_code }}</td>
                                                         <td>{{ $class->level }}</td>
-                                                        <td>{{$class->faculty_name}}</td>
+                                                        <td>{{ $class->getInstructor->faculty_name  ?? 'Unassigned'  }}</td>
                                                         <td>
                                                             <div class="row">
                                                                 <a class="btn badge bg-primary" data-toggle="modal" data-target="#ModalView{{$class->class_id}}"><i class="la la-eye"></i></a>

@@ -12,6 +12,7 @@ use Response;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Subject;
+use App\Models\User;
 use App\Models\Classes;
 use App\Models\Faculty;
 
@@ -34,20 +35,25 @@ class ClassesController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $classes = $this->classesRepository->all();
-        $faculty = Faculty::all();
-        $subject = Subject::all();
-        $tableJoin = DB::table('classes')->select(
-            'users.*',
-            'classes.*',
-            'faculties.*'
-            )
-            ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
-            ->leftJoin('users','classes.class_id', '=', 'users.class_id' )
-            ->get();
+        $classes = Classes::with('getStudents','getInstructor','faculty','getSubjects','getSubArea')->get();
 
-        return view('admin.class-management.classes.index', compact('faculty','subject','tableJoin'))
-            ->with('classes', $classes);
+        //dd($classes->toArray());
+
+        // $class = Classes::with('user')->first();
+        // dd($class->toArray());
+
+        // $faculty = Faculty::all();
+        // $subject = Subject::all();
+        // $tableJoin = DB::table('classes')->select(
+        //     'users.*',
+        //     'classes.*',
+        //     'faculties.*'
+        //     )
+        //     ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
+        //     ->join('users','users.class_id', '=', 'classes.class_id' )
+        //     ->get();
+
+        return view('admin.class-management.classes.index')->with('classes', $classes);
     }
 
     /**

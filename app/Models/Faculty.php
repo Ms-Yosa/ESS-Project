@@ -50,4 +50,12 @@ class faculty extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getClass(){
+        return $this->hasMany(Classes::class,'faculty_id','id');
+    }
+
+    public function faculty(){
+        return $this->belongsTo(Classes::class);
+    }
 }

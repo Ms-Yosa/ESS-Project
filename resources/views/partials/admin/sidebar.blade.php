@@ -3,9 +3,9 @@
 <div class="dlabnav">
         <div class="dlabnav-scroll">
             <ul class="metismenu" id="menu">
-            
+
                 <li class="nav-label first">Main Menu</li>
-                
+
                 <li>
                     <a  href="{{ route('admin.home') }}" >
                         <i class="la la-home"></i>
@@ -50,10 +50,7 @@
                         <span class="nav-text">Class Management</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">Academic Year</a></li>
                         <li><a href="{{ route('admin.classes') }}">Classes</a></li>
-                        <li><a href="#">Class Assigning</a></li>
-                        <li><a href="{{ route('admin.classSchedulings') }}">Class Scheduling</a></li>
                         <li><a href="{{ route('admin.subjects') }}">Subjects</a></li>
                     </ul>
                 </li>
@@ -73,15 +70,15 @@
                         <!-- <li><a href="edit-library.html">Edit Library</a></li> -->
                     </ul>
                 </li>
-                <li>    
+                <li>
                     <a class="nav-label" href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="la la-arrow-circle-right"></i>
                         <span class="nav-text">Logout</span>
                     </a>
                     <form action="{{ route('admin.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
                 </li>
 
-                                     
-                
+
+
             </ul>
         </div>
     </div>

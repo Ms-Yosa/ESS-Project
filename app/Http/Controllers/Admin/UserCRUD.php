@@ -77,36 +77,36 @@ class UserCRUD extends Controller
 
     //Retrieve Data
      function index(Request $request){
-        $users = User::all();
-        $class = Classes::all();
-        $userJoin = DB::table('users')->select(
-            'users.*',
-            'faculties.id',
-            'faculties.faculty_name',
-            'faculties.faculty_surname',
-            'faculties.faculty_middle_name',
-            'classes.*'
-            )
-            ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
-            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
-            ->get();
-            // dd($user);die;
-        return view('admin.student-tab', compact('class','userJoin'))
-        ->with('users', $users);
+        $users = User::with('classAssigned')->get();
+        //dd($users->toArray());
+        // $class = Classes::all();
+        // $userJoin = DB::table('users')->select(
+        //     'users.*',
+        //     'faculties.id',
+        //     'faculties.faculty_name',
+        //     'faculties.faculty_surname',
+        //     'faculties.faculty_middle_name',
+        //     'classes.*'
+        //     )
+        //     ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
+        //     ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
+        //     ->get();
+        //     // dd($user);die;
+        return view('admin.student-tab', compact('users'));
     }
 
     //Pass class table
     function register(Request $request){
-        $users = User::all();
-        $class = Classes::all();
+        // $users = User::with('class')->get();
+        $class = Classes::with('getStudents','getInstructor','faculty')->get();
         $faculty = Faculty::all();
-        // $user = DB::table('users')->select(
-        //     // 'subjects.*',
-        //     'classes.*'
-        //     )
-        //     ->join('classes','classes.class_id', '=', 'users.class_id' )
-        //     // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
-        //     ->get();
+        $user = DB::table('users')->select(
+            // 'subjects.*',
+            'classes.*'
+            )
+            ->join('classes','classes.class_id', '=', 'users.class_id' )
+            // ->join('faculties','faculties.faculty_id', '=', 'class_schedulings.faculty_id' )
+            ->get();
         return view('admin.student-management.register', compact('class','faculty'))
         ->with('users', $users);
     }

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Class;
+use App\Models\SubArea;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ClassFactory extends Factory
+class SubAreaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Class::class;
+    protected $model = SubArea::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class ClassFactory extends Factory
     public function definition()
     {
         return [
-            'class_name' => $this->faker->word,
-        'class_code' => $this->faker->word,
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
+            'name' => $this->faker->word,
+        'class_id' => $this->faker->randomDigitNotNull,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

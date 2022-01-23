@@ -28,9 +28,9 @@
     {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
     <select class="form-group" name="faculty_id" id="faculty_id">
         <option value="">Select Instructor</option>
-        @foreach ($faculty as $fac)
+        {{-- @foreach ($faculty as $fac)
             <option value="{{$fac -> id}}">{{ $fac -> faculty_name}}</option>
-        @endforeach
+        @endforeach --}}
     </select>
 </div>
 
@@ -40,9 +40,9 @@
     {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
     <select class="form-group" name="subject_id" id="subject_id">
         <option value="">Select Subject</option>
-        @foreach ($subject as $subj)
+        {{-- @foreach ($subject as $subj)
             <option value="{{$subj -> subject_id}}">{{ $subj -> subject_name}}</option>
-        @endforeach
+        @endforeach --}}
     </select>
 </div>
 

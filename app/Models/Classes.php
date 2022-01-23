@@ -35,8 +35,9 @@ class Classes extends Model
         'class_name',
         'class_code',
         'level',
+        'user_id',
         'faculty_id',
-        'subject_id',
+        // 'subject_id',
         'class_id',
         'day_id',
         'start_time',
@@ -54,8 +55,9 @@ class Classes extends Model
         'class_name' => 'string',
         'class_code' => 'string',
         'level' => 'string',
+        'user_id' => 'integer',
         'faculty_id' => 'integer',
-        'subject_id' => 'integer',
+        // 'subject_id' => 'integer',
         'class_id' => 'integer',
         'day_id' => 'integer',
         'start_time' => 'string',
@@ -72,8 +74,9 @@ class Classes extends Model
         'class_name' => 'required|string|max:255',
         'class_code' => 'required|string|max:255',
         'level' => 'required|string|max:255',
+        'user_id' => 'required|integer',
         'faculty_id' => 'required|integer',
-        'subject_id' => 'required|integer',
+        // 'subject_id' => 'required|integer',
         'day_id' => 'required|integer',
         'start_time' => 'required|string',
         'end_time' => 'required|string',
@@ -83,10 +86,28 @@ class Classes extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-    public function faculty()
-    {
-        return $this->hasOne('App\Models\Faculty', 'faculty_id', 'id');
+    public function faculty(){
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function getInstructor(){
+        return $this->hasOne(Faculty::class,'id','faculty_id');
+    }
+
+    public function getStudents(){
+        return $this->hasMany(User::class,'class_id','class_id');
+    }
+
+    public function getSubArea(){
+        return $this->hasMany(SubArea::class,'id','class_id');
+    }
+
+    public function getSubjects(){
+        return $this->hasManyThrough(Subject::class, SubArea::class,'id','id');
     }
 
 }

@@ -58,28 +58,31 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($userJoin as $key => $user)
+                                                @foreach ($users as $key => $student)
                                                   <tr>
                                                         <td class="id">{{ ++$key }}</td>
-                                                        <td class="name">{{ $user->surname }}, {{ $user->name }} {{ $user->middle_name }}</td>
-                                                        <td class="email">{{ $user->email }}</td>
-                                                        <td class="age">{{ $user->age }}</td>
-                                                        <td class="age">{{ $user->birth_year }}, {{ $user->birth_month }} {{ $user->birth_day }}</td>
-                                                        <td class="gender">{{ $user->gender }}</td>
-                                                        <td>{{ $user->class_name }}</td>
-                                                        <td>{{ $user->faculty_name }}</td>
+                                                        <td class="name">{{ $student->surname }}, {{ $student->name }} {{ $student->middle_name }}</td>
+                                                        <td class="email">{{ $student->email }}</td>
+                                                        <td class="age">{{ $student->age }}</td>
+                                                        <td class="age">{{ $student->birth_year }}, {{ $student->birth_month }} {{ $student->birth_day }}</td>
+                                                        <td class="gender">{{ $student->gender }}</td>
+                                                        <td>
+                                                            {{ $student->classAssigned->class_name ?? 'Unassigned' }}
+                                                        </td>
+                                                        <td>{{ $student->classAssigned->getInstructor->faculty_name ?? 'Unassigned' }}</td>
+
 
                                                         <td>
                                                             <div class="row">
-                                                                <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$user->id}}"><i class="la la-eye"></i></button>
+                                                                <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$student->id}}"><i class="la la-eye"></i></button>
 
-                                                                <form action="{{ route('admin.student-edit', $user->id)}}" method="GET">
+                                                                <form action="{{ route('admin.student-edit', $student->id)}}" method="GET">
                                                                     @csrf
 
                                                                     <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
                                                                 </form>
 
-                                                                <form action="{{ route('admin.student-destroy', $user->id)}}" method="POST">
+                                                                <form action="{{ route('admin.student-destroy', $student->id)}}" method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
 

@@ -23,11 +23,18 @@ class ClassesFactory extends Factory
     {
         return [
             'class_name' => $this->faker->word,
-        'class_code' => $this->faker->word,
-        'level' => $this->faker->word,
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+            'class_code' => $this->faker->unique()->numberBetween(1, 20),
+            'level' => $this->faker->word,
+            // 'user_id' =>  \App\Models\User::all()->random()->id,
+            'faculty_id' =>  1,
+            'day_id' => 2,
+            'start_time' => $this->faker->word,
+            'end_time' => $this->faker->word,
+            'status' => 0,
+            'deleted_at' => null,
+            'created_at' => null,
+            'updated_at' => null
+
         ];
     }
 }

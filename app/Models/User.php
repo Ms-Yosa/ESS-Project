@@ -36,6 +36,7 @@ class User extends Authenticatable
         'relation',
         'guardian_bloodtype',
         'address',
+        'class_id'
 
     ];
 
@@ -62,8 +63,11 @@ class User extends Authenticatable
      * Eloquent Relationships
      */
 
-    public function class()
-    {
-        return $this->belongsTo(Classes::class, 'class_id', 'class_id');
+    // public function class(){
+    //     return $this->hasOne(Classes::class,'user_id','id');
+    // }
+
+    public function classAssigned(){
+        return $this->belongsTo(Classes::class, 'class_id');
     }
 }
