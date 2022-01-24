@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\UserCRUD;
 use App\Http\Controllers\Admin\FacultyCRUD;
 use App\Http\Controllers\Admin\AdminCRUD;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\ClassSchedulingController;
@@ -127,6 +128,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //**CRUD Subject Route
         Route::get('/subjects', [SubjectController::class,'index'])->name('subjects');
         Route::post('subjects', [SubjectController::class,'store'])->name('subjects.store');
+        Route::post('subject-area', [SubAreaController::class,'createArea'])->name('subjects.createArea');
         Route::get('subjects/edit/{id}', [SubjectController::class,'edit'])->name('subjects.edit');
         Route::post('subjects/update/{id}', [SubjectController::class,'update'])->name('subjects.update');
         Route::get('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');

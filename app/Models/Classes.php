@@ -35,7 +35,6 @@ class Classes extends Model
         'class_name',
         'class_code',
         'level',
-        'user_id',
         'faculty_id',
         // 'subject_id',
         'class_id',
@@ -55,7 +54,6 @@ class Classes extends Model
         'class_name' => 'string',
         'class_code' => 'string',
         'level' => 'string',
-        'user_id' => 'integer',
         'faculty_id' => 'integer',
         // 'subject_id' => 'integer',
         'class_id' => 'integer',
@@ -74,7 +72,6 @@ class Classes extends Model
         'class_name' => 'required|string|max:255',
         'class_code' => 'required|string|max:255',
         'level' => 'required|string|max:255',
-        'user_id' => 'required|integer',
         'faculty_id' => 'required|integer',
         // 'subject_id' => 'required|integer',
         'day_id' => 'required|integer',
@@ -103,7 +100,7 @@ class Classes extends Model
     }
 
     public function getSubArea(){
-        return $this->hasMany(SubArea::class,'id','class_id');
+        return $this->hasMany(SubArea::class,'class_id','class_id');
     }
 
     public function getSubjects(){

@@ -8,9 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class SubArea extends Model
 {
     use HasFactory;
+    public $table = 'sub_areas';
+
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+
+    protected $dates = ['deleted_at'];
+    protected $primaryKey = 'id';
+
+
+
+    public $fillable = [
+        'name',
+        'class_id',
+    ];
 
     public function subjects(){
-        return $this->hasMany(Subject::class);
+        return $this->hasMany(Subject::class,'subArea_id','id');
     }
 
     public function class(){

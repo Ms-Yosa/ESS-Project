@@ -36,6 +36,8 @@ class ClassesController extends AppBaseController
     public function index(Request $request)
     {
         $classes = Classes::with('getStudents','getInstructor','faculty','getSubjects','getSubArea')->get();
+        $faculty = Faculty::all();
+        $subject = Subject::all();
 
         //dd($classes->toArray());
 
@@ -43,7 +45,7 @@ class ClassesController extends AppBaseController
         // dd($class->toArray());
 
         // $faculty = Faculty::all();
-        // $subject = Subject::all();
+        //
         // $tableJoin = DB::table('classes')->select(
         //     'users.*',
         //     'classes.*',
@@ -53,7 +55,7 @@ class ClassesController extends AppBaseController
         //     ->join('users','users.class_id', '=', 'classes.class_id' )
         //     ->get();
 
-        return view('admin.class-management.classes.index')->with('classes', $classes);
+        return view('admin.class-management.classes.index', compact('faculty','subject'))->with('classes', $classes);
     }
 
     /**

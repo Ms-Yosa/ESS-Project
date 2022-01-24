@@ -35,6 +35,7 @@ class Subject extends Model
 
     public $fillable = [
         'subject_name',
+        'subArea_id',
         'subject_code',
         'description',
         'status'
@@ -48,6 +49,7 @@ class Subject extends Model
     protected $casts = [
         'subject_id' => 'integer',
         'subject_name' => 'string',
+        'subArea_id' => 'string',
         'subject_code' => 'string',
         'description' => 'string',
         'status' => 'boolean'
@@ -60,6 +62,7 @@ class Subject extends Model
      */
     public static $rules = [
         'subject_name' => 'required|string|max:255',
+        'subArea_id' => 'required|string|max:255',
         'subject_code' => 'required|string|max:255',
         'description' => 'required|string',
         'status' => 'required|boolean',

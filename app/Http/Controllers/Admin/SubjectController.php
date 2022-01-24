@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateSubjectRequest;
 use App\Repositories\SubjectRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\SubArea;
+use App\Models\Classes;
 use Flash;
 use Response;
 
@@ -30,8 +32,11 @@ class SubjectController extends AppBaseController
     public function index(Request $request)
     {
         $subjects = $this->subjectRepository->all();
+        $subArea = SubArea::with('class','subjects')->get();
+        $class = Classes::all();
+        //dd($subArea->toArray());
 
-        return view('admin.class-management.subjects.index')
+        return view('admin.class-management.subjects.index', compact('subArea','class'))
             ->with('subjects', $subjects);
     }
 
@@ -115,10 +120,10 @@ class SubjectController extends AppBaseController
             Flash::error('Subject not found');
 
             return redirect(route('admin.subjects'));
-        } 
-        
+        }
+
         $this->subjectRepository->delete($id);
-        
+
         Flash::success('Subject deleted successfully.');
 
         return redirect(route('admin.subjects'));
