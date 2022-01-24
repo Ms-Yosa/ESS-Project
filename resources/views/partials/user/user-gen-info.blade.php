@@ -6,10 +6,10 @@
         <tbody>
             <tr>
                 <td>Student Number: <span>2021-124512-00-XX</span> </td>
-                <td>Section: <span>1-Apple</span> </td>
+                <td>Class: <span>{{Auth::guard('web')->user()->classAssigned->class_name}}</span> </td>
             </tr>
             <tr>
-                <td>Adviser: <span> Ms. Julianna Dela Cruz</span></td>
+                <td>Adviser: <span> {{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_name}}</span></td>
                 <td>GWA: <span>A++</span> </td>
             </tr>
             <tr>

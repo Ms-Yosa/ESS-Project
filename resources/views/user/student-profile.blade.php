@@ -14,16 +14,16 @@
                         <li class="mb-0"><strong class="pr-1">Student Number:</strong>123456789</li>
                         <li class="mb-0">
                             <strong class="pr-1">Level:</strong>
-                            <p></p>
+                            <p>{{Auth::guard('web')->user()->classAssigned->level}}</p>
                         </li>
                         <li class="mb-0">
                             <strong class="pr-1">Class:</strong>
-                            <p></p>
+                            <p>{{Auth::guard('web')->user()->classAssigned->class_name}}</p>
                         </li>
                         <li class="mb-0"><strong class="pr-1">Current Period:</strong></li>
                         <li class="mb-0">
-                            <strong class="pr-1">Adviser:</strong>
-                            <p></p>
+                            <strong class="pr-1">Instructor:</strong>
+                            <p>{{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_name}}</p>
                         </li>
                     </ul>
                 </div>

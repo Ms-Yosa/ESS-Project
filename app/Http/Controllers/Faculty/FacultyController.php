@@ -31,6 +31,14 @@ class FacultyController extends Controller
         }
     }
 
+    public function classes(Request $request)
+    {
+        $classes = Faculty::with('getClass')->get();
+
+        //dd($classes->toArray());
+
+        return view('faculty.classes')->with('classes', $classes);
+    }
         //Logout
 
     function logout(){

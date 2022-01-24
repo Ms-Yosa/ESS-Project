@@ -41,20 +41,10 @@ class UserController extends Controller
     }
 
     function profile($id){
-        $users = User::find($id);
-        $userJoin = DB::table('users')->select(
-            'users.*',
-            'faculties.id',
-            'faculties.faculty_name',
-            'faculties.faculty_surname',
-            'faculties.faculty_middle_name',
-            'classes.*'
-            )
-            ->leftJoin('classes','users.class_id', '=', 'classes.class_id' )
-            ->join('faculties','faculties.id', '=', 'classes.faculty_id' )
-            ->get();
+        $users = User::with('classAssigned')->get();
+        //dd($class->toArray());
             // dd($user);die;
-        return view('user.student-profile', compact('userJoin'))
+        return view('user.student-profile')
         ->with('users', $users);;
     }
 
