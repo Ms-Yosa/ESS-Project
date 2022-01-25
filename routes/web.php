@@ -78,6 +78,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
          Route::view('/home','faculty.home')->name('home');
          Route::get('/classes',[FacultyController::class,'classes'])->name('classes');
          Route::get('/classes/{id}', [FacultyController::class,'class_view'])->name('class_view');
+         Route::get('/profile/{id}',[FacultyController::class,'profile'])->name('profile');
          Route::post('logout',[FacultyController::class,'logout'])->name('logout');
     });
 

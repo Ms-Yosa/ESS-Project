@@ -49,6 +49,15 @@ class FacultyController extends Controller
         return view('faculty.view-class')->with('class', $class);
 
     }
+
+    function profile($id){
+        $faculty = Faculty::find($id);
+        //dd($class->toArray());
+            // dd($user);die;
+        return view('faculty.profile')
+        ->with('faculty', $faculty);
+    }
+
         //Logout
 
     function logout(){

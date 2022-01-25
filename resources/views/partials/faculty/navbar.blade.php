@@ -19,7 +19,7 @@
                         {{ Auth::guard('faculty')->user()->faculty_name }} {{ Auth::guard('faculty')->user()->faculty_surname }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      {{-- <a class="dropdown-item" href="{{ route('user.profile', Auth::guard('web')->user()->id) }}">Profile <i class="fas fa-user-circle float-right"></i></a> --}}
+                      <a class="dropdown-item" href="{{ route('faculty.profile', Auth::guard('faculty')->user()->id) }}">Profile <i class="fas fa-user-circle float-right"></i></a>
                       <a class="dropdown-item" href="#">Message <i class="fa fa-comment float-right" aria-hidden="true"></i></a>
                       <a class="dropdown-item" href="{{ route('faculty.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt float-right"></i>
