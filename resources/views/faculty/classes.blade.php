@@ -3,7 +3,9 @@
 <section class="articles mt-3">
       @foreach ($classes as  $key => $class)
       @foreach ($class->getClass as $item)
-        <a href="" class="text-decoration-none link-dark">
+      <form action="{{ route('faculty.class_view', $item->class_id)}}" method="GET" class="mb-4">
+        @csrf
+        <button type="submit">
           <!--  ARTICLE  -->
           <article class="articles__article-card">
 
@@ -21,7 +23,8 @@
                 </div>
             </div>
           </article>
-        </a>
+        </button>
+    </form>
       @endforeach
     @endforeach
 

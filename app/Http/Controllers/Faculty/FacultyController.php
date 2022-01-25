@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Faculty;
 use App\Models\Classes;
+use App\Models\SubArea;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 
 class FacultyController extends Controller
@@ -38,6 +40,14 @@ class FacultyController extends Controller
         //dd($classes->toArray());
 
         return view('faculty.classes')->with('classes', $classes);
+    }
+
+    public function class_view($id)
+    {
+        $class = Classes::where('class_id', $id)->with('getStudents','getSubArea')->get();
+        //dd($subject->toArray());
+        return view('faculty.view-class')->with('class', $class);
+
     }
         //Logout
 

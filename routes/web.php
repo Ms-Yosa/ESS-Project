@@ -77,6 +77,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
     Route::middleware(['auth:faculty','PreventBackHistory'])->group(function(){
          Route::view('/home','faculty.home')->name('home');
          Route::get('/classes',[FacultyController::class,'classes'])->name('classes');
+         Route::get('/classes/{id}', [FacultyController::class,'class_view'])->name('class_view');
          Route::post('logout',[FacultyController::class,'logout'])->name('logout');
     });
 

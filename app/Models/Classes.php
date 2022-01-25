@@ -104,7 +104,7 @@ class Classes extends Model
     }
 
     public function getSubjects(){
-        return $this->hasManyThrough(Subject::class, SubArea::class,'id','id');
+        return $this->hasManyThrough(Subject::class, SubArea::class,'class_id','subArea_id','id','id');
     }
 
 }
