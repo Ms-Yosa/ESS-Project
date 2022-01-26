@@ -33,7 +33,6 @@
             </table>
             @endforeach
 
-
             @foreach ($class as $key => $student)
             <h3>Subject List</h3>
             <table class="table table-hover">
@@ -42,7 +41,7 @@
                     <th>#</th>
                     <th>Area</th>
                     <th>Subjects</th>
-
+                    <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +55,9 @@
                                     {{$sub->subject_name}}
                                 <br>
                                 @endforeach
+                            </td>
+                            <td>
+                                <a  href="{{route('faculty.marking',['id'=>$student->class_id,'subArea_id'=>$subArea->id])}}">Mark Students</a>
                             </td>
 
                         </tr>

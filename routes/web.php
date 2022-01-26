@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
+use App\Http\Controllers\GradeController;
 use App\Http\Controllers\Admin\ClassSchedulingController;
 
 
@@ -78,8 +79,13 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
          Route::view('/home','faculty.home')->name('home');
          Route::get('/classes',[FacultyController::class,'classes'])->name('classes');
          Route::get('/classes/{id}', [FacultyController::class,'class_view'])->name('class_view');
+         Route::get('/classes/{id}/marking/{subArea_id}',[FacultyController::class,'gradeMarking'])->name('marking');
          Route::get('/profile/{id}',[FacultyController::class,'profile'])->name('profile');
          Route::post('logout',[FacultyController::class,'logout'])->name('logout');
+
+         //GRADE
+        Route::get('/classes/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'index'])->name('grade');
+        // Route::post('/classes/{id}/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
     });
 
 });
@@ -143,12 +149,6 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
         Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
-        //**CRUD classSchedulings Route
-        Route::get('/classSchedulings', [ClassSchedulingController::class,'index'])->name('classSchedulings');
-        Route::post('/classSchedulings', [ClassSchedulingController::class,'store'])->name('classSchedulings.store');
-        Route::get('/classSchedulings/edit/{id}', [ClassSchedulingController::class,'edit'])->name('classSchedulings.edit');
-        Route::post('/classSchedulings/update/{id}', [ClassSchedulingController::class,'update'])->name('classSchedulings.update');
-        Route::get('/classSchedulings/{id}', [ClassSchedulingController::class,'destroy'])->name('classSchedulings.destroy');
     });
 
 });
