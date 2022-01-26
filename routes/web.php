@@ -85,7 +85,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
          //GRADE
         Route::get('/classes/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'index'])->name('grade');
-        // Route::post('/classes/{id}/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
+        Route::post('/classes/marking/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
     });
 
 });

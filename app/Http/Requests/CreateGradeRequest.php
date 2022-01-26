@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Attendance;
+use App\Models\Grade;
 
-class CreateAttendanceRequest extends FormRequest
+class CreateSubjectRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateAttendanceRequest extends FormRequest
      */
     public function rules()
     {
-        return Attendance::$rules;
+        return Grade::$rules;
     }
 }
