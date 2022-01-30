@@ -39,22 +39,6 @@ class ClassesController extends AppBaseController
         $faculty = Faculty::all();
         $subject = Subject::all();
 
-        //dd($classes->toArray());
-
-        // $class = Classes::with('user')->first();
-        // dd($class->toArray());
-
-        // $faculty = Faculty::all();
-        //
-        // $tableJoin = DB::table('classes')->select(
-        //     'users.*',
-        //     'classes.*',
-        //     'faculties.*'
-        //     )
-        //     ->leftJoin('faculties','classes.faculty_id', '=', 'faculties.id' )
-        //     ->join('users','users.class_id', '=', 'classes.class_id' )
-        //     ->get();
-
         return view('admin.class-management.classes.index', compact('faculty','subject'))->with('classes', $classes);
     }
 
@@ -97,6 +81,8 @@ class ClassesController extends AppBaseController
     public function edit($id)
     {
         $classes = $this->classesRepository->find($id);
+        $faculty = Faculty::all();
+        $subject = Subject::all();
 
         if (empty($classes)) {
             Flash::error('Classes not found');
@@ -104,7 +90,7 @@ class ClassesController extends AppBaseController
             return redirect(route('admin.classes'));
         }
 
-        return view('admin.class-management.classes.index')->with('classes', $classes);
+        return view('admin.class-management.classes.edit', compact('faculty','subject'))->with('classes', $classes);
     }
 
     /**

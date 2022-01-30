@@ -58,16 +58,14 @@
                                                             <div class="row">
                                                                 <a class="btn badge bg-primary" data-toggle="modal" data-target="#ModalView{{$class->class_id}}"><i class="la la-eye"></i></a>
 
-                                                                <form action="{{ route('admin.classes.destroy', $class->class_id)}}" method="GET">
-                                                                    @csrf
 
+                                                                <form action="{{ route('admin.classes.edit', $class->class_id)}}" method="GET">
+                                                                    @csrf
                                                                     <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
                                                                 </form>
-
-                                                                <form action="{{ route('admin.classes.edit', $class->class_id)}}" method="POST">
+                                                                <form action="{{ route('admin.classes.destroy', $class->class_id)}}" method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
-
                                                                     <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
                                                                 </form>
                                                             </div>

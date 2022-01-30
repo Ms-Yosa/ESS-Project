@@ -148,7 +148,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
         Route::get('/classes//edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
         Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
-        Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
+        Route::delete('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
     });
 
