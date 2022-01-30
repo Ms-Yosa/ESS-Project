@@ -8,6 +8,7 @@ use App\Repositories\SubjectRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\SubArea;
+use App\Models\Subject;
 use App\Models\Classes;
 use Flash;
 use Response;
@@ -114,15 +115,10 @@ class SubjectController extends AppBaseController
      */
     public function destroy($id)
     {
-        $subject = $this->subjectRepository->find($id);
+        $subject = Subject::find($id);
+        //dd($subject->toArray());
 
-        if (empty($subject)) {
-            Flash::error('Subject not found');
-
-            return redirect(route('admin.subjects'));
-        }
-
-        $this->subjectRepository->delete($id);
+        $subject -> delete();
 
         Flash::success('Subject deleted successfully.');
 

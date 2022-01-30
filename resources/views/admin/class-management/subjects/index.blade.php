@@ -47,6 +47,7 @@
                                                     <th>Area</th>
                                                     <th>Class</th>
                                                     <th>Subject</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -57,9 +58,33 @@
                                                     <td>{{ $subA->class->class_name ?? 'Unassigned'  }}</td>
                                                     <td>
                                                         @foreach ($subA->subjects as $subj)
-                                                            {{ $subj->subject_name ?? 'None'}}
+                                                            <div class="row">
+                                                                {{ $subj->subject_name ?? 'None'}} &nbsp;
+                                                                <form action="" method="GET">
+                                                                    @csrf
+                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                </form>
+                                                                <form action="{{ route('admin.subjects.destroy', $subj->id)}}" method="POST">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                                </form>
+                                                            </div>
                                                             <br>
                                                         @endforeach
+                                                    </td>
+                                                    <td>
+                                                        <div class="row">
+                                                        <form action="" method="GET">
+                                                            @csrf
+                                                            <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                        </form>
+                                                        <form action="{{ route('admin.subjects.deleteArea', $subA->id)}}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                        </form>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach

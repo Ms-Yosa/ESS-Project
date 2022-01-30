@@ -36,4 +36,21 @@ class SubAreaController extends AppBaseController
     }
 
     }
+
+    public function destroy($id)
+    {
+        $subArea = SubArea::find($id);
+
+        if (empty($subArea)) {
+            Flash::error('Area not found');
+
+            return redirect(route('admin.subjects'));
+        }
+
+        $subArea -> delete();
+
+        Flash::success('Subject Area deleted successfully.');
+
+        return redirect(route('admin.subjects'));
+    }
 }

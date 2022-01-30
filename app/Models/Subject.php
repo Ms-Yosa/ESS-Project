@@ -29,7 +29,7 @@ class Subject extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'subject_id';
+    protected $primaryKey = 'id';
 
 
 
@@ -47,7 +47,7 @@ class Subject extends Model
      * @var array
      */
     protected $casts = [
-        'subject_id' => 'integer',
+        'id' => 'integer',
         'subject_name' => 'string',
         'subArea_id' => 'string',
         'subject_code' => 'string',
@@ -81,7 +81,7 @@ class Subject extends Model
     }
 
     public function getGrades(){
-        return $this->hasMany(Grade::class,'id','subject_id');
+        return $this->hasMany(Grade::class,'subject_id','id');
     }
 
 }
