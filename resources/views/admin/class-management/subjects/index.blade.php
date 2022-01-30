@@ -60,7 +60,7 @@
                                                         @foreach ($subA->subjects as $subj)
                                                             <div class="row">
                                                                 {{ $subj->subject_name ?? 'None'}} &nbsp;
-                                                                <form action="" method="GET">
+                                                                <form action="{{ route('admin.subjects.edit', $subj->id)}}" method="GET">
                                                                     @csrf
                                                                     <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
                                                                 </form>
@@ -75,7 +75,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="row">
-                                                        <form action="" method="GET">
+                                                        <form action="{{ route('admin.subjects.editArea', $subA->id)}}" method="GET">
                                                             @csrf
                                                             <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
                                                         </form>

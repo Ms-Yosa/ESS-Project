@@ -1,7 +1,6 @@
 @extends('layouts.admin.master')
 @section('content')
 
-     
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +18,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <div class="card">
@@ -29,7 +28,7 @@
                         @include('adminlte-templates::common.errors')
                         <div class="card-body">
 
-                                {!! Form::model($subject, ['route' => ['admin.subjects.update', $subject->subject_id], 'method' => 'POST']) !!}
+                                {!! Form::model($subject, ['route' => ['admin.subjects.update', $subject->id], 'method' => 'POST']) !!}
 
                                 <div class="card-body">
                                     <div class="row">

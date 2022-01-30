@@ -62,7 +62,7 @@ class Subject extends Model
      */
     public static $rules = [
         'subject_name' => 'required|string|max:255',
-        'subArea_id' => 'required|string|max:255',
+        'subArea_id' => 'string|max:255',
         'subject_code' => 'required|string|max:255',
         'description' => 'required|string',
         'status' => 'required|boolean',

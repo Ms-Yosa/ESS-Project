@@ -34,7 +34,42 @@ class SubAreaController extends AppBaseController
         }else{
             return redirect()->back()->with('fail','Something went wrong, failed to register');
     }
+    }
 
+    public function edit($id)
+    {
+        $subArea = SubArea::find($id);
+        $class = Classes::all();
+        //dd($subArea->toArray());
+        if (empty($subArea)) {
+            Flash::error('Subject Area not found');
+
+            return redirect(route('admin.subjects'));
+        }
+
+        return view('admin.class-management.subjects.subj-area-edit')->with('subArea', $subArea)->with('class', $class);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $subArea = SubArea::find($id);
+
+        $subArea->name = $request->name;
+
+        if($request->class_id){
+            $subArea->class_id = $request->class_id;
+        }
+        $save = $subArea->save();
+
+        if (empty($subArea)) {
+            Flash::error('Subject Area not found');
+
+            return redirect(route('admin.subjects'));
+        }
+
+        Flash::success('Subject Area updated successfully.');
+
+        return redirect(route('admin.subjects'));
     }
 
     public function destroy($id)

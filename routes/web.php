@@ -143,6 +143,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');
 
         Route::post('subject-area', [SubAreaController::class,'createArea'])->name('subjects.createArea');
+        Route::get('subject-area/edit/{id}', [SubAreaController::class,'edit'])->name('subjects.editArea');
+        Route::post('subject-area/update/{id}', [SubAreaController::class,'update'])->name('subjects.updateArea');
         Route::delete('subject-area/{id}', [SubAreaController::class,'destroy'])->name('subjects.deleteArea');
 
         //**CRUD Class Route

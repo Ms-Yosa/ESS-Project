@@ -76,7 +76,7 @@ class SubjectController extends AppBaseController
             return redirect(route('admin.subjects'));
         }
 
-        return view('admin.class-management.subjects.edit')->with('subject', $subject);
+        return view('admin.class-management.subjects.subject-edit')->with('subject', $subject);
     }
 
     /**
@@ -87,18 +87,28 @@ class SubjectController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateSubjectRequest $request)
+    public function update($id, Request $request)
     {
-        $subject = $this->subjectRepository->find($id);
-
+        $subject = Subject::find($id);
         if (empty($subject)) {
             Flash::error('Subject not found');
 
             return redirect(route('admin.subjects'));
         }
 
-        $subject = $this->subjectRepository->update($request->all(), $id);
+        if($request->subArea_id){
+            $subject->subArea_id = $request->subArea_id;
+        }
+        if($request->status){
+            $subject->status = $request->status;
+        }
 
+        $subject->subject_name = $request->subject_name;
+        $subject->subject_code = $request->subject_code;
+        $subject->description = $request->description;
+
+
+        $subject -> save();
         Flash::success('Subject updated successfully.');
 
         return redirect(route('admin.subjects'));
