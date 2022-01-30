@@ -23,7 +23,7 @@ class SubjectFactory extends Factory
     {
         return [
             'subject_name' => $this->faker->word,
-        'subject_code' => $this->faker->unique()->numberBetween(1, 20),
+        'subject_code' => $this->faker->unique()->numberBetween(1, 50),
         'description' => $this->faker->text,
         'status' => 0,
         'subArea_id' => $this->faker->randomDigitNotNull,

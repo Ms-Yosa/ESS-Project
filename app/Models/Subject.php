@@ -80,4 +80,8 @@ class Subject extends Model
         return $this->belongsTo(SubArea::class,'subArea_id');
     }
 
+    public function getGrades(){
+        return $this->hasMany(Grade::class,'id','subject_id');
+    }
+
 }

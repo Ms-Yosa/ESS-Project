@@ -14,9 +14,7 @@ class Grade extends Model
         'second_period',
         'third_period',
         'fourth_period',
-        'final_rating',
-        'subject_id',
-        'user_id'
+        'final_rating'
     ];
 
     /**
@@ -31,7 +29,8 @@ class Grade extends Model
         'fourth_period' => 'string',
         'final_rating' => 'string',
         'subject_id' => 'integer',
-        'user_id' => 'integer'
+        'user_id' => 'integer',
+        'subArea_id' => 'integer'
     ];
 
     public static $rules = [
@@ -40,5 +39,13 @@ class Grade extends Model
 
     public function user(){
         return $this->belongsTo(SubArea::class,'user_id');
+    }
+
+    public function subject(){
+        return $this->belongsTo(Subject::class,'subject_id','id');
+    }
+
+    public function subArea(){
+        return $this->belongsTo(SubArea::class,'subArea_id');
     }
 }

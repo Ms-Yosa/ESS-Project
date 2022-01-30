@@ -19,11 +19,13 @@ class CreateGradesTable extends Migration
             $table->string('second_period', 2)->nullable();
             $table->string('third_period', 2)->nullable();
             $table->string('fourth_period', 2)->nullable();
-            $table->string('final_rating', 2)->nullable()->default(null);
+            $table->string('final_rating', 2)->nullable();
             $table->unsignedBigInteger('subject_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('subArea_id')->nullable();
+            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('subArea_id')->references('id')->on('sub_areas');
             $table->timestamps();
         });
     }

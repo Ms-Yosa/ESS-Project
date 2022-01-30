@@ -9,6 +9,7 @@ use App\Models\Faculty;
 use App\Models\Classes;
 use App\Models\SubArea;
 use App\Models\Subject;
+use App\Models\Grade;
 use Illuminate\Support\Facades\Auth;
 
 class FacultyController extends Controller
@@ -52,9 +53,10 @@ class FacultyController extends Controller
     public function gradeMarking($id,$subArea_id)
     {
         $class = Classes::where('class_id', $id)->with('getStudents','getSubArea')->get();
-        $subject = SubArea::where('id', $subArea_id)->with('subjects','class')->get();
-        //dd($subject->toArray());
-        return view('faculty.marking', compact('subject'))->with('class', $class);
+        $subject = SubArea::where('id', $subArea_id)->with('subjects','class','grade')->get();
+        $grade = Grade::where('subArea_id', $subArea_id)->with('subject')->get();
+        //dd($grade->toArray());
+        return view('faculty.marking', compact('subject','grade'))->with('class', $class);
     }
 
     function profile($id){
