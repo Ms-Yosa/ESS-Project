@@ -15,173 +15,93 @@
                             <th scope="col">Grading Sytem</th>
                         </tr>
                         <tr>
-                            <td>A</td>
-                            <td>Superior</td>
-                        </tr>
-                        <tr>
-                            <td>B</td>
-                            <td>Above Average</td>
-                        </tr>
-                        <tr>
-                            <td>C</td>
-                            <td>Average</td>
-                        </tr>
-                        <tr>
-                            <td>D</td>
-                            <td>Below Average</td>
-                        </tr>
-                        <tr>
                             <td>E</td>
-                            <td>Poor</td>
+                            <td>Excellent</td>
                         </tr>
                         <tr>
-                            <td>F</td>
-                            <td>Failure</td>
+                            <td>VS</td>
+                            <td>Very Satisfactory</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>Satisfactory</td>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>Improving</td>
+                        </tr>
+                        <tr>
+                            <td>N</td>
+                            <td>Needs Improvement</td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="d-grid gap-2 col-6 mx-auto ">
-                    <button class="btn trigger" href="#" type="button">View Awards <i class="fa fa-star" aria-hidden="true"></i></button>
-                    <br><br>
 
-                    <!-- Modal -->
-                    <div class="modal-wrapper">
-                    <div class="modal">
-                        <div class="head">
-                        <a class="btn-close trigger" href="#">
-                        </a>
-                        </div>
-                        <div class="content">
-                            <div class="view-awards page-leaderboard">
-                            <section class="leaderboard-progress">
-                                <div class="contain text-center">
-                                    <img class="mb-2 modal-image" src="{{ URL::asset('/Assets/icons/trophy.png') }}">
-                                    <h2>Awards Summary</h2>
-                                    <p class="lead">Lorem Ipsum</p>
-                                </div>
-                            </section>
-
-                            <section class="ranking">
-                                <div class="contain">
-                                    <div class="ranking-table">
-                                        <div class="ranking-table-header-row">
-                                            <div class="ranking-table-header-data h6"></div>
-                                            <div class="ranking-table-header-data h6">Award</div>
-                                            <div class="ranking-table-header-data h6">Period</div>
-                                        </div>
-                                        <div class="ranking-table-row-leader-1">
-                                            <div class="ranking-table-data-leader-1">
-                                                <div class="medal-gold"></div>
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                Super Reader
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                <div>1st Period</div>
-                                            </div>
-                                        </div>
-                                        <div class="ranking-table-row-leader-1">
-                                            <div class="ranking-table-data-leader-1">
-                                                <div class="medal-gold"></div>
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                Bookworm
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                <div>1st Period</div>
-                                            </div>
-                                        </div>
-                                        <div class="ranking-table-row-leader-1">
-                                            <div class="ranking-table-data-leader-1">
-                                                <div class="medal-gold"></div>
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                Friendship Award
-                                            </div>
-                                            <div class="ranking-table-data">
-                                                <div>1st Period</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <br>
-                </div>
             </div>
             <div class="col">
                 <!-- second column -->
-                <table class="table table-borderless text-center grades-student-grades">
-                    <thead class="border border-warning border border-2 ">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col" >Skills</th>
-                            <th scope="col" colspan="4" class="text-center">REPORT PERIOD</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Subject Area</th>
+                        <th scope="col">Subject</th>
                         <th scope="col">1st</th>
                         <th scope="col">2nd</th>
                         <th scope="col">3rd</th>
                         <th scope="col">4th</th>
-                    </tr>
+                        <th scope="col">Final Rating</th>
+                      </tr>
+                    </thead>
                     <tbody>
-                        <tr style="border-top: 2px solid #FC6300">
-                            <td scope="row">1</td>
-                            <td>Writing</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                        </tr>
+                        @foreach ($subArea as $subA)
                         <tr>
-                            <td scope="row">2</td>
-                            <td>Listening</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
+                            <td class="text-center font-weight-bold">{{$subA->name}}</td>
                         </tr>
+                        @foreach ($subA->subjects as $subj)
                         <tr>
-                            <td scope="row">3</td>
-                            <td>Reading</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
+
+                            <th scope="row"></th>
+                            <td>{{$subj->subject_name}}</td>
+                            <td>
+                                @foreach ($grade as $item)
+                                    @if($subj->id == $item->subject_id)
+                                        {{$item->first_period}}
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($grade as $item)
+                                @if($subj->id == $item->subject_id)
+                                    {{$item->second_period}}
+                                @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($grade as $item)
+                                @if($subj->id == $item->subject_id)
+                                    {{$item->third_period}}
+                                @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($grade as $item)
+                                @if($subj->id == $item->subject_id)
+                                    {{$item->fourth_period}}
+                                @endif
+                                @endforeach
+                            </td>
+                            <td>
+                                @foreach ($grade as $item)
+                                @if($subj->id == $item->subject_id)
+                                    {{$item->final_rating}}
+                                @endif
+                                @endforeach
+                            </td>
                         </tr>
-                        <tr>
-                            <td scope="row">4</td>
-                            <td>Mathematics</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                        </tr>
-                        <tr style="border-bottom: 2px solid #FC6300">
-                            <td scope="row">8</td>
-                            <td>Arts & Crafts</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                        </tr>
-                        <tr >
-                            <td scope="col"></td>
-                            <td scope="col">Average</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                            <td scope="col">A</td>
-                        </tr>
+                        @endforeach
+                        @endforeach
                     </tbody>
-                </table>
+                  </table>
             </div>
         </div>
     </div>

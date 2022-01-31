@@ -56,7 +56,7 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
 
         //User Pages
-        Route::view('/grade','user.student-grade')->name('grade');
+        Route::get('/grade/{student_id}',[UserController::class,'getGrades'])->name('grade');
         Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
         Route::view('/behavior','user.student-behavior')->name('behavior');
         Route::view('/schedule','user.student-schedule')->name('schedule');

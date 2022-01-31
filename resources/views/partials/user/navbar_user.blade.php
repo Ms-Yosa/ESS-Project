@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
                 <a class="nav-link {{ (request()->is('user/home')) ? 'active' : '' }}" href="{{ route('user.home') }}">Home</a>
-                <a class="nav-link {{ (request()->is('user/grade')) ? 'active' : '' }}" href="{{ route('user.grade') }}">Grades</a>
+                <a class="nav-link {{ (request()->is('user/grade')) ? 'active' : '' }}" href="{{ route('user.grade', Auth::guard('web')->user()->id) }}) }}">Grades</a>
                 <a class="nav-link {{ (request()->is('user/behavior')) ? 'active' : '' }}" href="{{ route('user.behavior') }}">Behavior</a>
                 <a class="nav-link {{ (request()->is('user/schedule')) ? 'active' : '' }}" href="{{ route('user.schedule') }}">Schedule</a>
                 <a class="nav-link" href="#">
