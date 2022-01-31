@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\GradeController;
-use App\Http\Controllers\Admin\ClassSchedulingController;
+use App\Http\Controllers\FeedbackController;
 
 
 /*
@@ -58,7 +58,7 @@ Route::prefix('user')->name('user.')->group(function(){
         //User Pages
         Route::get('/grade/{student_id}',[UserController::class,'getGrades'])->name('grade');
         Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
-        Route::view('/behavior','user.student-behavior')->name('behavior');
+        Route::view('/feedback','user.student-feedback')->name('feedback');
         Route::view('/schedule','user.student-schedule')->name('schedule');
 
     });
@@ -89,6 +89,9 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
         Route::get('/classes/marking/{subj_id}/grade/{student_id}/edit', [GradeController::class,'edit'])->name('grade.edit');
         Route::put('/classes/marking/{subj_id}/grade/{student_id}/update/{grade_id}', [GradeController::class,'update'])->name('grade.update');
         Route::post('/classes/marking/{subArea_id}/{subj_id}/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
+
+        Route::get('/feedback/{id}',[FeedbackController::class,'index'])->name('feedback');
+        Route::post('/feedback/create/{id}',[FeedbackController::class,'create'])->name('feedback.create');
     });
 
 });

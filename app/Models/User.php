@@ -67,6 +67,10 @@ class User extends Authenticatable
         return $this->hasMany(Grade::class,'user_id','id');
     }
 
+    public function getFeedback(){
+        return $this->hasMany(Feedback::class,'user_id','id');
+    }
+
     public function classAssigned(){
         return $this->belongsTo(Classes::class, 'class_id');
     }

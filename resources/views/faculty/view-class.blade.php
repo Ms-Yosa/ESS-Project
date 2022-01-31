@@ -14,6 +14,7 @@
                     <th>Age</th>
                     <th>Birthday</th>
                     <th>Gender</th>
+                    <th>Action</th>
 
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@
                             <td class="age">{{ $list->age }}</td>
                             <td class="age">{{ $list->birth_year }}, {{ $list->birth_month }} {{ $list->birth_day }}</td>
                             <td class="gender">{{ $list->gender }}</td>
+                            <td><a href="{{route('faculty.feedback', $list->id)}}">Send Feedback</a></td>
                         </tr>
                       @endforeach
                 <tbody>

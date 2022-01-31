@@ -21,49 +21,35 @@
                   </thead>
                   <tbody>
                       @foreach ($subject as $key => $subj)
+                      @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
                     <tr>
                       <th scope="row">{{ ++$key }}</th>
                       <td>{{ $subj->subject_name}}</td>
                       <td>
-                        @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
+
                             {{$item->first_period}}
-                          @endif
-                        @endforeach
                       </td>
                       <td>
-                        @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
                             {{$item->second_period}}
-                          @endif
-                        @endforeach
                       </td>
                       <td>
-                        @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
                             {{$item->third_period}}
-                          @endif
-                        @endforeach
                       </td>
                       <td>
-                        @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
                             {{$item->fourth_period}}
-                          @endif
-                        @endforeach
                       </td>
                       <td>
-                        @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
                             {{$item->final_rating}}
-                          @endif
-                        @endforeach
                       </td>
                       <td>
                           <a  href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Encode</a>
                           <a  href="{{route('faculty.grade.edit',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Edit</a>
                       </td>
                     </tr>
+
+                    @endif
+                    @endforeach
                     @endforeach
                   </tbody>
                 </table>
