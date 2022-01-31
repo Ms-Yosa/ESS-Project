@@ -14,7 +14,7 @@ class CreateGradesTable extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
-            $table->increments('grade_id');
+            $table->id();
             $table->string('first_period', 2)->nullable();
             $table->string('second_period', 2)->nullable();
             $table->string('third_period', 2)->nullable();

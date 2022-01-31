@@ -46,6 +46,6 @@ class Grade extends Model
     }
 
     public function subArea(){
-        return $this->belongsTo(SubArea::class,'subArea_id');
+        return $this->belongsTo(SubArea::class);
     }
 }

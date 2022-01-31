@@ -64,7 +64,7 @@ class User extends Authenticatable
      */
 
     public function getGrades(){
-        return $this->hasMany(Grade::class,'id','user_id');
+        return $this->hasMany(Grade::class,'user_id','id');
     }
 
     public function classAssigned(){

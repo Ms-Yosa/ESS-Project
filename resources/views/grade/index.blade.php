@@ -61,7 +61,7 @@
                       </td>
                       <td>
                           <a  href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Encode</a>
-                          <a  href="">Edit</a>
+                          <a  href="{{route('faculty.grade.edit',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Edit</a>
                       </td>
                     </tr>
                     @endforeach

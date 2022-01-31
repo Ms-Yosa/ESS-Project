@@ -63,17 +63,7 @@ class FacultyCRUD extends Controller
      //Retrieve Data
      function index(){
         $faculty = Faculty::with('getClass')->get();
-        //dd($faculty->toArray());
-        // $faculties = Faculty::all();
-        // $class = Classes::all();
-        // $faculty = DB::table('faculties')->select(
-        //     'classes.*',
-        //     'faculties.*'
-        //     )
-        //     ->leftJoin('classes','faculties.id', '=', 'classes.faculty_id' )
-        //     ->get();
-
-            return view('admin.faculty-tab') ->with('faculty', $faculty);
+        return view('admin.faculty-tab') ->with('faculty', $faculty);
     }
 
      //Destroy Data

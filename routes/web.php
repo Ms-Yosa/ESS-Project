@@ -85,7 +85,9 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
          //GRADE
         Route::get('/classes/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'index'])->name('grade');
-        Route::get('/classes/marking/{subj_id}/grade/{student_id}', [GradeController::class,'create'])->name('grade.create');
+        Route::get('/classes/marking/{subj_id}/grade/{student_id}/create', [GradeController::class,'create'])->name('grade.create');
+        Route::get('/classes/marking/{subj_id}/grade/{student_id}/edit', [GradeController::class,'edit'])->name('grade.edit');
+        Route::put('/classes/marking/{subj_id}/grade/{student_id}/update/{grade_id}', [GradeController::class,'update'])->name('grade.update');
         Route::post('/classes/marking/{subArea_id}/{subj_id}/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
     });
 
