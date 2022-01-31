@@ -84,7 +84,7 @@ class UserCRUD extends Controller
 
     //Pass class table
     function register(Request $request){
-        // $users = User::with('class')->get();
+        $users = User::with('classAssigned')->get();
         $class = Classes::with('getStudents','getInstructor','faculty')->get();
         $faculty = Faculty::all();
         $user = DB::table('users')->select(

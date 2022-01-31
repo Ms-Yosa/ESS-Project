@@ -3,9 +3,8 @@
 <section>
     <div class="container mt-5 mb-5">
         <div class="container mt-5">
-          @foreach ($user as $item)
           <h3>
-            Student: {{$item->name}}
+            Student: {{$user->name}}
           </h3>
               <table class="table table-hover">
                   <thead>
@@ -26,25 +25,48 @@
                       <th scope="row">{{ ++$key }}</th>
                       <td>{{ $subj->subject_name}}</td>
                       <td>
+                        @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
+                            {{$item->first_period}}
+                          @endif
+                        @endforeach
                       </td>
                       <td>
+                        @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
+                            {{$item->second_period}}
+                          @endif
+                        @endforeach
                       </td>
                       <td>
+                        @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
+                            {{$item->third_period}}
+                          @endif
+                        @endforeach
                       </td>
                       <td>
+                        @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
+                            {{$item->fourth_period}}
+                          @endif
+                        @endforeach
                       </td>
                       <td>
+                        @foreach ($grade as $item)
+                          @if(in_array($subj->id, $item->toArray()))
+                            {{$item->final_rating}}
+                          @endif
+                        @endforeach
                       </td>
                       <td>
-                        <a  href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$item->id])}}">Encode</a>
-                        <a  href="">Edit</a>
+                          <a  href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Encode</a>
+                          <a  href="">Edit</a>
                       </td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
-
-              @endforeach
             </div>
         </div>
     </div>
