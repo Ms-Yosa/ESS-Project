@@ -6,7 +6,7 @@
           <h3>
 
           </h3>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
             Add Feedback
           </button>
           <form action="{{ route('faculty.feedback.create', $user->id)}}"  method="POST" autocomplete="off">
@@ -26,8 +26,7 @@
                         <input type="text" class="form-group col-sm-6" name="week">
                         <br>
                         <label for="description">Description</label>
-                        <textarea name="description" id="description" cols="40" rows="2">
-                        </textarea>
+                        <textarea name="description" id="description" cols="40" rows="2"></textarea>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -54,7 +53,12 @@
                       <td>{{$fb->week}}</td>
                       <td>{{$fb->description}}</td>
                       <td>
-                          <a  href="">Edit</a>
+                        <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="badge bg-danger" type="submit"><a  onclick="return confirm('Are you sure to want to delete it?')">Delete</a></button>
+                        </form>
+                          <a  href="{{route('faculty.feedback.edit',$fb->id)}}">Edit</a>
                       </td>
                     </tr>
                     @endforeach

@@ -22,13 +22,38 @@ class FeedbackController extends Controller
     public function create(Request $request, $id)
     {
         $feedback = new Feedback();
-        $feedback->week = $request->week;
-        $feedback->description = $request->description;
+        $feedback->week = $request->input('week');
+        $feedback->description = $request->input('description');
         $feedback->user_id = $id;
         $feedback->save();
 
         return redirect(route('faculty.feedback',$id));
 
+    }
+
+    public function edit($id){
+        $feedback = Feedback::find($id);
+        return view('feedback.edit')->with('feedback', $feedback);
+    }
+
+    public function update(Request $request,$user_id,$id){
+        $feedback = Feedback::find($id);
+
+        $feedback->week = $request->week;
+        $feedback->description = $request->description;
+        $feedback->user_id = $user_id;
+        $feedback->save();
+
+        return redirect(route('faculty.feedback',$feedback->user_id));
+
+    }
+
+    public function destroy($id)
+    {
+        $feedback = Feedback::find($id);
+        $feedback -> delete();
+
+        return redirect(route('faculty.feedback',$feedback->user_id));
     }
 }
 

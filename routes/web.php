@@ -92,6 +92,9 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
         Route::get('/feedback/{id}',[FeedbackController::class,'index'])->name('feedback');
         Route::post('/feedback/create/{id}',[FeedbackController::class,'create'])->name('feedback.create');
+        Route::get('/feedback/edit/{id}',[FeedbackController::class,'edit'])->name('feedback.edit');
+        Route::put('/feedback/{user_id}/update/{id}',[FeedbackController::class,'update'])->name('feedback.update');
+        Route::delete('/feedback/delete/{id}',[FeedbackController::class,'destroy'])->name('feedback.destroy');
     });
 
 });
