@@ -11,7 +11,7 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-link {{ (request()->is('user/home')) ? 'active' : '' }}" href="{{ route('user.home') }}">Home</a>
                 <a class="nav-link {{ (request()->is('user/grade')) ? 'active' : '' }}" href="{{ route('user.grade', Auth::guard('web')->user()->id) }}) }}">Grades</a>
-                <a class="nav-link {{ (request()->is('user/feedback')) ? 'active' : '' }}" href="{{ route('user.feedback') }}">Feedbacks</a>
+                <a class="nav-link {{ (request()->is('user/feedback')) ? 'active' : '' }}" href="{{ route('user.feedback',Auth::guard('web')->user()->id) }}) }}">Feedbacks</a>
                 <a class="nav-link {{ (request()->is('user/schedule')) ? 'active' : '' }}" href="{{ route('user.schedule') }}">Schedule</a>
                 <a class="nav-link" href="#">
                     <i class="fa fa-bell" aria-hidden="true"></i>

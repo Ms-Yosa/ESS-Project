@@ -58,7 +58,7 @@ Route::prefix('user')->name('user.')->group(function(){
         //User Pages
         Route::get('/grade/{student_id}',[UserController::class,'getGrades'])->name('grade');
         Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
-        Route::view('/feedback','user.student-feedback')->name('feedback');
+        Route::get('/feedback/{id}',[UserController::class,'getFeedbacks'])->name('feedback');
         Route::view('/schedule','user.student-schedule')->name('schedule');
 
     });

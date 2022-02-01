@@ -11,6 +11,7 @@ use App\Models\Faculty;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\SubArea;
+use App\Models\Feedback;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,6 +62,12 @@ class UserController extends Controller
                     ->with('user', $user)
                     ->with('grade', $grade)
                     ->with('subArea', $subArea);
+    }
+
+    function getFeedbacks($student_id){
+        $feedback = Feedback::where('user_id', $student_id)->get();
+
+        return view('user.student-feedback')->with('feedback', $feedback);
     }
 
 
