@@ -30597,3 +30597,27 @@ div.tagsinput span.tag a {
 .home-welcome{
   background-color: #FFFDF7;
 }
+
+.toast{
+  flex-basis: 500px!important;
+  max-width: 500px;
+  max-height: 200px;
+  border-radius: 20px;
+  border: none;
+}
+
+.toast-header{
+  background-color: #99D6EA;
+  color:#000;
+  border-radius: 20px 20px 0 0 ;
+}
+
+.toast-body{
+  background-color: #FFFDF7;
+  align-items: right;
+  border-radius: 0 0 20px 20px ;
+}
+
+.toast-wrapper{
+  top:0;
+}
