@@ -13,7 +13,7 @@
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        
+
                     </ol>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Students</p>
-                                    <h4 class="mb-0">40</h4>
+                                    <h4 class="mb-0">{{$user}}</h4>
                                     <span class="badge badge-primary">Enrolled</span>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Faculties</p>
-                                    <h4 class="mb-0">5</h4>
+                                    <h4 class="mb-0">{{$faculty}}</h4>
                                     <span class="badge badge-warning">Registered</span>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 </span>
                                 <div class="media-body">
                                     <p class="mb-1">Admins</p>
-                                    <h4 class="mb-0">2</h4>
+                                    <h4 class="mb-0">{{$admin}}</h4>
                                     <span class="badge badge-danger">Registered</span>
                                 </div>
                             </div>
@@ -74,8 +74,8 @@
                                 <i class="la la-book"></i>
                                 </span>
                                 <div class="media-body">
-                                    <p class="mb-1">Subjects</p>
-                                    <h4 class="mb-0">5</h4>
+                                    <p class="mb-1">Classes</p>
+                                    <h4 class="mb-0">{{$class}}</h4>
                                     <span class="badge badge-success">Registered</span>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-xxl-8 col-md-12">
                     <div class="card">
@@ -93,7 +93,7 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="example" class="display" style="min-width: 845px">
-                                
+
                                 </table>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="student-info">
                             <div class="text-center container-fluid">
-                                
+
                                 <h3 class="item-title">{{ Auth::guard('admin')->user()->name }} {{ Auth::guard('admin')->user()->middle_name }} {{ Auth::guard('admin')->user()->surname }}</h3>
                                     <p>{{ Auth::guard('admin')->user()->email }}</p>
                                     <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">					
+                <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Events</h4>

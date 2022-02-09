@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class ClassScheduling extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     use HasFactory;
 
@@ -35,7 +35,7 @@ class ClassScheduling extends Model
 
 
     public $fillable = [
-        'subject_id',
+        'faculty_id',
         'class_id',
         'day_id',
         'start_time',
@@ -50,7 +50,7 @@ class ClassScheduling extends Model
      */
     protected $casts = [
         'schedule_id' => 'integer',
-        'subject_id' => 'integer',
+        'faculty_id' => 'integer',
         'class_id' => 'integer',
         'day_id' => 'integer',
         'start_time' => 'string',
@@ -64,7 +64,7 @@ class ClassScheduling extends Model
      * @var array
      */
     public static $rules = [
-        'subject_id' => 'required|integer',
+        'faculty_id' => 'required|integer',
         'class_id' => 'required|integer',
         'day_id' => 'required|integer',
         'start_time' => 'required|string',

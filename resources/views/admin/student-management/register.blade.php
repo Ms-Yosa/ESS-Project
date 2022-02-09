@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 
-     
+
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <form action="{{ route('admin.student-create')}}"  method="POST" autocomplete="off">
@@ -40,7 +40,7 @@
                                 @endif
 
                                 @csrf
-                            
+
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -66,7 +66,7 @@
                                             <span class="text-danger">@error('surname'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
- 
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group ">
                                         <h6> <p style="font-weight:bold">Gender</p></h6>
@@ -87,20 +87,39 @@
                                         <h6><label for="year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
-                                                <option value="2021" >2020</option>
-                                                <option value="2021" >2021</option>
+
+                                                <option value="2019" >2019</option>
+                                                <option value="2018" >2018</option>
+                                                <option value="2017" >2017</option>
+                                                <option value="2016" >2016</option>
+                                                <option value="2015" >2015</option>
+                                                <option value="2014" >2014</option>
+                                                <option value="2013" >2013</option>
+                                                <option value="2012" >2012</option>
+                                                <option value="2011" >2011</option>
+                                                <option value="2010" >2010</option>
                                             </select>
                                             <span class="text-danger">@error('birth_year'){{ $message }} @enderror</span>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="month">Month</label></h6>
                                             <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
+                                                <option value="January" >January</option>
+                                                <option value="February" >February</option>
+                                                <option value="March" >March</option>
                                                 <option value="April" >April</option>
                                                 <option value="May" >May</option>
+                                                <option value="June" >June</option>
+                                                <option value="July" >July</option>
+                                                <option value="August" >August</option>
+                                                <option value="September" >September</option>
+                                                <option value="October" >October</option>
+                                                <option value="November" >November</option>
+                                                <option value="December" >December</option>
                                             </select>
                                             <span class="text-danger">@error('birth_month'){{ $message }} @enderror</span>
                                         </div>
@@ -112,6 +131,35 @@
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="1" >1</option>
                                                 <option value="2" >2</option>
+                                                <option value="3" >3</option>
+                                                <option value="4" >4</option>
+                                                <option value="5" >5</option>
+                                                <option value="6" >6</option>
+                                                <option value="7" >7</option>
+                                                <option value="8" >8</option>
+                                                <option value="9" >9</option>
+                                                <option value="10" >10</option>
+                                                <option value="11" >11</option>
+                                                <option value="12" >12</option>
+                                                <option value="13" >13</option>
+                                                <option value="14" >14</option>
+                                                <option value="15" >15</option>
+                                                <option value="16" >16</option>
+                                                <option value="17" >17</option>
+                                                <option value="18" >18</option>
+                                                <option value="19" >19</option>
+                                                <option value="20" >20</option>
+                                                <option value="21" >21</option>
+                                                <option value="22" >22</option>
+                                                <option value="23" >23</option>
+                                                <option value="24" >24</option>
+                                                <option value="25" >25</option>
+                                                <option value="26" >26</option>
+                                                <option value="27" >27</option>
+                                                <option value="28" >28</option>
+                                                <option value="29" >29</option>
+                                                <option value="30" >30</option>
+                                                <option value="31" >31</option>
                                             </select>
                                             <span class="text-danger">@error('birth_day'){{ $message }} @enderror</span>
                                         </div>
@@ -127,7 +175,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
@@ -137,7 +185,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
@@ -191,18 +239,18 @@
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
+
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Guardian's Contact Number</label></h6>
                                             <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ old('contact_number') }}">
                                             <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
-                                    
+
                                     </div>
 
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
-                                        <h6><label for="guardian_bloodtype">Guardian Bloodtype</label></h6>  
+                                        <h6><label for="guardian_bloodtype">Guardian Bloodtype</label></h6>
                                             <select name="guardian_bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="A+">A+</option>
@@ -221,7 +269,7 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <h6><label for="address">Residential Address</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ old('address') }}">
                                             <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                                         </div>
@@ -266,10 +314,11 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="class"> Class</label></h6>
-                                            <select name="class" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option selected disabled>Open this select class</option>
-                                                <option value="A" >A</option>
-                                                <option value="O" >O</option>
+                                            <select name="class_id" id="class_id" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <option selected >Open this select class</option>
+                                                @foreach ($class as $cla)
+                                                    <option value="{{$cla -> class_id}}">{{ $cla -> class_name}}</option>
+                                                @endforeach
                                             </select>
                                             <!-- <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span> -->
                                         </div>
@@ -297,10 +346,10 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            
-                                
-                            
+
+
+
+
                         </div>
                     </form>
                 </div>

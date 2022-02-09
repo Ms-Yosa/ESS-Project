@@ -17,7 +17,7 @@
                     </ol>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
@@ -26,10 +26,15 @@
                               @include('flash::message')
                               @include('adminlte-templates::common.errors')
                                 <div class="card-header">
-                                    <h4 class="card-title">All Subjects List  </h4>
-                                    <a data-toggle="modal" data-target="#add-subject-modal" class="btn btn-primary">
-                                        <li class="la la-plus-circle"></li>  Add new Subject
-                                    </a>
+                                    <h4 class="card-title">All Subject Areas List  </h4>
+                                    <div>
+                                        <a data-toggle="modal" data-target="#add-subArea-modal" class="btn btn-primary">
+                                            <li class="la la-plus-circle"></li>  Create Subject Area
+                                        </a>
+                                        <a data-toggle="modal" data-target="#add-subject-modal" class="btn btn-secondary">
+                                            <li class="la la-plus-circle"></li>  Add Subject
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <!-- table display -->
@@ -39,45 +44,96 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Code</th>
-                                                    <th>Description</th>
-                                                    <th>Status</th>
+                                                    <th>Area</th>
+                                                    <th>Class</th>
+                                                    <th>Subject</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($subjects as $key => $subject)
+                                            @foreach($subArea as $key => $subA)
                                                 <tr>
                                                     <td class="id">{{ ++$key }}</td>
-                                                    <td>{{ $subject->subject_name }}</td>
-                                                    <td>{{ $subject->subject_code }}</td>
-                                                    <td>{{ $subject->description }}</td>
+                                                    <td>{{ $subA->name }}</td>
+                                                    <td>{{ $subA->class->class_name ?? 'Unassigned'  }}</td>
                                                     <td>
-                                                        @if($subject->status == 1)
-                                                            <span>Active</span>
-                                                        @else
-                                                            <span>Inactive</span>
-                                                        @endif
+                                                        @foreach ($subA->subjects as $subj)
+                                                            <div class="row">
+                                                                {{ $subj->subject_name ?? 'None'}} &nbsp;
+                                                                <form action="{{ route('admin.subjects.edit', $subj->id)}}" method="GET">
+                                                                    @csrf
+                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                </form>
+                                                                <form action="{{ route('admin.subjects.destroy', $subj->id)}}" method="POST">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                                </form>
+                                                            </div>
+                                                            <br>
+                                                        @endforeach
                                                     </td>
-                                                    <td width="120">
-                                                        {!! Form::open(['route' => ['admin.subjects.destroy', $subject->subject_id], 'method' => 'get']) !!}
-                                                        <div class='btn-group'>
-                                                            <a href="{{ route('admin.subjects.edit', [$subject->subject_id]) }}"
-                                                               class='btn badge bg-success'>
-                                                               <i class="la la-pencil-square"></i>
-                                                            </a>
-                                                            {!! Form::button('<i class="la la-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                                                    <td>
+                                                        <div class="row">
+                                                        <form action="{{ route('admin.subjects.editArea', $subA->id)}}" method="GET">
+                                                            @csrf
+                                                            <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                        </form>
+                                                        <form action="{{ route('admin.subjects.deleteArea', $subA->id)}}" method="POST">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                        </form>
                                                         </div>
-                                                        {!! Form::close() !!}
                                                     </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
                                     </div>
-                                    
-                                    {{-- fields require --}}
+                                </div>
+
+
+                                {!! Form::open(['route' => 'admin.subjects.createArea']) !!}
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="add-subArea-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Create Subject Area</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <div class="form-group">
+                                                                <h6><label for="name">Name</label></h6>
+                                                                <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter area name" value="{{ old('name') }}">
+                                                                <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                                            </div>
+
+                                                            <!-- Subject Area Field -->
+                                                            <div class="form-group col-sm-6">
+                                                                {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
+                                                                {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
+                                                                <select class="form-group" name="class_id" id="class_id">
+                                                                    <option value="">Select Class</option>
+                                                                    @foreach ($class as $cla)
+                                                                        <option value="{{$cla -> class_id}}">{{ $cla -> class_name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        {!! Form::submit('Save Subject Area',['class' => 'btn btn-primary']) !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {!! Form::close() !!}
+
                                     {!! Form::open(['route' => 'admin.subjects.store']) !!}
                                         <!-- Modal -->
                                         <div class="modal fade" id="add-subject-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -94,6 +150,18 @@
                                                 <div class="form-group col-sm-6">
                                                     {!! Form::label('subject_name', 'Subject Name:') !!}
                                                     {!! Form::text('subject_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+                                                </div>
+
+                                                <!-- Subject Area Field -->
+                                                <div class="form-group col-sm-6">
+                                                    {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
+                                                    {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
+                                                    <select class="form-group" name="subArea_id" id="subArea_id">
+                                                        <option value="">Select Subject Area</option>
+                                                        @foreach ($subArea as $subA)
+                                                            <option value="{{$subA -> id}}">{{ $subA -> name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
 
                                                 <!-- Subject Code Field -->
@@ -126,7 +194,6 @@
                                         </div>
                                         </div>
                                     {!! Form::close() !!}
-                                </div>
                             </div>
                         </div>
                     </div>

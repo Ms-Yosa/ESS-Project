@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Subject;
+use App\Models\User;
+use App\Models\Classes;
+use App\Models\Faculty;
+
 class ClassesController extends AppBaseController
 {
     /** @var  ClassesRepository */
@@ -29,10 +35,11 @@ class ClassesController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $classes = $this->classesRepository->all();
+        $classes = Classes::with('getStudents','getInstructor','faculty','getSubjects','getSubArea')->get();
+        $faculty = Faculty::all();
+        $subject = Subject::all();
 
-        return view('admin.class-management.classes.index')
-            ->with('classes', $classes);
+        return view('admin.class-management.classes.index', compact('faculty','subject'))->with('classes', $classes);
     }
 
     /**
@@ -74,6 +81,8 @@ class ClassesController extends AppBaseController
     public function edit($id)
     {
         $classes = $this->classesRepository->find($id);
+        $faculty = Faculty::all();
+        $subject = Subject::all();
 
         if (empty($classes)) {
             Flash::error('Classes not found');
@@ -81,7 +90,7 @@ class ClassesController extends AppBaseController
             return redirect(route('admin.classes'));
         }
 
-        return view('admin.class-management.classes.edit')->with('classes', $classes);
+        return view('admin.class-management.classes.edit', compact('faculty','subject'))->with('classes', $classes);
     }
 
     /**

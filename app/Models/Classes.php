@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Classes extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     use HasFactory;
 
@@ -34,7 +34,14 @@ class Classes extends Model
     public $fillable = [
         'class_name',
         'class_code',
-        'level'
+        'level',
+        'faculty_id',
+        // 'subject_id',
+        'class_id',
+        'day_id',
+        'start_time',
+        'end_time',
+        'status'
     ];
 
     /**
@@ -46,7 +53,14 @@ class Classes extends Model
         'class_id' => 'integer',
         'class_name' => 'string',
         'class_code' => 'string',
-        'level' => 'string'
+        'level' => 'string',
+        'faculty_id' => 'integer',
+        // 'subject_id' => 'integer',
+        'class_id' => 'integer',
+        'day_id' => 'integer',
+        'start_time' => 'string',
+        'end_time' => 'string',
+        'status' => 'boolean'
     ];
 
     /**
@@ -58,10 +72,39 @@ class Classes extends Model
         'class_name' => 'required|string|max:255',
         'class_code' => 'required|string|max:255',
         'level' => 'required|string|max:255',
+        'faculty_id' => 'required|integer',
+        // 'subject_id' => 'required|integer',
+        'day_id' => 'required|integer',
+        'start_time' => 'required|string',
+        'end_time' => 'required|string',
+        'status' => 'required|boolean',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function faculty(){
+        return $this->belongsTo(Faculty::class);
+    }
+
+    public function getInstructor(){
+        return $this->hasOne(Faculty::class,'id','faculty_id');
+    }
+
+    public function getStudents(){
+        return $this->hasMany(User::class,'class_id','class_id');
+    }
+
+    public function getSubArea(){
+        return $this->hasMany(SubArea::class,'class_id','class_id');
+    }
+
+    public function getSubjects(){
+        return $this->hasManyThrough(Subject::class, SubArea::class,'class_id','subArea_id','id','id');
+    }
 
 }

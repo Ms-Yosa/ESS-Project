@@ -1,0 +1,109 @@
+
+/*---------- top nav css -- multi-level-accordian-menu------------*/
+.navbar {
+	padding-top: 0em;
+	padding-bottom: 0em;
+	background-color: #FBD848;
+}
+
+.navbar a{
+	color: #1b1b1f;
+	padding-left: 1em;
+}
+
+.navbar a:hover {
+	color: white;
+  }
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    color: #1b1b1f;
+    margin-right: 10px;
+    font-size: 15px;
+	margin-left: 0.5em;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+}
+
+.navbar-nav .active {
+    border-bottom: 5px solid #fff;
+    font-weight: bold;
+}
+
+.navbar {
+    padding-top: .5rem;
+    padding-bottom: 0px !important
+}
+/* footer css */
+  footer{
+	background-color: #FFE077;
+	width: 100%;
+	text-align: center;
+	line-height: 35px;
+	height: 35px;
+	color: #1b1b1f;
+	font-size: 14px;
+  }
+  .footer-bottom-site-credit{
+	padding-right: 10px;
+  }
+  span#site-credit a{
+	color: #3399fe;
+	font-size: 75%;
+  }
+  span#site-credit a:hover{
+	text-decoration: underline;
+  }
+   @media only screen and (max-width: 480px) {
+	  .footer-bottom-copyright-text{
+		font-size: 80%;
+	  }
+	 .footer-bottom-social-icons{
+	   font-size: 80%;
+	 }
+  }
+
+  @media only screen and (max-width: 960px) {
+	.footer-bottom{
+	  text-align: center;
+	}
+	.footer-bottom-copyright-text{
+	  width: 100%;
+	}
+	.footer-bottom-social-icons{
+	  background-color: #FFE077;
+	}
+	.footer-bottom-site-credit{
+	  padding-right: 0px;
+	}
+	#footer-social-links li{
+	  list-style: none;
+	  display: inline-block;
+	  padding: 0px 10px;
+	}
+  }
+
+  @media only screen and (min-width: 961px) {
+	.footer-bottom{text-align: left;
+	}
+	.footer-bottom-copyright-text{
+	  max-width: 480px;
+	  float: left;
+	  padding: 5px 5px 5px 10px;
+	}
+	.footer-bottom-social-icons{
+	  background-color: #FFE077;
+	  text-align: right;
+	  padding: 0px 10px;
+	}
+	  #footer-social-links li{
+		list-style: none;
+		display: inline-block;
+		padding: 5px;
+	}
+  }
+

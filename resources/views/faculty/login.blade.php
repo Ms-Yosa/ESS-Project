@@ -50,9 +50,9 @@
                             </div>
                         @endif
                         @csrf
-                        <label for="email" class="label">{{ __('Email Address') }}</label>
-                        <input id="email" type="email" placeholder="Enter Email Address" class="input form-control" name="email" value="" >                            
-                        <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                        <label for="faculty_email" class="label">{{ __('Email Address') }}</label>
+                        <input id="faculty_email" type="email" placeholder="Enter Email Address" class="input form-control" name="faculty_email" value="" >                            
+                        <span class="text-danger">@error('faculty_email'){{ $message }} @enderror</span>
 
                         <label for="password" class="label">{{ __('Password') }}</label>
                         <input id="password" type="password" placeholder="Password" class="input form-control " name="password" >

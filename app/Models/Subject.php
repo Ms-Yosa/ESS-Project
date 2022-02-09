@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Subject extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     use HasFactory;
 
@@ -29,12 +29,13 @@ class Subject extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'subject_id';
+    protected $primaryKey = 'id';
 
 
 
     public $fillable = [
         'subject_name',
+        'subArea_id',
         'subject_code',
         'description',
         'status'
@@ -46,8 +47,9 @@ class Subject extends Model
      * @var array
      */
     protected $casts = [
-        'subject_id' => 'integer',
+        'id' => 'integer',
         'subject_name' => 'string',
+        'subArea_id' => 'string',
         'subject_code' => 'string',
         'description' => 'string',
         'status' => 'boolean'
@@ -60,6 +62,7 @@ class Subject extends Model
      */
     public static $rules = [
         'subject_name' => 'required|string|max:255',
+        'subArea_id' => 'string|max:255',
         'subject_code' => 'required|string|max:255',
         'description' => 'required|string',
         'status' => 'required|boolean',
@@ -67,5 +70,18 @@ class Subject extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+
+    public function class()
+    {
+        return $this->belongsToMany(Classes::class);
+    }
+
+    public function subArea(){
+        return $this->belongsTo(SubArea::class,'subArea_id');
+    }
+
+    public function getGrades(){
+        return $this->hasMany(Grade::class,'subject_id');
+    }
 
 }

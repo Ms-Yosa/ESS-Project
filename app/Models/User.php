@@ -36,6 +36,7 @@ class User extends Authenticatable
         'relation',
         'guardian_bloodtype',
         'address',
+        'class_id'
 
     ];
 
@@ -57,4 +58,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Eloquent Relationships
+     */
+
+    public function getGrades(){
+        return $this->hasMany(Grade::class,'user_id','id');
+    }
+
+    public function getFeedback(){
+        return $this->hasMany(Feedback::class,'user_id','id');
+    }
+
+    public function classAssigned(){
+        return $this->belongsTo(Classes::class, 'class_id');
+    }
 }

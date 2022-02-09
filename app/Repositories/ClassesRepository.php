@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Classes;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 
 /**
@@ -19,7 +20,13 @@ class ClassesRepository extends BaseRepository
     protected $fieldSearchable = [
         'class_name',
         'class_code',
-        'level'
+        'level',
+        'subject_id',
+        'faculty_id',
+        'day_id',
+        'start_time',
+        'end_time',
+        'status'
     ];
     protected $primaryKey = 'class_id';
     /**

@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateSubjectRequest;
 use App\Repositories\SubjectRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\SubArea;
+use App\Models\Subject;
+use App\Models\Classes;
 use Flash;
 use Response;
 
@@ -30,8 +33,11 @@ class SubjectController extends AppBaseController
     public function index(Request $request)
     {
         $subjects = $this->subjectRepository->all();
+        $subArea = SubArea::with('class','subjects')->get();
+        $class = Classes::all();
+        //dd($subArea->toArray());
 
-        return view('admin.class-management.subjects.index')
+        return view('admin.class-management.subjects.index', compact('subArea','class'))
             ->with('subjects', $subjects);
     }
 
@@ -70,7 +76,7 @@ class SubjectController extends AppBaseController
             return redirect(route('admin.subjects'));
         }
 
-        return view('admin.class-management.subjects.edit')->with('subject', $subject);
+        return view('admin.class-management.subjects.subject-edit')->with('subject', $subject);
     }
 
     /**
@@ -81,18 +87,28 @@ class SubjectController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateSubjectRequest $request)
+    public function update($id, Request $request)
     {
-        $subject = $this->subjectRepository->find($id);
-
+        $subject = Subject::find($id);
         if (empty($subject)) {
             Flash::error('Subject not found');
 
             return redirect(route('admin.subjects'));
         }
 
-        $subject = $this->subjectRepository->update($request->all(), $id);
+        if($request->subArea_id){
+            $subject->subArea_id = $request->subArea_id;
+        }
+        if($request->status){
+            $subject->status = $request->status;
+        }
 
+        $subject->subject_name = $request->subject_name;
+        $subject->subject_code = $request->subject_code;
+        $subject->description = $request->description;
+
+
+        $subject -> save();
         Flash::success('Subject updated successfully.');
 
         return redirect(route('admin.subjects'));
@@ -109,15 +125,10 @@ class SubjectController extends AppBaseController
      */
     public function destroy($id)
     {
-        $subject = $this->subjectRepository->find($id);
+        $subject = Subject::find($id);
+        //dd($subject->toArray());
 
-        if (empty($subject)) {
-            Flash::error('Subject not found');
-
-            return redirect(route('admin.subjects'));
-        }
-
-        $this->subjectRepository->delete($id);
+        $subject -> delete();
 
         Flash::success('Subject deleted successfully.');
 

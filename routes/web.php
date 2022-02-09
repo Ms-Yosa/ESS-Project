@@ -8,9 +8,11 @@ use App\Http\Controllers\Admin\UserCRUD;
 use App\Http\Controllers\Admin\FacultyCRUD;
 use App\Http\Controllers\Admin\AdminCRUD;
 use App\Http\Controllers\Admin\SubjectController;
+use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
-use App\Http\Controllers\Admin\ClassSchedulingController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\FeedbackController;
 
 
 /*
@@ -38,7 +40,7 @@ Route::prefix('user')->name('user.')->group(function(){
 
     Route::middleware(['guest:web', 'PreventBackHistory'])->group(function(){
         Route::view('/login','user.login')->name('login');
-        
+
 
         // USER Login (check)
         Route::post('/check',[UserController::class,'check'])->name('check');
@@ -47,16 +49,20 @@ Route::prefix('user')->name('user.')->group(function(){
 
     // When the user is now logged-in
 
-    //Middleware:PreventBackHistory prevents browser to go back from previous pages when already logged 
-    
+    //Middleware:PreventBackHistory prevents browser to go back from previous pages when already logged
+
     Route::middleware(['auth:web', 'PreventBackHistory'])->group(function(){
-        Route::view('/home','user.home')->name('home'); 
+        Route::view('/home','user.home')->name('home');
         Route::post('/logout',[UserController::class,'logout'])->name('logout');
-        
-        
-        
+
+        //User Pages
+        Route::get('/grade',[UserController::class,'getGrades'])->name('grade');
+        Route::get('/profile/{id}',[UserController::class,'profile'])->name('profile');
+        Route::get('/feedback',[UserController::class,'getFeedbacks'])->name('feedback');
+        Route::view('/schedule','user.student-schedule')->name('schedule');
+
     });
-    
+
 
 });
 
@@ -64,14 +70,31 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
     Route::middleware(['guest:faculty','PreventBackHistory'])->group(function(){
          Route::view('/login','faculty.login')->name('login');
-        
+
          // FACULTY Login (check)
          Route::post('/check',[FacultyController::class,'check'])->name('check');
     });
 
     Route::middleware(['auth:faculty','PreventBackHistory'])->group(function(){
          Route::view('/home','faculty.home')->name('home');
+         Route::get('/classes',[FacultyController::class,'classes'])->name('classes');
+         Route::get('/classes/{id}', [FacultyController::class,'class_view'])->name('class_view');
+         Route::get('/classes/{id}/marking/{subArea_id}',[FacultyController::class,'gradeMarking'])->name('marking');
+         Route::get('/profile/{id}',[FacultyController::class,'profile'])->name('profile');
          Route::post('logout',[FacultyController::class,'logout'])->name('logout');
+
+         //GRADE
+        Route::get('/classes/marking/{subArea_id}/encode/{student_id}', [GradeController::class,'index'])->name('grade');
+        Route::get('/classes/marking/{subj_id}/grade/{student_id}/create', [GradeController::class,'create'])->name('grade.create');
+        Route::get('/classes/marking/{subj_id}/grade/{student_id}/edit', [GradeController::class,'edit'])->name('grade.edit');
+        Route::put('/classes/marking/{subj_id}/grade/{student_id}/update/{grade_id}', [GradeController::class,'update'])->name('grade.update');
+        Route::post('/classes/marking/{subArea_id}/{subj_id}/encode/{student_id}', [GradeController::class,'store'])->name('grade.store');
+
+        Route::get('/feedback/{id}',[FeedbackController::class,'index'])->name('feedback');
+        Route::post('/feedback/create/{id}',[FeedbackController::class,'create'])->name('feedback.create');
+        Route::get('/feedback/edit/{id}',[FeedbackController::class,'edit'])->name('feedback.edit');
+        Route::put('/feedback/{user_id}/update/{id}',[FeedbackController::class,'update'])->name('feedback.update');
+        Route::delete('/feedback/delete/{id}',[FeedbackController::class,'destroy'])->name('feedback.destroy');
     });
 
 });
@@ -79,7 +102,7 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
 
 
 Route::prefix('admin')->name('admin.')->group(function(){
-       
+
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
           Route::view('/login','admin.login')->name('login');
           Route::post('/check',[AdminController::class,'check'])->name('check');
@@ -87,11 +110,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         // Route::view('/home','dashboard.admin.home')->name('home');
-        Route::view('/home','admin-home')->name('home'); 
+        Route::get('/home',[AdminController::class,'dashboardCount'])->name('home');
         Route::post('/logout',[AdminController::class,'logout'])->name('logout');
 
         // CRUD Student Route
-        Route::view('/register student','admin.student-management.register')->name('student-register');
+        Route::get('/register student',[UserCRUD::class,'register'])->name('student-register');
         Route::post('/create student account',[UserCRUD::class,'create'])->name('student-create');
         Route::get('/update student account/{id}',[UserCRUD::class,'edit'])->name('student-edit');
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
@@ -125,28 +148,20 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('subjects', [SubjectController::class,'store'])->name('subjects.store');
         Route::get('subjects/edit/{id}', [SubjectController::class,'edit'])->name('subjects.edit');
         Route::post('subjects/update/{id}', [SubjectController::class,'update'])->name('subjects.update');
-        Route::get('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');
+        Route::delete('subjects/{id}', [SubjectController::class,'destroy'])->name('subjects.destroy');
 
-        //**CRUD Levels Route
-        Route::get('/levels', [LevelController::class,'index'])->name('levels');
-        Route::post('/levels', [LevelController::class,'store'])->name('levels.store');
-        Route::get('/levels/edit/{id}', [LevelController::class,'edit'])->name('levels.edit');
-        Route::post('/levels/update/{id}', [LevelController::class,'update'])->name('levels.update');
-        Route::get('/levels/{id}', [LevelController::class,'destroy'])->name('levels.destroy');
+        Route::post('subject-area', [SubAreaController::class,'createArea'])->name('subjects.createArea');
+        Route::get('subject-area/edit/{id}', [SubAreaController::class,'edit'])->name('subjects.editArea');
+        Route::post('subject-area/update/{id}', [SubAreaController::class,'update'])->name('subjects.updateArea');
+        Route::delete('subject-area/{id}', [SubAreaController::class,'destroy'])->name('subjects.deleteArea');
 
         //**CRUD Class Route
         Route::get('/classes', [ClassesController::class,'index'])->name('classes');
         Route::post('/classes', [ClassesController::class,'store'])->name('classes.store');
-        Route::get('/classes/edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
+        Route::get('/classes//edit/{id}', [ClassesController::class,'edit'])->name('classes.edit');
         Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
-        Route::get('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
+        Route::delete('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
-        //**CRUD classSchedulings Route
-        Route::get('/classSchedulings', [ClassSchedulingController::class,'index'])->name('classSchedulings');
-        Route::post('/classSchedulings', [ClassSchedulingController::class,'store'])->name('classSchedulings.store');
-        Route::get('/classSchedulings/edit/{id}', [ClassSchedulingController::class,'edit'])->name('classSchedulings.edit');
-        Route::post('/classSchedulings/update/{id}', [ClassSchedulingController::class,'update'])->name('classSchedulings.update');
-        Route::get('/classSchedulings/{id}', [ClassSchedulingController::class,'destroy'])->name('classSchedulings.destroy');
     });
 
 });

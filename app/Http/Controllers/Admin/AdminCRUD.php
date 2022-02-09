@@ -10,24 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminCRUD extends Controller
 {
-     //Create new faculty (registration)
+     //Create new admin (registration)
      function create(Request $request){
         //validate Inputs
         $request->validate([
 
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
-            'email'=>'required|email|unique:faculties,email',
+            'middle_name'=>'nullable|string',
+            'email'=>'required|email|unique:admins,email',
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
-            'birth_year'=>'required|in:2020,2021',
-            'birth_month'=>'required|in:April,May',
-            'birth_day'=>'required|in:1,2',
+            'birth_year'=>'required|in:1999,1998,1997,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,192,1981,1980,1979,1978,1977,1976,1975,1974',
+            'birth_month'=>'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
+            'birth_day'=>'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
             'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
-            'contact_number'=>'required',
+            'contact_number'=>'required|numeric',
             'address'=>'required',
         ]);
 
@@ -49,7 +49,7 @@ class AdminCRUD extends Controller
           $save = $admin->save();
 
           if( $save ){
-              return redirect()->back()->with('success','New Admin has been registered successfully');
+              return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
           }else{
               return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
@@ -66,8 +66,14 @@ class AdminCRUD extends Controller
      //Destroy Data
      function destroy($id){
         $admins = Admin::find($id);
-        $admins -> delete();
-        return redirect()->route('admin.admin-tab'); 
+        $delete = $admins -> delete();
+
+        if( $delete ){
+            return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
+        }else{
+            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+      }
+        
     }
 
 
@@ -82,17 +88,17 @@ class AdminCRUD extends Controller
         $request->validate([
             'surname'=>'required',
             'name'=>'required',
-            'middle_name'=>'required',
-            'email'=>"required|email|unique:faculties,email,$id",
+            'middle_name'=>'nullable|string',
+            'email'=>"required|email|unique:admins,email,$id",
             'password'=>'required|min:5|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'gender'=>'required|in:Female,Male',
-            'birth_year'=>'required|in:2020,2021',
-            'birth_month'=>'required|in:April,May',
-            'birth_day'=>'required|in:1,2',
-            'age'=>'required|min:1|max:5',
+            'birth_year'=>'required|in:1999,1998,1997,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,192,1981,1980,1979,1978,1977,1976,1975,1974',
+            'birth_month'=>'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
+            'birth_day'=>'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31',
+           'age'=>'required|min:1|max:5',
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
-            'contact_number'=>'required',
+            'contact_number'=>'required|numeric',
             'address'=>'required',
     ]);
 
@@ -114,7 +120,7 @@ class AdminCRUD extends Controller
             $save = $admin->save();
 
             if( $save ){
-                return redirect()->back()->with('success','Update Information Successfully');
+                return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
             }else{
                 return redirect()->back()->with('fail','Something went wrong, failed to update');
         }
