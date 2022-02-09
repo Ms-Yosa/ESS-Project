@@ -1,14 +1,8 @@
-<footer>
-  <div class="footer-bottom">
-    <div class="footer-bottom-copyright-text">
-        AMSAI Learning School Student Information System &copy; 2021
-    </div>
-    <div class="footer-bottom-social-icons">
-        <ul id="footer-social-links">
-            <li><span class="footer-contact-item>"><i class="fa fa-envelope" aria-hidden="true"></i>amsailearningschool@gmail.com</span></li> | 
-            <li><span class="footer-contact-item>"><i class="fa fa-phone" aria-hidden="true"></i>519-57-78 | 09279082524</span></li> |
-            <li><span class="footer-contact-item>"><i class="fa fa-facebook-official" aria-hidden="true"></i>facebook.com/amsai.learningschool</span></li>
-        </ul>
-    </div>
+
+<footer class="footer">
+  <div class="d-sm-flex justify-content-center justify-content-sm-between">
+    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  AMSAI Learning School Student Information System</span>
+    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><i class="ti-email ml-1"></i>&nbsp;amsailearningschool@gmail.com </span>
+    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><i class="ti-facebook ml-1"></i>&nbsp;facebook.com/amsai.learningschool</span>
   </div>
 </footer>

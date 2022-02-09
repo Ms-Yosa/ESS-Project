@@ -1,66 +1,34 @@
 @extends('layouts.student')
 @section('content')
-    <section>
-    <div class="container container-md grades-content">
-        <div class="row grades-student-info">
-            <div class="col">
-                @include('partials.user.user-gen-info')
-                <br><br>
-                <!-- Learner Progress and Achievements Table -->
-                <table class="table text-center grades-progress-achievement table-borderless" style="border:2px solid #FFC415; background-color:#FDF8DB; border-color:#FC6300">
-                    <thead class="border border-warning border border-2 "><th colspan="3">Academic Metrics</th>  </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="col">Descriptors</th>
-                            <th scope="col">Grading Sytem</th>
-                        </tr>
-                        <tr>
-                            <td>E</td>
-                            <td>Excellent</td>
-                        </tr>
-                        <tr>
-                            <td>VS</td>
-                            <td>Very Satisfactory</td>
-                        </tr>
-                        <tr>
-                            <td>S</td>
-                            <td>Satisfactory</td>
-                        </tr>
-                        <tr>
-                            <td>I</td>
-                            <td>Improving</td>
-                        </tr>
-                        <tr>
-                            <td>N</td>
-                            <td>Needs Improvement</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="col">
-                <!-- second column -->
-                <table class="table table-hover">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 mb-3 pt-5">
+        <div class="stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Assessment Report</h4>
+                <p class="card-description">
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-hover table-borderless" >
                     <thead>
-                      <tr>
-                        <th scope="col">Subject Area</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">1st</th>
-                        <th scope="col">2nd</th>
-                        <th scope="col">3rd</th>
-                        <th scope="col">4th</th>
-                        <th scope="col">Final Rating</th>
+                      <tr style="border-bottom: 2px solid #FDC921">
+                        <th>Learning Areas</th>
+                        <th>Description</th>
+                        <th>1st</th>
+                        <th>2nd</th>
+                        <th>3rd</th>
+                        <th>4th</th>
+                        <th>Final Rating</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         @foreach ($subArea as $subA)
                         <tr>
-                            <td class="text-center font-weight-bold">{{$subA->name}}</td>
+                            <td rowspan="4" class="font-weight-bold text-center">{{$subA->name}}</td>
                         </tr>
                         @foreach ($subA->subjects as $subj)
                         <tr>
-
-                            <th scope="row"></th>
                             <td>{{$subj->subject_name}}</td>
                             <td>
                                 @foreach ($grade as $item)
@@ -102,8 +70,13 @@
                         @endforeach
                     </tbody>
                   </table>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+      </div>
     </div>
-    </section>
-    @endsection
+  </div>
+  <!-- partial -->
+<!-- main-panel ends -->
+@endsection

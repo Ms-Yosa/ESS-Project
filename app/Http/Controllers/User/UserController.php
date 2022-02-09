@@ -52,7 +52,8 @@ class UserController extends Controller
         ->with('users', $users);;
     }
 
-    function getGrades($student_id){
+    function getGrades(){
+        $student_id = Auth::guard('web')->user()->id;
         $user = User::where('id', $student_id)->with('classAssigned')->first();
         $grade = Grade::where('user_id', $student_id)->get();
         $subArea = SubArea::where('class_id', $user->classAssigned->class_id)->with('subjects')->get();
@@ -64,7 +65,8 @@ class UserController extends Controller
                     ->with('subArea', $subArea);
     }
 
-    function getFeedbacks($student_id){
+    function getFeedbacks(){
+        $student_id = Auth::guard('web')->user()->id;
         $feedback = Feedback::where('user_id', $student_id)->get();
 
         return view('user.student-feedback')->with('feedback', $feedback);
