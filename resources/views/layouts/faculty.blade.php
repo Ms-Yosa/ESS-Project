@@ -1,77 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/1f7074acbb.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="{{ URL::asset('css/partials/navbar_user.css') }}" />
-    <link rel="stylesheet" href="{{ URL::asset('css/faculty/classes.css') }}" />
-    {{-- Home --}}
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>AMSAI SIS</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{ URL::to("vendors/feather/feather.css") }}">
+  <link rel="stylesheet" href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
+  <link rel="stylesheet" href="{{ URL::to("vendors/css/vendor.bundle.base.css") }}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet"  href="{{ URL::to("vendors/datatables.net-bs4/dataTables.bootstrap4.css") }}">
+  <link rel="stylesheet"  href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
+  <link rel="stylesheet"  href="{{ URL::to("js/select.dataTables.min.css") }}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{  URL::asset('css/vertical-layout-light/style.css') }}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
 
 
-    {{-- Profile --}}
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ URL::asset('css/user_profile.css') }}" />
+  <!-- plugins:js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="{{ URL::to('vendors/js/vendor.bundle.base.js') }}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{{ URL::to('vendors/chart.js/Chart.min.js') }}"></script>
+  <script src="{{ URL::to('vendors/datatables.net/jquery.dataTables.js') }}"></script>
+  <script src="{{ URL::to('vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+  <script src="{{ URL::asset('js/dataTables.select.min.js') }}"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{ URL::asset('js/off-canvas.js') }}"></script>
+  <script src="{{ URL::asset('js/hoverable-collapse.js') }}"></script>
+  <script src="{{ URL::asset('js/template.js') }}"></script>
+  <script src="{{ URL::asset('js/settings.js') }}"></script>
+  <script src="{{ URL::asset('js/todolist.js') }}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script type="text/javascript" src="{{ URL::asset('js/dashboard.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/Chart.roundedBarCharts.js') }}"></script>
+  <!-- End custom js for this page-->
 </head>
 <body>
-    <!-- Preloader start -->
-    <div id="preloader">
-        <div class="sk-three-bounce">
-            <div class="sk-child sk-bounce1"></div>
-            <div class="sk-child sk-bounce2"></div>
-            <div class="sk-child sk-bounce3"></div>
-        </div>
+  <div class="container-scroller">
+      <!-- Nav header start -->
+      @include('partials.faculty.navbar')
+
+    <div class="container-fluid page-body-wrapper">
+      @include('partials.faculty.sidebar')
+      <!-- Nav header end -->
+      <!-- Content body start -->
+      @yield('content')
+      <!-- Content body end -->
     </div>
-    <!-- Preloader end -->
-    <!-- Main wrapper start -->
-    <div id="main-wrapper">
-        <!-- Nav header start -->
-        @include('partials.faculty.navbar')
-        <!-- Nav header end -->
-
-        <!-- Header start -->
-        <!-- <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                        </div>
-                     </div>
-                </nav>
-            </div>
-        </div> -->
-        <!-- Header end ti-comment-alt -->
-
-		<!-- Content body start -->
-        @yield('content')
-        <!-- Content body end -->
-
         <!-- Footer start -->
         @include('partials.user.footer_user')
         <!-- Footer end -->
-    </div>
-
-    <!-- Required vendors -->
-
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 </body>
+
 </html>
+

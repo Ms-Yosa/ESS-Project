@@ -1,27 +1,24 @@
 @extends('layouts.student')
 @section('content')
-    <section>
-    <div class="container container-md grades-content">
-        <div class="row grades-student-info">
-            <div class="col">
-                @include('partials.user.user-gen-info')
-                <br><br>
-                <!-- Attendance Report Table -->
-            </div>
-            <div class="col">
-                <!-- second column -->
-                <table class="table table-borderless text-center">
-                    <thead class="border border-warning border border-2" style="margin-bottom:5em;">
-                        <tr>
-                            <th scope="col" colspan="6" class="text-center">WEEKLY FEEDBACK REPORT</th>
-                        </tr>
-                    </thead>
-                    <tr  style="text-align: center;">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 mb-3 pt-5">
+        <div class="stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Weekly Instructor Feedback</h4>
+                <p class="card-description">
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-hover table-borderless" >
+                    <thead>
+                      <tr style="border-bottom: 2px solid #FDC921">
                         <th>#</th>
-                        <th scope="col">Week #</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                    <tbody>
+                        <th>Week No. </th>
+                        <th>Feedback Description</th>
+                      </tr>
+                    </thead>
+                    <tbody >
                         @foreach ($feedback as $key => $fb)
                         <tr>
                             <td>{{++$key}}</td>
@@ -30,10 +27,14 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-
+                  </table>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+      </div>
     </div>
-    </section>
-    @endsection
+  </div>
+  <!-- partial -->
+<!-- main-panel ends -->
+@endsection
