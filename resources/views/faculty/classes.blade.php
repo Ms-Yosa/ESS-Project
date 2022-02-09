@@ -1,32 +1,23 @@
 @extends('layouts.faculty')
 @section('content')
-<section class="articles mt-3">
-      @foreach ($classes as  $key => $class)
-      @foreach ($class->getClass as $item)
-      <form action="{{ route('faculty.class_view', $item->class_id)}}" method="GET" class="mb-4">
-        @csrf
-        <button type="submit">
-          <!--  ARTICLE  -->
-          <article class="articles__article-card">
-
-            <!--  ARTICLE TOP  -->
-            <div class="articles__article-card__top d-flex flex-row justify-content-center align-items-center">
-                <h3> Class {{ ++$key }}</h3>
+  <div class="content-wrapper">
+    <div class="col-md-12 pt-5 grid-margin transparent">
+      <div class="row">
+        @foreach ($classes as  $key => $class)
+        @foreach ($class->getClass as $item)
+        <div class="col-md-6 mb-4 stretch-card transparent">
+          <a class="card btn text-left btn-inverse-warning" href="{{ route('faculty.class_view', $item->class_id)}}">
+            <div class="card-body">
+              <p class="fs-30 mb-2">{{$item->class_name}}</p>
+              <p>Class info</p>
             </div>
-
-            <!--  ARTICLE BOTTOM  -->
-            <div class="articles__article-card__bottom">
-                <div class="articles__article-card__bottom__date-title">
-                <h5 class="articles__article-card__bottom__date-title__title">
-                  {{$item->class_name}}
-                </h5>
-                </div>
-            </div>
-          </article>
-        </button>
-    </form>
+          </a>
+        </div>
       @endforeach
-    @endforeach
-
-</section>
+      @endforeach
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+<!-- main-panel ends -->
 @endsection
