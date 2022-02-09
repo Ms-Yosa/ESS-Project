@@ -1,60 +1,87 @@
+
 @extends('layouts.faculty')
 @section('content')
-<section>
-    <div class="container mt-5 mb-5">
-        <div class="container mt-5">
-          <h3>
-            Student: {{$user->name}}
-          </h3>
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Subject</th>
-                      <th scope="col">1st</th>
-                      <th scope="col">2nd</th>
-                      <th scope="col">3rd</th>
-                      <th scope="col">4th</th>
-                      <th scope="col">Final Rating</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+<body class="sidebar-icon-only">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 mb-3 pt-5">
+        <div class="stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Student: {{$user->name}} {{$user->surname}}</h4>
+                <p class="card-description">
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-hover table-borderless" >
+                    <thead>
+                      <tr style="border-bottom: 2px solid #FDC921">
+                        <th scope="col">#</th>
+                        <th scope="col">Subject</th>
+                        <th scope="col">1st</th>
+                        <th scope="col">2nd</th>
+                        <th scope="col">3rd</th>
+                        <th scope="col">4th</th>
+                        <th scope="col">Final Rating</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody >
                       @foreach ($subject as $key => $subj)
-                      @foreach ($grade as $item)
-                          @if(in_array($subj->id, $item->toArray()))
-                    <tr>
-                      <th scope="row">{{ ++$key }}</th>
-                      <td>{{ $subj->subject_name}}</td>
-                      <td>
 
-                            {{$item->first_period}}
-                      </td>
-                      <td>
-                            {{$item->second_period}}
-                      </td>
-                      <td>
-                            {{$item->third_period}}
-                      </td>
-                      <td>
-                            {{$item->fourth_period}}
-                      </td>
-                      <td>
-                            {{$item->final_rating}}
-                      </td>
-                      <td>
-                          <a  href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Encode</a>
-                          <a  href="{{route('faculty.grade.edit',['subj_id'=>$subj->id,'student_id'=>$user->id])}}">Edit</a>
-                      </td>
-                    </tr>
-
-                    @endif
-                    @endforeach
-                    @endforeach
-                  </tbody>
-                </table>
+                            <tr>
+                              <th scope="row">{{ ++$key }}</th>
+                              <td>{{ $subj->subject_name}}</td>
+                              <td>
+                                @foreach ($grade as $item)
+                                  @if(in_array($subj->id, $item->toArray()))
+                                    {{$item->first_period}}
+                                  @endif
+                                @endforeach
+                              </td>
+                              <td>
+                                @foreach ($grade as $item)
+                                  @if(in_array($subj->id, $item->toArray()))
+                                    {{$item->second_period}}
+                                    @endif
+                                  @endforeach
+                              </td>
+                              <td>
+                                @foreach ($grade as $item)
+                                  @if(in_array($subj->id, $item->toArray()))
+                                    {{$item->third_period}}
+                                    @endif
+                                  @endforeach
+                              </td>
+                              <td>
+                                @foreach ($grade as $item)
+                                  @if(in_array($subj->id, $item->toArray()))
+                                    {{$item->fourth_period}}
+                                    @endif
+                                  @endforeach
+                              </td>
+                              <td>
+                                @foreach ($grade as $item)
+                                  @if(in_array($subj->id, $item->toArray()))
+                                    {{$item->final_rating}}
+                                    @endif
+                                  @endforeach
+                              </td>
+                              <td>
+                                  <a href="{{route('faculty.grade.create',['subj_id'=>$subj->id,'student_id'=>$user->id])}}" class="btn btn-sm btn-outline-info btn-icon-text">Encode &nbsp;<i class="ti-notepad btn-icon-prepend"></i></a>
+                                  <a href="{{route('faculty.grade.edit',['subj_id'=>$subj->id,'student_id'=>$user->id])}}" class="btn btn-sm btn-outline-warning btn-icon-text">Edit &nbsp;<i class="ti-pencil-alt btn-icon-prepend"></i></a>
+                              </td>
+                            </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+      </div>
     </div>
-</section>
+  </div>
+</body>
+  <!-- partial -->
+<!-- main-panel ends -->
 @endsection

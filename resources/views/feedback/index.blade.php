@@ -1,71 +1,128 @@
 @extends('layouts.faculty')
 @section('content')
-<section>
-    <div class="container mt-5 mb-5">
-        <div class="container mt-5">
-          <h3>
+<body class="sidebar-icon-only">
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 mb-3 pt-5">
+        <div class="stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Feedback List</h4>
+                <p class="card-description">
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-hover table-borderless" >
+                    <thead>
+                      <tr style="border-bottom: 2px solid #FDC921">
+                        <th>#</th>
+                        <th>Week No. </th>
+                        <th>Feedback Description</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                        @foreach ($feedback as $key => $fb)
+                        <tr>
+                            <td>{{++$key}}</td>
+                            <td>{{$fb->week}}</td>
+                            <td>{{$fb->description}}</td>
+                            <td>
+                              <div class="row">
+                                <form action="{{ route('faculty.feedback.edit',$fb->id)}}" method="GET">
+                                  @csrf
+                                  <button type="submit" class="btn btn-inverse-info btn-icon">
+                                    <i class="ti-pencil"></i>
+                                  </button>
+                                </form>
+                                &nbsp;
+                                  <button type="button" id="liveToastBtn" class="btn btn-inverse-danger btn-icon">
+                                    <i class="ti-trash"></i>
+                                  </button>
+                              </div>
+                            </td>
+                        </tr>
+                        <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <div aria-live="polite" aria-atomic="true" class="toast-wrapper position-absolute d-flex justify-content-center align-items-center w-100" >
+                          <div id="liveToast" data-autohide="false" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header p-3">
+                              <strong class="me-auto">Are you sure you want to delete feedback?</strong>
+                            </div>
+                            <div class="toast-body p-3">
+                                <button type="button" class="btn btn-inverse-dark btn-sm" data-bs-dismiss="toast">Close</button>
+                                <button type="submit" class="btn btn-inverse-warning btn-sm">Delete</button>
+                            </div>
+                          </div>
+                            </div>
+                          </form>
+                        @endforeach
+                    </tbody>
+                  </table>
 
-          </h3>
-          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
-            Add Feedback
-          </button>
-          <form action="{{ route('faculty.feedback.create', $user->id)}}"  method="POST" autocomplete="off">
-          @csrf
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Feedback</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <label for="week">Week No.</label>
-                        <input type="text" class="form-group col-sm-6" name="week">
-                        <br>
-                        <label for="description">Description</label>
-                        <textarea name="description" id="description" cols="40" rows="2"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add</button>
-                    </div>
                 </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="justify-content-end d-flex">
+         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+           <button class="btn btn-sm btn-inverse-warning" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+            <strong>+ ADD FEEDBACK</strong>
+           </button>
+         </div>
+        </div>
+      </div>
+    </div>
+    <form action="{{ route('faculty.feedback.create', $user->id)}}"  method="POST" autocomplete="off">
+      @csrf
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add Feedback</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                  <form class="forms-sample">
+                    <div class="form-group">
+                      <label for="week">Week No. </label>
+                      <input type="text" name="week" class="form-control" id="week" placeholder="Input week number ">
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea name="description" class="form-control" id="description" rows="4"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
                 </div>
             </div>
-          </form>
-
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Week No.</th>
-                      <th scope="col">Description</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      @foreach ($feedback as $key => $fb)
-                    <tr>
-                      <th scope="row">{{++$key}}</th>
-                      <td>{{$fb->week}}</td>
-                      <td>{{$fb->description}}</td>
-                      <td>
-                        <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button class="badge bg-danger" type="submit"><a  onclick="return confirm('Are you sure to want to delete it?')">Delete</a></button>
-                        </form>
-                          <a  href="{{route('faculty.feedback.edit',$fb->id)}}">Edit</a>
-                      </td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                </table>
             </div>
         </div>
-    </div>
-</section>
+      </form>
+  </div>
+</body>
+  <!-- partial -->
+<!-- main-panel ends -->
+
+<script>
+  var toastTrigger = document.getElementById('liveToastBtn')
+  var toastLiveExample = document.getElementById('liveToast')
+  if (toastTrigger) {
+    toastTrigger.addEventListener('click', function () {
+      var toast = new bootstrap.Toast(toastLiveExample)
+
+      toast.show()
+    })
+  }
+</script>
 @endsection

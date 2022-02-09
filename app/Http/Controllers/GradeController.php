@@ -20,10 +20,10 @@ class GradeController extends Controller
         $user = User::find($student_id);
         $grade = Grade::where(['user_id' => $student_id, 'subArea_id' => $subArea_id] )->with('user','subArea','subject')->get();
 
-        if($grade){
+        if($subject){
             $exist = true;
         }
-        //dd($grade->toArray());
+        //dd($subject->toArray());
         return view('grade.index')
                     ->with('grade', $grade)
                     ->with('subject', $subject)

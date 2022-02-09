@@ -3,12 +3,12 @@
 <body class="sidebar-icon-only">
     <div class="content-wrapper">
         <div class="row">
-          <div class="col-md-12 mb-3 pt-5">
+          <div class="col-md-12 mb-1 pt-5">
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <p class="card-title">Student List</p>
+                      <p class="card-title">Master List</p>
                       <div class="row">
                         <div class="col-12">
                           <div class="table-responsive">
@@ -52,6 +52,55 @@
                   </div>
                 </div>
             </div>
+            <div class="col-md-12 mb-3">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="card-title">Learning Areas</p>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="table-responsive">
+                            @foreach ($class as $key => $student)
+                                <table class="display expandable-table" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Area</th>
+                                                <th>Subjects</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($student->getSubArea as $subArea)
+                                            <tr>
+                                                <td>{{ ++$key }}</td>
+                                                <td>{{ $subArea->name }}</td>
+                                                <td>
+                                                    @foreach ($subArea->subjects as $sub)
+                                                        {{$sub->subject_name}}
+                                                    <br>
+                                                    @endforeach
+                                                </td>
+                                                <td>
+                                                    <a  href="{{route('faculty.marking',['id'=>$student->class_id,'subArea_id'=>$subArea->id])}}" class="btn btn-sm btn-outline-warning btn-icon-text">Mark Students &nbsp;<i class="ti-check"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @endforeach
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
           </div>
         </div>
     </div>
