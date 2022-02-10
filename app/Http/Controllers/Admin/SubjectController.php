@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\SubArea;
 use App\Models\Subject;
 use App\Models\Classes;
+use Brian2694\Toastr\Facades\Toastr;
 use Flash;
 use Response;
 
@@ -54,7 +55,7 @@ class SubjectController extends AppBaseController
 
         $subject = $this->subjectRepository->create($input);
 
-        Flash::success('Subject saved successfully.');
+        Toastr::success('Subject added successfully','Success');
 
         return redirect(route('admin.subjects'));
     }
@@ -109,7 +110,8 @@ class SubjectController extends AppBaseController
 
 
         $subject -> save();
-        Flash::success('Subject updated successfully.');
+
+        Toastr::success('Subject updated successfully','Success');
 
         return redirect(route('admin.subjects'));
     }
@@ -130,7 +132,7 @@ class SubjectController extends AppBaseController
 
         $subject -> delete();
 
-        Flash::success('Subject deleted successfully.');
+        Toastr::success('Subject deleted successfully','Success');
 
         return redirect(route('admin.subjects'));
     }

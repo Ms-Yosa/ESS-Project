@@ -26,7 +26,7 @@ class CreateClassesTable extends Migration
             $table->string('end_time');
             $table->tinyInteger('status')->default(1);
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('faculty_id')->references('id')->on('faculties')->onDelete('cascade');
+            $table->foreign('faculty_id')->references('id')->on('faculties');
             // $table->foreign('subject_id')->references('subject_id')->on('subjects')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

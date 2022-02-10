@@ -7,10 +7,12 @@ use App\Http\Requests\UpdateClassesRequest;
 use App\Repositories\ClassesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Brian2694\Toastr\Facades\Toastr;
 use Flash;
 use Response;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 use App\Models\Subject;
 use App\Models\User;
 use App\Models\Classes;
@@ -65,7 +67,7 @@ class ClassesController extends AppBaseController
 
         $classes = $this->classesRepository->create($input);
 
-        Flash::success('Classes saved successfully.');
+        Toastr::success('Class added successfully','Success');
 
         return redirect(route('admin.classes'));
     }
@@ -85,7 +87,7 @@ class ClassesController extends AppBaseController
         $subject = Subject::all();
 
         if (empty($classes)) {
-            Flash::error('Classes not found');
+            Toastr::error('Class not found', 'Error');
 
             return redirect(route('admin.classes'));
         }
@@ -106,14 +108,14 @@ class ClassesController extends AppBaseController
         $classes = $this->classesRepository->find($id);
 
         if (empty($classes)) {
-            Flash::error('Classes not found');
+            Toastr::error('Class not found', 'Error');
 
             return redirect(route('admin.classes'));
         }
 
         $classes = $this->classesRepository->update($request->all(), $id);
 
-        Flash::success('Classes updated successfully.');
+        Toastr::success('Class updated successfully','Success');
 
         return redirect(route('admin.classes'));
     }
@@ -137,9 +139,12 @@ class ClassesController extends AppBaseController
             return redirect(route('admin.classes'));
         }
 
-        $this->classesRepository->delete($id);
-
-        Flash::success('Classes deleted successfully.');
+        try {
+            $this->classesRepository->delete($id);
+            Toastr::success('Class deleted successfully','Success');
+        } catch (QueryException $e) {
+            Toastr::error('Class delete failed. Class is still in use.','Failed');
+        }
 
         return redirect(route('admin.classes'));
     }

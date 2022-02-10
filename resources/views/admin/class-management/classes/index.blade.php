@@ -18,15 +18,14 @@
                 </div>
             </div>
 
+            {!! Toastr::message() !!}
+            @include('partials.error')
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
-
-                                @include('flash::message')
-                                @include('adminlte-templates::common.errors')
-
                                 <div class="card-header">
                                     <h4 class="card-title">All Classes List  </h4>
                                         <a data-toggle="modal" data-target="#add-class-modal" class="btn btn-primary">
@@ -55,21 +54,30 @@
                                                         <td>{{ $class->level }}</td>
                                                         <td>{{ $class->getInstructor->faculty_name  ?? 'Unassigned'  }}</td>
                                                         <td>
+                                                        <div class="container overflow-hidden m-0">
                                                             <div class="row">
+                                                              <div class="col-2">
                                                                 <a class="btn badge bg-primary" data-toggle="modal" data-target="#ModalView{{$class->class_id}}"><i class="la la-eye"></i></a>
-
-
-                                                                <form action="{{ route('admin.classes.edit', $class->class_id)}}" method="GET">
-                                                                    @csrf
-                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
-                                                                </form>
-                                                                <form action="{{ route('admin.classes.destroy', $class->class_id)}}" method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                                </form>
+                                                              </div>
+                                                                <div class="col-2">
+                                                                    <form action="{{ route('admin.classes.edit', $class->class_id)}}" method="GET">
+                                                                        @csrf
+                                                                        <button class="btn badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <form action="{{ route('admin.classes.destroy', $class->class_id)}}" method="POST">
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <button class="btn badge bg-danger" type="submit"> <a  onclick="return confirm('Learning Areas and Subjects in this class will be deleted. Are you sure to want to delete it? ')"><i class="la la-trash"></i></a></button>
+                                                                    </form>
+                                                                </div>
                                                             </div>
+
+                                                            </div>
+                                                        </div>
                                                             @include('admin.class-management.classes.view-modal')
+
                                                       </td>
 
                                                     </tr>

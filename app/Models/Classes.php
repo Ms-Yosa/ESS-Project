@@ -70,9 +70,9 @@ class Classes extends Model
      */
     public static $rules = [
         'class_name' => 'required|string|max:255',
-        'class_code' => 'required|string|max:255',
+        'class_code' => 'required|string|max:20|min:10|unique:classes',
         'level' => 'required|string|max:255',
-        'faculty_id' => 'required|integer',
+        // 'faculty_id' => 'required|integer',
         // 'subject_id' => 'required|integer',
         'day_id' => 'required|integer',
         'start_time' => 'required|string',

@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\SubArea;
 use App\Models\Classes;
+use Brian2694\Toastr\Facades\Toastr;
 use Flash;
 use Response;
 
@@ -28,12 +29,8 @@ class SubAreaController extends AppBaseController
           $subArea->name = $request->name;
           $subArea->class_id = $request->class_id;
           $save = $subArea->save();
-
-          if( $save ){
-            return redirect()->route('admin.class-management.subjects.index')->with('success','New admin has been registered successfully');
-        }else{
-            return redirect()->back()->with('fail','Something went wrong, failed to register');
-    }
+        Toastr::success('Learning Area added successfully','Success');
+        return redirect(route('admin.subjects'));
     }
 
     public function edit($id)
@@ -67,7 +64,7 @@ class SubAreaController extends AppBaseController
             return redirect(route('admin.subjects'));
         }
 
-        Flash::success('Subject Area updated successfully.');
+        Toastr::success('Learning Area updated successfully','Success');
 
         return redirect(route('admin.subjects'));
     }
@@ -84,7 +81,7 @@ class SubAreaController extends AppBaseController
 
         $subArea -> delete();
 
-        Flash::success('Subject Area deleted successfully.');
+        Toastr::success('Learning Area deleted successfully','Success');
 
         return redirect(route('admin.subjects'));
     }

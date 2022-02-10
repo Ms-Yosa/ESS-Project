@@ -18,13 +18,14 @@
                 </div>
             </div>
 
+            {!! Toastr::message() !!}
+            @include('partials.error')
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
-                              @include('flash::message')
-                              @include('adminlte-templates::common.errors')
                                 <div class="card-header">
                                     <h4 class="card-title">All Subject Areas List  </h4>
                                     <div>
@@ -58,32 +59,41 @@
                                                     <td>{{ $subA->class->class_name ?? 'Unassigned'  }}</td>
                                                     <td>
                                                         @foreach ($subA->subjects as $subj)
-                                                            <div class="row">
-                                                                {{ $subj->subject_name ?? 'None'}} &nbsp;
+                                                        <div class="dropdown">
+                                                            {{ $subj->subject_name ?? 'None'}}
+                                                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                                 <form action="{{ route('admin.subjects.edit', $subj->id)}}" method="GET">
                                                                     @csrf
-                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                    <button class="dropdown-item" type="submit"><i class="la la-pencil-square text-success"></i>&nbsp;Edit</button>
                                                                 </form>
                                                                 <form action="{{ route('admin.subjects.destroy', $subj->id)}}" method="POST">
                                                                     @method('DELETE')
                                                                     @csrf
-                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                                    <button class="dropdown-item" type="submit"><i class="la la-trash text-danger"></i>&nbsp;<a  onclick="return confirm('Are you sure to want to delete it?')">Delete</a></button>
                                                                 </form>
                                                             </div>
-                                                            <br>
+                                                          </div>
                                                         @endforeach
                                                     </td>
                                                     <td>
-                                                        <div class="row">
-                                                        <form action="{{ route('admin.subjects.editArea', $subA->id)}}" method="GET">
-                                                            @csrf
-                                                            <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
-                                                        </form>
-                                                        <form action="{{ route('admin.subjects.deleteArea', $subA->id)}}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                        </form>
+                                                        <div class="container overflow-hidden m-0">
+                                                            <div class="row ">
+                                                                <div class="col-2">
+                                                                    <form action="{{ route('admin.subjects.editArea', $subA->id)}}" method="GET">
+                                                                        @csrf
+                                                                        <button class="btn badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-2">
+                                                                    <form action="{{ route('admin.subjects.deleteArea', $subA->id)}}" method="POST">
+                                                                        @method('DELETE')
+                                                                        @csrf
+                                                                        <button class="btn badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>
