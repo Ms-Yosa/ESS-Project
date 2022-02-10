@@ -7,7 +7,7 @@
     <title>Admin Login</title>
     <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
     <link href="{{ asset('css/login_admin.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -44,7 +44,7 @@
         </div>
     </div> -->
     <div class="form-box">
-                   <a href="{{ url('/') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a> 
+                   <a href="{{ url('/') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a>
                     <div class="header">
                         <label  class="name school">
                             AMSAI LEARNING SCHOOL
@@ -52,7 +52,7 @@
                         <br>
                         <label class="name system">
                             STUDENT INFORMATION SYSTEM
-                        </label>   
+                        </label>
                     </div>
     <div class="simple-login-container">
     <h2>Login Form</h2>
@@ -74,22 +74,21 @@
             <div class="col-md-12 form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
-                <span class="text-danger">@error('password'){{ $message }}@enderror</span>           
+                <span class="text-danger">@error('password'){{ $message }}@enderror</span>
              </div>
         </div>
         <div class="row">
             <div class="col-md-12 form-group">
             <button type="submit" class="btn btn-block btn-login">Login</button>
-                
+
             </div>
         </div>
-        
-    </form>    
+
+    </form>
 </div>
 
 </body>
 </html>
-
 
 
 

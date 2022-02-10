@@ -22080,6 +22080,10 @@ code {
   background: #7DA0FA;
   color: #ffffff;
 }
+.card.card-yellow {
+  background: #FDD85D;
+  color: #000;
+}
 
 .card.card-tale:hover {
   background: #96b2fb;
@@ -25108,13 +25112,13 @@ dl li {
 }
 
 .list-wrapper {
-  height: 100%;
   max-height: 390px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .list-wrapper ul {
-  padding: 0;
+  padding: 10px;
   text-align: left;
   list-style: none;
   margin-bottom: 0;
@@ -25123,7 +25127,6 @@ dl li {
 .list-wrapper ul li {
   font-size: .9375rem;
   padding: 1.063rem 1.4rem;
-  border: 1px solid #CED4DA;
   margin-bottom: 0.812rem;
   border-radius: 7px;
 }
@@ -27565,7 +27568,6 @@ table.dataTable tbody td.select-checkbox:after {
   padding: 6px;
   font-size: .625rem;
   font-family: inherit;
-  line-height: 1;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {

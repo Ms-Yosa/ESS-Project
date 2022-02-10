@@ -21,7 +21,7 @@ body{
     border-radius: 25px;
     background-color:white;
 }
- 
+
 .content-1{
     border: 2px solid #FBD848;
     justify-content:center;
@@ -29,11 +29,11 @@ body{
     display: flex;
     flex-direction: column;
     padding:20px 5px;
-   
+
 }
 
 .logo{
-    width:150px; 
+    width:150px;
     border-radius: 100%;
     border: 2px solid #FD6300;
 }
@@ -45,23 +45,23 @@ body{
 }
 
 .bottom{
-    font-family: 'Merriweather', serif;  
+    font-family: 'Merriweather', serif;
     font-size: smaller;
     border: 0;
-  
+
 }
 
 .name{
     max-width: 500px;
     text-align:center;
-    
+
 }
 
 .school{
     font-weight: bolder;
     font-size: 28px;
     color: black;
-    
+
 }
 
 .system{
@@ -75,7 +75,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-top:5%;
-      
+
 }
 
 button{
@@ -97,8 +97,8 @@ button:hover{
     bottom: 0px;
     left:0;
     z-index: -1;
-    
-    
+
+
 }
 
 
@@ -107,4 +107,3 @@ button:hover{
         width:100%;
     }
 }
-

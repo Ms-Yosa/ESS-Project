@@ -13,7 +13,7 @@
 
         <link rel="stylesheet" href="{{ URL::asset('css/landing.css'); }} ">
         <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -30,12 +30,12 @@
         </style>
     </head>
     <body class="antialiased">
-        
+
 <!-- MAIN  -->
         <div class="container">
             <div class="content-1">
             <a href="{{ route('admin.login') }}"><img class="logo amsai" src="/assets/Logo.png" alt="AMSAI Logo" ></a>
-            
+
                 <div class="content-1 mid">
                     <div class="name">
                         <label class="name school">
@@ -44,7 +44,7 @@
                         <br>
                         <label class="name system">
                          STUDENT INFORMATION SYSTEM
-                        </label>   
+                        </label>
                     </div>
                 </div>
 
@@ -53,40 +53,40 @@
                 </div>
            </div>
 
-           
+
 <!-- LOGIN BUTTONS -->
             <div class="content-2">
                 @if (Route::has('user.login'))
-                    
+
                         @auth
                         <button><a href="{{ url('/home') }}" >Home</a></button>
                 @else
                         <button class="border-bottom-0"><a href="{{ route('user.login') }}" >Student</a></button>
-                            
+
                         @endauth
-                    
+
                 @endif
 
                 @if (Route::has('faculty.login'))
-                    
+
                         @auth
                         <button><a href="{{ url('/home') }}" >Home</a></button>
                 @else
                         <button class="border-bottom-0"><a href="{{ route('faculty.login') }}" >Faculty</a></button>
-                            
+
                         @endauth
-                    
+
                 @endif
             </div>
 
-            
-                   
+
+
         </div>
 
 
-     
-         
-               
-           
+
+
+
+
     </body>
 </html>

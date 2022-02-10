@@ -21,6 +21,7 @@ class FeedbackController extends Controller
 
     public function create(Request $request, $id)
     {
+        dd($request->all());
         $feedback = new Feedback();
         $feedback->week = $request->input('week');
         $feedback->description = $request->input('description');

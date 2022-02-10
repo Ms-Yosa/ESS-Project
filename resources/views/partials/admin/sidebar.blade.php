@@ -52,6 +52,7 @@
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.classes') }}">Classes</a></li>
                         <li><a href="{{ route('admin.subjects') }}">Subjects</a></li>
+                        <li><a href="{{ route('admin.badge') }}">Badges</a></li>
                     </ul>
                 </li>
                 <li>
