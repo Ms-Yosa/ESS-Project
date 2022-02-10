@@ -162,6 +162,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
         Route::delete('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
+        //EXPORT
+        Route::get('/master-list-export', [UserCRUD::class,'master_list_export'])->name('master-list-export');
+
     });
 
 });
