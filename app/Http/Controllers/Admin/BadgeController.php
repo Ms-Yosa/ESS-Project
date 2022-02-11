@@ -21,8 +21,12 @@ class BadgeController extends Controller
 
     public function store(Request $request)
     {
+        $image_name = time() . '-' . $request->name . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images-upload'), $image_name);
         $badge = new Badge();
         $badge->name = $request->input('name');
+        $badge->badge_image_path = $image_name;
         $badge->save();
 
         return redirect(route('admin.badge'));

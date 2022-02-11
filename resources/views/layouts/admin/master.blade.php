@@ -102,6 +102,8 @@
     <script src="{{ URL::to('assets_reference/vendor/pickadate/picker.date.js') }}"></script>
     <!-- Pickdate -->
     <script src="{{ URL::to('assets_reference/js/plugins-init/pickadate-init.js') }}"></script>
+    {{-- file upload --}}
+    <script src="{{ URL::to('assets_reference/js/file-upload.js') }}"></script>
 
 </body>
 </html>
