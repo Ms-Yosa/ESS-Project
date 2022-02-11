@@ -48,7 +48,9 @@
                                                     <tr>
                                                         <td class="id">{{ ++$key }}</td>
                                                         <td>{{ $badge->name }}</td>
-                                                        <td></td>
+                                                        <td>
+                                                            <img style="width:50px;" src="{{asset('images-upload/' . $badge->badge_image_path)}}" alt="badge-image">
+                                                        </td>
                                                         <td>
                                                         <div class="container overflow-hidden m-0">
                                                             <div class="row">
@@ -77,7 +79,8 @@
                                         </table>
                                     </div>
 
-                                    {!! Form::open(['route' => 'admin.badge.store']) !!}
+                                    <form action="{{ route('admin.badge.store')}}" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <!-- Modal -->
                                         <div class="modal fade" id="add-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -89,6 +92,16 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>File upload</label>
+                                                            <input type="file" name="image" class="file-upload-default">
+                                                            <div class="input-group col-xs-12">
+                                                              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                                              <span class="input-group-append">
+                                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                                              </span>
+                                                            </div>
+                                                          </div>
                                                         <div class="form-group col-sm-6">
                                                             <h6><label for="name">Badge Name:</label></h6>
                                                             <input type="text" class="form-control form-control-sm" name="name" placeholder="Badge Name">
@@ -101,7 +114,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    {!! Form::close() !!}
+                                    </form>
                                 </div>
                             </div>
                         </div>
