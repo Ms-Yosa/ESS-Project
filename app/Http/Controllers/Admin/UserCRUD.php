@@ -175,11 +175,4 @@ class UserCRUD extends Controller
     }
 }
 
-    function master_list_export(){
-        $users = User::with('classAssigned')->get();
-        $pdf = PDF::loadView('exports.student-master-list', [
-            'users'=> $users
-        ]);
-        return $pdf->download('student-master-list.pdf');
-    }
 }

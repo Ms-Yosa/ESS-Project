@@ -28,10 +28,13 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">All Classes List  </h4>
-                                        <a data-toggle="modal" data-target="#add-class-modal" class="btn btn-primary">
-                                            <li class="la la-plus-circle"></li>Add new Class
-                                        </a>
-                                    </div>
+                                        <div>
+                                            <a href="{{ route('admin.classes-master-list-export') }}" class="btn btn-secondary"><li class="la la-file"></li> Export PDF</a>
+                                            <a data-toggle="modal" data-target="#add-class-modal" class="btn btn-primary">
+                                                <li class="la la-plus-circle"></li>Add new Class
+                                            </a>
+                                        </div>
+                                </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table id="example3" class="display" style="min-width: 845px">

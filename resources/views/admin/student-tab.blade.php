@@ -39,7 +39,7 @@
                                 <div class="card-header">
                                     <h4 class="card-title">All Students List  </h4>
                                     <div>
-                                        <a href="{{ route('admin.master-list-export') }}" class="btn btn-secondary"><li class="la la-file"></li> Export PDF</a>
+                                        <a href="{{ route('admin.student-master-list-export') }}" class="btn btn-secondary"><li class="la la-file"></li> Export PDF</a>
                                         <a href="{{ route('admin.student-register') }}" class="btn btn-primary"><li class="la la-user-plus"></li>  Add new</a>
                                     </div>
 
