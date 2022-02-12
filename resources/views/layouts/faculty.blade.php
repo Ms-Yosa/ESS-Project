@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="{{  URL::asset('css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-
-
   <!-- plugins:js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="{{ URL::to('vendors/js/vendor.bundle.base.js') }}"></script>
@@ -44,6 +42,10 @@
   <script type="text/javascript" src="{{ URL::asset('js/dashboard.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+  {{-- message toastr --}}
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 <body>
   <div class="container-scroller">

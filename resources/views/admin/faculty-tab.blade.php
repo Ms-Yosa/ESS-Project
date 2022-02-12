@@ -36,8 +36,10 @@
                                 @endif
                                 <div class="card-header">
                                     <h4 class="card-title">All Faculties List  </h4>
-                                    <a href="{{ route('admin.faculty-register') }}" class="btn btn-primary"><li class=
-"la la-user-plus"></li>  Add new</a>
+                                    <div>
+                                        <a href="{{ route('admin.faculty-master-list-export') }}" class="btn btn-secondary"><li class="la la-file"></li> Export PDF</a>
+                                        <a href="{{ route('admin.faculty-register') }}" class="btn btn-primary"><li class="la la-user-plus"></li>  Add new</a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">

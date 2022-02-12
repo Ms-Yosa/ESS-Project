@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\User;
 use App\Models\Classes;
 use App\Models\Faculty;
@@ -172,5 +173,6 @@ class UserCRUD extends Controller
         }else{
             return redirect()->back()->with('fail','Something went wrong, failed to update');
     }
-    }
+}
+
 }

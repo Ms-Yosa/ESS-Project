@@ -25,7 +25,6 @@ class SubjectFactory extends Factory
             'subject_name' => $this->faker->word,
         'subject_code' => $this->faker->unique()->numberBetween(1, 50),
         'description' => $this->faker->text,
-        'status' => 0,
         'subArea_id' => $this->faker->randomDigitNotNull,
         'deleted_at' => $this->faker->date('Y-m-d H:i:s'),
         'created_at' => $this->faker->date('Y-m-d H:i:s'),

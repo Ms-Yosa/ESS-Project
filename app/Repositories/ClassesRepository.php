@@ -26,7 +26,6 @@ class ClassesRepository extends BaseRepository
         'day_id',
         'start_time',
         'end_time',
-        'status'
     ];
     protected $primaryKey = 'class_id';
     /**

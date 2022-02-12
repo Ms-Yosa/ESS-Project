@@ -1,9 +1,15 @@
 @extends('layouts.faculty')
 @section('content')
 <body class="sidebar-icon-only">
+  {!! Toastr::message() !!}
   <div class="content-wrapper">
+    <div class="row  pt-5">
+      <div class="col-md-12 mb-3">
+      @include('partials.error')
+      </div>
+    </div>
     <div class="row">
-      <div class="col-md-12 mb-3 pt-5">
+      <div class="col-md-12 mb-3">
         <div class="stretch-card">
             <div class="card">
               <div class="card-body">
@@ -35,27 +41,17 @@
                                   </button>
                                 </form>
                                 &nbsp;
-                                  <button type="button" id="liveToastBtn" class="btn btn-inverse-danger btn-icon">
-                                    <i class="ti-trash"></i>
-                                  </button>
+
+                                <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                    <button type="submit" class="btn btn-inverse-danger btn-icon">
+                                      <i class="ti-trash"></i>
+                                    </button>
+                                </form>
                               </div>
                             </td>
                         </tr>
-                        <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <div aria-live="polite" aria-atomic="true" class="toast-wrapper position-absolute d-flex justify-content-center align-items-center w-100" >
-                          <div id="liveToast" data-autohide="false" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header p-3">
-                              <strong class="me-auto">Are you sure you want to delete feedback?</strong>
-                            </div>
-                            <div class="toast-body p-3">
-                                <button type="button" class="btn btn-inverse-dark btn-sm" data-bs-dismiss="toast">Close</button>
-                                <button type="submit" class="btn btn-inverse-warning btn-sm">Delete</button>
-                            </div>
-                          </div>
-                            </div>
-                          </form>
                         @endforeach
                     </tbody>
                   </table>

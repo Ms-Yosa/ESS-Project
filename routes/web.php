@@ -11,7 +11,10 @@ use App\Http\Controllers\Admin\SubjectController;
 use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
+use App\Http\Controllers\Admin\BadgeController;
+use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\BadgeGrantController;
 use App\Http\Controllers\FeedbackController;
 
 
@@ -95,6 +98,11 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
         Route::get('/feedback/edit/{id}',[FeedbackController::class,'edit'])->name('feedback.edit');
         Route::put('/feedback/{user_id}/update/{id}',[FeedbackController::class,'update'])->name('feedback.update');
         Route::delete('/feedback/delete/{id}',[FeedbackController::class,'destroy'])->name('feedback.destroy');
+
+
+        //**CRUD Badge Route
+        Route::get('/badge/{id}', [BadgeGrantController::class,'index'])->name('badge');
+        Route::post('/badge/create/{id}',[BadgeGrantController::class,'create'])->name('badge.create');
     });
 
 });
@@ -162,6 +170,17 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('/classes/update/{id}', [ClassesController::class,'update'])->name('classes.update');
         Route::delete('/classes/{id}', [ClassesController::class,'destroy'])->name('classes.destroy');
 
+        Route::get('/badge', [BadgeController::class,'index'])->name('badge');
+        Route::post('/badge', [BadgeController::class,'store'])->name('badge.store');
+        Route::get('/badge//edit/{id}', [BadgeController::class,'edit'])->name('badge.edit');
+        Route::post('/badge/update/{id}', [BadgeController::class,'update'])->name('badge.update');
+        Route::delete('/badge/{id}', [BadgeController::class,'destroy'])->name('badge.destroy');
+
+        //EXPORT
+        Route::get('/student-master-list-export', [ExportController::class,'student_master_list_export'])->name('student-master-list-export');
+        Route::get('/faculty-master-list-export', [ExportController::class,'faculty_master_list_export'])->name('faculty-master-list-export');
+        Route::get('/classes-master-list-export', [ExportController::class,'classes_master_list_export'])->name('classes-master-list-export');
+        Route::get('/learning-area-master-list-export', [ExportController::class,'learning_area_master_list_export'])->name('learning-area-master-list-export');
     });
 
 });
