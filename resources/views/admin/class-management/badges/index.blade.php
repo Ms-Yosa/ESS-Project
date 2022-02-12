@@ -85,31 +85,45 @@
                                         <div class="modal fade" id="add-class-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Badge</h5>
+                                                    <div class="modal-header" style="background-color:#FBD848;letter-spacing: 3px; color:black">
+                                                        <h4 class="modal-title">Add a Badge</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
+                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
-                                                    </div>
+                                                   </div>
                                                     <div class="modal-body">
-                                                        <div class="form-group">
-                                                            <label>File upload</label>
-                                                            <input type="file" name="image" class="file-upload-default">
-                                                            <div class="input-group col-xs-12">
-                                                              <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                                              <span class="input-group-append">
-                                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                                                              </span>
+
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                            <h6><label for="name">Badge Name</label></h6>
+                                                                <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter Badge name" value="{{ old('name') }}">
                                                             </div>
-                                                          </div>
-                                                        <div class="form-group col-sm-6">
-                                                            <h6><label for="name">Badge Name:</label></h6>
-                                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Badge Name">
                                                         </div>
+
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <h6><label for="description">Description</label></h6>
+                                                                <textarea class="form-control form-control-sm" name="description" id="description">
+                                                                </textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label>Badge Image</label>
+                                                                <input type="file" name="image" class="file-upload-default">
+                                                                <div class="input-group col-xs-12">
+                                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                                                <span class="input-group-append">
+                                                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                                                </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        {!! Form::submit('Save Class',['class' => 'btn btn-primary']) !!}
+                                                        {!! Form::submit('Add',['class' => 'btn btn-primary']) !!}
                                                     </div>
                                                 </div>
                                             </div>

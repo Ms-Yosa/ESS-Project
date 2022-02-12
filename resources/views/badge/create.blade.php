@@ -33,20 +33,25 @@
             <h4 class="card-title">Badge List</h4>
             <div class="list-wrapper pt-2">
               <ul>
-                <li class="btn btn-outline-warning btn-fw">
-                  <div class="media">
-                    <img style="width:50px;" src="/assets/icons/medal.png" alt="badge" >
-                    <div class="media-body">
-                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
+                <li>
+                    <div class="card btn-inverse-warning btn-fw col-md-12">
+                      <div class="card-body">
+                        <h4 class="card-title">{{$badge->name}}</h4>
+                        <div class="media">
+                          <div class="pr-2">
+                            <img
+                            style="width:50px;"
+                            src="{{asset('images-upload/' . $badge->badge_image_path)}}"
+                            alt="badge-image"
+                          >
+                          </div>
+                          <div class="media-body">
+                            <p class="card-text">{{$badge->description}}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="btn btn-outline-warning btn-fw">
-                  <div class="media">
-                    <img style="width:50px;" src="/assets/icons/medal.png" alt="badge" >
-                    <div class="media-body">
-                      <p class="card-text">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque.</p>
-                    </div>
+
                   </div>
                 </li>
               </ul>

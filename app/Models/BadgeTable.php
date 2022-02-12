@@ -12,4 +12,8 @@ class BadgeTable extends Model
     public function badge(){
         return $this->belongsToMany(Badge::class);
     }
+
+    public function student(){
+        return $this->belongsToMany(User::class);
+    }
 }

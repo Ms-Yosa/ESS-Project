@@ -26,6 +26,7 @@ class BadgeController extends Controller
         $request->image->move(public_path('images-upload'), $image_name);
         $badge = new Badge();
         $badge->name = $request->input('name');
+        $badge->description = $request->input('description');
         $badge->badge_image_path = $image_name;
         $badge->save();
 

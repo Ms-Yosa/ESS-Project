@@ -29,7 +29,7 @@
                                         <td>{{ ++$key }}</td>
                                         <td class="name">{{ $list->surname }}, {{ $list->name }} {{ $list->middle_name }}</td>
                                         <td class="email">{{ $list->email }}</td>
-                                        <td>
+                                        <td width="30%">
                                             <a href="{{route('faculty.badge', $list->id)}}" class="btn btn-sm btn-outline-warning btn-icon-text">Give Badge &nbsp;<i class="ti-star btn-icon-prepend"></i></a>
                                             <a href="{{route('faculty.feedback', $list->id)}}" class="btn btn-sm btn-outline-warning btn-icon-text">Send Feedback &nbsp;<i class="ti-angle-right btn-icon-prepend"></i></a>
                                         </td>
