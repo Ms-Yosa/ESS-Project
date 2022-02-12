@@ -30,7 +30,6 @@ class ClassesFactory extends Factory
             'day_id' => 2,
             'start_time' => $this->faker->word,
             'end_time' => $this->faker->word,
-            'status' => 0,
             'deleted_at' => null,
             'created_at' => null,
             'updated_at' => null

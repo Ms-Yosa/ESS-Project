@@ -21,7 +21,7 @@ class Feedback extends Model
 
 
     public $fillable = [
-        'descrition',
+        'description',
         'week',
         'user_id',
     ];

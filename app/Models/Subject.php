@@ -37,8 +37,7 @@ class Subject extends Model
         'subject_name',
         'subArea_id',
         'subject_code',
-        'description',
-        'status'
+        'description'
     ];
 
     /**
@@ -52,7 +51,6 @@ class Subject extends Model
         'subArea_id' => 'string',
         'subject_code' => 'string',
         'description' => 'string',
-        'status' => 'boolean'
     ];
 
     /**
@@ -65,7 +63,6 @@ class Subject extends Model
         'subArea_id' => 'string|max:255',
         'subject_code' => 'required|string|max:255',
         'description' => 'required|string',
-        'status' => 'required|boolean',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

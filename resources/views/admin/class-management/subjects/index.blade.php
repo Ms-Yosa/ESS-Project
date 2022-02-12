@@ -109,35 +109,36 @@
                                         <div class="modal fade" id="add-subArea-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Create Subject Area</h5>
+                                                    <div class="modal-header" style="background-color:#FBD848;letter-spacing: 3px; color:black">
+                                                        <h4 class="modal-title">Add a Learning Area</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
+                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
-                                                    </div>
+                                                   </div>
                                                     <div class="modal-body">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                <h6><label for="name">Name</label></h6>
+                                                            <h6><label for="name">Learning Area Name</label></h6>
                                                                 <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter area name" value="{{ old('name') }}">
-                                                                <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
                                                             </div>
+                                                        </div>
 
-                                                            <!-- Subject Area Field -->
-                                                            <div class="form-group col-sm-6">
-                                                                {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
-                                                                {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                                <select class="form-group" name="class_id" id="class_id">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                <h6><label for="name">Assign to Class</label></h6>
+                                                                <select class="form-control form-control-sm" name="class_id" id="class_id">
                                                                     <option value="">Select Class</option>
                                                                     @foreach ($class as $cla)
                                                                         <option value="{{$cla -> class_id}}">{{ $cla -> class_name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
+                                                        </div>
 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        {!! Form::submit('Save Subject Area',['class' => 'btn btn-primary']) !!}
+                                                        {!! Form::submit('Add Learning Area',['class' => 'btn btn-primary']) !!}
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,56 +150,51 @@
                                         <div class="modal fade" id="add-subject-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                </div>
+                                                <div class="modal-header" style="background-color:#FBD848;letter-spacing: 3px; color:black">
+                                                    <h4 class="modal-title">Add a Subject</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                         <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                               </div>
                                                 <div class="modal-body">
-                                                <!-- Subject Name Field -->
-                                                <div class="form-group col-sm-6">
-                                                    {!! Form::label('subject_name', 'Subject Name:') !!}
-                                                    {!! Form::text('subject_name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                </div>
-
-                                                <!-- Subject Area Field -->
-                                                <div class="form-group col-sm-6">
-                                                    {{-- {!! Form::label('subject_id', 'Subject Id:') !!}
-                                                    {!! Form::number('subject_id', null, ['class' => 'form-control']) !!} --}}
-                                                    <select class="form-group" name="subArea_id" id="subArea_id">
-                                                        <option value="">Select Subject Area</option>
-                                                        @foreach ($subArea as $subA)
-                                                            <option value="{{$subA -> id}}">{{ $subA -> name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-
-                                                <!-- Subject Code Field -->
-                                                <div class="form-group col-sm-6">
-                                                    {!! Form::label('subject_code', 'Subject Code:') !!}
-                                                    {!! Form::text('subject_code', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
-                                                </div>
-
-                                                <!-- Description Field -->
-                                                <div class="form-group col-sm-12 col-lg-12">
-                                                    {!! Form::label('description', 'Description:') !!}
-                                                    {!! Form::textarea('description', null, ['class' => 'form-control', 'cols' => 40, 'rows' => 2]) !!}
-                                                </div>
-
-                                                <!-- Status Field -->
-                                                <div class="form-group col-sm-6">
-                                                    <div class="form-check">
-                                                        {!! Form::hidden('status', 0, ['class' => 'form-check-input']) !!}
-                                                        {!! Form::checkbox('status', '1', null, ['class' => 'form-check-input']) !!}
-                                                        {!! Form::label('status', 'Status', ['class' => 'form-check-label']) !!}
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                        <h6><label for="subject_name">Subject Name</label></h6>
+                                                            <input type="text" class="form-control form-control-sm" name="subject_name" placeholder="Enter area name" value="{{ old('subject_name') }}">
+                                                        </div>
                                                     </div>
-                                                </div>
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                        <h6><label for="subject_code">Subject Code</label></h6>
+                                                            <input type="text" class="form-control form-control-sm" name="subject_code" placeholder="Enter area name" value="{{ old('subject_code') }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <h6><label for="subject_name">Assign to Learning Area</label></h6>
+                                                            <select class="form-control form-control-sm" name="subArea_id" id="subArea_id">
+                                                                <option value="">Select Subject Area</option>
+                                                                @foreach ($subArea as $subA)
+                                                                    <option value="{{$subA -> id}}">{{ $subA -> name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                                        <div class="form-group">
+                                                            <h6><label for="description">Description</label></h6>
+                                                            <textarea class="form-control form-control-sm" name="description" id="description">
+                                                            </textarea>
+                                                        </div>
+                                                    </div>
 
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        {!! Form::submit('Save Subject',['class' => 'btn btn-primary']) !!}
+                                        {!! Form::submit('Add Subject',['class' => 'btn btn-primary']) !!}
                                         </div>
                                         </div>
                                         </div>
