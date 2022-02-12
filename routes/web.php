@@ -103,6 +103,10 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
         //**CRUD Badge Route
         Route::get('/badge/{id}', [BadgeGrantController::class,'index'])->name('badge');
         Route::post('/badge/create/{id}',[BadgeGrantController::class,'create'])->name('badge.create');
+
+        //Attendance
+        Route::get('/classes/{id}/attendance',[FacultyController::class,'attendance'])->name('attendance');
+
     });
 
 });

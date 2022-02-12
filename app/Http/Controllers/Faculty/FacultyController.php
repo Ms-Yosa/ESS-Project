@@ -59,6 +59,11 @@ class FacultyController extends Controller
         return view('faculty.marking', compact('subject','grade'))->with('class', $class);
     }
 
+    public function attendance($id){
+        $class = Classes::where('class_id', $id)->with('getStudents')->get();
+        return view('faculty.attendance')->with('class', $class);
+    }
+
     function profile($id){
         $faculty = Faculty::find($id);
         //dd($class->toArray());
