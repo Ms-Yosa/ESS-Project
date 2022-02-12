@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SubAreaController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\BadgeController;
+use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\BadgeGrantController;
 use App\Http\Controllers\FeedbackController;
@@ -176,8 +177,10 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('/badge/{id}', [BadgeController::class,'destroy'])->name('badge.destroy');
 
         //EXPORT
-        Route::get('/master-list-export', [UserCRUD::class,'master_list_export'])->name('master-list-export');
-
+        Route::get('/student-master-list-export', [ExportController::class,'student_master_list_export'])->name('student-master-list-export');
+        Route::get('/faculty-master-list-export', [ExportController::class,'faculty_master_list_export'])->name('faculty-master-list-export');
+        Route::get('/classes-master-list-export', [ExportController::class,'classes_master_list_export'])->name('classes-master-list-export');
+        Route::get('/learning-area-master-list-export', [ExportController::class,'learning_area_master_list_export'])->name('learning-area-master-list-export');
     });
 
 });

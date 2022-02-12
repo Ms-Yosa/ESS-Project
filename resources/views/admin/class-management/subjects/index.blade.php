@@ -29,6 +29,9 @@
                                 <div class="card-header">
                                     <h4 class="card-title">All Subject Areas List  </h4>
                                     <div>
+                                        <a href="{{ route('admin.learning-area-master-list-export') }}" class="btn btn-dark">
+                                            <li class="la la-file"></li> Export PDF
+                                        </a>
                                         <a data-toggle="modal" data-target="#add-subArea-modal" class="btn btn-primary">
                                             <li class="la la-plus-circle"></li>  Create Subject Area
                                         </a>
