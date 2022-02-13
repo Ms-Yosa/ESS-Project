@@ -13059,7 +13059,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-nav-headerbg="color_10"][data-theme-version="dark"] .nav-header,
 [data-nav-headerbg="color_10"] .nav-header {
-  background-color: #FBD848; }
+  background-color: #dfc326; }
   [data-nav-headerbg="color_10"][data-theme-version="dark"] .nav-header .brand-logo,
   [data-nav-headerbg="color_10"] .nav-header .brand-logo {
     color: #fff; }
@@ -13214,7 +13214,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background-color: inherit; }
 [data-headerbg="color_2"][data-theme-version="dark"] .nav-control,
 [data-headerbg="color_2"] .nav-control {
-  background-color: #FBD848;
+  background-color: #dfc326;
   color: #fff; }
 
 [data-headerbg="color_3"][data-theme-version="dark"] .header,
@@ -13817,7 +13817,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav,
 [data-sibebarbg="color_2"] .dlabnav {
-  background-color: #FBD848; }
+  background-color: #dfc326; }
   [data-sibebarbg="color_2"][data-theme-version="dark"] .dlabnav .metismenu .nav-label,
   [data-sibebarbg="color_2"] .dlabnav .metismenu .nav-label {
     color: black;
@@ -22247,7 +22247,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 .page-titles {
   padding: 0.9375rem 1.25rem;
-  background: #FBD848;
+  background: #dfc326;
   letter-spacing: 3px;
   margin-bottom: 30px;
   border-radius: 5px; }
@@ -23670,7 +23670,7 @@ button {
     width: 60px;
     border-radius: 50px;
     padding: 10px 12px;
-    border: 1px solid #E6E8ED;
+    border: 1px solid #0c223a;
     font-size: 25px;
     display: flex;
     justify-content: center;

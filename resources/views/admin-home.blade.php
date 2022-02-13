@@ -19,8 +19,8 @@
             </div>
             <div class="row">
                 <div class="col-xl-3 col-xxl-3 col-sm-6">
-                    <div class="widget-stat card">
-                        <div class="card-body">
+                    <div class="widget-stat card" >
+                        <div class="card-body" >
                             <div class="media ai-icon">
                                 <span class="mr-3">
                                 <i class="la la-users"></i>
@@ -28,7 +28,7 @@
                                 <div class="media-body">
                                     <p class="mb-1">Students</p>
                                     <h4 class="mb-0">{{$user}}</h4>
-                                    <span class="badge badge-primary">Enrolled</span>
+                                    <span class="badge badge-danger">Enrolled</span>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-sm-6">
                     <div class="widget-stat card">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div class="media ai-icon">
                                 <span class="mr-3">
                                 <i class="la la-user"></i>
@@ -44,14 +44,14 @@
                                 <div class="media-body">
                                     <p class="mb-1">Faculties</p>
                                     <h4 class="mb-0">{{$faculty}}</h4>
-                                    <span class="badge badge-warning">Registered</span>
+                                    <span class="badge badge-danger">Registered</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-sm-6">
-                    <div class="widget-stat card">
+                    <div class="widget-stat card" >
                         <div class="card-body">
                             <div class="media ai-icon">
                                 <span class="mr-3">
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-xl-3 col-xxl-3 col-sm-6">
                     <div class="widget-stat card">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <div class="media ai-icon">
                                 <span class="mr-3">
                                 <i class="la la-book"></i>
@@ -76,7 +76,7 @@
                                 <div class="media-body">
                                     <p class="mb-1">Classes</p>
                                     <h4 class="mb-0">{{$class}}</h4>
-                                    <span class="badge badge-success">Registered</span>
+                                    <span class="badge badge-danger">Registered</span>
                                 </div>
                             </div>
                         </div>
@@ -86,9 +86,9 @@
 
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-xxl-8 col-md-12">
-                    <div class="card">
+                    <div class="card"  >
                         <div class="card-header">
-                            <h4 class="card-title">Student List</h4>
+                            <h4 class="card-title" style="padding:5px">Student List</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -103,7 +103,7 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color:#dfc326">
                             <h4>Admin Profile</h4>
                         </div>
                         <div class="student-info">
