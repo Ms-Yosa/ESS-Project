@@ -86,9 +86,9 @@
 
             <div class="row">
                 <div class="col-xl-8 col-lg-8 col-xxl-8 col-md-12">
-                    <div class="card"  >
-                        <div class="card-header">
-                            <h4 class="card-title" style="padding:5px">Student List</h4>
+                    <div class="card" style="border:1px solid #0c223a" >
+                        <div class="card-header"  >
+                            <h4 class="card-title" style="padding:5px">Messages</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -118,13 +118,29 @@
                     </div>
                 </div>
 
-                <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Messages</h5>
+                <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
+                    <div class="card" >
+                        <div class="card-header" style="background-color:#dfc326">
+                            <h4 class="card-title">Student</h4>
                         </div>
                         <div class="card-body">
-                            <div id="DZ_W_Message" class="widget-message dz-scroll" style="height:350px;">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                <table id="example3" class="table table-bordered table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($studentLists as $key => $item)
+                                            <tr>
+                                                <td>{{++$key}}</td>
+                                                <td>{{ $item->surname }}, {{ $item->name }} {{ $item->middle_name }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -132,23 +148,65 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header" style="background-color:#dfc326">
                             <h4 class="card-title">Faculties</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                <table id="example3" class="table table-bordered table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($facultyLists as $key => $item)
+                                            <tr>
+                                                <td>{{++$key}}</td>
+                                                <td>{{ $item->faculty_surname }}, {{ $item->faculty_name }} {{ $item->faculty_middle_name }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Events</h4>
+                        <div class="card-header" style="background-color:#dfc326">
+                            <h4 class="card-title">Classes</h4>
                         </div>
-                        <div class="py-2">
-                            <ul class="list-group list-group-flush dz-scroll" id="DZ_W_Doctor_List" style="height:350px;">
-                            </ul>
+                        <div class="card-body">
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                <table id="example3" class="table table-bordered table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Code</th>
+                                            <th scope="col">Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($classesLists as $key => $item)
+                                            <tr>
+                                                <td>{{++$key}}</td>
+                                                <td>{{ $item->class_code }}</td>
+                                                <td>{{ $item->class_name }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+               
+
+                
             </div>
         </div>
     </div>
