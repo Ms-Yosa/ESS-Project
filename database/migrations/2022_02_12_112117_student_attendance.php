@@ -18,10 +18,11 @@ class StudentAttendance extends Migration
         Schema::create('student_attendance', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('user_id');
             $table->string('status');
-            $table->longText('description');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->longText('description')->nullable();
+            // $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

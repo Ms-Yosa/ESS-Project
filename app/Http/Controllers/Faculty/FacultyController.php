@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Faculty;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\User;
 use App\Models\Faculty;
 use App\Models\Classes;
 use App\Models\SubArea;
@@ -60,8 +61,9 @@ class FacultyController extends Controller
     }
 
     public function attendance($id){
+        $user = User::find($id);
         $class = Classes::where('class_id', $id)->with('getStudents')->get();
-        return view('faculty.attendance')->with('class', $class);
+        return view('faculty.attendance')->with('user', $user)->with('class', $class);
     }
 
     function profile($id){
