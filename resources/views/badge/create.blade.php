@@ -7,6 +7,19 @@
 <body class="sidebar-icon-only">
   <div class="content-wrapper">
     <div class="row pt-5">
+      <div class="col-md-12 mb-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" style="border: none; padding-bottom:0;">
+            <li class="breadcrumb-item"><a href="{{route("faculty.home")}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route("faculty.classes")}}">Classes</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('faculty.class_view', $class->class_id)}}">{{$class->class_name}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Badge</li>
+          </ol>
+        </nav>
+      @include('partials.error')
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
@@ -33,6 +46,7 @@
             <h4 class="card-title">Badge List</h4>
             <div class="list-wrapper pt-2">
               <ul>
+                @foreach ($badges as $badge)
                 <li>
                     <div class="card btn-inverse-warning btn-fw col-md-12">
                       <div class="card-body">
@@ -51,9 +65,9 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </li>
+                @endforeach
               </ul>
             </div>
 

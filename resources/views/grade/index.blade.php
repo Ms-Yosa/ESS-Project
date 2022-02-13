@@ -3,8 +3,21 @@
 @section('content')
 <body class="sidebar-icon-only">
   <div class="content-wrapper">
+    <div class="row pt-5">
+      <div class="col-md-12 mb-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" style="border: none; padding-bottom:0;">
+            <li class="breadcrumb-item"><a href="{{route("faculty.home")}}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{route("faculty.classes")}}">Classes</a></li>
+            <li class="breadcrumb-item"><a href="{{route('faculty.grade',['subArea_id'=>$subArea,'student_id'=>$user->id])}}">Learning Area</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Encode</li>
+          </ol>
+        </nav>
+      @include('partials.error')
+      </div>
+    </div>
     <div class="row">
-      <div class="col-md-12 mb-3 pt-5">
+      <div class="col-md-12 mb-3">
         <div class="stretch-card">
             <div class="card">
               <div class="card-body">
@@ -27,7 +40,6 @@
                     </thead>
                     <tbody >
                       @foreach ($subject as $key => $subj)
-
                             <tr>
                               <th scope="row">{{ ++$key }}</th>
                               <td>{{ $subj->subject_name}}</td>

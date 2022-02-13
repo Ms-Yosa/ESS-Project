@@ -19,15 +19,12 @@ class GradeController extends Controller
         $subject = Subject::where('subArea_id', $subArea_id)->with('subArea')->get();
         $user = User::find($student_id);
         $grade = Grade::where(['user_id' => $student_id, 'subArea_id' => $subArea_id] )->with('user','subArea','subject')->get();
-
-        if($subject){
-            $exist = true;
-        }
+        $subArea = $subArea_id;
         //dd($subject->toArray());
         return view('grade.index')
                     ->with('grade', $grade)
                     ->with('subject', $subject)
-                    ->with('exist', $exist)
+                    ->with('subArea', $subArea)
                     ->with('user', $user);
     }
 

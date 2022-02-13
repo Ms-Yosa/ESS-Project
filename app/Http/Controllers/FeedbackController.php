@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Feedback;
 use App\Models\User;
+use App\Models\Classes;
 use Flash;
 use Response;
 
@@ -15,9 +16,10 @@ class FeedbackController extends Controller
     public function index($id)
     {
         $user = User::find($id);
+        $class = Classes::where('class_id', $user->class_id)->first();
         $feedback = Feedback::where('user_id', $id)->get();
-        //dd($feedback->toArray());
-        return view('feedback.index')->with('user', $user)->with('feedback', $feedback);
+        //dd($class->toArray());
+        return view('feedback.index')->with('user', $user)->with('feedback', $feedback)->with('class', $class);
     }
 
     public function create(Request $request, $id)

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Badge;
 use App\Models\BadgeTable;
 use App\Models\User;
+use App\Models\Classes;
 use Flash;
 use Response;
 
@@ -15,9 +16,10 @@ class BadgeGrantController extends Controller
     public function index($id)
     {
         $user = User::find($id);
+        $class = Classes::where('class_id', $user->class_id)->first();
         $badges = Badge::all();
         //dd($feedback->toArray());
-        return view('badge.create')->with('badges', $badges)->with('user', $user);
+        return view('badge.create')->with('badges', $badges)->with('user', $user)->with('class', $class);
     }
 
     public function create(Request $request, $id)
