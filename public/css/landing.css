@@ -23,7 +23,7 @@ body{
 }
 
 .content-1{
-    border: 2px solid #FBD848;
+    border: 2px solid #dfc326 ;
     justify-content:center;
     align-items: center;
     display: flex;
@@ -41,7 +41,7 @@ body{
 .mid{
     border: 0;
     padding:0px 5px;
-    border-bottom: 2px solid #FBD848;
+    border-bottom: 2px solid #dfc326;
 }
 
 .bottom{
@@ -81,7 +81,7 @@ body{
 button{
     width: 50%;
     font-weight: bolder;
-    background-color: #FBD848;
+    background-color: #dfc326;
     padding: 10px 30px;
     margin-bottom: 5px;
 }

@@ -58,17 +58,17 @@
                         <input id="password" type="password" placeholder="Password" class="input form-control " name="password" >
                         <span class="text-danger">@error('password'){{ $message }} @enderror</span>
 
-                        <input class="remember" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="remember" for="remember">{{ __('Remember Me') }}</label>
+                        <!-- <input class="remember" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="remember" for="remember">{{ __('Remember Me') }}</label> -->
 
                         <button type="submit" class="btn">{{ __('Login') }}</button>
 
                         
-                        @if (Route::has('password.request'))
+                        <!-- @if (Route::has('password.request'))
                                     <a class="forgot" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif -->
                     </form >
                 </div>
             </div>
