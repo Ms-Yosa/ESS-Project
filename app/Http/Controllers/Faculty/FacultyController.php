@@ -46,17 +46,18 @@ class FacultyController extends Controller
     public function class_view($id)
     {
         $class = Classes::where('class_id', $id)->with('getStudents','getSubArea')->get();
-        //dd($subject->toArray());
+        // dd($class->toArray());
         return view('faculty.view-class')->with('class', $class);
     }
 
     public function gradeMarking($id,$subArea_id)
     {
         $class = Classes::where('class_id', $id)->with('getStudents','getSubArea')->get();
+        $className = Classes::find($id);
         $subject = SubArea::where('id', $subArea_id)->with('subjects','class','grade')->get();
         $grade = Grade::where('subArea_id', $subArea_id)->with('subject')->get();
-        //dd($grade->toArray());
-        return view('faculty.marking', compact('subject','grade'))->with('class', $class);
+        //dd($subject->toArray());
+        return view('faculty.marking', compact('subject','grade'))->with('class', $class)->with('className', $className);
     }
 
     function profile($id){

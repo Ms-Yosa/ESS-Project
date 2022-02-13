@@ -4,6 +4,14 @@
     <div class="content-wrapper">
         <div class="row">
           <div class="col-md-12 mb-1 pt-5">
+            @foreach ($class as $key => $student)
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="border: none">
+                  <li class="breadcrumb-item"><a href="{{route("faculty.home")}}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{route("faculty.classes")}}">Classes</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{$student->class_name}}</li>
+                </ol>
+              </nav>
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
@@ -12,7 +20,7 @@
                       <div class="row">
                         <div class="col-12">
                           <div class="table-responsive">
-                            @foreach ($class as $key => $student)
+
                             <table class="display expandable-table" style="width:100%">
                               <thead>
                                 <tr>
@@ -51,8 +59,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
             </div>
+        </div>
             <div class="col-md-12 mb-3">
             <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
