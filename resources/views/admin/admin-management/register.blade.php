@@ -1,6 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 
+
      
 <div class="content-body">
         <!-- row -->
@@ -46,7 +47,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="name">Name</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ old('name') }}">
+                                            <input  type="text" class="form-control form-control-sm" name="name" placeholder="Enter full name" value="{{ old('name') }}">
                                             <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
@@ -85,7 +86,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="year">Birth Year</label></h6>
-                                            <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <select style="border: 1px solid #cacc8f" name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="1999" >1999</option>
                                                 <option value="1998" >1998</option>
@@ -121,7 +122,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="month">Month</label></h6>
-                                            <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <select style="border: 1px solid #cacc8f" name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="January" >January</option>
                                                 <option value="February" >February</option>
@@ -142,7 +143,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="day">Day</label></h6>
-                                            <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <select style="border: 1px solid #cacc8f" name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                             <option value="1" >1</option>
                                                 <option value="2" >2</option>
@@ -193,7 +194,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="bloodtype">Bloodtype</label></h6>
-                                            <select name="bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
+                                            <select style="border:1px solid #cacc8f" name="bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
                                             <option selected disabled>Open this select menu</option>
                                                 <option value="A+" >A+</option>
                                                 <option value="O+" >O+</option>
@@ -252,7 +253,7 @@
                                     <div class="col-lg-4 col-md-4 col-sm-12">
                                         <div class="form-group">
                                         <h6><label for="password">Password</label></h6>
-                                            <input type="password" class="form-control form-control-sm" name="password" placeholder="Enter password" value="{{ old('password') }}">
+                                            <input   type="password" class="form-control form-control-sm" name="password" placeholder="Enter password" value="{{ old('password') }}">
                                             <span class="text-danger">@error('password'){{ $message }} @enderror</span><br>
                                         </div>
                                     </div>
@@ -265,25 +266,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                        <h6><label for="class"> Class</label></h6>
-                                            <select name="class" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option selected disabled>Open this select class</option>
-                                                <option value="A" >A</option>
-                                                <option value="O" >O</option>
-                                            </select>
-                                            <!-- <span class="text-danger">@error('student_bloodtype'){{ $message }} @enderror</span> -->
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                        <h6><label for="session">Session</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="adviser" placeholder="Depends on section" value="" readonly>
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
-                                        </div>
-                                    </div>
+                                    
 
                                     
                                 </div>

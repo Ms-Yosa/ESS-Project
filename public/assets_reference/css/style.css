@@ -20672,7 +20672,7 @@ svg text {
 
 .form-control {
   background: #fff;
-  border: 1px solid #eaeaea;
+  border: 1px solid #cacc8f;
   color: #454545; }
   .form-control:hover, .form-control:focus, .form-control.active {
     box-shadow: none;
@@ -22643,14 +22643,16 @@ button {
     .card-title--small {
       font-size: 0.875rem; }
   .card-header {
-    border-color: #eaeaea;
+    /* border-color: #eaeaea; */
+    border-bottom: 1px solid  #0c223a;
     position: relative;
     background: transparent;
     padding: 1.25rem 1.25rem 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 0px; }
+    /* border: 0px;  */
+  }
     [data-theme-version="dark"] .card-header {
       border-color: #383c46; }
     .card-header .card-title {
