@@ -3,6 +3,14 @@
 <body class="sidebar-icon-only">
     <div class="content-wrapper">
         <div class="row">
+            <div class="col-md-12 mb-1 pt-5">
+                @foreach ($class as $key => $attendance)
+                <a href="{{route('faculty.attendance',$attendance->class_id)}}" class="btn btn-sm btn-outline-warning btn-icon-text">Record Attendance &nbsp;<i class="ti-book btn-icon-prepend"></i></a>
+                @endforeach
+            
+            </div>
+        </div>
+        <div class="row">
           <div class="col-md-12 mb-1 pt-5">
             @foreach ($class as $key => $student)
             <nav aria-label="breadcrumb">

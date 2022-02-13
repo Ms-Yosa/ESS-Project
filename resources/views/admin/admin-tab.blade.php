@@ -14,7 +14,6 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0);">Admins</a></li>
-                        
                     </ol>
                 </div>
             </div>

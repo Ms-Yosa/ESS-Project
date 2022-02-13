@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\BadgeGrantController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\Faculty\StudentAttendanceController;
 
 
 /*
@@ -103,6 +104,11 @@ Route::prefix('faculty')->name('faculty.')->group(function(){
         //**CRUD Badge Route
         Route::get('/badge/{id}', [BadgeGrantController::class,'index'])->name('badge');
         Route::post('/badge/create/{id}',[BadgeGrantController::class,'create'])->name('badge.create');
+
+        //Attendance
+        Route::get('/classes/{id}/attendance',[FacultyController::class,'attendance'])->name('attendance');
+        Route::post('/classes/attendanceRecord',[StudentAttendanceController::class,'create'])->name('attendance.create');
+
     });
 
 });
