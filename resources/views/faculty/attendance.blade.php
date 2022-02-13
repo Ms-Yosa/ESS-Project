@@ -40,6 +40,7 @@
                                                             <thead>
                                                                  <tr>
                                                                       <th>No.</th>
+                                                                      <th>ID.</th>
                                                                       <th>Name</th>
                                                                       <th>Present</th>
                                                                       <th>Absent</th>
@@ -55,7 +56,7 @@
                                                                  @foreach ($student->getStudents as $list)
                                                                       <tr>
                                                                            <td>{{ ++$key}}</td>
-                                                                           <td hidden="hidden">
+                                                                           <td >
                                                                                 {{$list->id}}  
                                                                                 <input type="hidden" name="id[]" value="{{$list->id}}">
                                                                            </td>

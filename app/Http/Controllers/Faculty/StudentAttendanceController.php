@@ -33,26 +33,11 @@ class StudentAttendanceController extends Controller
                     }else{
                         return redirect()->back()->with('fail','Something went wrong, failed to record');
                   }
-
-            
         }
 
         return redirect()->back();
 
-        // $class = Classes::where('class_id', $id)->with('getStudents')->get();
         
-        // $student_attendance = new StudentAttendance();
-        //     $student_attendance->date=Carbon::now()->toDateTimeString();
-        //     $student_attendance->user_id = 1;
-        //     $student_attendance->status = $request->status;
-        //     $student_attendance->description = $request->description;
-        //     $save = $student_attendance->save();
-
-        //     if( $save ){
-        //         return redirect()->back()->with('success','Recorded Successfully');
-        //     }else{
-        //         return redirect()->back()->with('fail','Something went wrong, failed to record');
-        //   }
 
     }
 }
