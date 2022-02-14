@@ -6,8 +6,8 @@
       <div class="col-md-12 mb-3 pt-5">
         <div class="row">
             <div class="col-md-8 stretch-card grid-margin">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" style="border:1px solid black">
+                    <div class="card-body" >
                       <h4 class="card-title">Student Profile</h4>
                       <form class="form-sample">
                         <p class="card-description">
@@ -112,19 +112,20 @@
             </div>
             <div class="col-md-4 stretch-card grid-margin">
               <div class="row">
+                
                 <div class="col-md-12 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-title">School Profile</p>
-                      <div class="charts-data">
-                        <div class="mt-3">
-                          <p class="mb-0">Level:</p>
-                          <div class="d-flex justify-content-between align-items-center mt-2">
-                            <p>{{Auth::guard('web')->user()->classAssigned->level}}</p>
+                  <div class="card" style="border:1px solid #dfc326">
+                    <div class="card-body" >
+                      <p class="card-title" >School Profile</p>
+                      <div class="charts-data" style="border-top:1px solid black">
+                          <div class="mt-3">
+                            <p class="mb-0">Level:</p>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                              <p>{{Auth::guard('web')->user()->classAssigned->level}}</p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="mt-3">
-                            <p class="mb-0">Class:</p>
+                          <div class="mt-3">
+                            <p class="mb-0" >Class:</p>
                             <div class="d-flex justify-content-between align-items-center mt-2">
                               <p>{{Auth::guard('web')->user()->classAssigned->class_name}}</p>
                             </div>
@@ -139,10 +140,12 @@
                     </div>
                   </div>
                 </div>
+
+
                 <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
-                  <div class="card data-icon-card-primary">
+                  <div class="card data-icon-card" style="background-color:#dfc326" > 
                     <div class="card-body">
-                      <p class="card-title text-white">...</p>
+                      <p class="card-title ">...</p>
                       <div class="row">
                         <div class="col-8 text-white">
                           <h3>34040</h3>

@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" >
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html">AMSAI SIS</a>
+        <a class="navbar-brand brand-logo mr-5"  href="index.html" style="font-weight:bold"> AMSAI </a>
         <a class="navbar-brand" href="#">
         <img class=" brand-logo-mini" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
         </a>
