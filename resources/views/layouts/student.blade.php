@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
   <link rel="stylesheet" href="{{ URL::to("vendors/css/vendor.bundle.base.css") }}">
   <!-- endinject -->
+    <!-- FONT -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"> -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet"  href="{{ URL::to("vendors/datatables.net-bs4/dataTables.bootstrap4.css") }}">
   <link rel="stylesheet"  href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
@@ -21,6 +25,18 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 
+
+  <!-- table -->
+  <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 500px;
+            overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
 
   <!-- plugins:js -->
   <script src="{{ URL::to('vendors/js/vendor.bundle.base.js') }}"></script>
