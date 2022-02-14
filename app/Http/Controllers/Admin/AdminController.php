@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
+use App\Models\Faculty;
+use App\Models\Classes;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -71,7 +74,11 @@ class AdminController extends Controller
         $admin=DB::table('admins')->count();
         $class=DB::table('classes')->count();
 
-        return view('admin-home', compact('user', 'faculty', 'admin', 'class'));
+        $studentLists = User::all();
+        $facultyLists = Faculty::all();
+        $classesLists = Classes::all();
+
+        return view('admin-home', compact('user', 'faculty', 'admin', 'class', 'facultyLists', 'classesLists', 'studentLists'));
     }
 
 }

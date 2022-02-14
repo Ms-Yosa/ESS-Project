@@ -20,6 +20,17 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+    <style>
+        .my-custom-scrollbar {
+            position: relative;
+            height: 500px;
+            overflow: auto;
+        }
+        .table-wrapper-scroll-y {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader start -->
@@ -34,16 +45,24 @@
     <!-- Main wrapper start -->
     <div id="main-wrapper">
         <!-- Nav header start -->
-        <div class="nav-header">
-
-            <div class="nav-control">
-                <div class="hamburger">
-                <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
+        
+            <div class="nav-header">
+                <div>
+                   <strong> <span class="navbar-brand nav-label first" style="color:black;text-align:left;padding-left:39px">AMSAI Learning School <br> <small>Student Information System</small> </span></strong>
                 </div>
+               
+                    <div class="nav-control" >
+               
+                    <div class="hamburger">
+                        <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
+                        
+                    </div>
+                    
+                </div>
+               
             </div>
-
-
-        </div>
+        
+        
         <!-- Nav header end -->
 
         <!-- Header start -->
