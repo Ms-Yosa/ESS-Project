@@ -9157,6 +9157,8 @@ a {
   display: none; }
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .logo-abbr {
   display: block; }
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .navbar-brand {
+  display: none; }
 
 [data-sidebar-style="full"][data-layout="horizontal"] .logo-compact {
   display: none; }
@@ -11989,7 +11991,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
           background-color: #454545 !important; }
     [data-sidebar-style="mini"] .nav-header .brand-title {
       display: none; }
-    [data-sidebar-style="mini"] .nav-header .hamburger {
+    [data-sidebar-style="mini"] .nav-header .hamburger   {
+      display: none; }
+    [data-sidebar-style="mini"] .nav-header .navbar-brand   {
       display: none; }
   [data-sidebar-style="mini"] .header .header-content {
     padding-left: 1.875rem; }
@@ -13214,7 +13218,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     background-color: inherit; }
 [data-headerbg="color_2"][data-theme-version="dark"] .nav-control,
 [data-headerbg="color_2"] .nav-control {
-  background-color: #dfc326;
+  /* background-color: #dfc326; */
   color: #fff; }
 
 [data-headerbg="color_3"][data-theme-version="dark"] .header,
