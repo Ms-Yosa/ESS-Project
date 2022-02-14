@@ -48,7 +48,7 @@
         
             <div class="nav-header">
                 <div>
-                    <span class="navbar-brand nav-label first" style="color:black; ">AMSAI Learning School <br> Student Infromation System</span>
+                   <strong> <span class="navbar-brand nav-label first" style="color:black;text-align:left;padding-left:39px">AMSAI Learning School <br> <small>Student Information System</small> </span></strong>
                 </div>
                
                     <div class="nav-control" >
