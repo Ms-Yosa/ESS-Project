@@ -28464,7 +28464,7 @@ div.tagsinput span.tag a {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 60px);
-  background: #fff;
+  background: #dfc326;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   width: 235px;
@@ -28590,7 +28590,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #6798C0;
+  background: #0c223a;
   position: relative;
 }
 
@@ -28621,7 +28621,7 @@ div.tagsinput span.tag a {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
-  background: #6798C0;
+  background: #0c223a;
   color: #fff;
 }
 
@@ -28631,12 +28631,12 @@ div.tagsinput span.tag a {
 
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded="true"] {
   border-radius: 8px 8px 0 0;
-  background: #6798C0;
+  background: #0c223a;
   color: #fff;
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item.active {
-  background: #6798C0;
+  background: #0c223a;
 }
 
 .sidebar .nav.sub-menu {
@@ -28644,7 +28644,7 @@ div.tagsinput span.tag a {
   margin-top: 0;
   list-style: none;
   padding: 0.25rem 0 0 3.07rem;
-  background: #6798C0;
+  background: #0c223a;
   padding-bottom: 12px;
 }
 
@@ -28779,7 +28779,7 @@ div.tagsinput span.tag a {
   -ms-transition: background 0.25s ease;
   -webkit-box-shadow: 0px 5px 21px -5px #CDD1E1;
   -moz-box-shadow: 0px 5px 21px -5px #CDD1E1;
-  box-shadow: 0px 5px 21px -5px #CDD1E1;
+  /* box-shadow: 0px 5px 21px -5px #CDD1E1; */
   /* Navbar color variations */
 }
 
@@ -29993,7 +29993,7 @@ div.tagsinput span.tag a {
   }
   .sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-title {
     border-radius: 0 5px 5px 0px;
-    background: #6798C0;
+    background: #0c223a;
   }
   .rtl.sidebar-icon-only .sidebar .nav .nav-item .nav-link .menu-title {
     border-radius: 5px 0 0 5px;
@@ -30050,7 +30050,7 @@ div.tagsinput span.tag a {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
-    background: #6798C0;
+    background: #0c223a;
   }
   .sidebar-dark.sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
     background: #232227;

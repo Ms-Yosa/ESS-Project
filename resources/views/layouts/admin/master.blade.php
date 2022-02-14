@@ -45,16 +45,16 @@
     <!-- Main wrapper start -->
     <div id="main-wrapper">
         <!-- Nav header start -->
-        <div class="nav-header">
-
-            <div class="nav-control">
-                <div class="hamburger">
-                <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
+        
+            <div class="nav-header">
+                <div class="nav-control" >
+                    <div class="hamburger ">
+                        <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
+                    </div>
                 </div>
             </div>
-
-
-        </div>
+        
+        
         <!-- Nav header end -->
 
         <!-- Header start -->
