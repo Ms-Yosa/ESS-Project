@@ -64,7 +64,7 @@
                                                         <td>
                                                             {{ $student->classAssigned->class_name ?? 'Unassigned' }}
                                                         </td>
-                                                        <td>{{ $student->classAssigned->getInstructor->faculty_name ?? 'Unassigned' }}</td>
+                                                        <td>{{ $student->classAssigned->getInstructor->faculty_surname ?? 'Unassigned' }}</td>
 
                                                         <td>
                                                             <div class="container overflow-hidden m-0">
