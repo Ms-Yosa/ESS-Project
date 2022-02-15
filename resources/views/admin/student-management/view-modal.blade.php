@@ -197,7 +197,6 @@
                          <button type="button" class="btn btn-secondary" style="background-color: #0c223a" data-dismiss="modal">Close</button>
                     </div>
 
-               </div>
           </div>
      </div>
 </div>
