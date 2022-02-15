@@ -64,6 +64,7 @@ class ClassesController extends AppBaseController
     public function store(CreateClassesRequest $request)
     {
         $input = $request->all();
+        // dd($request->all());
 
         $classes = $this->classesRepository->create($input);
 

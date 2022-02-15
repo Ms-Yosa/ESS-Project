@@ -221,7 +221,7 @@
 
                                                        <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" style="background-color: #0c223a" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Save Class</button>
+                                                            {!! Form::submit('Add',['class' => 'btn btn-primary']) !!}
                                                         </div>
                                             </div>
                                         </div>

@@ -48,4 +48,12 @@ class ExportController extends Controller
         ]);
         return $pdf->download('learning-areas-master-list.pdf');
     }
+
+    // function report_card_export(){
+    //     $users = User::with('classAssigned')->get();
+    //     $pdf = PDF::loadView('exports.student-master-list', [
+    //         'users'=> $users
+    //     ]);
+    //     return $pdf->download('student-master-list.pdf');
+    // }
 }
