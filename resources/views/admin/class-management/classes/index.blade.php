@@ -55,7 +55,7 @@
                                                         <td>{{ $class->class_name }}</td>
                                                         <td>{{ $class->class_code }}</td>
                                                         <td>{{ $class->level }}</td>
-                                                        <td>{{ $class->getInstructor->faculty_name  ?? 'Unassigned'  }}</td>
+                                                        <td>{{ $class->getInstructor->faculty_surname  ?? 'Unassigned'  }}</td>
                                                         <td>
                                                         <div class="container overflow-hidden m-0">
                                                             <div class="row">
