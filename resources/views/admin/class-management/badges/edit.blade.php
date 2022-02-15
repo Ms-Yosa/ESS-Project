@@ -15,7 +15,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
                         <li class="breadcrumb-item active"><a href="#">Class Management</a></li>
-                        <li class="breadcrumb-item active"><a href="#">Subject</a></li>
+                        <li class="breadcrumb-item active"><a href="#">Badge</a></li>
                     </ol>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{{ route('admin.classes') }}" class="btn btn-default">Cancel</a>
-                                        {!! Form::submit('Update Class',['class' => 'btn btn-primary']) !!}
+                                        {!! Form::submit('Update Badge',['class' => 'btn btn-primary']) !!}
                                     </div>
                                 </div>
                         </div>
