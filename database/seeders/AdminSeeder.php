@@ -19,19 +19,19 @@ class AdminSeeder extends Seeder
         //
 
         Admin::create([
-            'surname'=>'test',
-            'name'=>'test',
-            'middle_name'=>'test',
+            'surname'=>'Doe',
+            'name'=>'Jane',
+            'middle_name'=>'Smith',
             'email'=>'test@gmail.com',
             'password'=>bcrypt('password'),
-            'gender'=>'test',
-            'birth_year'=>'test',
-            'birth_month'=>'test',
-            'birth_day'=>'test',
-            'age'=>'test',
-            'bloodtype'=>'test',
-            'contact_number'=>'test',
-            'address'=>'test'
+            'gender'=>'Female',
+            'birth_year'=>'1995',
+            'birth_month'=>'October',
+            'birth_day'=>'4',
+            'age'=>'26',
+            'bloodtype'=>'AB',
+            'contact_number'=>'09225443321',
+            'address'=>'Manila, Philippines'
         ]);
     }
 }
