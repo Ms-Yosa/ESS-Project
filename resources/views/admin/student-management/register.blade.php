@@ -324,21 +324,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                        <h6><label for="adviser">Adviser</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="adviser" placeholder="Depends on section" value="" readonly>
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <div class="form-group">
-                                        <h6><label for="session">Session</label></h6>
-                                            <input type="text" class="form-control form-control-sm" name="adviser" placeholder="Depends on section" value="" readonly>
-                                            <!-- <span class="text-danger">@error('email'){{ $message }} @enderror</span><br> -->
-                                        </div>
-                                    </div>
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <button type="submit" class="btn btn-primary">Register</button>
