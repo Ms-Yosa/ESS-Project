@@ -42,4 +42,7 @@ class Badge extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function badgeTable(){
+        return $this->belongsToMany(BadgeTable::class, "id", "id");
+    }
 }

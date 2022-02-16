@@ -15,8 +15,10 @@ class CreateBadgeTablesTable extends Migration
     {
         Schema::create('badge_tables', function (Blueprint $table) {
             $table->id();
-            $table->integer('student_id');
-            $table->integer('badge_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('badge_id')->nullable();
+            $table->foreign('student_id')->references('id')->on('users');
+            $table->foreign('badge_id')->references('id')->on('badges');
             $table->timestamps();
         });
     }

@@ -6,9 +6,14 @@
         <div class="stretch-card" >
             <div class="card" style="border:1px solid black">
               <div class="card-body">
-                <h4 class="card-title" >Assessment Report</h4>
-                <p class="card-description">
-                </p>
+                <div class="row">
+                  <div class="col">
+                    <h4 class="card-title" >Assessment Report</h4>
+                  </div>
+                  <button type="button" class="btn btn-social-icon-text btn-twitter mr-2" data-toggle="modal" data-target="#exampleModalLong">
+                    <i class="ti-medall"></i>View Badges
+                  </button>
+                </div>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
                   <table class="table table-hover mb-0" >
                     <thead>
@@ -76,6 +81,51 @@
           </div>
       </div>
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Badges Earned</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="pt-2">
+          <ul style="list-style: none" class="p-0">
+            @foreach ($badges as $badge)
+            @foreach ($badge->badge as $item)
+            <li class="mt-2">
+                <div class="card btn-inverse-warning btn-fw col-md-12">
+                  <div class="card-body">
+                    <h4 class="card-title">{{$item->name}}</h4>
+                    <div class="media">
+                      <div class="pr-2">
+                        <img
+                        style="width:50px;"
+                        src="{{asset('images-upload/' . $item->badge_image_path)}}"
+                        alt="badge-image"
+                      >
+                      </div>
+                      <div class="media-body">
+                        <p class="card-text">{{$item->description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </li>
+            @endforeach
+            @endforeach
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
   <!-- partial -->
 <!-- main-panel ends -->
