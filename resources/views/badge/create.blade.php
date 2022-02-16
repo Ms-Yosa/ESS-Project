@@ -5,6 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body class="sidebar-icon-only">
+  {!! Toastr::message() !!}
   <div class="content-wrapper">
     <div class="row pt-5">
       <div class="col-md-12 mb-3">
@@ -12,7 +13,7 @@
           <ol class="breadcrumb" style="border: none; padding-bottom:0;">
             <li class="breadcrumb-item"><a href="{{route("faculty.home")}}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{route("faculty.classes")}}">Classes</a></li>
-            <li class="breadcrumb-item" aria-current="page"><a href="{{ route('faculty.class_view', $class->class_id)}}">{{$class->class_name}}</a></li>
+            {{-- <li class="breadcrumb-item" aria-current="page"><a href="{{ route('faculty.class_view', $class->class_id)}}">{{$class->class_name}}</a></li> --}}
             <li class="breadcrumb-item active" aria-current="page">Badge</li>
           </ol>
         </nav>
@@ -25,16 +26,19 @@
           <div class="card-body">
             <p class="card-title mb-0">Grant Badge</p>
             <p class="card-description">
+              Student: {{$user->name}} {{$user->surname}}
             </p>
             <div class="form-group">
-              <label>Multiple select using select 2</label>
+              <label>Select Badges</label>
 
               <form action="{{ route('faculty.badge.create',$user->id)}}" method="POST">
-                    <select name="badge[]" class="js-example-basic-multiple w-100 badges" multiple="multiple">
+                @csrf
+                    <select name="badge[]" class="js-example-basic-multiple col-md-12 badges" multiple="multiple">
                 @foreach ($badges as $badge)
                         <option value="{{$badge->id}}">{{$badge->name}}</option>
                 @endforeach
               </select>
+              <button type="submit" class="btn btn-primary m-2 float-right">Submit</button>
               </form>
             </div>
           </div>
