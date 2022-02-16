@@ -6,4 +6,4 @@ AMSAI Student Information System is a student portal developed as a means for mo
 
 
 #
-<p align="center"><a href="https://raw.githubusercontent.com/Ms-Yosa/ESS-Project/master/public/Assets/LandingPage.png" width="800"></a></p>
+<img src="https://raw.githubusercontent.com/Ms-Yosa/ESS-Project/master/public/Assets/LandingPage.png" width="800"/>
