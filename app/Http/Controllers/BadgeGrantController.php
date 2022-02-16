@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Brian2694\Toastr\Facades\Toastr;
 use App\Models\Badge;
 use App\Models\BadgeTable;
 use App\Models\User;
@@ -24,16 +25,25 @@ class BadgeGrantController extends Controller
 
     public function create(Request $request, $id)
     {
+        $input = $request->all();
         $user = User::find($id);
         $badges = Badge::all();
-        foreach ($request->badge as $key => $n){
-            $student_badge = new BadgeTable();
-            $student_badge->student_id = $id;
-            $student_badge->badge_id = $request->badge[$key];
-            $student_badge->save();
+        if(!isset($input)){
+            Toastr::error('Badge Granting failed. Please add a badge.','Failed');
+            return view('badge.create')->with('badges', $badges)->with('user', $user);
         }
+        else{
+            foreach ($request->badge as $key => $n){
+                $student_badge = new BadgeTable();
+                $student_badge->student_id = $id;
+                $student_badge->badge_id = $request->badge[$key];
+                $student_badge->save();
+            }
 
-        return view('badge.create')->with('badges', $badges)->with('user', $user);
+            Toastr::success('Badge Granted successfully','Success');
+
+            return view('badge.create')->with('badges', $badges)->with('user', $user);
+        }
     }
 
     // public function edit($id){
