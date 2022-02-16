@@ -12,6 +12,8 @@ use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\SubArea;
 use App\Models\Feedback;
+use App\Models\Badge;
+use App\Models\BadgeTable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,12 +58,13 @@ class UserController extends Controller
         $student_id = Auth::guard('web')->user()->id;
         $user = User::where('id', $student_id)->with('classAssigned')->first();
         $grade = Grade::where('user_id', $student_id)->get();
+        $badges = BadgeTable::where('student_id', $student_id)->with('badge')->get();
         $subArea = SubArea::where('class_id', $user->classAssigned->class_id)->with('subjects')->get();
-        //dd($grade->toArray());
-            // dd($user);die;
+             //dd($badges->toArray());
         return view('user.student-grade')
                     ->with('user', $user)
                     ->with('grade', $grade)
+                    ->with('badges', $badges)
                     ->with('subArea', $subArea);
     }
 

@@ -75,7 +75,4 @@ class User extends Authenticatable
         return $this->belongsTo(Classes::class, 'class_id');
     }
 
-    public function badge(){
-        return $this->belongsToMany(Badge::class);
-    }
 }
