@@ -14,6 +14,8 @@
                       <i class="ti-medall"></i>View Badges
                     </button>
                 </div>
+                
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
                 <p class="card-description">
                     <table class="table table-bordered">
                       <thead>
@@ -28,7 +30,6 @@
                       </thead>
                     </table>
                 </p>
-                <div class="table-wrapper-scroll-y my-custom-scrollbar">
                   <table class="table table-hover mb-0" >
                     <thead>
                       <tr style="border-bottom: 2px solid #FDC921">
