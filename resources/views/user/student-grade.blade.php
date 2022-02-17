@@ -10,10 +10,24 @@
                   <div class="col">
                     <h4 class="card-title" >Assessment Report</h4>
                   </div>
-                  <button type="button" class="btn btn-social-icon-text btn-twitter mr-2" data-toggle="modal" data-target="#exampleModalLong">
-                    <i class="ti-medall"></i>View Badges
-                  </button>
+                    <button type="button" class="btn btn-social-icon-text btn-twitter mr-2" data-toggle="modal" data-target="#exampleModalLong">
+                      <i class="ti-medall"></i>View Badges
+                    </button>
                 </div>
+                <p class="card-description">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Grading Symbols:</th>
+                          <th>E - Excellent</th>
+                          <th>VS-Very Satisfactory</th>
+                          <th>S-Satisfactory</th>
+                          <th>I - Improving</th>
+                          <th>NI - Needs Improving</th>
+                        </tr>
+                      </thead>
+                    </table>
+                </p>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
                   <table class="table table-hover mb-0" >
                     <thead>

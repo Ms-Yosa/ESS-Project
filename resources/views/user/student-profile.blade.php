@@ -44,7 +44,7 @@
                             <div class="form-group row">
                               <label class="col-sm-9 col-form-label">Date of Birth</label>
                               <div class="col-sm-9">
-                                <input type="text" disabled class="form-control" value="{{ Auth::guard('web')->user()->birth_month }} {{ Auth::guard('web')->user()->birth_day }},{{ Auth::guard('web')->user()->birth_year }}"/>
+                                <input type="text" disabled class="form-control" value="{{ Auth::guard('web')->user()->birth_month }} {{ Auth::guard('web')->user()->birth_day }}, {{ Auth::guard('web')->user()->birth_year }}"/>
                               </div>
                             </div>
                           </div>
@@ -83,7 +83,7 @@
                             <div class="form-group row">
                               <label class="col-sm-9 col-form-label">Guardian's Name</label>
                               <div class="col-sm-9">
-                                <input type="text" disabled class="form-control" value="{{ Auth::guard('web')->user()->guardian }}"/>
+                                <input type="text" disabled class="form-control" value="{{ Auth::guard('web')->user()->guardian }} {{ Auth::guard('web')->user()->guardian_middle_name }} {{ Auth::guard('web')->user()->guardian_surname }}"/>
                               </div>
                             </div>
                           </div>
@@ -133,7 +133,7 @@
                           <div class="mt-3">
                             <p class="mb-0">Instructor:</p>
                             <div class="d-flex justify-content-between align-items-center mt-2">
-                              <p>{{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_name}}</p>
+                              <p>{{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_name}} {{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_middle_name}} {{Auth::guard('web')->user()->classAssigned->getInstructor->faculty_surname}}</p>
                             </div>
                           </div>
                       </div>
