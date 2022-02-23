@@ -12,6 +12,8 @@ use App\Models\Classes;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\Auth;
 
+use Brian2694\Toastr\Facades\Toastr;
+
 class UserCRUD extends Controller
 {
      //Create new users (registration)
@@ -67,10 +69,20 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-              return redirect()->route('admin.student-tab')->with('success','New Student has been registered successfully');
+            Toastr::success('New student has been registered successfully','Success');
+              return redirect()->route('admin.student-tab');
+            //   return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
           }else{
-              return redirect()->back()->with('fail','Something went wrong, failed to register');
+            Toastr::error('Something went wrong, failed to register', 'Error');
+              return redirect()->back();
+            //   return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
+
+        //   if( $save ){
+        //       return redirect()->route('admin.student-tab')->with('success','New Student has been registered successfully');
+        //   }else{
+        //       return redirect()->back()->with('fail','Something went wrong, failed to register');
+        // }
 
     }
 
@@ -106,10 +118,20 @@ class UserCRUD extends Controller
         $delete = $users -> delete();
 
         if( $delete ){
-            return redirect()->route('admin.student-tab')->with('success','Account has been deleted successfully');
+            Toastr::success('Account has been deleted successfully','Success');
+            return redirect()->route('admin.student-tab');
+            // return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
         }else{
-            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+            Toastr::error('Something went wrong, failed to delete', 'Error');
+            return redirect()->back();
+            // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }
+
+    //     if( $delete ){
+    //         return redirect()->route('admin.student-tab')->with('success','Account has been deleted successfully');
+    //     }else{
+    //         return redirect()->back()->with('fail','Something went wrong, failed to delete');
+    //   }
     }
 
 
@@ -169,10 +191,20 @@ class UserCRUD extends Controller
           $save = $user->save();
 
           if( $save ){
-            return redirect()->route('admin.student-tab')->with('success','Update Information Successfully');
+            Toastr::success('Update Information Successfully','Success');
+            return redirect()->route('admin.student-tab');
+            // return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
         }else{
-            return redirect()->back()->with('fail','Something went wrong, failed to update');
+            Toastr::error('Something went wrong, failed to update', 'Error');
+            return redirect()->back();
+            // return redirect()->back()->with('fail','Something went wrong, failed to update');
     }
+
+    //       if( $save ){
+    //         return redirect()->route('admin.student-tab')->with('success','Update Information Successfully');
+    //     }else{
+    //         return redirect()->back()->with('fail','Something went wrong, failed to update');
+    // }
 }
 
 }
