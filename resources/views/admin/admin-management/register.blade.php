@@ -29,7 +29,7 @@
                                 <h5 class="card-title">Personal Details</h5>
                             </div>
                             <div class="card-body">
-                                @if (Session::get('success'))
+                                <!-- @if (Session::get('success'))
                                     <div class="alert alert-success">
                                         {{ Session::get('success') }}
                                     </div>
@@ -38,7 +38,9 @@
                                     <div class="alert alert-danger">
                                         {{ Session::get('fail') }}
                                     </div>
-                                @endif
+                                @endif -->
+
+                                
 
                                 @csrf
                             
