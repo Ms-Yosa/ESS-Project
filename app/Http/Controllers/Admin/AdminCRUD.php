@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
+use Brian2694\Toastr\Facades\Toastr;
 
 class AdminCRUD extends Controller
 {
@@ -49,9 +50,13 @@ class AdminCRUD extends Controller
           $save = $admin->save();
 
           if( $save ){
-              return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
+            Toastr::success('New admin has been registered successfully','Success');
+              return redirect()->route('admin.admin-tab');
+            //   return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
           }else{
-              return redirect()->back()->with('fail','Something went wrong, failed to register');
+            Toastr::error('Something went wrong, failed to register', 'Error');
+              return redirect()->back();
+            //   return redirect()->back()->with('fail','Something went wrong, failed to register');
         }
     }
 
@@ -69,9 +74,13 @@ class AdminCRUD extends Controller
         $delete = $admins -> delete();
 
         if( $delete ){
-            return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
+            Toastr::success('Account has been deleted successfully','Success');
+            return redirect()->route('admin.admin-tab');
+            // return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
         }else{
-            return redirect()->back()->with('fail','Something went wrong, failed to delete');
+            Toastr::error('Something went wrong, failed to delete', 'Error');
+            return redirect()->back();
+            // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }
         
     }
@@ -120,9 +129,13 @@ class AdminCRUD extends Controller
             $save = $admin->save();
 
             if( $save ){
-                return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
+                Toastr::success('Update Information Successfully','Success');
+                return redirect()->route('admin.admin-tab');
+                // return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
             }else{
-                return redirect()->back()->with('fail','Something went wrong, failed to update');
+                Toastr::error('Something went wrong, failed to update', 'Error');
+                return redirect()->back();
+                // return redirect()->back()->with('fail','Something went wrong, failed to update');
         }
     }
 

@@ -23,7 +23,7 @@
                     <div class="row tab-content">
                         <div id="list-view" class="tab-pane fade active show col-lg-12">
                             <div class="card">
-                            @if (Session::get('success'))
+                            <!-- @if (Session::get('success'))
                                     <div class="alert alert-success">
                                         {{ Session::get('success') }}
                                     </div>
@@ -32,7 +32,9 @@
                                     <div class="alert alert-danger">
                                         {{ Session::get('fail') }}
                                     </div>
-                                @endif
+                                @endif -->
+                                {!! Toastr::message() !!}
+            @include('partials.error')
 
                                 <div class="card-header">
                                     <h4 class="card-title">All Admin List  </h4>
