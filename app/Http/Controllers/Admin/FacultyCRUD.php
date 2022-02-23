@@ -54,7 +54,7 @@ class FacultyCRUD extends Controller
           $save = $faculty->save();
 
           if( $save ){
-            Toastr::success('New admin has been registered successfully','Success');
+            Toastr::success('New faculty has been registered successfully','Success');
               return redirect()->route('admin.faculty-tab');
             //   return redirect()->route('admin.admin-tab')->with('success','New admin has been registered successfully');
           }else{
