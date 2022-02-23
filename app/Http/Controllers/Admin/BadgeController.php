@@ -9,6 +9,7 @@ use App\Models\Badge;
 use App\Models\User;
 use Flash;
 use Response;
+use Brian2694\Toastr\Facades\Toastr;
 
 class BadgeController extends Controller
 {
@@ -28,9 +29,22 @@ class BadgeController extends Controller
         $badge->name = $request->input('name');
         $badge->description = $request->input('description');
         $badge->badge_image_path = $image_name;
-        $badge->save();
+        $save = $badge->save();
 
-        return redirect(route('admin.badge'));
+        // return redirect(route('admin.badge'));
+
+        $save = $badge->save();
+
+            if( $save ){
+                Toastr::success('Add Badge Successfully','Success');
+                return redirect(route('admin.badge'));
+                // return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
+            }else{
+                Toastr::error('Something went wrong, failed to update', 'Error');
+                return redirect()->back();
+                // return redirect()->back()->with('fail','Something went wrong, failed to update');
+        }
+
 
     }
 
@@ -43,18 +57,40 @@ class BadgeController extends Controller
         $badge = Badge::find($id);
 
         $badge->name = $request->name;
-        $badge->save();
+        // $badge->save();
 
-        return redirect(route('admin.badge'));
+        $save = $badge->save();
+
+            if( $save ){
+                Toastr::success('Update Badge Successfully','Success');
+                return redirect(route('admin.badge'));
+                // return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
+            }else{
+                Toastr::error('Something went wrong, failed to update', 'Error');
+                return redirect()->back();
+                // return redirect()->back()->with('fail','Something went wrong, failed to update');
+        }
+
+        // return redirect(route('admin.badge'));
 
     }
 
     public function destroy($id)
     {
         $badge = Badge::find($id);
-        $badge -> delete();
+        $delete = $badge -> delete();
 
-        return redirect(route('admin.badge'));
+        if( $delete ){
+            Toastr::success('Delete Badge Successfully','Success');
+            return redirect(route('admin.badge'));
+            // return redirect()->route('admin.admin-tab')->with('success','Update Information Successfully');
+        }else{
+            Toastr::error('Something went wrong, failed to update', 'Error');
+            return redirect()->back();
+            // return redirect()->back()->with('fail','Something went wrong, failed to update');
+    }
+
+        // return redirect(route('admin.badge'));
     }
 }
 
