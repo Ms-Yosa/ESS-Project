@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:bold,medium');
 
 h1{
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: "Nunito", sans-serif;
   text-align: center;
   margin-bottom: 5px;
   color: #283D4A;
@@ -56,7 +56,7 @@ color: #FC6C03;
 position: absolute;
 top: 10px;
 right: 10px;
-font-family: 'Libre Franklin', sans-serif;
+font-family: "Nunito", sans-serif;
 font-weight: 200;
 }
 
@@ -74,13 +74,13 @@ padding: 15px;
 .articles__article-card__bottom__date-title__date{
 font-size: 13px;
 color: #99A7B0;
-font-family: 'Libre Franklin', sans-serif;
+font-family: "Nunito", sans-serif;
 font-weight: 200;
 }
 
 .articles__article-card__bottom__date-title__title{
 margin-top: 6px;
-font-family: 'Libre Franklin', sans-serif;
+font-family: "Nunito", sans-serif;
  color: #283D4A;
 }
 

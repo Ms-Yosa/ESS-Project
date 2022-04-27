@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         .my-custom-scrollbar {
             position: relative;
@@ -29,6 +30,11 @@
         }
         .table-wrapper-scroll-y {
             display: block;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
         }
     </style>
 </head>
@@ -45,38 +51,25 @@
     <!-- Main wrapper start -->
     <div id="main-wrapper">
         <!-- Nav header start -->
-        
+
             <div class="nav-header">
                 <div>
                    <strong> <span class="navbar-brand nav-label first" style="color:black;text-align:left;padding-left:39px">AMSAI Learning School <br> <small>Student Information System</small> </span></strong>
                 </div>
-               
+
                     <div class="nav-control" >
-               
+
                     <div class="hamburger">
                         <img class="logo-abbr" style="border-radius:25px; border: 2px solid #FD6300;" src="{{ URL::to('Assets/Logo.png') }}" alt="">
-                        
-                    </div>
-                    
-                </div>
-               
-            </div>
-        
-        
-        <!-- Nav header end -->
 
-        <!-- Header start -->
-        <!-- <div class="header">
-            <div class="header-content">
-                <nav class="navbar navbar-expand">
-                    <div class="collapse navbar-collapse justify-content-between">
-                        <div class="header-left">
-                        </div>
-                     </div>
-                </nav>
+                    </div>
+
+                </div>
+
             </div>
-        </div> -->
-        <!-- Header end ti-comment-alt -->
+
+
+        <!-- Nav header end -->
 
         <!-- Sidebar start -->
 
@@ -89,11 +82,8 @@
         <!-- Content body end -->
 
         <!-- Footer start -->
-        <div class="footer">
-            <div class="copyright">
-                <!-- <p>Copyright © Designed &amp; Developed by <a href="https://www.soengsouy.com/" target="_blank">SoengSouy</a> 2021</p> -->
-            </div>
-        </div>
+        <br/>
+        @include('partials.user.footer_user')
         <!-- Footer end -->
     </div>
 

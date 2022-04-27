@@ -84,15 +84,11 @@
                                                                 </form>
 
 
-                                                                <form action="{{ route('admin.faculty-destroy', $faculties->id)}}" method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-
-                                                                    <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                                </form>
+                                                                <button class="badge bg-danger" data-toggle="modal" data-target="#Delete{{$faculties->id}}"><i class="la la-trash"></i></button>
                                                           </div>
                                                       </td>
                                                       @include('admin.faculty-management.view-modal')
+                                                      @include('admin.faculty-management.delete-modal')
                                                   </tr>
                                               @endforeach
                                             <tbody>

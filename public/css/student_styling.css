@@ -132,7 +132,7 @@ thead{
 	width: 200px;
 	padding: 18px 0;
 	position: absolute;
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: "Nunito", sans-serif;
 	font-weight: 700;
 	text-align: center;
 	text-decoration: none;
@@ -203,7 +203,7 @@ thead{
   /* Awards Modal Content */
   .view-awards {
 	text-align: center;
-	font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+	font-family: "Nunito", sans-serif;
 	color: #e2525c;
   }
 
@@ -534,7 +534,7 @@ thead{
 	width: 200px;
 	padding: 18px 0;
 	position: absolute;
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: "Nunito", sans-serif;
 	font-weight: 700;
 	text-align: center;
 	text-decoration: none;

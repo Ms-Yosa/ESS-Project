@@ -17,7 +17,7 @@
                     </ol>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row tab-content">
@@ -34,12 +34,11 @@
                                     </div>
                                 @endif -->
                                 {!! Toastr::message() !!}
-            @include('partials.error')
+                                @include('partials.error')
 
                                 <div class="card-header">
                                     <h4 class="card-title">All Admin List  </h4>
-                                    <a href="{{ route('admin.admin-register') }}" class="btn btn-primary"><li class=
-"la la-user-plus"></li>  Add new</a>
+                                    <a href="{{ route('admin.admin-register') }}" class="btn btn-primary"><li class="la la-user-plus"></li>  Add new</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -66,25 +65,22 @@
                                                       <td class="gender">{{ $admin->gender }}</td>
                                                       <td>
                                                           <div class="row">
-                                                                <button class="badge bg-primary" data-toggle="modal" data-target="#ModalView{{$admin->id}}"><i class="la la-eye"></i></button> 
-                                                                
-                                                                    
-                                                                <form action="{{ route('admin.admin-edit', $admin->id)}}" method="GET">  
-                                                                    @csrf  
-                                                                    
-                                                                    <button class="badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>  
-                                                                </form>  
-            
-                                                                
-                                                                <form action="{{ route('admin.admin-destroy', $admin->id)}}" method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf  
-                                                               
-                                                                <button class="badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>  
-                                                           </form>  
-                                                          </div>
+                                                                <button class="btn badge bg-primary" data-toggle="modal" data-target="#ModalView{{$admin->id}}"><i class="la la-eye"></i></button>
+
+
+                                                                <form action="{{ route('admin.admin-edit', $admin->id)}}" method="GET">
+                                                                    @csrf
+
+                                                                    <button class="btn badge bg-success" type="submit"><i class="la la-pencil-square"></i></button>
+                                                                </form>
+
+                                                                <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$admin->id}}"><i class="la la-trash"></i></button>
+                                                                {{-- <button class="badge bg-danger" data-toggle="modal" data-target="#my-modal"><i class="la la-trash"></i></button> --}}
+
+                                                            </div>
                                                       </td>
                                                       @include('admin.admin-management.view-modal')
+                                                      @include('admin.admin-management.delete-modal')
                                                   </tr>
                                               @endforeach
                                             <tbody>
@@ -95,7 +91,7 @@
                             </div>
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>
