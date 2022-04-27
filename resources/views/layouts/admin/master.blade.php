@@ -5,7 +5,6 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16"  style="border-radius:25px" href="{{ URL::to('Assets/Logo.png') }}">
     <!-- Datatable -->
@@ -37,6 +36,7 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+    <title>@yield('title')</title>
 </head>
 <body>
     <!-- Preloader start -->

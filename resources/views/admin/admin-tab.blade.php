@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Admin Tab'}} @endsection
 @section('content')
 
     <div class="content-body">

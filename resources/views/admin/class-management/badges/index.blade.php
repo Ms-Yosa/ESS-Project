@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Badges'}} @endsection
 @section('content')
 
     <div class="content-body">
@@ -100,14 +101,13 @@
                                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
                                                                 <h6><label for="description">Description</label></h6>
-                                                                <textarea class="form-control form-control-sm" name="description" id="description">
-                                                                </textarea>
+                                                                <textarea placeholder="Enter description" class="form-control form-control-sm" name="description" id="description"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
                                                                 <label>Badge Image</label>
-                                                                <input type="file" name="image" class="file-upload-default">
+                                                                <input type="file" name="image" class="file-upload-default" accept="image/*">
                                                                 <div class="input-group col-xs-12">
                                                                 <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                                                                 <span class="input-group-append">

@@ -21,7 +21,12 @@ class BadgeController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   //validate Inputs
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+        ]);
         $image_name = time() . '-' . $request->name . '.' . $request->image->extension();
 
         $request->image->move(public_path('images-upload'), $image_name);
@@ -55,8 +60,18 @@ class BadgeController extends Controller
 
     public function update(Request $request,$id){
         $badge = Badge::find($id);
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ]);
 
+        if($request->image){
+            $image_name = time() . '-' . $request->name . '.' . $request->image->extension();
+            $request->image->move(public_path('images-upload'), $image_name);
+            $badge->badge_image_path = $image_name;
+        }
         $badge->name = $request->name;
+        $badge->description = $request->description;
         // $badge->save();
 
         $save = $badge->save();

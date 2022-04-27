@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Edit Subject Area'}} @endsection
 @section('content')
 
 
