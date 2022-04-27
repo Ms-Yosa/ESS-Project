@@ -71,13 +71,10 @@
                                                                     @csrf
                                                                     <button class="dropdown-item" type="submit"><i class="la la-pencil-square text-success"></i>&nbsp;Edit</button>
                                                                 </form>
-                                                                <form action="{{ route('admin.subjects.destroy', $subj->id)}}" method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-                                                                    <button class="dropdown-item" type="submit"><i class="la la-trash text-danger"></i>&nbsp;<a  onclick="return confirm('Are you sure to want to delete it?')">Delete</a></button>
-                                                                </form>
+                                                                <button class="dropdown-item " data-toggle="modal" data-target="#DeleteSubj{{$subj->id}}"><i class="la la-trash text-danger"></i>&nbsp;Delete</button>
                                                             </div>
-                                                          </div>
+                                                        </div>
+                                                          @include('admin.class-management.subjects.delete-modal')
                                                         @endforeach
                                                     </td>
                                                     <td>
@@ -90,15 +87,12 @@
                                                                     </form>
                                                                 </div>
                                                                 <div class="col-2">
-                                                                    <form action="{{ route('admin.subjects.deleteArea', $subA->id)}}" method="POST">
-                                                                        @method('DELETE')
-                                                                        @csrf
-                                                                        <button class="btn badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                                    </form>
+                                                                    <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$subA->id}}"><i class="la la-trash"></i></button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </td>
+                                                    @include('admin.class-management.subjects.delete-modal')
                                                 </tr>
                                             @endforeach
                                             </tbody>

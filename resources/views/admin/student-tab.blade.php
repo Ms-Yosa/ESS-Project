@@ -83,17 +83,13 @@
                                                                         </form>
                                                                     </div>
                                                                     <div class="col-3">
-                                                                        <form action="{{ route('admin.student-destroy', $student->id)}}" method="POST">
-                                                                            @method('DELETE')
-                                                                            @csrf
-
-                                                                            <button class="btn badge bg-danger" type="submit"> <a  onclick="return confirm('Are you sure to want to delete it?')"><i class="la la-trash"></i></a></button>
-                                                                        </form>
+                                                                        <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$student->id}}"><i class="la la-trash"></i></button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                       </td>
                                                       @include('admin.student-management.view-modal')
+                                                      @include('admin.student-management.delete-modal')
                                                   </tr>
                                                 @endforeach
                                             <tbody>

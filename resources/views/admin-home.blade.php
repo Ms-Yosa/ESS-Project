@@ -7,12 +7,12 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Admin Dashboard</h4>
+                        <h4 class="font-weight-bold" style="color:#343a40">Admin Dashboard</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a  style="color:#343a40" href="#">Home</a></li>
 
                     </ol>
                 </div>
@@ -103,8 +103,8 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-12">
                     <div class="card">
-                        <div class="card-header" style="background-color:#dfc326">
-                            <h4>Admin Profile</h4>
+                        <div class="card-header" style="background-color:#fbd848">
+                            <h4 class="font-weight-bold" style="color:#343a40">Admin Profile</h4>
                         </div>
                         <div class="student-info">
                             <div class="text-center container-fluid">
@@ -120,8 +120,8 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card" >
-                        <div class="card-header" style="background-color:#dfc326">
-                            <h4 class="card-title">Student</h4>
+                        <div class="card-header" style="background-color:#fbd848">
+                            <h4 class="font-weight-bold" style="color:#343a40">Student</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -148,8 +148,8 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
-                        <div class="card-header" style="background-color:#dfc326">
-                            <h4 class="card-title">Faculties</h4>
+                        <div class="card-header" style="background-color:#fbd848">
+                            <h4 class="font-weight-bold" style="color:#343a40">Faculties</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -176,8 +176,8 @@
 
                 <div class="col-xl-4 col-lg-4 col-xxl-4 col-md-6">
                     <div class="card">
-                        <div class="card-header" style="background-color:#dfc326">
-                            <h4 class="card-title">Classes</h4>
+                        <div class="card-header" style="background-color:#fbd848; color:#fff">
+                            <h4 class="font-weight-bold" style="color:#343a40">Classes</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -204,9 +204,9 @@
                     </div>
                 </div>
 
-               
 
-                
+
+
             </div>
         </div>
     </div>

@@ -62,18 +62,14 @@
                                                                     </form>
                                                                 </div>
                                                                 <div class="col-2">
-                                                                    <form action="{{ route('admin.badge.destroy', $badge->id)}}" method="POST">
-                                                                        @method('DELETE')
-                                                                        @csrf
-                                                                        <button class="btn badge bg-danger" type="submit"> <a  onclick="return confirm('Learning Areas and Subjects in this class will be deleted. Are you sure to want to delete it? ')"><i class="la la-trash"></i></a></button>
-                                                                    </form>
+                                                                    <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$badge->id}}"><i class="la la-trash"></i></button>
                                                                 </div>
                                                             </div>
 
                                                             </div>
                                                         </div>
                                                       </td>
-
+                                                      @include('admin.class-management.badges.delete-modal')
                                                     </tr>
                                                 @endforeach
                                             <tbody>

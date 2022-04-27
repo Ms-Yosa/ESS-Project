@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                          <span aria-hidden="true">&times;</span>
                     </button>
-               </div> 
+               </div>
                     <div class="modal-body">
                          <div class="form-body">
                               <div class="row">
@@ -52,8 +52,8 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
-                                  
+
+
                                    <div class="col-md-3">
                                         <label><small><strong>Birthday:</strong></small></label>
                                    </div>
@@ -67,8 +67,8 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
-                                  
+
+
                                    <div class="col-md-3">
                                         <label><small><strong>Age:</strong></small></label>
                                    </div>
@@ -82,8 +82,8 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
-                                   
+
+
                                    <div class="col-md-3">
                                         <label><small><strong>Bloodtype:</strong></small></label>
                                    </div>
@@ -97,8 +97,8 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
-                                  
+
+
                                    <div class="col-md-3">
                                         <label><small><strong>Phone:</strong></small></label>
                                    </div>
@@ -112,8 +112,8 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
-                                   
+
+
                                    <div class="col-md-3">
                                         <label><small><strong>Address:</strong></small></label>
                                    </div>
