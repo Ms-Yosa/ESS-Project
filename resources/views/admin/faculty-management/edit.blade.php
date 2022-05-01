@@ -1,7 +1,8 @@
 @extends('layouts.admin.master')
+@section('title') {{'Edit Faculty'}} @endsection
 @section('content')
 
-     
+
 <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
@@ -19,7 +20,7 @@
                     </ol>
                 </div>
             </div>
-           
+
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-sm-12">
                     <form action="{{ route('admin.faculty-update', $faculty->id)}}"  method="POST" autocomplete="off">
@@ -86,7 +87,7 @@
                                         <div class="form-group">
                                         <h6><label for="birth_year">Birth Year</label></h6>
                                             <select name="birth_year" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option value="{{$faculty->birth_year}}" {{ ($faculty->birth_year ==$faculty->birth_year) ? 'selected' : '' }}> 
+                                            <option value="{{$faculty->birth_year}}" {{ ($faculty->birth_year ==$faculty->birth_year) ? 'selected' : '' }}>
                                                 {{ $faculty->birth_year }}
                                                 </option>
                                                 <option value="1999" >1999</option>
@@ -124,7 +125,7 @@
                                         <div class="form-group">
                                         <h6><label for="birth_month">Month</label></h6>
                                             <select name="birth_month" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option value="{{$faculty->birth_month}}" {{ ($faculty->birth_month ==$faculty->birth_month) ? 'selected' : '' }}> 
+                                            <option value="{{$faculty->birth_month}}" {{ ($faculty->birth_month ==$faculty->birth_month) ? 'selected' : '' }}>
                                                 {{ $faculty->birth_month }}
                                                 </option>
                                                 <option value="January" >January</option>
@@ -148,7 +149,7 @@
                                         <div class="form-group">
                                         <h6><label for="birth_day">Day</label></h6>
                                             <select name="birth_day" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option value="{{$faculty->birth_day}}" {{ ($faculty->birth_day ==$faculty->birth_day) ? 'selected' : '' }}> 
+                                            <option value="{{$faculty->birth_day}}" {{ ($faculty->birth_day ==$faculty->birth_day) ? 'selected' : '' }}>
                                                 {{ $faculty->birth_day }}
                                                 </option>
                                                 <option value="1" >1</option>
@@ -201,7 +202,7 @@
                                         <div class="form-group">
                                         <h6><label for="bloodtype">Bloodtype</label></h6>
                                             <select name="bloodtype" class="form-select form-control form-control-sm" aria-label="Default select example">
-                                            <option value="{{$faculty->bloodtype}}" {{ ($faculty->bloodtype ==$faculty->bloodtype) ? 'selected' : '' }}> 
+                                            <option value="{{$faculty->bloodtype}}" {{ ($faculty->bloodtype ==$faculty->bloodtype) ? 'selected' : '' }}>
                                                 {{ $faculty->bloodtype }}
                                                 </option>
                                                 <option value="A+" >A+</option>
@@ -218,21 +219,21 @@
                                         </div>
                                     </div>
 
-                                    
+
                                     <div class="col-lg-3 col-md-3 col-sm-12">
-                                    
+
                                         <div class="form-group">
                                         <h6> <label for="contact_number">Contact Number</label></h6>
                                             <input type="tel" class="form-control form-control-sm" name="contact_number" placeholder="09XXXXXXXXX" pattern=[0-9]{11} value="{{ $faculty->contact_number}}">
                                             <span class="text-danger">@error('contact_number'){{ $message }} @enderror</span><br>
                                         </div>
-                                    
+
                                     </div>
 
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div class="form-group">
-                                            <h6><label for="address">Residential Address</label></h6> 
+                                            <h6><label for="address">Residential Address</label></h6>
                                             <input type="text" class="form-control form-control-sm" name="address" placeholder="Enter your complete current address" value="{{ $faculty->address}}">
                                             <span class="text-danger">@error('address'){{ $message }} @enderror</span><br>
                                         </div>
@@ -274,7 +275,7 @@
                                         </div>
                                     </div>
 
-                                    
+
                                 </div>
                             </div>
                         </div>

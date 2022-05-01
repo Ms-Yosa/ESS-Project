@@ -1,5 +1,6 @@
 
 @extends('layouts.faculty')
+@section('title') {{'Encode Grades'}} @endsection
 @section('content')
 <body class="sidebar-icon-only">
   <div class="content-wrapper">

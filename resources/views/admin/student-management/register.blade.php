@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Register New Student'}} @endsection
 @section('content')
 
 

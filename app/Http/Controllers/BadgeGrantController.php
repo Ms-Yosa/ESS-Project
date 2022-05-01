@@ -18,9 +18,10 @@ class BadgeGrantController extends Controller
     {
         $user = User::find($id);
         $class = Classes::where('class_id', $user->class_id)->first();
+        $studentBadges = BadgeTable::where('student_id', $id)->with('badge')->get();
         $badges = Badge::all();
-        //dd($feedback->toArray());
-        return view('badge.create')->with('badges', $badges)->with('user', $user)->with('class', $class);
+        // dd($studentBadges->toArray());
+        return view('badge.create')->with('badges', $badges)->with('user', $user)->with('class', $class)->with('studentBadges', $studentBadges);
     }
 
     public function create(Request $request, $id)
@@ -42,7 +43,7 @@ class BadgeGrantController extends Controller
 
             Toastr::success('Badge Granted successfully','Success');
 
-            return view('badge.create')->with('badges', $badges)->with('user', $user);
+            return redirect(route('faculty.class_view',$user->class_id));
         }
     }
 

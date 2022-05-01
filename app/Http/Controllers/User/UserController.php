@@ -60,7 +60,7 @@ class UserController extends Controller
         $grade = Grade::where('user_id', $student_id)->get();
         $badges = BadgeTable::where('student_id', $student_id)->with('badge')->get();
         $subArea = SubArea::where('class_id', $user->classAssigned->class_id)->with('subjects')->get();
-             //dd($badges->toArray());
+            //  dd($badges->toArray());
         return view('user.student-grade')
                     ->with('user', $user)
                     ->with('grade', $grade)

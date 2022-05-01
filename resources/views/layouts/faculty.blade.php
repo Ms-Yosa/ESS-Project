@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AMSAI SIS</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ URL::to("vendors/feather/feather.css") }}">
   <link rel="stylesheet" href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
@@ -68,6 +67,7 @@
         font-family: 'Nunito', sans-serif;
     }
 </style>
+<title>@yield('title')</title>
 </head>
 <body>
   <div class="container-scroller">

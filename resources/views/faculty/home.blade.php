@@ -1,6 +1,6 @@
 @extends('layouts.faculty')
+@section('title') {{'Home'}} @endsection
 @section('content')
-<div class="page-body-wrapper">
   <div class="content-wrapper">
     <div class="row">
       <div class="col-md-12 mb-3 pt-5">
@@ -43,7 +43,6 @@
     </div>
   </div>
   <!-- content-wrapper ends -->
-</div>
   <!-- partial -->
 <!-- main-panel ends -->
 @endsection

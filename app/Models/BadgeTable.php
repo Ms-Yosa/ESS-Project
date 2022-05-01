@@ -10,7 +10,7 @@ class BadgeTable extends Model
     use HasFactory;
 
     public function badge(){
-        return $this->hasMany(Badge::class, "id", "id");
+        return $this->hasMany(Badge::class, "id", "badge_id");
     }
 
 }

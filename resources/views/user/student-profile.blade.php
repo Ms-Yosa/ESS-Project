@@ -1,4 +1,5 @@
 @extends('layouts.student')
+@section('title') {{'Profile'}} @endsection
 @section('content')
 <body class="sidebar-icon-only">
   <div class="content-wrapper">
@@ -112,7 +113,7 @@
             </div>
             <div class="col-md-4 stretch-card grid-margin">
               <div class="row">
-                
+
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card" style="border:1px solid #dfc326">
                     <div class="card-body" >
@@ -143,7 +144,7 @@
 
 
                 <div class="col-md-12 stretch-card grid-margin grid-margin-md-0">
-                  <div class="card data-icon-card" style="background-color:#dfc326" > 
+                  <div class="card data-icon-card" style="background-color:#dfc326" >
                     <div class="card-body">
                       <p class="card-title ">...</p>
                       <div class="row">

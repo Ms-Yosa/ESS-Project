@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Edit Badge'}} @endsection
 @section('content')
 
 
@@ -29,21 +30,45 @@
                         @include('adminlte-templates::common.errors')
                         <div class="card-body">
 
-                                {!! Form::model($badge, ['route' => ['admin.badge.update', $badge->id], 'method' => 'POST']) !!}
-
+                                {!! Form::model($badge, ['route' => ['admin.badge.update', $badge->id], 'method' => 'POST', 'enctype'=>"multipart/form-data"]) !!}
+                                <form action="{{ route('admin.badge.update', $badge->id)}}" method="POST" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="form-group">
+                                        <div class="form-group col-md-12">
                                             <h6><label for="name">Badge Name</label></h6>
                                                 <input type="text" class="form-control form-control-sm" name="name" placeholder="Enter name" value="{{ $badge->name}}">
                                                 <span class="text-danger">@error('name'){{ $message }} @enderror</span><br>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <h6><label for="description">Description</label></h6>
+                                            <textarea placeholder="Enter description" class="form-control form-control-sm" name="description" id="description">{{ $badge->description}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-10">
+                                            <label>Badge Image</label>
+                                            <input type="file" name="image" class="file-upload-default" accept="image/*">
+                                            <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="{{$badge->badge_image_path}}">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                            </span>
                                             </div>
+                                        </div>
+                                        @if ($badge->badge_image_path)
+                                            <div class="col-md-2">
+                                                <img style="width:75px;" src="{{asset('images-upload/' . $badge->badge_image_path)}}" alt="badge-image">
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="modal-footer">
                                         <a href="{{ route('admin.classes') }}" class="btn btn-default">Cancel</a>
                                         {!! Form::submit('Update Badge',['class' => 'btn btn-primary']) !!}
                                     </div>
                                 </div>
+                                </form>
                         </div>
                     </div>
                 </div>

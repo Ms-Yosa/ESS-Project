@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title') {{'Classes'}} @endsection
 @section('content')
 
     <div class="content-body">

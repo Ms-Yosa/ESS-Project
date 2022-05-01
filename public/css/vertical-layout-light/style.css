@@ -28419,6 +28419,7 @@ div.tagsinput span.tag a {
 }
 
 .page-body-wrapper {
+  /* width: fit-content; */
   min-height: calc(100vh - 60px);
   display: -webkit-flex;
   display: flex;
@@ -28794,7 +28795,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper {
-  background-color: #dfc326;
+  background-color: #fbd848;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
@@ -28842,14 +28843,13 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-menu-wrapper {
-  background-color: #dfc326;
+  background-color: #fbd848;
   transition: width 0.25s ease;
   -webkit-transition: width 0.25s ease;
   -moz-transition: width 0.25s ease;
   -ms-transition: width 0.25s ease;
   color: #fff;
   padding-right: 2.375rem;
-  padding-left: 2.375rem;
   width: calc(100% - 235px);
   height: 60px;
 }
@@ -30628,4 +30628,13 @@ div.tagsinput span.tag a {
 
 .toast-wrapper{
   top:0;
+}
+
+.no-data-img{
+  min-width:250px!important;
+  max-width:300px!important;
+  align-self: center;
+  height: auto!important;
+  border-radius:0!important;
+  padding-top: 20px;
 }

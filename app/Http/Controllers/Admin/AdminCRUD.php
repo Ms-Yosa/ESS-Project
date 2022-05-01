@@ -39,7 +39,7 @@ class AdminCRUD extends Controller
           $admin->middle_name = $request->middle_name;
           $admin->email = $request->email;
           $admin->password = \Hash::make($request->password);
-          $admin->gender = $request->gender; 
+          $admin->gender = $request->gender;
           $admin->birth_year = $request->birth_year;
           $admin->birth_month = $request->birth_month;
           $admin->birth_day = $request->birth_day;
@@ -60,7 +60,7 @@ class AdminCRUD extends Controller
         }
     }
 
-   
+
 
      //Retrieve Data
      function index(){
@@ -82,7 +82,7 @@ class AdminCRUD extends Controller
             return redirect()->back();
             // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }
-        
+
     }
 
 
