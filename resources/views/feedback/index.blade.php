@@ -1,4 +1,5 @@
 @extends('layouts.faculty')
+@section('title') {{'Feedback'}} @endsection
 @section('content')
 <body class="sidebar-icon-only">
   {!! Toastr::message() !!}
@@ -34,33 +35,46 @@
                         <th></th>
                       </tr>
                     </thead>
+                    @if (isset($feedback[0]))
                     <tbody >
-                        @foreach ($feedback as $key => $fb)
-                        <tr>
-                            <td>{{++$key}}</td>
-                            <td>{{$fb->week}}</td>
-                            <td>{{$fb->description}}</td>
-                            <td>
-                              <div class="row">
-                                <form action="{{ route('faculty.feedback.edit',$fb->id)}}" method="GET">
-                                  @csrf
-                                  <button type="submit" class="btn btn-inverse-info btn-icon">
-                                    <i class="ti-pencil"></i>
-                                  </button>
-                                </form>
-                                &nbsp;
+                      @foreach ($feedback as $key => $fb)
+                      <tr>
+                          <td>{{++$key}}</td>
+                          <td>{{$fb->week}}</td>
+                          <td>{{$fb->description}}</td>
+                          <td>
+                            <div class="row">
+                              <form action="{{ route('faculty.feedback.edit',$fb->id)}}" method="GET">
+                                @csrf
+                                <button type="submit" class="btn btn-inverse-info btn-icon">
+                                  <i class="ti-pencil"></i>
+                                </button>
+                              </form>
+                              &nbsp;
 
-                                <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
-                                  @method('DELETE')
-                                  @csrf
-                                    <button type="submit" class="btn btn-inverse-danger btn-icon">
-                                      <i class="ti-trash"></i>
-                                    </button>
-                                </form>
-                              </div>
-                            </td>
-                        </tr>
-                        @endforeach
+                              <form action="{{ route('faculty.feedback.destroy',$fb->id)}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                  <button type="submit" class="btn btn-inverse-danger btn-icon">
+                                    <i class="ti-trash"></i>
+                                  </button>
+                              </form>
+                            </div>
+                          </td>
+                      </tr>
+                      @endforeach
+                    @else
+                    <tr>
+                      <td colspan="4" class="text-center">
+                        <img
+                          src="{{asset('Assets/no-data.png')}}"
+                          alt="no-data-image"
+                          class="no-data-img"
+                        >
+                        <p class="card-description mt-3">No Data Yet</p>
+                      </td>
+                    </tr>
+                    @endif
                     </tbody>
                   </table>
 

@@ -5,9 +5,9 @@ $(function() {
    */
   'use strict';
   var data = {
-    labels: ["2013", "2014", "2014", "2015", "2016", "2017"],
+    labels: ["1st", "2nd", "3rd", "4th", "Final"],
     datasets: [{
-      label: '# of Votes',
+      label: 'Grade',
       data: [10, 19, 3, 5, 2, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -26,7 +26,9 @@ $(function() {
         'rgba(255, 159, 64, 1)'
       ],
       borderWidth: 1,
-      fill: false
+      fill: false,
+      pointStyle: 'circle',
+      pointRadius: 10,
     }]
   };
   var multiLineData = {
@@ -69,7 +71,7 @@ $(function() {
       }]
     },
     legend: {
-      display: false
+      display: true
     },
     elements: {
       point: {

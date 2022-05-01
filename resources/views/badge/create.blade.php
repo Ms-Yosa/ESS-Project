@@ -1,4 +1,5 @@
 @extends('layouts.faculty')
+@section('title') {{'Grant Badge'}} @endsection
 @section('content')>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -20,14 +21,15 @@
       @include('partials.error')
       </div>
     </div>
+    <h4 class="card-title">Grant Badge</h4>
     <div class="row">
       <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <p class="card-title mb-0">Grant Badge</p>
-            <p class="card-description">
-              Student: {{$user->name}} {{$user->surname}}
+            <p class="card-title mb-0">
+              {{$user->name}} {{$user->middle_name}} {{$user->surname}}
             </p>
+            <hr>
             <div class="form-group">
               <label>Select Badges</label>
 
@@ -45,37 +47,41 @@
         </div>
       </div>
       <div class="col-md-5 grid-margin stretch-card">
+        @if(isset($studentBadges[0]->badge))
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Badge List</h4>
+            <h4 class="card-title">Student Badge</h4>
             <div class="list-wrapper pt-2">
-              <ul>
-                @foreach ($badges as $badge)
-                <li>
+              <ul style="list-style: none" class="p-0">
+                @foreach ($studentBadges as $badge)
+                @foreach ($badge->badge as $item)
+                <li class="mt-2">
                     <div class="card btn-inverse-warning btn-fw col-md-12">
                       <div class="card-body">
-                        <h4 class="card-title">{{$badge->name}}</h4>
+                        <h4 class="card-title">{{$item->name}}</h4>
                         <div class="media">
                           <div class="pr-2">
                             <img
                             style="width:50px;"
-                            src="{{asset('images-upload/' . $badge->badge_image_path)}}"
+                            src="{{asset('images-upload/' . $item->badge_image_path)}}"
                             alt="badge-image"
                           >
                           </div>
                           <div class="media-body">
-                            <p class="card-text">{{$badge->description}}</p>
+                            <p class="card-text">{{$item->description}}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                 </li>
                 @endforeach
+                @endforeach
               </ul>
             </div>
 
           </div>
         </div>
+        @endif
       </div>
     </div>
   </div>

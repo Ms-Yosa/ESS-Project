@@ -1,4 +1,5 @@
 @extends('layouts.student')
+@section('title') {{'Feedbacks'}} @endsection
 @section('content')
   <div class="content-wrapper">
     <div class="row">
@@ -18,6 +19,7 @@
                         <th>Feedback Description</th>
                       </tr>
                     </thead>
+                    @if (isset($feedback[0]))
                     <tbody >
                         @foreach ($feedback as $key => $fb)
                         <tr>
@@ -26,6 +28,18 @@
                             <td>{{$fb->description}}</td>
                         </tr>
                         @endforeach
+                    @else
+                      <tr>
+                        <td colspan="7" class="text-center">
+                          <img
+                            src="{{asset('Assets/no-data.png')}}"
+                            alt="no-data-image"
+                            class="no-data-img"
+                          >
+                          <p class="card-description mt-3">No Data Yet</p>
+                        </td>
+                      </tr>
+                    @endif
                     </tbody>
                   </table>
                 </div>

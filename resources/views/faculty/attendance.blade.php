@@ -1,4 +1,5 @@
 @extends('layouts.faculty')
+@section('title') {{'Attendance'}} @endsection
 @section('content')
 <body class="sidebar-icon-only">
      <div class="content-wrapper">
@@ -18,10 +19,10 @@
 
                                    <div class="row">
                                         <div class="col-12">
-                                        
+
                                              <form action="{{ route('faculty.attendance.create')}}"  method="POST" autocomplete="off">
                                              @csrf
-                                             
+
                                              @if (Session::get('success'))
                                                        <div class="alert alert-success">
                                                             {{ Session::get('success') }}
@@ -33,9 +34,9 @@
                                                        </div>
                                                   @endif
 
-                                                  
+
                                                   <div class="table-responsive">
-                                                       
+
                                                        <table class="display expandable-table" style="width:100%">
                                                             <thead>
                                                                  <tr>
@@ -50,19 +51,19 @@
                                                                  </tr>
                                                             </thead>
                                                             <tbody>
-                                                            
+
 
                                                             @foreach ($class as $key => $student)
                                                                  @foreach ($student->getStudents as $list)
                                                                       <tr>
                                                                            <td>{{ ++$key}}</td>
                                                                            <td >
-                                                                                {{$list->id}}  
+                                                                                {{$list->id}}
                                                                                 <input type="hidden" name="id[]" value="{{$list->id}}">
                                                                            </td>
-                                                                           <td class="name">  
+                                                                           <td class="name">
                                                                                 {{ $list->surname }}, {{ $list->name }} {{ $list->middle_name }}
-                                                                                
+
                                                                            </td>
                                                                            <td>
                                                                                 <div class="input-group mb-3">
@@ -96,22 +97,22 @@
                                                                            <input type="text" class="form-control" aria-label="Text input with checkbox" name="description[]" placeholder="Details">
 
                                                                            <!-- <a href="#" class="btn btn-sm btn-outline-secondary btn-icon-text"> Export Attendance -->
-                                                                           
+
                                                                            </td>
                                                                       </tr>
                                                                  @endforeach
                                                             @endforeach
-                                                           
-                                                            
+
+
                                                             </tbody>
                                                        </table>
-                                                       
+
                                                        </div>
-                                                  <div class="modal-footer"> 
+                                                  <div class="modal-footer">
                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</a></button>
                                                   <button type="submit" class="btn btn-primary">Save</button>
 
-                                                       
+
                                                   </div>
                                              </form>
                                         </div>

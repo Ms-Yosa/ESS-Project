@@ -5,7 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>AMSAI SIS</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ URL::to("vendors/feather/feather.css") }}">
   <link rel="stylesheet" href="{{ URL::to("vendors/ti-icons/css/themify-icons.css") }}">
@@ -65,13 +64,15 @@
   <script type="text/javascript" src="{{ URL::asset('js/dashboard.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+
+    <title>@yield('title')</title>
 </head>
 <body>
   <div class="container-scroller">
       <!-- Nav header start -->
       @include('partials.user.navbar_user')
 
-    <div class="container-fluid page-body-wrapper">
+    <div class="page-body-wrapper">
       @include('partials.user.sidebar_user')
       <!-- Nav header end -->
       <!-- Content body start -->

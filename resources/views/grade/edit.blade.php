@@ -1,4 +1,5 @@
 @extends('layouts.faculty')
+@section('title') {{'Update Grade'}} @endsection
 @section('content')
 <body class="sidebar-icon-only">
   <div class="content-wrapper">
