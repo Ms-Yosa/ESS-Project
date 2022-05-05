@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
             'guardian_bloodtype' => 'A',
             'address' => 'test address',
             'class_id' => '1',
+            'status' => true,
         ]);
     }
 }

@@ -34,6 +34,7 @@ class FacultyCRUD extends Controller
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required',
             'address'=>'required',
+            'status'=> 'required'
         ]);
 
         //Insert Faculties in table
@@ -51,6 +52,7 @@ class FacultyCRUD extends Controller
           $faculty->bloodtype = $request->bloodtype;
           $faculty->contact_number = $request->contact_number;
           $faculty->address = $request->address;
+          $faculty->status = true;
           $save = $faculty->save();
 
           if( $save ){
@@ -69,25 +71,30 @@ class FacultyCRUD extends Controller
         }
     }
 
-
+    //Archived Data
+    function archive(){
+        $faculty = Faculty::where('status', false)->get();
+        return view('admin.faculty-tab') ->with('faculty', $faculty);
+    }
 
      //Retrieve Data
      function index(){
-        $faculty = Faculty::with('getClass')->get();
+        $faculty = Faculty::where('status', true)->with('getClass')->get();
         return view('admin.faculty-tab') ->with('faculty', $faculty);
     }
 
      //Destroy Data
      function destroy($id){
         $faculties = Faculty::find($id);
-        $delete = $faculties -> delete();
+        $faculties->status = false;
+        $save = $faculties->save();
 
-        if( $delete ){
-            Toastr::success('Account has been deleted successfully','Success');
+        if( $save ){
+            Toastr::success('Account has been archived successfully','Success');
             return redirect()->route('admin.faculty-tab');
             // return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
         }else{
-            Toastr::error('Something went wrong, failed to delete', 'Error');
+            Toastr::error('Something went wrong, archive to delete', 'Error');
             return redirect()->back();
             // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }

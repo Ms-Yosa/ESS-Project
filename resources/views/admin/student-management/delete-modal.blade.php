@@ -15,7 +15,7 @@
                               Cancel
                          </button>
                          <form action="{{ route('admin.student-destroy', $student->id)}}" method="POST">
-                              @method('DELETE')
+                              @method('PUT')
                               @csrf
                               <button type="submit" class="btn btn-danger">
                                    Delete

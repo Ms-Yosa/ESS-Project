@@ -40,7 +40,8 @@ class UserCRUD extends Controller
             'relation'=>'required',
             'guardian_bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'address'=>'required',
-            'class_id'=>'required'
+            'class_id'=>'required',
+            'status'=> 'required'
 
         ]);
 
@@ -66,6 +67,7 @@ class UserCRUD extends Controller
           $user->guardian_bloodtype = $request->guardian_bloodtype;
           $user->address = $request->address;
           $user->class_id = $request->class_id;
+          $user->status = true;
           $save = $user->save();
 
           if( $save ){
@@ -90,9 +92,16 @@ class UserCRUD extends Controller
 
     //Retrieve Data
      function index(Request $request){
-        $users = User::with('classAssigned')->get();
+        $users = User::where('status', true)->with('classAssigned')->get();
         //dd($users->toArray());
         return view('admin.student-tab', compact('users'));
+    }
+
+    //Archived Data
+    function archive(){
+      $users = User::where('status', false)->get();
+      // dd($admin->toArray());
+      return view('admin.admin-management.archive',compact('users'));
     }
 
     //Pass class table
@@ -115,14 +124,15 @@ class UserCRUD extends Controller
     //Destroy Data
     function destroy($id){
         $users = User::find($id);
-        $delete = $users -> delete();
+        $users->status = false;
+        $save = $users->save();
 
-        if( $delete ){
-            Toastr::success('Account has been deleted successfully','Success');
+        if( $save ){
+            Toastr::success('Account has been archived successfully','Success');
             return redirect()->route('admin.student-tab');
             // return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
         }else{
-            Toastr::error('Something went wrong, failed to delete', 'Error');
+            Toastr::error('Something went wrong, failed to archive', 'Error');
             return redirect()->back();
             // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }

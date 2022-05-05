@@ -42,6 +42,7 @@ class UserFactory extends Factory
             'relation' => 'Mother',
             'guardian_bloodtype' => 'A',
             'address' => 'test address',
+            'status' => true,
             'class_id' => \App\Models\Classes::all()->random()->class_id,
         ];
     }

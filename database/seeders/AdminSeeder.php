@@ -31,7 +31,8 @@ class AdminSeeder extends Seeder
             'age'=>'26',
             'bloodtype'=>'AB',
             'contact_number'=>'09225443321',
-            'address'=>'Manila, Philippines'
+            'address'=>'Manila, Philippines',
+            'status' => true
         ]);
     }
 }

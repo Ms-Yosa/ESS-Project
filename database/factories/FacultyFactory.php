@@ -36,6 +36,7 @@ class FacultyFactory extends Factory
             'bloodtype' => 'A',
             'contact_number' => '09478481554',
             'address' => 'test address',
+            'status' => true,
         ];
     }
 

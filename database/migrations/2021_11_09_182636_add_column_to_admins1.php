@@ -23,7 +23,8 @@ class AddColumnToAdmins1 extends Migration
             $table->string('age');
             $table->string('bloodtype');
             $table->string('contact_number');
-            $table->string('address'); 
+            $table->string('address');
+            $table->boolean('status');
         });
     }
 
@@ -44,7 +45,7 @@ class AddColumnToAdmins1 extends Migration
             $table->dropColumn('age');
             $table->dropColumn('bloodtype');
             $table->dropColumn('contact_number');
-            $table->dropColumn('address'); 
+            $table->dropColumn('address');
         });
     }
 }

@@ -36,7 +36,8 @@ class User extends Authenticatable
         'relation',
         'guardian_bloodtype',
         'address',
-        'class_id'
+        'class_id',
+        'status'
 
     ];
 

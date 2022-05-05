@@ -129,24 +129,27 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         // CRUD Student Route
         Route::get('/register student',[UserCRUD::class,'register'])->name('student-register');
+        Route::get('/student-archive',[UserCRUD::class,'archive'])->name('student-archive');
         Route::post('/create student account',[UserCRUD::class,'create'])->name('student-create');
         Route::get('/update student account/{id}',[UserCRUD::class,'edit'])->name('student-edit');
         Route::put('/update student account/{id}',[UserCRUD::class,'update'])->name('student-update');
-        Route::delete('/delete student/{id}',[UserCRUD::class,'destroy'])->name('student-destroy');
+        Route::PUT('/delete student/{id}',[UserCRUD::class,'destroy'])->name('student-destroy');
 
         // CRUD Faculty Route
         Route::view('/register faculty','admin.faculty-management.register')->name('faculty-register');
+        Route::get('/faculty-archive',[FacultyCRUD::class,'archive'])->name('faculty-archive');
         Route::post('/create faculty account',[FacultyCRUD::class,'create'])->name('faculty-create');
         Route::get('/update faculty account/{id}',[FacultyCRUD::class,'edit'])->name('faculty-edit');
         Route::put('/update faculty account/{id}',[FacultyCRUD::class,'update'])->name('faculty-update');
-        Route::delete('/delete faculty/{id}',[FacultyCRUD::class,'destroy'])->name('faculty-destroy');
+        Route::put('/delete faculty/{id}',[FacultyCRUD::class,'destroy'])->name('faculty-destroy');
 
         // CRUD Admin Route
         Route::view('/register admin','admin.admin-management.register')->name('admin-register');
+        Route::get('/admin-archive',[AdminCRUD::class,'archive'])->name('admin-archive');
         Route::post('/create admin account',[AdminCRUD::class,'create'])->name('admin-create');
         Route::get('/update admin account/{id}',[AdminCRUD::class,'edit'])->name('admin-edit');
         Route::put('/update admin account/{id}',[AdminCRUD::class,'update'])->name('admin-update');
-        Route::delete('/delete admin/{id}',[AdminCRUD::class,'destroy'])->name('admin-destroy');
+        Route::put('/delete admin/{id}',[AdminCRUD::class,'destroy'])->name('admin-destroy');
 
         //Sidebar route
         Route::get('/admin tab', [AdminCRUD::class,'index'])->name('admin-tab');

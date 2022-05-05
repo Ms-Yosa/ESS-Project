@@ -30,6 +30,7 @@ class AdminCRUD extends Controller
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required|numeric',
             'address'=>'required',
+            'status'=> 'required'
         ]);
 
         //Insert Admin in table
@@ -47,6 +48,7 @@ class AdminCRUD extends Controller
           $admin->bloodtype = $request->bloodtype;
           $admin->contact_number = $request->contact_number;
           $admin->address = $request->address;
+          $admin->status = true;
           $save = $admin->save();
 
           if( $save ){
@@ -64,27 +66,35 @@ class AdminCRUD extends Controller
 
      //Retrieve Data
      function index(){
-        $admins = Admin::all();
+        $admins = Admin::where('status', true)->get();
         return view('admin.admin-tab',compact('admins'));
+    }
+
+    //Archived Data
+    function archive(){
+        $admins = Admin::where('status', false)->get();
+        // dd($admin->toArray());
+        return view('admin.admin-management.archive',compact('admins'));
     }
 
      //Destroy Data
      function destroy($id){
-        $admins = Admin::find($id);
-        $delete = $admins -> delete();
+        $admin =  Admin::find($id);
+        $admin->status = false;
+        $save = $admin->save();
 
-        if( $delete ){
-            Toastr::success('Account has been deleted successfully','Success');
+
+        if( $save ){
+            Toastr::success('Account has been archived successfully','Success');
             return redirect()->route('admin.admin-tab');
             // return redirect()->route('admin.admin-tab')->with('success','Account has been deleted successfully');
         }else{
-            Toastr::error('Something went wrong, failed to delete', 'Error');
+            Toastr::error('Something went wrong, failed to archive', 'Error');
             return redirect()->back();
             // return redirect()->back()->with('fail','Something went wrong, failed to delete');
       }
 
     }
-
 
     //Edit button
     function edit($id){
@@ -109,6 +119,7 @@ class AdminCRUD extends Controller
             'bloodtype'=>'required|in: A+,O+,B+,AB+,A-,O-,B-,AB-,Unknown',
             'contact_number'=>'required|numeric',
             'address'=>'required',
+            'status'=> true
     ]);
 
         //Insert Updates Faculty Info in table

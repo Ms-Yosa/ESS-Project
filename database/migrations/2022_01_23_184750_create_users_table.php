@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('birth_year');
             $table->string('birth_month');
             $table->string('birth_day');
+            $table->boolean('status');
             $table->unsignedBigInteger('class_id')->nullable(); //unsignedBigInt
             $table->foreign('class_id')->references('class_id')->on('classes');
             $table->rememberToken();

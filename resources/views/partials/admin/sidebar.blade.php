@@ -2,7 +2,7 @@
 
 <div class="dlabnav">
         <div class="dlabnav-scroll">
-            
+
             <ul class="metismenu" id="menu">
 
                 <li class="nav-label first">Main Menu</li>
@@ -20,6 +20,7 @@
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.admin-tab') }}">All Admins</a></li>
                         <li><a href="{{ route('admin.admin-register') }}">Add Admin</a></li>
+                        <li><a href="{{ route('admin.admin-archive') }}">Archive</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
@@ -31,6 +32,7 @@
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.faculty-tab') }}">All Faculties</a></li>
                         <li><a href="{{ route('admin.faculty-register') }}">Add Faculties</a></li>
+                        <li><a href="{{ route('admin.faculty-archive') }}">Archive</a></li>
                         <!-- <li><a href="#">Edit Professor</a></li>
                         <li><a href="#">Professor Profile</a></li> -->
                     </ul>
@@ -42,6 +44,7 @@
                     <ul aria-expanded="false">
                         <li><a href="{{ route('admin.student-tab') }}">All Students</a></li>
                         <li><a href="{{ route('admin.student-register') }}">Add Students</a></li>
+                        <li><a href="{{ route('admin.student-archive') }}">Archive</a></li>
                         <!-- <li><a href="edit-student.html">Edit Students</a></li>
                         <li><a href="about-student.html">About Students</a></li> -->
                     </ul>

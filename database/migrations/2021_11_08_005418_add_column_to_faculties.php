@@ -26,6 +26,7 @@ class AddColumnToFaculties extends Migration
             $table->string('birth_year')->after('gender');
             $table->string('birth_month')->after('birth_year');
             $table->string('birth_day')->after('birth_month');
+            $table->boolean('status');
 
         });
     }

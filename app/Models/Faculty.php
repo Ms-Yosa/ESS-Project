@@ -30,6 +30,7 @@ class faculty extends Authenticatable
         'bloodtype',
         'contact_number',
         'address',
+        'status'
     ];
 
     /**

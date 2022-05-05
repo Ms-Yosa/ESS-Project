@@ -30,6 +30,7 @@ class Admin extends Authenticatable
         'bloodtype',
         'contact_number',
         'address',
+        'status'
     ];
 
     /**

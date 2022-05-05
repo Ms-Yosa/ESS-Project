@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title') {{'Admin Tab'}} @endsection
+@section('title') {{'Admin Archive'}} @endsection
 @section('content')
 
     <div class="content-body">
@@ -8,7 +8,7 @@
             <div class="row page-titles mx-0">
                 <div class="col-sm-6 p-md-0">
                     <div class="welcome-text">
-                        <h4>Admin Tab</h4>
+                        <h4>Admin Archive</h4>
                     </div>
                 </div>
                 <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -38,8 +38,7 @@
                                 @include('partials.error')
 
                                 <div class="card-header">
-                                    <h4 class="card-title">All Admin List  </h4>
-                                    <a href="{{ route('admin.admin-register') }}" class="btn btn-primary"><li class="la la-user-plus"></li>  Add new</a>
+                                    <h4 class="card-title">All Archived Admin  </h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
