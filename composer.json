@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "laravelcollective/html": "^6.2",
+        "munafio/chatify": "^1.4",
         "pusher/pusher-php-server": "^7.0"
     },
     "require-dev": {

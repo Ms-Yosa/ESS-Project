@@ -164,6 +164,7 @@ return [
 
         Brian2694\Toastr\ToastrServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Chatify\ChatifyServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -234,7 +235,8 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class,
 
     ],
 
