@@ -84,7 +84,7 @@
                                                                         </form>
                                                                     </div>
                                                                     <div class="col-3">
-                                                                        <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$student->id}}"><i class="la la-trash"></i></button>
+                                                                        <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$student->id}}"><i class="la la-archive"></i></button>
                                                                     </div>
                                                                 </div>
                                                             </div>

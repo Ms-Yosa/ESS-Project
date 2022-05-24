@@ -24,7 +24,7 @@ class UserCRUD extends Controller
             'name'=>'required',
             'middle_name'=>'nullable|string',
             'email'=>'required|email|unique:users,email',
-            'password'=>'required|min:5|max:30',
+            'password'=>'required|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/|min:6|max:30',
             'confirm-password'=>'required|min:5|max:30|same:password',
             'age'=>'required|min:1|max:5',
             'gender'=>'required|in:Female,Male',
@@ -43,6 +43,9 @@ class UserCRUD extends Controller
             'class_id'=>'required',
             'status'=> 'required'
 
+        ],
+        [
+            'password.regex' => 'Password must be alphanumeric and atleast 6 characters.'
         ]);
 
         //Insert User in table

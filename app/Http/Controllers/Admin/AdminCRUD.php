@@ -11,6 +11,8 @@ use Brian2694\Toastr\Facades\Toastr;
 
 class AdminCRUD extends Controller
 {
+
+
      //Create new admin (registration)
      function create(Request $request){
         //validate Inputs
@@ -20,8 +22,8 @@ class AdminCRUD extends Controller
             'name'=>'required',
             'middle_name'=>'nullable|string',
             'email'=>'required|email|unique:admins,email',
-            'password'=>'required|min:5|max:30',
-            'confirm-password'=>'required|min:5|max:30|same:password',
+            'password'=>'required|regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/|min:6|max:30',
+            'confirm-password'=>'required|same:password',
             'gender'=>'required|in:Female,Male',
             'birth_year'=>'required|in:1999,1998,1997,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984,1983,192,1981,1980,1979,1978,1977,1976,1975,1974',
             'birth_month'=>'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
@@ -31,7 +33,11 @@ class AdminCRUD extends Controller
             'contact_number'=>'required|numeric',
             'address'=>'required',
             'status'=> 'required'
-        ]);
+        ],
+        [
+            'password.regex' => 'Password must be alphanumeric and atleast 6 characters.'
+        ]
+    );
 
         //Insert Admin in table
         $admin = new Admin();

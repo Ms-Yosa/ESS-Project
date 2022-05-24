@@ -91,7 +91,7 @@
                                                                 </form>
                                                             </div>
                                                             <div class="col p-0">
-                                                                <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$faculties->id}}"><i class="la la-trash"></i></button>
+                                                                <button class="btn badge bg-danger" data-toggle="modal" data-target="#Delete{{$faculties->id}}"><i class="la la-archive"></i></button>
                                                             </div>
                                                         </div>
                                                       </td>
